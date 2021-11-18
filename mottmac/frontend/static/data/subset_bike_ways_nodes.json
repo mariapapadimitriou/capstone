@@ -1,0 +1,5365 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.57.1 74a55df1",
+  "osm3s": {
+    "timestamp_osm_base": "2021-11-16T15:58:42Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+    {
+      "type": "node",
+      "id": 34910992,
+      "lat": 43.6639373,
+      "lon": -79.3986699,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 34910993,
+      "lat": 43.6641528,
+      "lon": -79.3982508,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 34910995,
+      "lat": 43.6579662,
+      "lon": -79.399658,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 82759594,
+      "lat": 43.6569269,
+      "lon": -79.4015564,
+      "tags": {
+        "barrier": "bollard",
+        "bicycle": "yes",
+        "foot": "yes",
+        "motor_vehicle": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 305862558,
+      "lat": 43.6634781,
+      "lon": -79.3951943,
+      "tags": {
+        "barrier": "bollard",
+        "bicycle": "yes",
+        "foot": "yes"
+      }
+    },
+    {
+      "type": "node",
+      "id": 860456069,
+      "lat": 43.6660761,
+      "lon": -79.3918424,
+      "tags": {
+        "barrier": "bollard",
+        "bicycle": "yes",
+        "foot": "yes",
+        "note": "2 metal bollards"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1432347918,
+      "lat": 43.6603945,
+      "lon": -79.4005217,
+      "tags": {
+        "barrier": "bollard",
+        "bicycle": "yes",
+        "foot": "yes",
+        "motor_vehicle": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1786683094,
+      "lat": 43.6639215,
+      "lon": -79.3983788,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 1786683096,
+      "lat": 43.664234,
+      "lon": -79.3984972,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2143272825,
+      "lat": 43.665328,
+      "lon": -79.3895125,
+      "tags": {
+        "barrier": "gate",
+        "bicycle": "yes",
+        "foot": "yes",
+        "motor_vehicle": "no"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2674312772,
+      "lat": 43.6590292,
+      "lon": -79.3891177,
+      "tags": {
+        "access": "private",
+        "amenity": "parking",
+        "bicycle": "yes",
+        "layer": "-1",
+        "parking": "underground"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2823222755,
+      "lat": 43.6585723,
+      "lon": -79.3958263,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2823222756,
+      "lat": 43.6586464,
+      "lon": -79.3962384,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2823222757,
+      "lat": 43.6587412,
+      "lon": -79.3956865,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2823222758,
+      "lat": 43.6587984,
+      "lon": -79.3961409,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2844292184,
+      "lat": 43.6630121,
+      "lon": -79.4023817,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2844292185,
+      "lat": 43.6631306,
+      "lon": -79.4018188,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 6514079952,
+      "lat": 43.6578774,
+      "lon": -79.400312,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "way",
+      "id": 4000036,
+      "nodes": [
+        20979743,
+        20979744,
+        36603690,
+        1721866279,
+        1721866277,
+        1721866275,
+        20979745,
+        1721866272,
+        36603691
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park Crescent West",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 4000037,
+      "nodes": [
+        20979749,
+        1721866034,
+        1721865948,
+        1721865918,
+        24959523
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park Crescent West",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 4000038,
+      "nodes": [
+        20979748,
+        20979749
+      ],
+      "tags": {
+        "bridge": "yes",
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "2",
+        "layer": "1",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park Crescent West",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 4000041,
+      "nodes": [
+        20979740,
+        1721866300,
+        1721866302,
+        36607324,
+        1721866305,
+        20979741,
+        1721866311,
+        55808402,
+        20979742
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 4000042,
+      "nodes": [
+        20979752,
+        1721865429,
+        1721865413,
+        1721865410,
+        36607344,
+        1721865386,
+        36607346,
+        1721865354,
+        60052035
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park",
+        "note": "Solid white lines on approach to intersection. Unclear if this prohibits turning from the u-turn ramp to southbound Queen's Park to westbound College.",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 4000043,
+      "nodes": [
+        20979761,
+        393551202,
+        42606787,
+        303255353,
+        303255365,
+        3081114059,
+        87486205
+      ],
+      "tags": {
+        "cycleway": "track",
+        "hgv": "no",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "University Avenue",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 4674858,
+      "nodes": [
+        1167546206,
+        211893005,
+        6721612003,
+        6721612004,
+        394500559
+      ],
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "pedestrian",
+        "layer": "-1",
+        "motor_vehicle": "no",
+        "name": "Nelson Mandela Walk"
+      }
+    },
+    {
+      "type": "way",
+      "id": 4826014,
+      "nodes": [
+        95378363,
+        391183747,
+        24985734
+      ],
+      "tags": {
+        "cycleway": "shared_lane",
+        "highway": "tertiary",
+        "lanes": "3",
+        "lanes:backward": "1",
+        "lanes:forward": "2",
+        "maxspeed": "50",
+        "name": "Wellesley Street East",
+        "sidewalk": "both",
+        "source:maxspeed": "ON:urban",
+        "surface": "asphalt",
+        "turn:lanes:forward": "left|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 4847551,
+      "nodes": [
+        29603320,
+        394500541,
+        213274739,
+        2674087868,
+        2041331123,
+        394509538,
+        6698494983,
+        29688909,
+        6698494979,
+        412354776,
+        29689090
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "highway": "tertiary",
+        "lanes": "4",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Gerrard Street East",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 5080129,
+      "nodes": [
+        42606444,
+        6532307450,
+        393552046,
+        769486906,
+        29605016
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "University Avenue",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 5090561,
+      "nodes": [
+        24959511,
+        6400935136,
+        6532307581,
+        400958053,
+        5245333107
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "lane",
+        "embedded_rails:lanes": "|tram|tram|",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "name": "Bay Street",
+        "sidewalk": "both",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 5213383,
+      "nodes": [
+        20979742,
+        316884462,
+        1721866309,
+        1721866307,
+        36604384,
+        1721866304,
+        36607322,
+        1721866289,
+        1721866285,
+        20979743
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 5213459,
+      "nodes": [
+        20979742,
+        304890341,
+        304888562,
+        20979758
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park",
+        "old_ref": "11A",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 5686884,
+      "nodes": [
+        20979760,
+        393551211,
+        700645326,
+        29604863
+      ],
+      "tags": {
+        "cycleway": "track",
+        "hgv": "no",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "University Avenue",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 5686885,
+      "nodes": [
+        34600564,
+        6532307454,
+        393551260,
+        29605004
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "University Avenue",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 9105701,
+      "nodes": [
+        26007927,
+        60683490,
+        2679671475,
+        21631734,
+        2679671477,
+        60683504,
+        26007926,
+        3992645010,
+        6417897195,
+        6417897196,
+        6417897194,
+        26007925,
+        26007924,
+        2844292184,
+        390543756,
+        29658390
+      ],
+      "tags": {
+        "bicycle": "designated",
+        "cycleway": "lane",
+        "highway": "tertiary",
+        "lanes": "2",
+        "maxspeed": "40",
+        "name": "Harbord Street",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 9916086,
+      "nodes": [
+        21631733,
+        389678057,
+        2844292185,
+        59817393,
+        59817394,
+        389678206,
+        24959535
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "hgv": "no",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Harbord Street",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 10334990,
+      "nodes": [
+        1404154789,
+        34910993,
+        5277943139,
+        389677903,
+        5277943140,
+        21631731
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "highway": "tertiary",
+        "lanes": "3",
+        "lanes:backward": "1",
+        "lanes:forward": "2",
+        "lit": "yes",
+        "name": "Hoskin Avenue",
+        "surface": "asphalt",
+        "turn:lanes:forward": "left|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 10390225,
+      "nodes": [
+        24959515,
+        6400935143,
+        389678253,
+        356321371,
+        280901425,
+        356321326,
+        356321364,
+        393551205,
+        24959516
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Elizabeth Street",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 10390228,
+      "nodes": [
+        24959516,
+        528518662,
+        246693686
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "highway": "tertiary",
+        "lanes": "3",
+        "lanes:backward": "2",
+        "lanes:forward": "1",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Gerrard Street West",
+        "surface": "asphalt",
+        "turn:lanes:backward": "left|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 21674620,
+      "nodes": [
+        20979753,
+        60052051,
+        1721792612,
+        20979754,
+        1721865643,
+        1721792616,
+        1721865695,
+        36607337,
+        1721792620,
+        50899689,
+        20979755,
+        1721865863,
+        123359433,
+        20979756,
+        6542457306,
+        389678276,
+        3340615393
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park Crescent East",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 21675239,
+      "nodes": [
+        36603405,
+        55808333,
+        299625330,
+        20979748
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park Crescent West",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 22241344,
+      "nodes": [
+        24959523,
+        1721865901,
+        1721865860,
+        50885177,
+        50897923
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park Crescent West",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 22758491,
+      "nodes": [
+        3340615393,
+        389678266,
+        6542457307,
+        1721793023,
+        1474802478,
+        1721793029,
+        1633501863,
+        2122031170,
+        2122031174,
+        1837304446
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "tertiary",
+        "lanes": "2",
+        "maxspeed": "50",
+        "name": "Wellesley Street West",
+        "sidewalk": "both",
+        "source:maxspeed": "ON:urban",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 22758492,
+      "nodes": [
+        3789187401,
+        389677968,
+        1721866260,
+        1721866249,
+        391066930,
+        5622365695,
+        36603405
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park Crescent West",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 22758493,
+      "nodes": [
+        36603691,
+        20979746,
+        3789187401
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park Crescent West",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 22758494,
+      "nodes": [
+        3340615393,
+        389678270,
+        2142270781,
+        2142270783,
+        55808420,
+        2003729085,
+        24959522
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park Crescent East",
+        "note": "Left lane Queen's Park Southbound/Hoskin Ave",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 22891215,
+      "nodes": [
+        21436518,
+        6400935394,
+        389677931,
+        20979762
+      ],
+      "tags": {
+        "cycleway": "track",
+        "hgv": "no",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 22891216,
+      "nodes": [
+        389678251,
+        87486207,
+        29605000,
+        42606791,
+        393551200,
+        20979760
+      ],
+      "tags": {
+        "cycleway": "track",
+        "hgv": "no",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "University Avenue",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 24221125,
+      "nodes": [
+        29604858,
+        700645349,
+        4580791473,
+        4580791481,
+        4580791480,
+        700645279,
+        29605008
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "lane",
+        "embedded_rails:lanes": "|tram|tram|",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Bay Street",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 24221130,
+      "nodes": [
+        29605008,
+        700645274,
+        2283087662,
+        6532307490,
+        393551267
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "lane",
+        "embedded_rails:lanes": "|tram|tram|",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Bay Street",
+        "source": "Bing",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 24222086,
+      "nodes": [
+        29604856,
+        700645298,
+        835057217,
+        835057221,
+        393551213,
+        20979761
+      ],
+      "tags": {
+        "cycleway": "track",
+        "hgv": "no",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "University Avenue",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 28823581,
+      "nodes": [
+        6374117188,
+        6514079950,
+        389678242,
+        9170566523,
+        29604453,
+        2675698134,
+        29604669,
+        2675698127,
+        29604671,
+        2675699394
+      ],
+      "tags": {
+        "cycleway": "shared_lane",
+        "highway": "secondary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Spadina Avenue",
+        "name:zh": "士巴丹拿道",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 30674826,
+      "nodes": [
+        26007923,
+        3240407651,
+        80927430
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "primary",
+        "lanes": "2",
+        "lcn": "yes",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Bloor Street West",
+        "old_ref": "5",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 30759212,
+      "nodes": [
+        29604718,
+        2675698130,
+        42395696
+      ],
+      "tags": {
+        "cycleway": "shared_lane",
+        "highway": "secondary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Spadina Avenue",
+        "name:zh": "士巴丹拿道",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 30759215,
+      "nodes": [
+        42395696,
+        2675698137,
+        29604684,
+        2581993920
+      ],
+      "tags": {
+        "cycleway": "shared_lane",
+        "highway": "secondary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Spadina Avenue",
+        "name:zh": "士巴丹拿道",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 30979256,
+      "nodes": [
+        29603262,
+        393551217,
+        49626773
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "lane",
+        "embedded_rails:lanes": "|tram|tram|",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "name": "Bay Street",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 30979258,
+      "nodes": [
+        49626773,
+        700645332,
+        29604858
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "lane",
+        "embedded_rails:lanes": "|tram|tram|",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "name": "Bay Street",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 33002810,
+      "nodes": [
+        87486205,
+        389678252,
+        6400935149,
+        21436518
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "University Avenue",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 33002811,
+      "nodes": [
+        21436517,
+        391169149,
+        21436518
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "embedded_rails:lanes": "|tram|tram|",
+        "highway": "secondary",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "College Street",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 33002812,
+      "nodes": [
+        21436518,
+        389678256,
+        60052055,
+        6400935391,
+        6400935389,
+        6400935388,
+        394502518,
+        24959515
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "embedded_rails:lanes": "|tram|tram|",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "College Street",
+        "name:zh": "書院街",
+        "oneway": "no",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 33002813,
+      "nodes": [
+        60052035,
+        389677930,
+        6400935395,
+        21436517
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "50",
+        "maxspeed:type": "sign",
+        "name": "Queen's Park",
+        "note": "Solid white lines on approach to intersection. Unclear if this prohibits turning from the u-turn ramp to southbound Queen's Park to westbound College.",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 33002814,
+      "nodes": [
+        20979762,
+        1721865369,
+        1721865377,
+        36607348,
+        1721865409,
+        1721865415,
+        1721865437,
+        36607350,
+        1721865473,
+        20979753
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 33023078,
+      "nodes": [
+        24959510,
+        286269584,
+        2411583460
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "share_busway",
+        "highway": "secondary",
+        "lanes": "5",
+        "lanes:backward": "3",
+        "lanes:forward": "2",
+        "lit": "yes",
+        "name": "Bay Street",
+        "note": "\"Sharrows\" in bus lane",
+        "sidewalk": "separate",
+        "surface": "asphalt",
+        "turn:lanes:backward": "left|none|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 34614459,
+      "nodes": [
+        29604785,
+        2675699383,
+        42395702
+      ],
+      "tags": {
+        "cycleway": "shared_lane",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Spadina Avenue",
+        "name:zh": "士巴丹拿道",
+        "oneway": "yes",
+        "surface": "asphalt",
+        "turn:lanes": "left|none|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 43246517,
+      "nodes": [
+        95378363,
+        387461248
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Wellesley Street East",
+        "sidewalk": "separate",
+        "source:maxspeed": "ON:urban",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 43246518,
+      "nodes": [
+        95378317,
+        835054148,
+        391180124,
+        24985734
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "tertiary",
+        "lanes": "3",
+        "lanes:backward": "1",
+        "lanes:forward": "2",
+        "maxspeed": "50",
+        "name": "Wellesley Street West",
+        "sidewalk": "separate",
+        "source:maxspeed": "ON:urban",
+        "surface": "asphalt",
+        "turn:lanes:forward": "left|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 61760482,
+      "nodes": [
+        36607360,
+        393551258,
+        6532307451,
+        42606444
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "University Avenue",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 61760483,
+      "nodes": [
+        29605004,
+        1308056144,
+        29604856
+      ],
+      "tags": {
+        "cycleway": "track",
+        "hgv": "no",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "University Avenue",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 61760484,
+      "nodes": [
+        29604863,
+        700645275,
+        36607360
+      ],
+      "tags": {
+        "cycleway": "track",
+        "hgv": "no",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "University Avenue",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 69844662,
+      "nodes": [
+        1837304446,
+        390539244,
+        24959504
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "tertiary",
+        "lanes": "3",
+        "lanes:backward": "1",
+        "lanes:forward": "2",
+        "maxspeed": "50",
+        "name": "Wellesley Street West",
+        "sidewalk": "both",
+        "source:maxspeed": "ON:urban",
+        "surface": "asphalt",
+        "turn:lanes:forward": "left|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 69844671,
+      "nodes": [
+        835054104,
+        95378316,
+        95378317
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "tertiary",
+        "lanes": "2",
+        "maxspeed": "50",
+        "name": "Wellesley Street West",
+        "sidewalk": "separate",
+        "source:maxspeed": "ON:urban",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 83748395,
+      "nodes": [
+        24959509,
+        390543741,
+        2411583461
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "share_busway",
+        "highway": "secondary",
+        "lanes": "5",
+        "lanes:backward": "3",
+        "lanes:forward": "2",
+        "lit": "yes",
+        "name": "Bay Street",
+        "note": "\"Sharrows\" in bus lane",
+        "sidewalk": "separate",
+        "surface": "asphalt",
+        "turn:lanes:backward": "left|none|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 126742589,
+      "nodes": [
+        3033737059,
+        5277943131,
+        59817419,
+        34910991,
+        34910992,
+        389677893,
+        4295105604,
+        5277943141,
+        21631731
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "hgv": "no",
+        "highway": "tertiary",
+        "lanes": "3",
+        "lanes:backward": "1",
+        "lanes:forward": "2",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Harbord Street",
+        "surface": "asphalt",
+        "turn:lanes:forward": "left|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 126742590,
+      "nodes": [
+        1404154789,
+        2143487624,
+        24959527,
+        303255446,
+        127289393,
+        24959528
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "name": "Hoskin Avenue",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 156269751,
+      "nodes": [
+        42395702,
+        2675699404
+      ],
+      "tags": {
+        "cycleway": "shared_lane",
+        "highway": "secondary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Spadina Avenue",
+        "name:zh": "士巴丹拿道",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 172887470,
+      "nodes": [
+        1837303870,
+        34404252,
+        390543734,
+        24959509
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "share_busway",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "name": "Bay Street",
+        "note": "\"Sharrows\" in bus lane",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 172887471,
+      "nodes": [
+        1837303872,
+        389678271,
+        24959504
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "share_busway",
+        "highway": "secondary",
+        "lanes": "5",
+        "lanes:backward": "2",
+        "lanes:forward": "3",
+        "lit": "yes",
+        "name": "Bay Street",
+        "note": "\"Sharrows\" in bus lane",
+        "sidewalk": "separate",
+        "surface": "asphalt",
+        "turn:lanes:forward": "left|none|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 204318934,
+      "nodes": [
+        2143247537,
+        390539228,
+        24959505
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "share_busway",
+        "highway": "secondary",
+        "lanes": "5",
+        "lit": "yes",
+        "name": "Bay Street",
+        "note": "\"Sharrows\" in bus lane",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 204318935,
+      "nodes": [
+        24959505,
+        390539230,
+        2143247536
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "share_busway",
+        "highway": "secondary",
+        "lanes": "5",
+        "lit": "yes",
+        "name": "Bay Street",
+        "note": "\"Sharrows\" in bus lane",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 204318936,
+      "nodes": [
+        49625951,
+        663044129,
+        2143223207,
+        1837303872
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "share_busway",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "name": "Bay Street",
+        "note": "\"Sharrows\" in bus lane",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 209081893,
+      "nodes": [
+        2193106551,
+        6400935119,
+        2193106549,
+        2193106547
+      ],
+      "tags": {
+        "access": "private",
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "service",
+        "source": "Bing"
+      }
+    },
+    {
+      "type": "way",
+      "id": 209081894,
+      "nodes": [
+        2193106539,
+        2193106543,
+        2193106545,
+        2193106547
+      ],
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "path"
+      }
+    },
+    {
+      "type": "way",
+      "id": 216566629,
+      "nodes": [
+        2259551272,
+        2144623112,
+        34404559,
+        34404540,
+        2143247537
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "share_busway",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Bay Street",
+        "note": "\"Sharrows\" in bus lane",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 216566736,
+      "nodes": [
+        24959504,
+        389678278,
+        1837303870
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "share_busway",
+        "highway": "secondary",
+        "lanes": "5",
+        "lanes:backward": "3",
+        "lanes:forward": "2",
+        "lit": "yes",
+        "name": "Bay Street",
+        "note": "\"Sharrows\" in bus lane",
+        "sidewalk": "separate",
+        "surface": "asphalt",
+        "turn:lanes:backward": "left|none|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 216566737,
+      "nodes": [
+        835054104,
+        2011442388,
+        24959504
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "tertiary",
+        "lanes": "3",
+        "lanes:backward": "1",
+        "lanes:forward": "2",
+        "maxspeed": "50",
+        "name": "Wellesley Street West",
+        "sidewalk": "both",
+        "source:maxspeed": "ON:urban",
+        "surface": "asphalt",
+        "turn:lanes:forward": "left|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 216567384,
+      "nodes": [
+        2259563236,
+        2259563187,
+        835054147,
+        579261535,
+        25628751
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "highway": "tertiary",
+        "lanes": "3",
+        "lanes:backward": "1",
+        "lanes:forward": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Wellesley Street East",
+        "sidewalk": "separate",
+        "source:maxspeed": "ON:urban",
+        "surface": "asphalt",
+        "turn:lanes:forward": "left|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 216567385,
+      "nodes": [
+        25628751,
+        579261540,
+        1606080457,
+        3061625655,
+        2144965164,
+        566834635,
+        25628755
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "hgv:conditional": "no @ (19:00-07:00)",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Wellesley Street East",
+        "sidewalk": "separate",
+        "source:maxspeed": "ON:urban",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 216568113,
+      "nodes": [
+        24959528,
+        304891150,
+        8277128567,
+        2259572470
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "highway": "tertiary",
+        "lanes": "3",
+        "lanes:backward": "2",
+        "lanes:forward": "1",
+        "lit": "yes",
+        "name": "Hoskin Avenue",
+        "surface": "asphalt",
+        "turn:lanes:backward": "left|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 216568114,
+      "nodes": [
+        2259572470,
+        60654130,
+        50897849,
+        36603906,
+        6542457319,
+        3210497978,
+        3789187401
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "name": "Hoskin Avenue",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 220918245,
+      "nodes": [
+        29603222,
+        394499191,
+        2457607644
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "share_busway",
+        "highway": "secondary",
+        "lanes": "5",
+        "lanes:backward": "3",
+        "lanes:forward": "2",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Bay Street",
+        "surface": "asphalt",
+        "turn:lanes:backward": "left|none|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 223420013,
+      "nodes": [
+        29605017,
+        769486879,
+        393552042,
+        6532307461,
+        34600564
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "University Avenue",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 229439554,
+      "nodes": [
+        246693686,
+        391004377,
+        6532307556,
+        29603262
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Gerrard Street West",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 229439555,
+      "nodes": [
+        29603262,
+        6532307553,
+        390998462,
+        2411584441
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Gerrard Street West",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 229683187,
+      "nodes": [
+        50897923,
+        20979750,
+        1721865598,
+        20979751,
+        50899731,
+        1721865520,
+        36607334,
+        20979752
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park Crescent West",
+        "note": "Solid white lines on approach to intersection. Unclear if this prohibits turning from the u-turn ramp to southbound Queen's Park to westbound College.",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 232846228,
+      "nodes": [
+        2122030533,
+        2122030527,
+        24959510
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "share_busway",
+        "highway": "secondary",
+        "lanes": "5",
+        "lanes:backward": "2",
+        "lanes:forward": "3",
+        "lit": "yes",
+        "name": "Bay Street",
+        "note": "\"Sharrows\" in bus lane",
+        "sidewalk": "separate",
+        "surface": "asphalt",
+        "turn:lanes:forward": "left|none|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 232846229,
+      "nodes": [
+        2411583461,
+        42606772,
+        2122030533
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "share_busway",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "name": "Bay Street",
+        "note": "\"Sharrows\" in bus lane",
+        "sidewalk": "both",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 232846231,
+      "nodes": [
+        2411583460,
+        390539237,
+        6400935402,
+        24959511
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "share_busway",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "name": "Bay Street",
+        "note": "\"Sharrows\" in bus lane",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 237887998,
+      "nodes": [
+        1414163638,
+        2057163943,
+        8912423893,
+        2457607644
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "share_busway",
+        "highway": "secondary",
+        "lanes": "5",
+        "lanes:backward": "3",
+        "lanes:forward": "2",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Bay Street",
+        "surface": "asphalt",
+        "turn:lanes:backward": "left|none|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 237888004,
+      "nodes": [
+        1414163638,
+        3099866265,
+        29605019,
+        3561230056,
+        2302526920,
+        3561230054,
+        2457608913
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "share_busway",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Bay Street",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 242973006,
+      "nodes": [
+        24959522,
+        55808429,
+        304886886,
+        20979737,
+        36607327,
+        304886889,
+        1721866282,
+        2497429031,
+        20979738,
+        1721866286,
+        36607325,
+        1721866298,
+        20979739,
+        2143279521,
+        20979740
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Queen's Park Crescent East",
+        "note": "Left lane Queen's Park Southbound/Hoskin Ave",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt",
+        "turn:lanes": "left||"
+      }
+    },
+    {
+      "type": "way",
+      "id": 249842974,
+      "nodes": [
+        2563934952,
+        6374097561,
+        6374097562,
+        1365886401,
+        29604699,
+        1365886390,
+        1365889146,
+        29604717,
+        1365971814,
+        1368272753,
+        29604744,
+        1369085159,
+        207713506,
+        393551251
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "30",
+        "name": "Beverley Street",
+        "name:zh": "比華利街",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 252080341,
+      "nodes": [
+        2581993920,
+        4546596501,
+        9170559916,
+        389678244,
+        6374118492,
+        6373975048,
+        29689943
+      ],
+      "tags": {
+        "cycleway": "shared_lane",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Spadina Avenue",
+        "name:zh": "士巴丹拿道",
+        "oneway": "yes",
+        "surface": "asphalt",
+        "turn:lanes": "left|none|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 263506114,
+      "nodes": [
+        389677917,
+        2823222757,
+        6373975071,
+        6373975072,
+        42606813,
+        6373975070,
+        29690737,
+        80927373,
+        394502560,
+        29604711,
+        6378669378,
+        394502565,
+        6369142313,
+        2274582844,
+        60052034,
+        393546090,
+        21436517
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "embedded_rails:lanes": "|tram|tram|",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "College Street",
+        "name:zh": "書院街",
+        "oneway": "no",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 312084546,
+      "nodes": [
+        3789187401,
+        6542457316,
+        6542457314,
+        3179025281,
+        3179025266,
+        3179025280,
+        3179025282,
+        3179025267,
+        3179025268,
+        3179025269,
+        3179025270,
+        4953810914,
+        3179025271,
+        3179025272,
+        3179025273,
+        3179025274,
+        4953810915,
+        3179025279,
+        3179025275,
+        3179025276,
+        3179025277,
+        3179025278
+      ],
+      "tags": {
+        "bicycle": "yes",
+        "foot": "no",
+        "highway": "cycleway",
+        "lit": "yes",
+        "name": "Wellesley-Hoskin Cycle Track",
+        "oneway": "no",
+        "source": "http://www1.toronto.ca/wps/portal/contentonly?vgnextoid=7e930995bbbc1410VgnVCM10000071d60f89RCRD&vgnextchannel=59e3970aa08c1410VgnVCM10000071d60f89RCRD",
+        "surface": "asphalt",
+        "width": "2"
+      }
+    },
+    {
+      "type": "way",
+      "id": 327452916,
+      "nodes": [
+        3342358890,
+        1786683096,
+        389678008,
+        21631731
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "highway": "tertiary",
+        "lanes": "3",
+        "lanes:backward": "1",
+        "lanes:forward": "2",
+        "lit": "yes",
+        "maxspeed": "30",
+        "name": "St George Street",
+        "surface": "asphalt",
+        "turn:lanes:forward": "left|none"
+      }
+    },
+    {
+      "type": "way",
+      "id": 444707653,
+      "nodes": [
+        394500534,
+        29603320
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Gerrard Street West",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 444741638,
+      "nodes": [
+        21436517,
+        6400935151,
+        389678251
+      ],
+      "tags": {
+        "cycleway": "track",
+        "hgv": "no",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "University Avenue",
+        "old_ref": "11A",
+        "oneway": "yes",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 445862066,
+      "nodes": [
+        2675699394,
+        29604674
+      ],
+      "tags": {
+        "cycleway": "shared_lane",
+        "highway": "secondary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Spadina Avenue",
+        "name:zh": "士巴丹拿道",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 445862067,
+      "nodes": [
+        2675699404,
+        29604718
+      ],
+      "tags": {
+        "cycleway": "shared_lane",
+        "highway": "secondary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Spadina Avenue",
+        "name:zh": "士巴丹拿道",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 445862068,
+      "nodes": [
+        29604674,
+        2675699373,
+        966467459,
+        6483209320,
+        5771472832,
+        393551245,
+        6375005591,
+        6375005592,
+        25629241
+      ],
+      "tags": {
+        "cycleway": "shared_lane",
+        "highway": "secondary",
+        "lanes": "3",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Spadina Avenue",
+        "name:zh": "士巴丹拿道",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 446790437,
+      "nodes": [
+        29690555,
+        6373975073,
+        389677917
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "embedded_rails:lanes": "|tram|tram|",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "College Street",
+        "name:zh": "書院街",
+        "oneway": "no",
+        "sidewalk": "separate",
+        "source:maxspeed": "ON:urban",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 446828222,
+      "nodes": [
+        2143247536,
+        49625951
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "share_busway",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "name": "Bay Street",
+        "note": "\"Sharrows\" in bus lane",
+        "sidewalk": "separate",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 446971621,
+      "nodes": [
+        393551267,
+        6532307489,
+        6532307525,
+        29603222
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "lane",
+        "embedded_rails:lanes": "|tram|tram|",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Bay Street",
+        "source": "Bing",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 542543899,
+      "nodes": [
+        5245333107,
+        6532307622,
+        6532307624,
+        1553140355
+      ],
+      "tags": {
+        "bus_lanes": "7a-7p M-F (buses, taxis, bikes)",
+        "cycleway": "lane",
+        "embedded_rails:lanes": "|tram|tram|",
+        "highway": "secondary",
+        "lanes": "4",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Bay Street",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 552156740,
+      "nodes": [
+        387461258,
+        1215003674,
+        2344842860,
+        1215003708,
+        2259560899,
+        2259563236
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Wellesley Street East",
+        "sidewalk": "separate",
+        "source:maxspeed": "ON:urban",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 588719584,
+      "nodes": [
+        5622365694,
+        7590238182,
+        5622365695
+      ],
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "footway",
+        "oneway": "no",
+        "surface": "paved"
+      }
+    },
+    {
+      "type": "way",
+      "id": 693813453,
+      "nodes": [
+        34910996,
+        6374114375,
+        6373975052,
+        6374117188
+      ],
+      "tags": {
+        "cycleway": "shared_lane",
+        "highway": "secondary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Spadina Avenue",
+        "name:zh": "士巴丹拿道",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 696677975,
+      "nodes": [
+        3179025278,
+        3789187399,
+        3789187400,
+        6542457302,
+        3340615393
+      ],
+      "tags": {
+        "description": "Dedicated bicycle signal and space for crossing Wellesley; eastbound track continues into Wellesley street-side bicycle track",
+        "foot": "no",
+        "highway": "cycleway",
+        "lit": "yes",
+        "name": "Wellesley-Hoskin Cycle Track",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 696677976,
+      "nodes": [
+        3340615393,
+        6542457303,
+        3179025278
+      ],
+      "tags": {
+        "description": "Wellesley's westbound bicycle track continues straight into the cycle track connecting to Hoskin",
+        "foot": "no",
+        "highway": "cycleway",
+        "lit": "yes",
+        "name": "Wellesley-Hoskin Cycle Track",
+        "oneway": "yes",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 868926439,
+      "nodes": [
+        29688193,
+        1167546206
+      ],
+      "tags": {
+        "bicycle": "yes",
+        "foot": "yes",
+        "highway": "pedestrian",
+        "motor_vehicle": "no",
+        "name": "Victoria Street"
+      }
+    },
+    {
+      "type": "way",
+      "id": 888762238,
+      "nodes": [
+        8262909496,
+        394500534
+      ],
+      "tags": {
+        "cycleway": "track",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "40",
+        "name": "Gerrard Street West",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "way",
+      "id": 908426154,
+      "nodes": [
+        8435090925,
+        8435090926
+      ],
+      "tags": {
+        "barrier": "bollard",
+        "bicycle": "yes",
+        "foot": "yes",
+        "motor_vehicle": "no"
+      }
+    },
+    {
+      "type": "way",
+      "id": 990524554,
+      "nodes": [
+        387461248,
+        2259558022,
+        2259558023,
+        387461258
+      ],
+      "tags": {
+        "cycleway": "lane",
+        "highway": "tertiary",
+        "lanes": "2",
+        "lit": "yes",
+        "maxspeed": "50",
+        "name": "Wellesley Street East",
+        "sidewalk": "separate",
+        "source:maxspeed": "ON:urban",
+        "surface": "asphalt"
+      }
+    },
+    {
+      "type": "node",
+      "id": 21631734,
+      "lat": 43.6622708,
+      "lon": -79.4060119
+    },
+    {
+      "type": "node",
+      "id": 26007925,
+      "lat": 43.6627075,
+      "lon": -79.4038536
+    },
+    {
+      "type": "node",
+      "id": 26007926,
+      "lat": 43.6625105,
+      "lon": -79.4048015
+    },
+    {
+      "type": "node",
+      "id": 26007927,
+      "lat": 43.6620517,
+      "lon": -79.4071937
+    },
+    {
+      "type": "node",
+      "id": 60683490,
+      "lat": 43.662163,
+      "lon": -79.4066209
+    },
+    {
+      "type": "node",
+      "id": 60683504,
+      "lat": 43.6623955,
+      "lon": -79.4053582
+    },
+    {
+      "type": "node",
+      "id": 2679671475,
+      "lat": 43.6622592,
+      "lon": -79.4060743
+    },
+    {
+      "type": "node",
+      "id": 2679671477,
+      "lat": 43.6622852,
+      "lon": -79.4059343
+    },
+    {
+      "type": "node",
+      "id": 3992645010,
+      "lat": 43.6625593,
+      "lon": -79.4045714
+    },
+    {
+      "type": "node",
+      "id": 6417897194,
+      "lat": 43.6626982,
+      "lon": -79.4039103
+    },
+    {
+      "type": "node",
+      "id": 6417897195,
+      "lat": 43.6626154,
+      "lon": -79.4043557
+    },
+    {
+      "type": "node",
+      "id": 6417897196,
+      "lat": 43.6626668,
+      "lon": -79.404107
+    },
+    {
+      "type": "node",
+      "id": 25629241,
+      "lat": 43.6529133,
+      "lon": -79.3981331
+    },
+    {
+      "type": "node",
+      "id": 29604453,
+      "lat": 43.6567102,
+      "lon": -79.3996491
+    },
+    {
+      "type": "node",
+      "id": 29604669,
+      "lat": 43.6558351,
+      "lon": -79.399305
+    },
+    {
+      "type": "node",
+      "id": 29604671,
+      "lat": 43.6551124,
+      "lon": -79.3990122
+    },
+    {
+      "type": "node",
+      "id": 29604674,
+      "lat": 43.654381,
+      "lon": -79.3987144
+    },
+    {
+      "type": "node",
+      "id": 29604684,
+      "lat": 43.6561325,
+      "lon": -79.3991603
+    },
+    {
+      "type": "node",
+      "id": 29604718,
+      "lat": 43.6549271,
+      "lon": -79.3987227
+    },
+    {
+      "type": "node",
+      "id": 29604785,
+      "lat": 43.6539539,
+      "lon": -79.398329
+    },
+    {
+      "type": "node",
+      "id": 42395696,
+      "lat": 43.6558845,
+      "lon": -79.3990645
+    },
+    {
+      "type": "node",
+      "id": 42395702,
+      "lat": 43.6544214,
+      "lon": -79.3985195
+    },
+    {
+      "type": "node",
+      "id": 393551245,
+      "lat": 43.6530253,
+      "lon": -79.398173
+    },
+    {
+      "type": "node",
+      "id": 966467459,
+      "lat": 43.6538905,
+      "lon": -79.3985077
+    },
+    {
+      "type": "node",
+      "id": 2675698127,
+      "lat": 43.6557415,
+      "lon": -79.3992671
+    },
+    {
+      "type": "node",
+      "id": 2675698130,
+      "lat": 43.6557925,
+      "lon": -79.399031
+    },
+    {
+      "type": "node",
+      "id": 2675698134,
+      "lat": 43.6559512,
+      "lon": -79.399351
+    },
+    {
+      "type": "node",
+      "id": 2675698137,
+      "lat": 43.6560051,
+      "lon": -79.399112
+    },
+    {
+      "type": "node",
+      "id": 2675699373,
+      "lat": 43.654317,
+      "lon": -79.3986873
+    },
+    {
+      "type": "node",
+      "id": 2675699383,
+      "lat": 43.6543582,
+      "lon": -79.3984904
+    },
+    {
+      "type": "node",
+      "id": 2675699394,
+      "lat": 43.6544449,
+      "lon": -79.3987369
+    },
+    {
+      "type": "node",
+      "id": 2675699404,
+      "lat": 43.6544857,
+      "lon": -79.3985462
+    },
+    {
+      "type": "node",
+      "id": 5771472832,
+      "lat": 43.6533407,
+      "lon": -79.3983051
+    },
+    {
+      "type": "node",
+      "id": 6375005591,
+      "lat": 43.6529658,
+      "lon": -79.3981519
+    },
+    {
+      "type": "node",
+      "id": 6375005592,
+      "lat": 43.6529274,
+      "lon": -79.3981382
+    },
+    {
+      "type": "node",
+      "id": 6483209320,
+      "lat": 43.6535064,
+      "lon": -79.3983662
+    },
+    {
+      "type": "node",
+      "id": 29604717,
+      "lat": 43.6557736,
+      "lon": -79.3946437
+    },
+    {
+      "type": "node",
+      "id": 29604744,
+      "lat": 43.6548017,
+      "lon": -79.3942317
+    },
+    {
+      "type": "node",
+      "id": 207713506,
+      "lat": 43.6543234,
+      "lon": -79.3940342
+    },
+    {
+      "type": "node",
+      "id": 393551251,
+      "lat": 43.653893,
+      "lon": -79.3938631
+    },
+    {
+      "type": "node",
+      "id": 1365889146,
+      "lat": 43.6558243,
+      "lon": -79.3946662
+    },
+    {
+      "type": "node",
+      "id": 1365971814,
+      "lat": 43.6557241,
+      "lon": -79.3946217
+    },
+    {
+      "type": "node",
+      "id": 1368272753,
+      "lat": 43.6548402,
+      "lon": -79.3942471
+    },
+    {
+      "type": "node",
+      "id": 1369085159,
+      "lat": 43.6547595,
+      "lon": -79.3942143
+    },
+    {
+      "type": "node",
+      "id": 21631733,
+      "lat": 43.6630941,
+      "lon": -79.4019954
+    },
+    {
+      "type": "node",
+      "id": 26007924,
+      "lat": 43.6628749,
+      "lon": -79.4030639
+    },
+    {
+      "type": "node",
+      "id": 29658390,
+      "lat": 43.6630513,
+      "lon": -79.4022028
+    },
+    {
+      "type": "node",
+      "id": 29689943,
+      "lat": 43.65793,
+      "lon": -79.3999158
+    },
+    {
+      "type": "node",
+      "id": 34910996,
+      "lat": 43.6579539,
+      "lon": -79.4001546
+    },
+    {
+      "type": "node",
+      "id": 59817393,
+      "lat": 43.6632421,
+      "lon": -79.4012791
+    },
+    {
+      "type": "node",
+      "id": 59817394,
+      "lat": 43.6633715,
+      "lon": -79.4006526
+    },
+    {
+      "type": "node",
+      "id": 389678057,
+      "lat": 43.6631107,
+      "lon": -79.4019149
+    },
+    {
+      "type": "node",
+      "id": 389678242,
+      "lat": 43.6578311,
+      "lon": -79.4001103
+    },
+    {
+      "type": "node",
+      "id": 389678244,
+      "lat": 43.6578366,
+      "lon": -79.3998826
+    },
+    {
+      "type": "node",
+      "id": 390543756,
+      "lat": 43.6630332,
+      "lon": -79.4022781
+    },
+    {
+      "type": "node",
+      "id": 2581993920,
+      "lat": 43.657419,
+      "lon": -79.3997064
+    },
+    {
+      "type": "node",
+      "id": 2844292184,
+      "lat": 43.6630121,
+      "lon": -79.4023817,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2844292185,
+      "lat": 43.6631306,
+      "lon": -79.4018188,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 4546596501,
+      "lat": 43.6574636,
+      "lon": -79.3997252
+    },
+    {
+      "type": "node",
+      "id": 6373975048,
+      "lat": 43.657916,
+      "lon": -79.399911
+    },
+    {
+      "type": "node",
+      "id": 6373975052,
+      "lat": 43.6579409,
+      "lon": -79.4001492
+    },
+    {
+      "type": "node",
+      "id": 6374114375,
+      "lat": 43.6579491,
+      "lon": -79.4001523
+    },
+    {
+      "type": "node",
+      "id": 6374117188,
+      "lat": 43.6579033,
+      "lon": -79.400137
+    },
+    {
+      "type": "node",
+      "id": 6374118492,
+      "lat": 43.6578738,
+      "lon": -79.3998961
+    },
+    {
+      "type": "node",
+      "id": 6514079950,
+      "lat": 43.6578931,
+      "lon": -79.4001332
+    },
+    {
+      "type": "node",
+      "id": 9170559916,
+      "lat": 43.6578134,
+      "lon": -79.3998728
+    },
+    {
+      "type": "node",
+      "id": 9170566523,
+      "lat": 43.6578098,
+      "lon": -79.4001015
+    },
+    {
+      "type": "node",
+      "id": 20979748,
+      "lat": 43.6632705,
+      "lon": -79.3932391
+    },
+    {
+      "type": "node",
+      "id": 20979749,
+      "lat": 43.6629433,
+      "lon": -79.3931131
+    },
+    {
+      "type": "node",
+      "id": 20979750,
+      "lat": 43.6612225,
+      "lon": -79.3921125
+    },
+    {
+      "type": "node",
+      "id": 20979751,
+      "lat": 43.6609867,
+      "lon": -79.3918572
+    },
+    {
+      "type": "node",
+      "id": 20979752,
+      "lat": 43.6606757,
+      "lon": -79.3912347
+    },
+    {
+      "type": "node",
+      "id": 20979753,
+      "lat": 43.6608186,
+      "lon": -79.3904803
+    },
+    {
+      "type": "node",
+      "id": 20979762,
+      "lat": 43.6603454,
+      "lon": -79.3905512
+    },
+    {
+      "type": "node",
+      "id": 21436517,
+      "lat": 43.6598263,
+      "lon": -79.3905908
+    },
+    {
+      "type": "node",
+      "id": 21436518,
+      "lat": 43.6598822,
+      "lon": -79.3903312
+    },
+    {
+      "type": "node",
+      "id": 24959523,
+      "lat": 43.6624313,
+      "lon": -79.3928644
+    },
+    {
+      "type": "node",
+      "id": 29604699,
+      "lat": 43.6569704,
+      "lon": -79.3951246
+    },
+    {
+      "type": "node",
+      "id": 29604711,
+      "lat": 43.6591993,
+      "lon": -79.3935013
+    },
+    {
+      "type": "node",
+      "id": 29690555,
+      "lat": 43.6586959,
+      "lon": -79.3959848
+    },
+    {
+      "type": "node",
+      "id": 29690737,
+      "lat": 43.6589437,
+      "lon": -79.3946815
+    },
+    {
+      "type": "node",
+      "id": 36607334,
+      "lat": 43.6607588,
+      "lon": -79.3914569
+    },
+    {
+      "type": "node",
+      "id": 36607344,
+      "lat": 43.6605331,
+      "lon": -79.3909445
+    },
+    {
+      "type": "node",
+      "id": 36607346,
+      "lat": 43.6604449,
+      "lon": -79.3908501
+    },
+    {
+      "type": "node",
+      "id": 36607348,
+      "lat": 43.6605191,
+      "lon": -79.3905792
+    },
+    {
+      "type": "node",
+      "id": 36607350,
+      "lat": 43.6606992,
+      "lon": -79.390546
+    },
+    {
+      "type": "node",
+      "id": 42606813,
+      "lat": 43.6588154,
+      "lon": -79.3952819
+    },
+    {
+      "type": "node",
+      "id": 50885177,
+      "lat": 43.661867,
+      "lon": -79.3924469
+    },
+    {
+      "type": "node",
+      "id": 50897923,
+      "lat": 43.6613928,
+      "lon": -79.3922058
+    },
+    {
+      "type": "node",
+      "id": 50899731,
+      "lat": 43.6609287,
+      "lon": -79.3917718
+    },
+    {
+      "type": "node",
+      "id": 60052034,
+      "lat": 43.6596723,
+      "lon": -79.3912771
+    },
+    {
+      "type": "node",
+      "id": 60052035,
+      "lat": 43.6600705,
+      "lon": -79.3907
+    },
+    {
+      "type": "node",
+      "id": 80927373,
+      "lat": 43.6590787,
+      "lon": -79.394055
+    },
+    {
+      "type": "node",
+      "id": 87486207,
+      "lat": 43.6592086,
+      "lon": -79.3903339
+    },
+    {
+      "type": "node",
+      "id": 389677917,
+      "lat": 43.6587321,
+      "lon": -79.3957571
+    },
+    {
+      "type": "node",
+      "id": 389677930,
+      "lat": 43.6599298,
+      "lon": -79.3906287
+    },
+    {
+      "type": "node",
+      "id": 389677931,
+      "lat": 43.6599803,
+      "lon": -79.3903686
+    },
+    {
+      "type": "node",
+      "id": 389678251,
+      "lat": 43.6597268,
+      "lon": -79.3905521
+    },
+    {
+      "type": "node",
+      "id": 391169149,
+      "lat": 43.6598483,
+      "lon": -79.3904809
+    },
+    {
+      "type": "node",
+      "id": 393546090,
+      "lat": 43.6597969,
+      "lon": -79.3907187
+    },
+    {
+      "type": "node",
+      "id": 394502560,
+      "lat": 43.6591782,
+      "lon": -79.3935979
+    },
+    {
+      "type": "node",
+      "id": 394502565,
+      "lat": 43.6592209,
+      "lon": -79.3933992
+    },
+    {
+      "type": "node",
+      "id": 1365886390,
+      "lat": 43.6569204,
+      "lon": -79.3951016
+    },
+    {
+      "type": "node",
+      "id": 1365886401,
+      "lat": 43.6570511,
+      "lon": -79.3951565
+    },
+    {
+      "type": "node",
+      "id": 1721865354,
+      "lat": 43.6604068,
+      "lon": -79.390823
+    },
+    {
+      "type": "node",
+      "id": 1721865369,
+      "lat": 43.6604159,
+      "lon": -79.3905703
+    },
+    {
+      "type": "node",
+      "id": 1721865377,
+      "lat": 43.6604661,
+      "lon": -79.3905773
+    },
+    {
+      "type": "node",
+      "id": 1721865386,
+      "lat": 43.6604951,
+      "lon": -79.390896
+    },
+    {
+      "type": "node",
+      "id": 1721865409,
+      "lat": 43.6605681,
+      "lon": -79.390577
+    },
+    {
+      "type": "node",
+      "id": 1721865410,
+      "lat": 43.6605737,
+      "lon": -79.3910032
+    },
+    {
+      "type": "node",
+      "id": 1721865413,
+      "lat": 43.6606062,
+      "lon": -79.3910628
+    },
+    {
+      "type": "node",
+      "id": 1721865415,
+      "lat": 43.6606092,
+      "lon": -79.3905725
+    },
+    {
+      "type": "node",
+      "id": 1721865429,
+      "lat": 43.6606417,
+      "lon": -79.3911416
+    },
+    {
+      "type": "node",
+      "id": 1721865437,
+      "lat": 43.6606555,
+      "lon": -79.3905614
+    },
+    {
+      "type": "node",
+      "id": 1721865473,
+      "lat": 43.6607537,
+      "lon": -79.390522
+    },
+    {
+      "type": "node",
+      "id": 1721865520,
+      "lat": 43.6608296,
+      "lon": -79.3915993
+    },
+    {
+      "type": "node",
+      "id": 1721865598,
+      "lat": 43.6611479,
+      "lon": -79.3920526
+    },
+    {
+      "type": "node",
+      "id": 1721865860,
+      "lat": 43.66192,
+      "lon": -79.3924788
+    },
+    {
+      "type": "node",
+      "id": 1721865901,
+      "lat": 43.6621106,
+      "lon": -79.3926178
+    },
+    {
+      "type": "node",
+      "id": 1721865918,
+      "lat": 43.6624866,
+      "lon": -79.3929052
+    },
+    {
+      "type": "node",
+      "id": 1721865948,
+      "lat": 43.6625369,
+      "lon": -79.3929435
+    },
+    {
+      "type": "node",
+      "id": 1721866034,
+      "lat": 43.6626748,
+      "lon": -79.3930071
+    },
+    {
+      "type": "node",
+      "id": 2274582844,
+      "lat": 43.6595555,
+      "lon": -79.3918258
+    },
+    {
+      "type": "node",
+      "id": 2563934952,
+      "lat": 43.6581014,
+      "lon": -79.3955969
+    },
+    {
+      "type": "node",
+      "id": 2823222757,
+      "lat": 43.6587412,
+      "lon": -79.3956865,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 3179025273,
+      "lat": 43.6633045,
+      "lon": -79.3927501
+    },
+    {
+      "type": "node",
+      "id": 3179025274,
+      "lat": 43.6632537,
+      "lon": -79.3926615
+    },
+    {
+      "type": "node",
+      "id": 3179025275,
+      "lat": 43.6632382,
+      "lon": -79.3924304
+    },
+    {
+      "type": "node",
+      "id": 3179025276,
+      "lat": 43.6633474,
+      "lon": -79.3919402
+    },
+    {
+      "type": "node",
+      "id": 3179025279,
+      "lat": 43.6632301,
+      "lon": -79.3925473
+    },
+    {
+      "type": "node",
+      "id": 4953810915,
+      "lat": 43.6632463,
+      "lon": -79.3926236
+    },
+    {
+      "type": "node",
+      "id": 6369142313,
+      "lat": 43.6592894,
+      "lon": -79.3930818
+    },
+    {
+      "type": "node",
+      "id": 6373975070,
+      "lat": 43.658885,
+      "lon": -79.3949526
+    },
+    {
+      "type": "node",
+      "id": 6373975071,
+      "lat": 43.6587583,
+      "lon": -79.3955775
+    },
+    {
+      "type": "node",
+      "id": 6373975072,
+      "lat": 43.6587782,
+      "lon": -79.3954602
+    },
+    {
+      "type": "node",
+      "id": 6373975073,
+      "lat": 43.6587171,
+      "lon": -79.3958612
+    },
+    {
+      "type": "node",
+      "id": 6374097561,
+      "lat": 43.6578468,
+      "lon": -79.3954863
+    },
+    {
+      "type": "node",
+      "id": 6374097562,
+      "lat": 43.6575785,
+      "lon": -79.3953744
+    },
+    {
+      "type": "node",
+      "id": 6378669378,
+      "lat": 43.6592173,
+      "lon": -79.393416
+    },
+    {
+      "type": "node",
+      "id": 6400935149,
+      "lat": 43.6598701,
+      "lon": -79.3903267
+    },
+    {
+      "type": "node",
+      "id": 6400935151,
+      "lat": 43.6598123,
+      "lon": -79.3905854
+    },
+    {
+      "type": "node",
+      "id": 6400935394,
+      "lat": 43.6598952,
+      "lon": -79.3903378
+    },
+    {
+      "type": "node",
+      "id": 6400935395,
+      "lat": 43.6598397,
+      "lon": -79.390596
+    },
+    {
+      "type": "node",
+      "id": 29604856,
+      "lat": 43.656362,
+      "lon": -79.3888057
+    },
+    {
+      "type": "node",
+      "id": 29604863,
+      "lat": 43.6563019,
+      "lon": -79.3891028
+    },
+    {
+      "type": "node",
+      "id": 29605004,
+      "lat": 43.6554759,
+      "lon": -79.3884362
+    },
+    {
+      "type": "node",
+      "id": 29605008,
+      "lat": 43.6564315,
+      "lon": -79.3840075
+    },
+    {
+      "type": "node",
+      "id": 29605016,
+      "lat": 43.6530675,
+      "lon": -79.3877432
+    },
+    {
+      "type": "node",
+      "id": 29605017,
+      "lat": 43.6531393,
+      "lon": -79.3874163
+    },
+    {
+      "type": "node",
+      "id": 34600564,
+      "lat": 43.6548264,
+      "lon": -79.3881498
+    },
+    {
+      "type": "node",
+      "id": 36607360,
+      "lat": 43.6554113,
+      "lon": -79.3887298
+    },
+    {
+      "type": "node",
+      "id": 42606444,
+      "lat": 43.6548125,
+      "lon": -79.3884748
+    },
+    {
+      "type": "node",
+      "id": 393551258,
+      "lat": 43.6549176,
+      "lon": -79.388518
+    },
+    {
+      "type": "node",
+      "id": 393551260,
+      "lat": 43.6549324,
+      "lon": -79.3882029
+    },
+    {
+      "type": "node",
+      "id": 393551267,
+      "lat": 43.6558221,
+      "lon": -79.3837664
+    },
+    {
+      "type": "node",
+      "id": 393552042,
+      "lat": 43.6547113,
+      "lon": -79.3880973
+    },
+    {
+      "type": "node",
+      "id": 393552046,
+      "lat": 43.6546799,
+      "lon": -79.3884206
+    },
+    {
+      "type": "node",
+      "id": 700645274,
+      "lat": 43.6563317,
+      "lon": -79.3839666
+    },
+    {
+      "type": "node",
+      "id": 700645275,
+      "lat": 43.6562269,
+      "lon": -79.3890676
+    },
+    {
+      "type": "node",
+      "id": 700645279,
+      "lat": 43.6565243,
+      "lon": -79.3840454
+    },
+    {
+      "type": "node",
+      "id": 700645298,
+      "lat": 43.6564584,
+      "lon": -79.3888475
+    },
+    {
+      "type": "node",
+      "id": 700645326,
+      "lat": 43.6564008,
+      "lon": -79.3891461
+    },
+    {
+      "type": "node",
+      "id": 769486879,
+      "lat": 43.6532624,
+      "lon": -79.3874659
+    },
+    {
+      "type": "node",
+      "id": 769486906,
+      "lat": 43.6531899,
+      "lon": -79.3877939
+    },
+    {
+      "type": "node",
+      "id": 835057217,
+      "lat": 43.656667,
+      "lon": -79.3889403
+    },
+    {
+      "type": "node",
+      "id": 1308056144,
+      "lat": 43.6562736,
+      "lon": -79.3887704
+    },
+    {
+      "type": "node",
+      "id": 2283087662,
+      "lat": 43.6560807,
+      "lon": -79.3838623
+    },
+    {
+      "type": "node",
+      "id": 4580791480,
+      "lat": 43.6565953,
+      "lon": -79.3840744
+    },
+    {
+      "type": "node",
+      "id": 4580791481,
+      "lat": 43.6567289,
+      "lon": -79.3841289
+    },
+    {
+      "type": "node",
+      "id": 6532307450,
+      "lat": 43.6548003,
+      "lon": -79.3884698
+    },
+    {
+      "type": "node",
+      "id": 6532307451,
+      "lat": 43.6548274,
+      "lon": -79.3884809
+    },
+    {
+      "type": "node",
+      "id": 6532307454,
+      "lat": 43.6548401,
+      "lon": -79.3881567
+    },
+    {
+      "type": "node",
+      "id": 6532307461,
+      "lat": 43.6548112,
+      "lon": -79.3881429
+    },
+    {
+      "type": "node",
+      "id": 6532307490,
+      "lat": 43.6558539,
+      "lon": -79.3837777
+    },
+    {
+      "type": "node",
+      "id": 29603222,
+      "lat": 43.6557335,
+      "lon": -79.3837342
+    },
+    {
+      "type": "node",
+      "id": 29605019,
+      "lat": 43.6543493,
+      "lon": -79.3831731
+    },
+    {
+      "type": "node",
+      "id": 394499191,
+      "lat": 43.6556436,
+      "lon": -79.3837005
+    },
+    {
+      "type": "node",
+      "id": 1414163638,
+      "lat": 43.6547716,
+      "lon": -79.383341
+    },
+    {
+      "type": "node",
+      "id": 2057163943,
+      "lat": 43.6549718,
+      "lon": -79.3834198
+    },
+    {
+      "type": "node",
+      "id": 2302526920,
+      "lat": 43.6542371,
+      "lon": -79.3831259
+    },
+    {
+      "type": "node",
+      "id": 2457607644,
+      "lat": 43.6553474,
+      "lon": -79.383578
+    },
+    {
+      "type": "node",
+      "id": 2457608913,
+      "lat": 43.6540306,
+      "lon": -79.3830445
+    },
+    {
+      "type": "node",
+      "id": 3099866265,
+      "lat": 43.654487,
+      "lon": -79.3832295
+    },
+    {
+      "type": "node",
+      "id": 3561230054,
+      "lat": 43.6542229,
+      "lon": -79.3831205
+    },
+    {
+      "type": "node",
+      "id": 3561230056,
+      "lat": 43.6542548,
+      "lon": -79.383133
+    },
+    {
+      "type": "node",
+      "id": 6532307489,
+      "lat": 43.6557926,
+      "lon": -79.3837556
+    },
+    {
+      "type": "node",
+      "id": 6532307525,
+      "lat": 43.6557481,
+      "lon": -79.3837393
+    },
+    {
+      "type": "node",
+      "id": 8912423893,
+      "lat": 43.6551823,
+      "lon": -79.3835088
+    },
+    {
+      "type": "node",
+      "id": 20979754,
+      "lat": 43.661165,
+      "lon": -79.3901402
+    },
+    {
+      "type": "node",
+      "id": 20979755,
+      "lat": 43.6617827,
+      "lon": -79.3898782
+    },
+    {
+      "type": "node",
+      "id": 20979756,
+      "lat": 43.6622376,
+      "lon": -79.3900409
+    },
+    {
+      "type": "node",
+      "id": 20979760,
+      "lat": 43.6575265,
+      "lon": -79.3896244
+    },
+    {
+      "type": "node",
+      "id": 20979761,
+      "lat": 43.6575829,
+      "lon": -79.3893464
+    },
+    {
+      "type": "node",
+      "id": 24959509,
+      "lat": 43.6624808,
+      "lon": -79.386369
+    },
+    {
+      "type": "node",
+      "id": 24959510,
+      "lat": 43.6615668,
+      "lon": -79.386094
+    },
+    {
+      "type": "node",
+      "id": 24959511,
+      "lat": 43.6608075,
+      "lon": -79.3858484
+    },
+    {
+      "type": "node",
+      "id": 24959515,
+      "lat": 43.6605206,
+      "lon": -79.3873978
+    },
+    {
+      "type": "node",
+      "id": 24959516,
+      "lat": 43.6581872,
+      "lon": -79.3863686
+    },
+    {
+      "type": "node",
+      "id": 29603262,
+      "lat": 43.6585097,
+      "lon": -79.384862
+    },
+    {
+      "type": "node",
+      "id": 29604858,
+      "lat": 43.6573135,
+      "lon": -79.3843675
+    },
+    {
+      "type": "node",
+      "id": 29605000,
+      "lat": 43.6586742,
+      "lon": -79.3901027
+    },
+    {
+      "type": "node",
+      "id": 34404252,
+      "lat": 43.6633702,
+      "lon": -79.3867356
+    },
+    {
+      "type": "node",
+      "id": 36607337,
+      "lat": 43.6614983,
+      "lon": -79.389942
+    },
+    {
+      "type": "node",
+      "id": 42606772,
+      "lat": 43.6619388,
+      "lon": -79.3861406
+    },
+    {
+      "type": "node",
+      "id": 42606787,
+      "lat": 43.6582632,
+      "lon": -79.389639
+    },
+    {
+      "type": "node",
+      "id": 42606791,
+      "lat": 43.658203,
+      "lon": -79.3899059
+    },
+    {
+      "type": "node",
+      "id": 49626773,
+      "lat": 43.6580936,
+      "lon": -79.3846914
+    },
+    {
+      "type": "node",
+      "id": 50899689,
+      "lat": 43.6616339,
+      "lon": -79.3898947
+    },
+    {
+      "type": "node",
+      "id": 60052051,
+      "lat": 43.6609886,
+      "lon": -79.3902983
+    },
+    {
+      "type": "node",
+      "id": 60052055,
+      "lat": 43.6599769,
+      "lon": -79.3898973
+    },
+    {
+      "type": "node",
+      "id": 87486205,
+      "lat": 43.6592652,
+      "lon": -79.390072
+    },
+    {
+      "type": "node",
+      "id": 123359433,
+      "lat": 43.6620408,
+      "lon": -79.3899574
+    },
+    {
+      "type": "node",
+      "id": 246693686,
+      "lat": 43.6583343,
+      "lon": -79.3856719
+    },
+    {
+      "type": "node",
+      "id": 280901425,
+      "lat": 43.6593626,
+      "lon": -79.3869133
+    },
+    {
+      "type": "node",
+      "id": 286269584,
+      "lat": 43.6614251,
+      "lon": -79.3860669
+    },
+    {
+      "type": "node",
+      "id": 303255353,
+      "lat": 43.658462,
+      "lon": -79.3897333
+    },
+    {
+      "type": "node",
+      "id": 303255365,
+      "lat": 43.6587168,
+      "lon": -79.3898495
+    },
+    {
+      "type": "node",
+      "id": 356321326,
+      "lat": 43.6586963,
+      "lon": -79.3866233
+    },
+    {
+      "type": "node",
+      "id": 356321364,
+      "lat": 43.6584208,
+      "lon": -79.3864827
+    },
+    {
+      "type": "node",
+      "id": 356321371,
+      "lat": 43.6594766,
+      "lon": -79.3869623
+    },
+    {
+      "type": "node",
+      "id": 389678252,
+      "lat": 43.6597811,
+      "lon": -79.390294
+    },
+    {
+      "type": "node",
+      "id": 389678253,
+      "lat": 43.6604216,
+      "lon": -79.3873567
+    },
+    {
+      "type": "node",
+      "id": 389678256,
+      "lat": 43.659908,
+      "lon": -79.3902083
+    },
+    {
+      "type": "node",
+      "id": 390539237,
+      "lat": 43.6609191,
+      "lon": -79.3858944
+    },
+    {
+      "type": "node",
+      "id": 390543734,
+      "lat": 43.6625494,
+      "lon": -79.3863978
+    },
+    {
+      "type": "node",
+      "id": 390543741,
+      "lat": 43.6624116,
+      "lon": -79.38634
+    },
+    {
+      "type": "node",
+      "id": 390998462,
+      "lat": 43.6585414,
+      "lon": -79.3847344
+    },
+    {
+      "type": "node",
+      "id": 391004377,
+      "lat": 43.6584786,
+      "lon": -79.384989
+    },
+    {
+      "type": "node",
+      "id": 393551200,
+      "lat": 43.6576469,
+      "lon": -79.389676
+    },
+    {
+      "type": "node",
+      "id": 393551202,
+      "lat": 43.6577092,
+      "lon": -79.3893958
+    },
+    {
+      "type": "node",
+      "id": 393551205,
+      "lat": 43.6582593,
+      "lon": -79.3864059
+    },
+    {
+      "type": "node",
+      "id": 393551211,
+      "lat": 43.6574678,
+      "lon": -79.3895972
+    },
+    {
+      "type": "node",
+      "id": 393551213,
+      "lat": 43.6575203,
+      "lon": -79.3893177
+    },
+    {
+      "type": "node",
+      "id": 393551217,
+      "lat": 43.6584264,
+      "lon": -79.3848284
+    },
+    {
+      "type": "node",
+      "id": 394502518,
+      "lat": 43.660499,
+      "lon": -79.3875018
+    },
+    {
+      "type": "node",
+      "id": 400958053,
+      "lat": 43.6607076,
+      "lon": -79.3858018
+    },
+    {
+      "type": "node",
+      "id": 528518662,
+      "lat": 43.6582085,
+      "lon": -79.3862663
+    },
+    {
+      "type": "node",
+      "id": 700645332,
+      "lat": 43.6574053,
+      "lon": -79.3844075
+    },
+    {
+      "type": "node",
+      "id": 700645349,
+      "lat": 43.6572177,
+      "lon": -79.3843284
+    },
+    {
+      "type": "node",
+      "id": 835057221,
+      "lat": 43.6572344,
+      "lon": -79.3891937
+    },
+    {
+      "type": "node",
+      "id": 1553140355,
+      "lat": 43.6592465,
+      "lon": -79.3851749
+    },
+    {
+      "type": "node",
+      "id": 1721792612,
+      "lat": 43.6610844,
+      "lon": -79.3902079
+    },
+    {
+      "type": "node",
+      "id": 1721792616,
+      "lat": 43.661318,
+      "lon": -79.3900356
+    },
+    {
+      "type": "node",
+      "id": 1721792620,
+      "lat": 43.6615629,
+      "lon": -79.3899166
+    },
+    {
+      "type": "node",
+      "id": 1721865643,
+      "lat": 43.6612393,
+      "lon": -79.3900858
+    },
+    {
+      "type": "node",
+      "id": 1721865695,
+      "lat": 43.6614073,
+      "lon": -79.3899856
+    },
+    {
+      "type": "node",
+      "id": 1721865863,
+      "lat": 43.6619368,
+      "lon": -79.3899148
+    },
+    {
+      "type": "node",
+      "id": 2122030527,
+      "lat": 43.6617525,
+      "lon": -79.3861073
+    },
+    {
+      "type": "node",
+      "id": 2122030533,
+      "lat": 43.6618711,
+      "lon": -79.3861245
+    },
+    {
+      "type": "node",
+      "id": 2411583460,
+      "lat": 43.6610945,
+      "lon": -79.3859525
+    },
+    {
+      "type": "node",
+      "id": 2411583461,
+      "lat": 43.6620816,
+      "lon": -79.3862036
+    },
+    {
+      "type": "node",
+      "id": 2411584441,
+      "lat": 43.658673,
+      "lon": -79.3841289
+    },
+    {
+      "type": "node",
+      "id": 3081114059,
+      "lat": 43.6588269,
+      "lon": -79.3898942
+    },
+    {
+      "type": "node",
+      "id": 4580791473,
+      "lat": 43.6569623,
+      "lon": -79.3842242
+    },
+    {
+      "type": "node",
+      "id": 5245333107,
+      "lat": 43.6603752,
+      "lon": -79.3856588
+    },
+    {
+      "type": "node",
+      "id": 6400935136,
+      "lat": 43.6607935,
+      "lon": -79.3858419
+    },
+    {
+      "type": "node",
+      "id": 6400935143,
+      "lat": 43.6605067,
+      "lon": -79.387392
+    },
+    {
+      "type": "node",
+      "id": 6400935388,
+      "lat": 43.6604334,
+      "lon": -79.3877981
+    },
+    {
+      "type": "node",
+      "id": 6400935389,
+      "lat": 43.6603699,
+      "lon": -79.3880995
+    },
+    {
+      "type": "node",
+      "id": 6400935391,
+      "lat": 43.6602382,
+      "lon": -79.388699
+    },
+    {
+      "type": "node",
+      "id": 6400935402,
+      "lat": 43.6608213,
+      "lon": -79.3858544
+    },
+    {
+      "type": "node",
+      "id": 6532307553,
+      "lat": 43.6585138,
+      "lon": -79.3848458
+    },
+    {
+      "type": "node",
+      "id": 6532307556,
+      "lat": 43.6585049,
+      "lon": -79.3848816
+    },
+    {
+      "type": "node",
+      "id": 6532307581,
+      "lat": 43.6607291,
+      "lon": -79.3858111
+    },
+    {
+      "type": "node",
+      "id": 6532307622,
+      "lat": 43.6597555,
+      "lon": -79.3853931
+    },
+    {
+      "type": "node",
+      "id": 6532307624,
+      "lat": 43.6593038,
+      "lon": -79.3851995
+    },
+    {
+      "type": "node",
+      "id": 29603320,
+      "lat": 43.6590973,
+      "lon": -79.3820984
+    },
+    {
+      "type": "node",
+      "id": 29688193,
+      "lat": 43.6577007,
+      "lon": -79.3801535
+    },
+    {
+      "type": "node",
+      "id": 29688909,
+      "lat": 43.6598603,
+      "lon": -79.3785173
+    },
+    {
+      "type": "node",
+      "id": 211893005,
+      "lat": 43.6578297,
+      "lon": -79.3801996
+    },
+    {
+      "type": "node",
+      "id": 213274739,
+      "lat": 43.6592267,
+      "lon": -79.3814445
+    },
+    {
+      "type": "node",
+      "id": 394500534,
+      "lat": 43.6590721,
+      "lon": -79.3822182
+    },
+    {
+      "type": "node",
+      "id": 394500541,
+      "lat": 43.6591203,
+      "lon": -79.3819809
+    },
+    {
+      "type": "node",
+      "id": 394500559,
+      "lat": 43.6592953,
+      "lon": -79.3807623
+    },
+    {
+      "type": "node",
+      "id": 394509538,
+      "lat": 43.6598346,
+      "lon": -79.3786357
+    },
+    {
+      "type": "node",
+      "id": 412354776,
+      "lat": 43.6598847,
+      "lon": -79.378405
+    },
+    {
+      "type": "node",
+      "id": 1167546206,
+      "lat": 43.6577606,
+      "lon": -79.3801751
+    },
+    {
+      "type": "node",
+      "id": 2041331123,
+      "lat": 43.6595828,
+      "lon": -79.3798446
+    },
+    {
+      "type": "node",
+      "id": 2193106539,
+      "lat": 43.6607378,
+      "lon": -79.3817097
+    },
+    {
+      "type": "node",
+      "id": 2193106543,
+      "lat": 43.6607924,
+      "lon": -79.3817259
+    },
+    {
+      "type": "node",
+      "id": 2193106545,
+      "lat": 43.6609008,
+      "lon": -79.3817668
+    },
+    {
+      "type": "node",
+      "id": 2193106547,
+      "lat": 43.6609325,
+      "lon": -79.3817762
+    },
+    {
+      "type": "node",
+      "id": 2193106549,
+      "lat": 43.6612932,
+      "lon": -79.3818577
+    },
+    {
+      "type": "node",
+      "id": 2193106551,
+      "lat": 43.6613586,
+      "lon": -79.3818694
+    },
+    {
+      "type": "node",
+      "id": 2674087868,
+      "lat": 43.6593756,
+      "lon": -79.3807944
+    },
+    {
+      "type": "node",
+      "id": 6400935119,
+      "lat": 43.6613459,
+      "lon": -79.3818672
+    },
+    {
+      "type": "node",
+      "id": 6698494979,
+      "lat": 43.6598641,
+      "lon": -79.3784997
+    },
+    {
+      "type": "node",
+      "id": 6698494983,
+      "lat": 43.659856,
+      "lon": -79.3785371
+    },
+    {
+      "type": "node",
+      "id": 6721612003,
+      "lat": 43.6588303,
+      "lon": -79.3806321
+    },
+    {
+      "type": "node",
+      "id": 6721612004,
+      "lat": 43.6589112,
+      "lon": -79.3806018
+    },
+    {
+      "type": "node",
+      "id": 8262909496,
+      "lat": 43.6589859,
+      "lon": -79.3826218
+    },
+    {
+      "type": "node",
+      "id": 8435090925,
+      "lat": 43.6576101,
+      "lon": -79.3806757
+    },
+    {
+      "type": "node",
+      "id": 8435090926,
+      "lat": 43.6575451,
+      "lon": -79.3806421
+    },
+    {
+      "type": "node",
+      "id": 26007923,
+      "lat": 43.6663614,
+      "lon": -79.4053277
+    },
+    {
+      "type": "node",
+      "id": 80927430,
+      "lat": 43.66653,
+      "lon": -79.4045129
+    },
+    {
+      "type": "node",
+      "id": 3240407651,
+      "lat": 43.6663854,
+      "lon": -79.4052114
+    },
+    {
+      "type": "node",
+      "id": 21631731,
+      "lat": 43.6640762,
+      "lon": -79.3984403
+    },
+    {
+      "type": "node",
+      "id": 24959527,
+      "lat": 43.6644357,
+      "lon": -79.3969038
+    },
+    {
+      "type": "node",
+      "id": 24959535,
+      "lat": 43.6634971,
+      "lon": -79.4000445
+    },
+    {
+      "type": "node",
+      "id": 34910991,
+      "lat": 43.6638471,
+      "lon": -79.3987908
+    },
+    {
+      "type": "node",
+      "id": 34910992,
+      "lat": 43.6639373,
+      "lon": -79.3986699,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 34910993,
+      "lat": 43.6641528,
+      "lon": -79.3982508,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 59817419,
+      "lat": 43.663782,
+      "lon": -79.3988978
+    },
+    {
+      "type": "node",
+      "id": 389677893,
+      "lat": 43.6639922,
+      "lon": -79.3985792
+    },
+    {
+      "type": "node",
+      "id": 389677903,
+      "lat": 43.6641341,
+      "lon": -79.3983396
+    },
+    {
+      "type": "node",
+      "id": 389678008,
+      "lat": 43.6641867,
+      "lon": -79.3984786
+    },
+    {
+      "type": "node",
+      "id": 389678206,
+      "lat": 43.6634767,
+      "lon": -79.4001435
+    },
+    {
+      "type": "node",
+      "id": 1404154789,
+      "lat": 43.6641921,
+      "lon": -79.3980634
+    },
+    {
+      "type": "node",
+      "id": 1786683096,
+      "lat": 43.664234,
+      "lon": -79.3984972,
+      "tags": {
+        "cycleway": "asl"
+      }
+    },
+    {
+      "type": "node",
+      "id": 2143487624,
+      "lat": 43.6642407,
+      "lon": -79.3978319
+    },
+    {
+      "type": "node",
+      "id": 3033737059,
+      "lat": 43.6637161,
+      "lon": -79.3990357
+    },
+    {
+      "type": "node",
+      "id": 3342358890,
+      "lat": 43.6644694,
+      "lon": -79.398588
+    },
+    {
+      "type": "node",
+      "id": 4295105604,
+      "lat": 43.664028,
+      "lon": -79.39852
+    },
+    {
+      "type": "node",
+      "id": 5277943131,
+      "lat": 43.6637415,
+      "lon": -79.3989726
+    },
+    {
+      "type": "node",
+      "id": 5277943139,
+      "lat": 43.6641438,
+      "lon": -79.3982937
+    },
+    {
+      "type": "node",
+      "id": 5277943140,
+      "lat": 43.664108,
+      "lon": -79.3983877
+    },
+    {
+      "type": "node",
+      "id": 5277943141,
+      "lat": 43.6640573,
+      "lon": -79.3984716
+    },
+    {
+      "type": "node",
+      "id": 20979737,
+      "lat": 43.6655987,
+      "lon": -79.3914655
+    },
+    {
+      "type": "node",
+      "id": 20979738,
+      "lat": 43.6659368,
+      "lon": -79.3918763
+    },
+    {
+      "type": "node",
+      "id": 20979739,
+      "lat": 43.666059,
+      "lon": -79.3923463
+    },
+    {
+      "type": "node",
+      "id": 20979740,
+      "lat": 43.6660672,
+      "lon": -79.392493
+    },
+    {
+      "type": "node",
+      "id": 20979741,
+      "lat": 43.666217,
+      "lon": -79.393016
+    },
+    {
+      "type": "node",
+      "id": 20979742,
+      "lat": 43.6663676,
+      "lon": -79.3931594
+    },
+    {
+      "type": "node",
+      "id": 20979743,
+      "lat": 43.6658771,
+      "lon": -79.3933295
+    },
+    {
+      "type": "node",
+      "id": 20979744,
+      "lat": 43.6657594,
+      "lon": -79.3935039
+    },
+    {
+      "type": "node",
+      "id": 20979745,
+      "lat": 43.6653845,
+      "lon": -79.393823
+    },
+    {
+      "type": "node",
+      "id": 20979746,
+      "lat": 43.6651098,
+      "lon": -79.3939147
+    },
+    {
+      "type": "node",
+      "id": 20979758,
+      "lat": 43.6672491,
+      "lon": -79.3935234
+    },
+    {
+      "type": "node",
+      "id": 24959522,
+      "lat": 43.6648629,
+      "lon": -79.3911404
+    },
+    {
+      "type": "node",
+      "id": 24959528,
+      "lat": 43.6646942,
+      "lon": -79.3956727
+    },
+    {
+      "type": "node",
+      "id": 36603405,
+      "lat": 43.6642139,
+      "lon": -79.3936224
+    },
+    {
+      "type": "node",
+      "id": 36603690,
+      "lat": 43.6656486,
+      "lon": -79.3936341
+    },
+    {
+      "type": "node",
+      "id": 36603691,
+      "lat": 43.665247,
+      "lon": -79.3938825
+    },
+    {
+      "type": "node",
+      "id": 36603906,
+      "lat": 43.6649493,
+      "lon": -79.3944381
+    },
+    {
+      "type": "node",
+      "id": 36604384,
+      "lat": 43.6661878,
+      "lon": -79.3931461
+    },
+    {
+      "type": "node",
+      "id": 36607322,
+      "lat": 43.6660522,
+      "lon": -79.3931795
+    },
+    {
+      "type": "node",
+      "id": 36607324,
+      "lat": 43.6661286,
+      "lon": -79.392889
+    },
+    {
+      "type": "node",
+      "id": 36607325,
+      "lat": 43.6659995,
+      "lon": -79.3920457
+    },
+    {
+      "type": "node",
+      "id": 36607327,
+      "lat": 43.6657069,
+      "lon": -79.3915525
+    },
+    {
+      "type": "node",
+      "id": 50897849,
+      "lat": 43.664908,
+      "lon": -79.3946529
+    },
+    {
+      "type": "node",
+      "id": 55808333,
+      "lat": 43.6639071,
+      "lon": -79.3935068
+    },
+    {
+      "type": "node",
+      "id": 55808402,
+      "lat": 43.6663161,
+      "lon": -79.3931192
+    },
+    {
+      "type": "node",
+      "id": 55808420,
+      "lat": 43.6646059,
+      "lon": -79.3910359
+    },
+    {
+      "type": "node",
+      "id": 55808429,
+      "lat": 43.6651031,
+      "lon": -79.3912421
+    },
+    {
+      "type": "node",
+      "id": 60654130,
+      "lat": 43.6648691,
+      "lon": -79.3948476
+    },
+    {
+      "type": "node",
+      "id": 127289393,
+      "lat": 43.6646722,
+      "lon": -79.3957773
+    },
+    {
+      "type": "node",
+      "id": 299625330,
+      "lat": 43.6638317,
+      "lon": -79.3934766
+    },
+    {
+      "type": "node",
+      "id": 303255446,
+      "lat": 43.6646151,
+      "lon": -79.3960493
+    },
+    {
+      "type": "node",
+      "id": 304886886,
+      "lat": 43.6654756,
+      "lon": -79.3913965
+    },
+    {
+      "type": "node",
+      "id": 304886889,
+      "lat": 43.6657633,
+      "lon": -79.3916111
+    },
+    {
+      "type": "node",
+      "id": 304888562,
+      "lat": 43.666671,
+      "lon": -79.3932913
+    },
+    {
+      "type": "node",
+      "id": 304890341,
+      "lat": 43.6664063,
+      "lon": -79.393179
+    },
+    {
+      "type": "node",
+      "id": 304891150,
+      "lat": 43.6647314,
+      "lon": -79.3954685
+    },
+    {
+      "type": "node",
+      "id": 316884462,
+      "lat": 43.6663109,
+      "lon": -79.3931489
+    },
+    {
+      "type": "node",
+      "id": 389677968,
+      "lat": 43.6649568,
+      "lon": -79.3938967
+    },
+    {
+      "type": "node",
+      "id": 389678266,
+      "lat": 43.6636417,
+      "lon": -79.3904979
+    },
+    {
+      "type": "node",
+      "id": 389678270,
+      "lat": 43.6637009,
+      "lon": -79.3906598
+    },
+    {
+      "type": "node",
+      "id": 389678276,
+      "lat": 43.6635385,
+      "lon": -79.3905921
+    },
+    {
+      "type": "node",
+      "id": 391066930,
+      "lat": 43.6646726,
+      "lon": -79.3937955
+    },
+    {
+      "type": "node",
+      "id": 1721866249,
+      "lat": 43.6647979,
+      "lon": -79.39385
+    },
+    {
+      "type": "node",
+      "id": 1721866260,
+      "lat": 43.6648891,
+      "lon": -79.3938762
+    },
+    {
+      "type": "node",
+      "id": 1721866272,
+      "lat": 43.6653208,
+      "lon": -79.3938525
+    },
+    {
+      "type": "node",
+      "id": 1721866275,
+      "lat": 43.6654721,
+      "lon": -79.3937772
+    },
+    {
+      "type": "node",
+      "id": 1721866277,
+      "lat": 43.6655395,
+      "lon": -79.3937301
+    },
+    {
+      "type": "node",
+      "id": 1721866279,
+      "lat": 43.6655978,
+      "lon": -79.3936833
+    },
+    {
+      "type": "node",
+      "id": 1721866282,
+      "lat": 43.6658378,
+      "lon": -79.3917073
+    },
+    {
+      "type": "node",
+      "id": 1721866285,
+      "lat": 43.6659397,
+      "lon": -79.3932661
+    },
+    {
+      "type": "node",
+      "id": 1721866286,
+      "lat": 43.6659686,
+      "lon": -79.3919479
+    },
+    {
+      "type": "node",
+      "id": 1721866289,
+      "lat": 43.666014,
+      "lon": -79.3932025
+    },
+    {
+      "type": "node",
+      "id": 1721866298,
+      "lat": 43.6660322,
+      "lon": -79.3921691
+    },
+    {
+      "type": "node",
+      "id": 1721866300,
+      "lat": 43.6660906,
+      "lon": -79.3927305
+    },
+    {
+      "type": "node",
+      "id": 1721866302,
+      "lat": 43.666105,
+      "lon": -79.3928186
+    },
+    {
+      "type": "node",
+      "id": 1721866304,
+      "lat": 43.6661198,
+      "lon": -79.3931575
+    },
+    {
+      "type": "node",
+      "id": 1721866305,
+      "lat": 43.6661691,
+      "lon": -79.3929576
+    },
+    {
+      "type": "node",
+      "id": 1721866307,
+      "lat": 43.6662156,
+      "lon": -79.3931416
+    },
+    {
+      "type": "node",
+      "id": 1721866309,
+      "lat": 43.6662448,
+      "lon": -79.3931403
+    },
+    {
+      "type": "node",
+      "id": 1721866311,
+      "lat": 43.6662616,
+      "lon": -79.3930655
+    },
+    {
+      "type": "node",
+      "id": 2003729085,
+      "lat": 43.6647911,
+      "lon": -79.3911101
+    },
+    {
+      "type": "node",
+      "id": 2142270781,
+      "lat": 43.6637744,
+      "lon": -79.390691
+    },
+    {
+      "type": "node",
+      "id": 2142270783,
+      "lat": 43.6640058,
+      "lon": -79.390788
+    },
+    {
+      "type": "node",
+      "id": 2143279521,
+      "lat": 43.6660668,
+      "lon": -79.3924596
+    },
+    {
+      "type": "node",
+      "id": 2259572470,
+      "lat": 43.6648034,
+      "lon": -79.3951339
+    },
+    {
+      "type": "node",
+      "id": 2497429031,
+      "lat": 43.665867,
+      "lon": -79.3917516
+    },
+    {
+      "type": "node",
+      "id": 3179025266,
+      "lat": 43.6647741,
+      "lon": -79.3937577
+    },
+    {
+      "type": "node",
+      "id": 3179025267,
+      "lat": 43.6641553,
+      "lon": -79.3935223
+    },
+    {
+      "type": "node",
+      "id": 3179025268,
+      "lat": 43.664111,
+      "lon": -79.3934948
+    },
+    {
+      "type": "node",
+      "id": 3179025269,
+      "lat": 43.6640235,
+      "lon": -79.3934271
+    },
+    {
+      "type": "node",
+      "id": 3179025270,
+      "lat": 43.6639312,
+      "lon": -79.3933466
+    },
+    {
+      "type": "node",
+      "id": 3179025271,
+      "lat": 43.6637758,
+      "lon": -79.393218
+    },
+    {
+      "type": "node",
+      "id": 3179025272,
+      "lat": 43.6634111,
+      "lon": -79.3928605
+    },
+    {
+      "type": "node",
+      "id": 3179025277,
+      "lat": 43.6635186,
+      "lon": -79.3911736
+    },
+    {
+      "type": "node",
+      "id": 3179025278,
+      "lat": 43.6636076,
+      "lon": -79.3908302
+    },
+    {
+      "type": "node",
+      "id": 3179025280,
+      "lat": 43.6646606,
+      "lon": -79.3937172
+    },
+    {
+      "type": "node",
+      "id": 3179025281,
+      "lat": 43.6648763,
+      "lon": -79.3937959
+    },
+    {
+      "type": "node",
+      "id": 3179025282,
+      "lat": 43.6644753,
+      "lon": -79.3936459
+    },
+    {
+      "type": "node",
+      "id": 3210497978,
+      "lat": 43.6650294,
+      "lon": -79.3940247
+    },
+    {
+      "type": "node",
+      "id": 3340615393,
+      "lat": 43.6636102,
+      "lon": -79.3906208
+    },
+    {
+      "type": "node",
+      "id": 3789187399,
+      "lat": 43.6635621,
+      "lon": -79.3908042
+    },
+    {
+      "type": "node",
+      "id": 3789187400,
+      "lat": 43.6635421,
+      "lon": -79.3907925
+    },
+    {
+      "type": "node",
+      "id": 3789187401,
+      "lat": 43.6650441,
+      "lon": -79.3939085
+    },
+    {
+      "type": "node",
+      "id": 4953810914,
+      "lat": 43.6639187,
+      "lon": -79.3933355
+    },
+    {
+      "type": "node",
+      "id": 5622365694,
+      "lat": 43.6640187,
+      "lon": -79.3954106
+    },
+    {
+      "type": "node",
+      "id": 5622365695,
+      "lat": 43.6643875,
+      "lon": -79.3936861
+    },
+    {
+      "type": "node",
+      "id": 6542457302,
+      "lat": 43.6635694,
+      "lon": -79.3907235
+    },
+    {
+      "type": "node",
+      "id": 6542457303,
+      "lat": 43.6636087,
+      "lon": -79.3907406
+    },
+    {
+      "type": "node",
+      "id": 6542457306,
+      "lat": 43.6635129,
+      "lon": -79.3905817
+    },
+    {
+      "type": "node",
+      "id": 6542457307,
+      "lat": 43.6636496,
+      "lon": -79.3904628
+    },
+    {
+      "type": "node",
+      "id": 6542457314,
+      "lat": 43.6649602,
+      "lon": -79.3938154
+    },
+    {
+      "type": "node",
+      "id": 6542457316,
+      "lat": 43.6650343,
+      "lon": -79.3938326
+    },
+    {
+      "type": "node",
+      "id": 6542457319,
+      "lat": 43.6650005,
+      "lon": -79.3942091
+    },
+    {
+      "type": "node",
+      "id": 7590238182,
+      "lat": 43.6643732,
+      "lon": -79.3937529
+    },
+    {
+      "type": "node",
+      "id": 8277128567,
+      "lat": 43.6647724,
+      "lon": -79.3952788
+    },
+    {
+      "type": "node",
+      "id": 24959504,
+      "lat": 43.6643769,
+      "lon": -79.3871554
+    },
+    {
+      "type": "node",
+      "id": 24959505,
+      "lat": 43.6656549,
+      "lon": -79.3876919
+    },
+    {
+      "type": "node",
+      "id": 24985734,
+      "lat": 43.6649376,
+      "lon": -79.3845555
+    },
+    {
+      "type": "node",
+      "id": 34404540,
+      "lat": 43.6665738,
+      "lon": -79.3881072
+    },
+    {
+      "type": "node",
+      "id": 34404559,
+      "lat": 43.6668208,
+      "lon": -79.3882161
+    },
+    {
+      "type": "node",
+      "id": 49625951,
+      "lat": 43.6650176,
+      "lon": -79.3874231
+    },
+    {
+      "type": "node",
+      "id": 95378316,
+      "lat": 43.6647495,
+      "lon": -79.385459
+    },
+    {
+      "type": "node",
+      "id": 95378317,
+      "lat": 43.6648095,
+      "lon": -79.3851821
+    },
+    {
+      "type": "node",
+      "id": 95378363,
+      "lat": 43.6650479,
+      "lon": -79.3839498
+    },
+    {
+      "type": "node",
+      "id": 387461248,
+      "lat": 43.6650698,
+      "lon": -79.3838557
+    },
+    {
+      "type": "node",
+      "id": 389678271,
+      "lat": 43.6644565,
+      "lon": -79.3871893
+    },
+    {
+      "type": "node",
+      "id": 389678278,
+      "lat": 43.6642815,
+      "lon": -79.3871148
+    },
+    {
+      "type": "node",
+      "id": 390539228,
+      "lat": 43.6657302,
+      "lon": -79.3877234
+    },
+    {
+      "type": "node",
+      "id": 390539230,
+      "lat": 43.6655817,
+      "lon": -79.3876613
+    },
+    {
+      "type": "node",
+      "id": 390539244,
+      "lat": 43.6643479,
+      "lon": -79.3872918
+    },
+    {
+      "type": "node",
+      "id": 391180124,
+      "lat": 43.6649207,
+      "lon": -79.3846446
+    },
+    {
+      "type": "node",
+      "id": 391183747,
+      "lat": 43.664951,
+      "lon": -79.3844685
+    },
+    {
+      "type": "node",
+      "id": 663044129,
+      "lat": 43.6649943,
+      "lon": -79.3874138
+    },
+    {
+      "type": "node",
+      "id": 835054104,
+      "lat": 43.6644936,
+      "lon": -79.3866231
+    },
+    {
+      "type": "node",
+      "id": 835054148,
+      "lat": 43.664849,
+      "lon": -79.3849917
+    },
+    {
+      "type": "node",
+      "id": 1474802478,
+      "lat": 43.6638848,
+      "lon": -79.3893695
+    },
+    {
+      "type": "node",
+      "id": 1633501863,
+      "lat": 43.6639607,
+      "lon": -79.3890373
+    },
+    {
+      "type": "node",
+      "id": 1721793023,
+      "lat": 43.6638605,
+      "lon": -79.3894759
+    },
+    {
+      "type": "node",
+      "id": 1721793029,
+      "lat": 43.6639068,
+      "lon": -79.3892731
+    },
+    {
+      "type": "node",
+      "id": 1837303870,
+      "lat": 43.6639084,
+      "lon": -79.3869617
+    },
+    {
+      "type": "node",
+      "id": 1837303872,
+      "lat": 43.6647444,
+      "lon": -79.3873081
+    },
+    {
+      "type": "node",
+      "id": 1837304446,
+      "lat": 43.6642548,
+      "lon": -79.3877282
+    },
+    {
+      "type": "node",
+      "id": 2011442388,
+      "lat": 43.664406,
+      "lon": -79.3870188
+    },
+    {
+      "type": "node",
+      "id": 2122031170,
+      "lat": 43.6641538,
+      "lon": -79.3881797
+    },
+    {
+      "type": "node",
+      "id": 2122031174,
+      "lat": 43.6641922,
+      "lon": -79.3880078
+    },
+    {
+      "type": "node",
+      "id": 2143223207,
+      "lat": 43.6649511,
+      "lon": -79.3873955
+    },
+    {
+      "type": "node",
+      "id": 2143247536,
+      "lat": 43.6652715,
+      "lon": -79.3875308
+    },
+    {
+      "type": "node",
+      "id": 2143247537,
+      "lat": 43.6660494,
+      "lon": -79.3878586
+    },
+    {
+      "type": "node",
+      "id": 2144623112,
+      "lat": 43.666979,
+      "lon": -79.3882917
+    },
+    {
+      "type": "node",
+      "id": 2259551272,
+      "lat": 43.6671401,
+      "lon": -79.3883666
+    },
+    {
+      "type": "node",
+      "id": 25628751,
+      "lat": 43.665712,
+      "lon": -79.3809391
+    },
+    {
+      "type": "node",
+      "id": 25628755,
+      "lat": 43.6662909,
+      "lon": -79.3783341
+    },
+    {
+      "type": "node",
+      "id": 387461258,
+      "lat": 43.665154,
+      "lon": -79.3834381
+    },
+    {
+      "type": "node",
+      "id": 566834635,
+      "lat": 43.6662613,
+      "lon": -79.3784514
+    },
+    {
+      "type": "node",
+      "id": 579261535,
+      "lat": 43.6656872,
+      "lon": -79.3810442
+    },
+    {
+      "type": "node",
+      "id": 579261540,
+      "lat": 43.665738,
+      "lon": -79.3808288
+    },
+    {
+      "type": "node",
+      "id": 835054147,
+      "lat": 43.6656066,
+      "lon": -79.3813727
+    },
+    {
+      "type": "node",
+      "id": 1215003674,
+      "lat": 43.6652885,
+      "lon": -79.3828079
+    },
+    {
+      "type": "node",
+      "id": 1215003708,
+      "lat": 43.665358,
+      "lon": -79.3824824
+    },
+    {
+      "type": "node",
+      "id": 1606080457,
+      "lat": 43.6659301,
+      "lon": -79.3799426
+    },
+    {
+      "type": "node",
+      "id": 2144965164,
+      "lat": 43.6660459,
+      "lon": -79.3794143
+    },
+    {
+      "type": "node",
+      "id": 2259558022,
+      "lat": 43.6650918,
+      "lon": -79.3837465
+    },
+    {
+      "type": "node",
+      "id": 2259558023,
+      "lat": 43.6651052,
+      "lon": -79.38368
+    },
+    {
+      "type": "node",
+      "id": 2259560899,
+      "lat": 43.6654517,
+      "lon": -79.3820462
+    },
+    {
+      "type": "node",
+      "id": 2259563187,
+      "lat": 43.6655663,
+      "lon": -79.3815298
+    },
+    {
+      "type": "node",
+      "id": 2259563236,
+      "lat": 43.6655385,
+      "lon": -79.3816629
+    },
+    {
+      "type": "node",
+      "id": 2344842860,
+      "lat": 43.665312,
+      "lon": -79.3826982
+    },
+    {
+      "type": "node",
+      "id": 3061625655,
+      "lat": 43.6659455,
+      "lon": -79.3798734
+    },
+    {
+      "type": "node",
+      "id": 29689090,
+      "lat": 43.6601957,
+      "lon": -79.3770279
+    }
+  ]
+}
