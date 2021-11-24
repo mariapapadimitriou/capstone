@@ -13,7 +13,7 @@ export default class App extends Component {
       <div style={{width:'100%',height:'100%'}}>
           <MapContainer center={[43.6426, -79.3871]} zoom={12} style={{width:'100%',height:'100%'}}>
           <TileLayer
-          url="https://api.mapbox.com/styles/v1/johnvolpatti/ckvv5yxhi2itg14ph3tb8o5l6/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoiam9obnZvbHBhdHRpIiwiYSI6ImNrdnY2MzJnMjA1cDYydW9saHBpajFsZzkifQ.yWRTC-l5rfOh8ZDgGgxYDg"
+          url="https://api.mapbox.com/styles/v1/johnvolpatti/ckvvgtt4p28vi14ob4r1buo8o/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoiam9obnZvbHBhdHRpIiwiYSI6ImNrdnY2MzJnMjA1cDYydW9saHBpajFsZzkifQ.yWRTC-l5rfOh8ZDgGgxYDg"
           attribution="© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>"
           />
           </MapContainer>
