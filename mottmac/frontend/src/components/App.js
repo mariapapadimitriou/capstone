@@ -2,8 +2,13 @@ import React, { Component } from "react";
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { Icon } from "leaflet";
 import { render } from "react-dom";
-import * as intersection_data from "../../static/data/intersection_nodes.json";
+import * as intersection_data from "../../static/data/subset_intersections_nodes.json";
 //import * as bike_ways_data from "../../static/data/subset_bike_ways_nodes.json";
+
+const marker = new Icon({
+  iconUrl:"../../static/data/blue-circle.png",
+  iconSize:[7,7]
+})
 
 export default class App extends Component {
   constructor(props) {
@@ -19,7 +24,8 @@ export default class App extends Component {
           attribution="© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>"
           />
           {intersection_data.elements.map(
-          intersection => <Marker key={intersection.id} position ={[intersection.lat, intersection.lon]}/>)}
+          intersection => <Marker key={intersection.id} position ={[intersection.lat, intersection.lon]}
+          icon={marker}/>)}
           </MapContainer>
       </div>
       )
