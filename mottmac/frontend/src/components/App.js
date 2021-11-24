@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
 import { MapContainer, TileLayer, Marker } from "react-leaflet";
 import { Icon } from "leaflet";
 import { render } from "react-dom";
@@ -10,11 +9,6 @@ const marker = new Icon({
   iconUrl:"../../static/data/blue-circle.png",
   iconSize:[7,7]
 })
-=======
-import { MapContainer, TileLayer } from "react-leaflet";
-import { Icon } from "leaflet";
-import { render } from "react-dom";
->>>>>>> main
 
 export default class App extends Component {
   constructor(props) {
@@ -29,32 +23,17 @@ export default class App extends Component {
           url="https://api.mapbox.com/styles/v1/johnvolpatti/ckvvgtt4p28vi14ob4r1buo8o/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1Ijoiam9obnZvbHBhdHRpIiwiYSI6ImNrdnY2MzJnMjA1cDYydW9saHBpajFsZzkifQ.yWRTC-l5rfOh8ZDgGgxYDg"
           attribution="© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>"
           />
-<<<<<<< HEAD
           {intersection_data.elements.map(
           intersection => <Marker key={intersection.id} position ={[intersection.lat, intersection.lon]}
           icon={marker}/>)}
-=======
->>>>>>> main
           </MapContainer>
       </div>
       )
   }
 }
 
-<<<<<<< HEAD
 //{intersection_data.elements.map(
   //intersection => <Marker key={intersection.id} position ={[intersection.lat, intersection.lon]}/>)}
-=======
-/*export default function App (){
-    return (
-    <Map center = {[45, -75]} zoom={12}>
-        <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-        />
-    </Map>);
-}*/
->>>>>>> main
 
 const appDiv = document.getElementById("app");
 render(<App />, appDiv);
