@@ -7,7 +7,7 @@ import * as intersection_data from "../../static/data/subset_intersections_nodes
 
 const marker = new Icon({
   iconUrl:"../../static/data/blue-circle.png",
-  iconSize:[10,10]
+  iconSize:[20,20]
 })
 
 export default class App extends Component {
