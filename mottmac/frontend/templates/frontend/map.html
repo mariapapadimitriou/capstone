@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@sgratzl/chartjs-chart-boxplot@3.6.0/build/index.umd.min.js"></script>
+
+  </head>
+  <body>
+    <div class="chartMenu">
+    </div>
+    <div class="chartCard">
+      <div class="chartBox">
+        <canvas id="myChart"></canvas>
+      </div>
+    </div>
+
+    <script>
+    // setup 
+    const data = {
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+      datasets: [{
+        label: 'Weekly Sales',
+        outlierColor: "black",
+        padding: 0,
+        itemRadius: 0,
+        //data: [18, 12, 6, 9, 12, 3, 9],
+        data: [
+            randomValues(100, 0, 100),
+            randomValues(100, 0, 20),
+            randomValues(100, 20, 70),
+            randomValues(100, 60, 100),
+            randomValues(40, 50, 100),
+            randomValues(100, 60, 20),
+            randomValues(100, 80, 100),
+        ],
+        backgroundColor: 'rgba(255, 26, 104, 0.2)',
+        borderColor: 'rgba(255, 26, 104, 1)',
+        borderWidth: 1
+      }]
+    };
+
+    // config 
+    const config = {
+      type: 'boxplot',
+      data,
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    };
+
+    // render init block
+    const myChart = new Chart(
+      document.getElementById('myChart'),
+      config
+    );
+
+    function randomValues(count, min, max) {
+        const delta = max-min
+        return Array.from({length:count}).map(() => Math.random() * delta + min);
+    }
+    </script>
+
+  </body>
+</html>
