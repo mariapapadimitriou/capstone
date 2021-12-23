@@ -19,23 +19,5 @@ from django.urls.conf import include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-<<<<<<< Updated upstream
-<<<<<<< HEAD
     path('', include('frontend.urls'))
 ]
-=======
-<<<<<<< HEAD
-=======
->>>>>>> Stashed changes
-    path('home/', include('api.urls')),
-    path('', include('frontend.urls')),
-]
-<<<<<<< Updated upstream
-=======
-    path('', include('frontend.urls'))
-]
->>>>>>> main
->>>>>>> origin/john
-=======
-
->>>>>>> Stashed changes

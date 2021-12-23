@@ -371,13 +371,14 @@ function updateRoute() {
 
     for (let i = 0; i < draw.getAll().features.length; i++) {
       const routeid = draw.getAll().features[i].id
-      getMatch(newCoords, radius, profile, routeid);
+      const routeidx = i
+      getMatch(newCoords, radius, profile, routeid, routeidx);
     }
   }
 
 
 // Make a Map Matching request
-async function getMatch(coordinates, radius, profile, routeid) {
+async function getMatch(coordinates, radius, profile, routeid, routeidx) {
   // Separate the radiuses with semicolons
   const radiuses = radius.join(';');
   // Create the query
@@ -396,11 +397,13 @@ async function getMatch(coordinates, radius, profile, routeid) {
   // Get the coordinates from the response
   const coords = response.matchings[0].geometry;
   // Draw the route on the map
-  addRoute(coords, routeid);
+  addRoute(coords, routeid, routeidx);
 }
 
+const colours = ['#36b9cc', "#4e73df", "#1cc88a"];
+
 // Draw the Map Matching route as a new layer on the map
-function addRoute(coords, routeid) {
+function addRoute(coords, routeid, routeidx) {
       // Add a new layer to the map
 
       map.addLayer({
@@ -419,7 +422,7 @@ function addRoute(coords, routeid) {
           'line-cap': 'round'
         },
         paint: {
-          'line-color': '#36b9cc',
+          'line-color': colours[routeidx],
           'line-width': 4,
           'line-opacity': 1
         }
@@ -429,9 +432,10 @@ function addRoute(coords, routeid) {
 
 
   function removeRoute(routeid) {
-    if (!map.getSource(routeid)) return;
-    map.removeLayer(routeid);
-    map.removeSource(routeid);
+    const id = routeid.features[0].id
+    if (!map.getSource(id)) return;
+    map.removeLayer(id);
+    map.removeSource(id);
   }
 
   map.addControl(
