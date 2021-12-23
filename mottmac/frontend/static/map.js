@@ -372,7 +372,10 @@ function updateRoute() {
     for (let i = 0; i < draw.getAll().features.length; i++) {
       const routeid = draw.getAll().features[i].id
       const routeidx = i
-      getMatch(newCoords, radius, profile, routeid, routeidx);
+
+      if (typeof map.getLayer(routeid) == 'undefined') {
+        getMatch(newCoords, radius, profile, routeid, routeidx);
+      }
     }
   }
 
