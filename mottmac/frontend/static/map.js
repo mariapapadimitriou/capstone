@@ -494,22 +494,23 @@ function updateLegend() {
 
   const answer = document.getElementById('legend');
   var routes = []
-  
-  console.log(id_colours)
-  console.log(Object.keys(id_colours).length)
-  
-  for (let i = 0; i < draw.getAll().features.length; i++) {
-    
-    const routeid = draw.getAll().features[i].id
 
-    routes.push("<p style='color:")
-    routes.push(id_colours[routeid])
-    routes.push(";'>")
-    routes.push("Route")
-    routes.push(i+1)
-    routes.push("</p>")
-  
-    answer.innerHTML = routes.join(" ");
+  if (draw.getAll().features.length >= 1) {
+    for (let i = 0; i < draw.getAll().features.length; i++) {
+      const routeid = draw.getAll().features[i].id
+
+      routes.push("<p style='color:")
+      routes.push(id_colours[routeid])
+      routes.push(";'>")
+      routes.push("Route")
+      routes.push(i+1)
+      routes.push("</p>")
+    
+      answer.innerHTML = routes.join(" ");
+    }
+  }
+  else {
+    answer.innerHTML = "";
   }
 }
 
