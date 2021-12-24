@@ -356,11 +356,11 @@ maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
 
   });
 
-  // Use the coordinates you drew to make the Map Matching API request
-function updateRoute() {
+  function createRoute() {
     // Set the profile
     const profile = 'driving';
     // Get the coordinates that were drawn on the map
+
     const data = draw.getAll();
     const lastFeature = data.features.length - 1;
     const coords = data.features[lastFeature].geometry.coordinates;
@@ -374,8 +374,34 @@ function updateRoute() {
       const routeidx = i
 
       if (typeof map.getLayer(routeid) == 'undefined') {
+        
         getMatch(newCoords, radius, profile, routeid, routeidx);
       }
+    }
+  }
+
+
+function updateRoute() {
+    // Set the profile
+
+    const profile = 'driving';
+    // Get the coordinates that were drawn on the map
+
+    const data = draw.getAll();
+    const lastFeature = data.features.length - 1;
+
+    const coords = data.features[lastFeature].geometry.coordinates;
+    // Format the coordinates
+    const newCoords = coords.join(';');
+    // Set the radius for each coordinate pair to 25 meters
+    const radius = coords.map(() => 25);
+
+    const routeid = draw.getAll().features[lastFeature].id
+
+    if (typeof map.getLayer(routeid) !== 'undefined') {
+      map.removeLayer(routeid)
+      map.removeSource(routeid)
+      getMatch(newCoords, radius, profile, routeid, lastFeature);
     }
   }
 
@@ -400,6 +426,7 @@ async function getMatch(coordinates, radius, profile, routeid, routeidx) {
   // Get the coordinates from the response
   const coords = response.matchings[0].geometry;
   // Draw the route on the map
+  
   addRoute(coords, routeid, routeidx);
 }
 
@@ -422,7 +449,8 @@ function addRoute(coords, routeid, routeidx) {
         },
         layout: {
           'line-join': 'round',
-          'line-cap': 'round'
+          'line-cap': 'round',
+          visibility: 'visible',
         },
         paint: {
           'line-color': colours[routeidx],
@@ -453,7 +481,7 @@ function addRoute(coords, routeid, routeidx) {
     // Add the draw tool to the map.
   map.addControl(draw);
 
-  map.on('draw.create', updateRoute);
+  map.on('draw.create', createRoute);
   map.on('draw.update', updateRoute);
   map.on('draw.delete', removeRoute);
 
