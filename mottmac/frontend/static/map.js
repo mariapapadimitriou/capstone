@@ -357,8 +357,9 @@ maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
     ]
   });
 
+  const num_routes = 0;
   const colours = ['#36b9cc', "#4e73df", "#1cc88a"];
-  var id_colours = {}
+  var id_colours = {};
 
   function createRoute() {
     // Set the profile
@@ -422,7 +423,7 @@ async function getMatch(coordinates, radius, profile, routeid, routeidx) {
   // Handle errors
   if (response.code !== 'Ok') {
     alert(
-      `${response.code} - ${response.message}.\n\nFor more information: https://docs.mapbox.com/api/navigation/map-matching/#map-matching-api-errors`
+      `${response.code} - ${response.message}.\n\nPlease input a valid route near a road.`
     );
     return;
   }
@@ -512,5 +513,15 @@ function updateLegend() {
   else {
     answer.innerHTML = "";
   }
-}
 
+  if (draw.getAll().features.length == 3) {
+    var drawLine = document.getElementsByClassName('mapbox-gl-draw_line');
+    drawLine[0].disabled = true;
+    drawLine[0].classList.add('disabled-button');
+  }
+  else {
+    var drawLine = document.getElementsByClassName('mapbox-gl-draw_line');
+    drawLine[0].disabled = false;
+    drawLine[0].classList.remove('disabled-button');
+  }
+}

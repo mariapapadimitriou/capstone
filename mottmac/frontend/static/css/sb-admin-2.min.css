@@ -135,6 +135,11 @@ input[type="range"]:active::-webkit-slider-thumb{
   border-width: thin;
 }
   
+.disabled-button {
+  -webkit-filter: opacity(.3) drop-shadow(0 0 0 #FFF);
+  filter: opacity(.3) drop-shadow(0 0 0 #FFF);
+  cursor: default !important;
+}
 
 
 te
