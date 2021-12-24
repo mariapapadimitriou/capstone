@@ -122,17 +122,12 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .legend-box {
   height: 180px;
-  width: 100px;
-  position: absolute;
-  top: 60px;
-  left: 10px;
-  background-color:white;
-  text-align: center;
-  padding: 10px;
-  border-radius: 8px;
-  border-style: solid;
-  border-color: #e0e0e0;
-  border-width: thin;
+  width: 100%;
+  top: 10px;
+  position: relative;
+  background-color: white;
+  text-align: left;
+  margin-left: -10px;
 }
   
 .disabled-button {

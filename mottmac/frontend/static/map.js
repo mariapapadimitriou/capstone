@@ -388,7 +388,7 @@ maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
 function updateRoute() {
     // Set the profile
 
-    const profile = 'driving';
+    const profile = 'cycling';
     // Get the coordinates that were drawn on the map
 
     const data = draw.getAll();
@@ -500,15 +500,15 @@ function updateLegend() {
     for (let i = 0; i < draw.getAll().features.length; i++) {
       const routeid = draw.getAll().features[i].id
 
-      routes.push("<p style='color:")
+      routes.push("<span style='color:")
       routes.push(id_colours[routeid])
       routes.push(";'>")
-      routes.push("Route")
+      routes.push("<b>Route")
       routes.push(i+1)
-      routes.push("</p>")
-    
-      answer.innerHTML = routes.join(" ");
+      routes.push("</b></span>")
+      routes.push("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
     }
+    answer.innerHTML = routes.join(" ");
   }
   else {
     answer.innerHTML = "";
