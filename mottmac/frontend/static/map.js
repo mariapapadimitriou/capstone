@@ -291,10 +291,12 @@ maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
     el.className = 'marker';
 
     // make a marker for each feature and add it to the map
-    new mapboxgl.Marker(el)
-      .setLngLat([feature.lon, feature.lat])
-      .addTo(map);
+    new mapboxgl.Marker(el, {
+      draggable: false,
+
+    }).setLngLat([feature.lon, feature.lat]).addTo(map);
   }
+  
 
   const draw = new MapboxDraw({
     // Instead of showing all the draw tools, show only the line string and delete tools.
@@ -353,8 +355,10 @@ maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
         }
       }
     ]
-
   });
+
+  const colours = ['#36b9cc', "#4e73df", "#1cc88a"];
+  var id_colours = {}
 
   function createRoute() {
     // Set the profile
@@ -379,7 +383,6 @@ maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
       }
     }
   }
-
 
 function updateRoute() {
     // Set the profile
@@ -430,8 +433,6 @@ async function getMatch(coordinates, radius, profile, routeid, routeidx) {
   addRoute(coords, routeid, routeidx);
 }
 
-const colours = ['#36b9cc', "#4e73df", "#1cc88a"];
-
 // Draw the Map Matching route as a new layer on the map
 function addRoute(coords, routeid, routeidx) {
       // Add a new layer to the map
@@ -458,15 +459,16 @@ function addRoute(coords, routeid, routeidx) {
           'line-opacity': 1
         }
       });
-    
+      id_colours[routeid] = colours[routeidx]
+      updateLegend()
   }
-
 
   function removeRoute(routeid) {
     const id = routeid.features[0].id
     if (!map.getSource(id)) return;
     map.removeLayer(id);
     map.removeSource(id);
+    updateLegend()
   }
 
   map.addControl(
@@ -475,7 +477,8 @@ function addRoute(coords, routeid, routeidx) {
         mapboxgl: mapboxgl,
         marker: false,
         bbox: [-79.644849,43.553266,-79.068067,43.849127], // Boundary for Toronto
-    })
+    }),
+    "top-right"
 );
 
     // Add the draw tool to the map.
@@ -486,3 +489,27 @@ function addRoute(coords, routeid, routeidx) {
   map.on('draw.delete', removeRoute);
 
 map.addControl(new mapboxgl.FullscreenControl());
+
+function updateLegend() {
+
+  const answer = document.getElementById('legend');
+  var routes = []
+  
+  console.log(id_colours)
+  console.log(Object.keys(id_colours).length)
+  
+  for (let i = 0; i < draw.getAll().features.length; i++) {
+    
+    const routeid = draw.getAll().features[i].id
+
+    routes.push("<p style='color:")
+    routes.push(id_colours[routeid])
+    routes.push(";'>")
+    routes.push("Route")
+    routes.push(i+1)
+    routes.push("</p>")
+  
+    answer.innerHTML = routes.join(" ");
+  }
+}
+
