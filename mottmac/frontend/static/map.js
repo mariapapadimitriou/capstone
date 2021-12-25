@@ -262,28 +262,29 @@ function updateLegend() {
   const answer = document.getElementById('legend');
   var routes = []
 
-  routes.push("<div class='row'>")
+  routes.push("<div class='row'><div class='col'>")
 
   if (draw.getAll().features.length >= 1) {
     for (let i = 0; i < draw.getAll().features.length; i++) {
       const routeid = draw.getAll().features[i].id
 
-      routes.push("<div class='col-4'><span style='color:")
+      routes.push("<div class='row'><span style='margin-left: 10px; color:")
       routes.push(id_colours[routeid])
       routes.push(";'>")
       routes.push("<b>Route")
       routes.push(i+1)
-      routes.push("</b></span>")
-      routes.push("<div style='height: 10px;'></div>")
+      routes.push("</b></span></div>")
+      routes.push("<div style='height:10px'></div>")
+      routes.push("<div class='row' style='display: flex; justify-content: space-between; margin-right: 1px; margin-left: -1px;'>")
       routes.push("<button class='buttonmode' id ='share" + i + "' type='button' onclick=selectOption(this.id)>Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
-      routes.push("<div style='height: 10px;'></div>")
       routes.push("<button class='buttonmode' type='button' id ='strip" + i + "' onclick=selectOption(this.id)>Striped &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
-      routes.push("<div style='height: 10px;'></div>")
       routes.push("<button class='buttonmode' type='button' id ='protect" + i + "' onclick=selectOption(this.id)>Protected &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
       routes.push("</div>")
+      routes.push("<div style='height:20px'></div>")
     }
-    routes.push("</div>")
+    routes.push("</div><div style='height:20px'></div>")
     answer.innerHTML = routes.join(" ");
+    console.log(routes.join(" "))
   }
   else {
 
