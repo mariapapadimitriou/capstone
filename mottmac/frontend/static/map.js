@@ -122,7 +122,6 @@ maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
     ]
   });
 
-  const num_routes = 0;
   const colours = ['#36b9cc', "#4e73df", "#1cc88a"];
   var id_colours = {};
 
@@ -153,7 +152,7 @@ maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
 function updateRoute() {
     // Set the profile
 
-    const profile = 'cycling';
+    const profile = 'driving';
     // Get the coordinates that were drawn on the map
 
     const data = draw.getAll();
@@ -209,19 +208,32 @@ function getValues(dic) {
   return vals
 }
 
-function getNewColour() {
-  console.log(colours.filter(x => !getValues(id_colours).includes(x)))
-  const c = colours.filter(x => !getValues(id_colours).includes(x))[0]
-  return c
+function getKeys(dic) {
+  var keys = []
+  for (var key in dic) {
+    keys.push(key)
+  }
+  return keys
 }
 
+function getNewColour() {
+  const touse = colours.filter(x => !getValues(id_colours).includes(x))[0]
+  return touse
+}
 
 // Draw the Map Matching route as a new layer on the map
 function addRoute(coords, routeid, routeidx) {
       // Add a new layer to the map
 
-      const c = getNewColour()
-
+      if (typeof(id_colours[routeid]) != 'undefined') {
+        var c = id_colours[routeid]
+        
+      }
+      else {
+        var c = getNewColour()
+        id_colours[routeid] = c
+      }
+    
       map.addLayer({
         id: routeid,
         type: 'line',
@@ -239,13 +251,13 @@ function addRoute(coords, routeid, routeidx) {
           visibility: 'visible',
         },
         paint: {
-          'line-color': c,
+          'line-color': id_colours[routeid],
           'line-width': 4,
           'line-opacity': 1
         }
       });
-
-      id_colours[routeid] = c
+    
+      console.log(id_colours)
       updateLegend()
   }
 
@@ -255,9 +267,8 @@ function addRoute(coords, routeid, routeidx) {
     if (!map.getSource(id)) return;
     map.removeLayer(id);
     map.removeSource(id);
-    delete id_colours[id]
-    console.log(id_colours)
     updateLegend()
+    delete id_colours[id]
   }
 
   map.addControl(

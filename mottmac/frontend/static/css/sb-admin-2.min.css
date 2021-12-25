@@ -138,7 +138,7 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .buttonmode {
   background-color: white;
-  color: #858796;
+  color: #5a5c69;
   border-radius: 20px;
   border-width: 1px;
   width: 95px;
@@ -146,7 +146,7 @@ input[type="range"]:active::-webkit-slider-thumb{
   font-size: 12px;
   text-align: center;
   font-weight: bold;
-  border-color: #858796;
+  border-color: #5a5c69;
 }
 
 .buttonmode:hover {
