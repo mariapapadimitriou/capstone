@@ -331,7 +331,9 @@ function updateLegend() {
     newdrawline.disabled = true;
 
     drawLine[0].classList.add('disabled-button');
+    newdrawline.classList.add('hey-disabled');
   }
+  
   else {
     var drawLine = document.getElementsByClassName('mapbox-gl-draw_line');
     var newdrawline = document.getElementById('hey');
@@ -340,6 +342,7 @@ function updateLegend() {
     newdrawline.disabled = false;
 
     drawLine[0].classList.remove('disabled-button');
+    newdrawline.classList.remove('hey-disabled');
   }
 }
 

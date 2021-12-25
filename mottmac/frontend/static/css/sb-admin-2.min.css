@@ -154,7 +154,23 @@ input[type="range"]:active::-webkit-slider-thumb{
   color: #5a5c69;
   border-radius: 10px; 
   border-width: 1px;
-  height: 30px;
+  height: 35px;
+  font-weight: bold;
+}
+
+.hey .fa fa-plus-circle {
+  color: black;
+}
+
+.hey-disabled {
+  background-color: white;
+  color: #B3B3B3;
+  border-color: #B1B9B9;
+}
+
+.hey-disabled:hover {
+  background-color: white !important;
+  color: #B1B9B9 !important;
 }
 
 .hey:hover {
