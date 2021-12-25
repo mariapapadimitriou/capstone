@@ -68,7 +68,7 @@ maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
     displayControlsDefault: false,
     controls: {
       line_string: true,
-      trash: true
+      trash: true,
     },
     // Set the draw mode to draw LineStrings by default.
     defaultMode: 'draw_line_string',
@@ -190,6 +190,7 @@ async function getMatch(coordinates, radius, profile, routeid, routeidx) {
     alert(
       `${response.code} - ${response.message}.\n\nPlease input a valid route near a road.`
     );
+    draw.delete(routeid)
     return;
   }
   // Get the coordinates from the response
@@ -316,7 +317,12 @@ function selectOption(btn) {
 
     var count = type_map[type][routeid]
 
-    if (count == 1) {
+    const total_clicked = (arraySum(share) + arraySum(strip) + arraySum(protect))
+
+    console.log(total_clicked)
+
+    if (total_clicked <= 3) {
+      if (count == 1) {
         property.style.backgroundColor = "white"
         property.style.color = "#5a5c69"
         type_map[type][routeid] = 0;        
@@ -330,7 +336,16 @@ function selectOption(btn) {
     }
   }
 
+}
+
   function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
   }
-  
+
+  function arraySum(array) {
+    var sum = 0
+    for (let i=0; i < array.length; i++) {
+      sum += array[i]
+    }
+    return sum
+  }
