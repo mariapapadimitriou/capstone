@@ -144,7 +144,7 @@ maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
 
       if (typeof map.getLayer(routeid) == 'undefined') {
         
-        getMatch(newCoords, radius, profile, routeid, routeidx);
+        getMatch(newCoords, radius, profile, routeid);
       }
     }
   }
