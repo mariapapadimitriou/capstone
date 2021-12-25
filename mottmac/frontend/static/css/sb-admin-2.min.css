@@ -149,6 +149,19 @@ input[type="range"]:active::-webkit-slider-thumb{
   border-color: #5a5c69;
 }
 
+.hey {
+  background-color: white;
+  color: #5a5c69;
+  border-radius: 10px; 
+  border-width: 1px;
+  height: 30px;
+}
+
+.hey:hover {
+  background-color: #5a5c69;
+  color: white;
+}
+
 .buttonmode:hover {
   background-color: #5a5c69;
   color: white;

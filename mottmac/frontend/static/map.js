@@ -71,7 +71,7 @@ maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
       trash: true,
     },
     // Set the draw mode to draw LineStrings by default.
-    defaultMode: 'draw_line_string',
+    defaultMode: 'simple_select',
     styles: [
       // Set the line style for the user-input coordinates.
       {
@@ -288,6 +288,7 @@ function addRoute(coords, routeid) {
   map.on('draw.delete', removeRoute);
 
 map.addControl(new mapboxgl.FullscreenControl());
+map.addControl(new mapboxgl.NavigationControl());
 
 function updateLegend() {
 
@@ -322,14 +323,22 @@ function updateLegend() {
     answer.innerHTML = "";
   }
 
-  if (draw.getAll().features.length == 3) {
+  if (draw.getAll().features.length == 2) {
     var drawLine = document.getElementsByClassName('mapbox-gl-draw_line');
+    var newdrawline = document.getElementById('hey');
+
     drawLine[0].disabled = true;
+    newdrawline.disabled = true;
+
     drawLine[0].classList.add('disabled-button');
   }
   else {
     var drawLine = document.getElementsByClassName('mapbox-gl-draw_line');
+    var newdrawline = document.getElementById('hey');
+
     drawLine[0].disabled = false;
+    newdrawline.disabled = false;
+
     drawLine[0].classList.remove('disabled-button');
   }
 }
@@ -377,3 +386,7 @@ function selectOption(btn) {
     }
     return sum
   }
+
+  document.getElementById('hey').onclick = function () {
+    draw.changeMode('draw_line_string');
+}
