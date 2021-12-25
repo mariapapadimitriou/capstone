@@ -235,6 +235,7 @@ function addRoute(coords, routeid, routeidx) {
     if (!map.getSource(id)) return;
     map.removeLayer(id);
     map.removeSource(id);
+    delete id_colours[id]
     updateLegend()
   }
 
@@ -284,7 +285,6 @@ function updateLegend() {
     }
     routes.push("</div><div style='height:20px'></div>")
     answer.innerHTML = routes.join(" ");
-    console.log(routes.join(" "))
   }
   else {
 
@@ -319,8 +319,6 @@ function selectOption(btn) {
     var count = type_map[type][routeid]
 
     const total_clicked = (arraySum(share) + arraySum(strip) + arraySum(protect))
-
-    console.log(total_clicked)
 
     if ((count == 0) & (total_clicked <= 2)) {
       property.style.backgroundColor = "#5a5c69"
