@@ -200,9 +200,27 @@ async function getMatch(coordinates, radius, profile, routeid, routeidx) {
   addRoute(coords, routeid, routeidx);
 }
 
+
+function getValues(dic) {
+  var vals = []
+  for (var key in dic) {
+    vals.push(dic[key])
+  }
+  return vals
+}
+
+function getNewColour() {
+  console.log(colours.filter(x => !getValues(id_colours).includes(x)))
+  const c = colours.filter(x => !getValues(id_colours).includes(x))[0]
+  return c
+}
+
+
 // Draw the Map Matching route as a new layer on the map
 function addRoute(coords, routeid, routeidx) {
       // Add a new layer to the map
+
+      const c = getNewColour()
 
       map.addLayer({
         id: routeid,
@@ -221,21 +239,24 @@ function addRoute(coords, routeid, routeidx) {
           visibility: 'visible',
         },
         paint: {
-          'line-color': colours[routeidx],
+          'line-color': c,
           'line-width': 4,
           'line-opacity': 1
         }
       });
-      id_colours[routeid] = colours[routeidx]
+
+      id_colours[routeid] = c
       updateLegend()
   }
 
   function removeRoute(routeid) {
+    console.log(id_colours)
     const id = routeid.features[0].id
     if (!map.getSource(id)) return;
     map.removeLayer(id);
     map.removeSource(id);
     delete id_colours[id]
+    console.log(id_colours)
     updateLegend()
   }
 
