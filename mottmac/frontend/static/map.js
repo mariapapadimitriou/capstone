@@ -155,27 +155,26 @@ function updateRoute() {
     const profile = 'driving';
     // Get the coordinates that were drawn on the map
 
-    const data = draw.getAll();
-    const lastFeature = data.features.length - 1;
+    const data = draw.getSelected();
 
-    const coords = data.features[lastFeature].geometry.coordinates;
+    const coords = data.features[0].geometry.coordinates;
     // Format the coordinates
     const newCoords = coords.join(';');
     // Set the radius for each coordinate pair to 25 meters
     const radius = coords.map(() => 25);
 
-    const routeid = draw.getAll().features[lastFeature].id
+    const routeid = draw.getSelectedIds()[0]
 
     if (typeof map.getLayer(routeid) !== 'undefined') {
       map.removeLayer(routeid)
       map.removeSource(routeid)
-      getMatch(newCoords, radius, profile, routeid, lastFeature);
+      getMatch(newCoords, radius, profile, routeid);
     }
   }
 
 
 // Make a Map Matching request
-async function getMatch(coordinates, radius, profile, routeid, routeidx) {
+async function getMatch(coordinates, radius, profile, routeid) {
   // Separate the radiuses with semicolons
   const radiuses = radius.join(';');
   // Create the query
@@ -190,13 +189,15 @@ async function getMatch(coordinates, radius, profile, routeid, routeidx) {
       `${response.code} - ${response.message}.\n\nPlease input a valid route near a road.`
     );
     draw.delete(routeid)
+    delete id_colours[routeid]
+    updateLegend()
     return;
   }
   // Get the coordinates from the response
   const coords = response.matchings[0].geometry;
   // Draw the route on the map
   
-  addRoute(coords, routeid, routeidx);
+  addRoute(coords, routeid);
 }
 
 
@@ -222,7 +223,7 @@ function getNewColour() {
 }
 
 // Draw the Map Matching route as a new layer on the map
-function addRoute(coords, routeid, routeidx) {
+function addRoute(coords, routeid) {
       // Add a new layer to the map
 
       if (typeof(id_colours[routeid]) != 'undefined') {
@@ -257,12 +258,10 @@ function addRoute(coords, routeid, routeidx) {
         }
       });
     
-      console.log(id_colours)
       updateLegend()
   }
 
   function removeRoute(routeid) {
-    console.log(id_colours)
     const id = routeid.features[0].id
     if (!map.getSource(id)) return;
     map.removeLayer(id);
