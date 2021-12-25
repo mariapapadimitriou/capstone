@@ -274,11 +274,11 @@ function updateLegend() {
       routes.push(i+1)
       routes.push("</b></span>")
       routes.push("<div style='height: 10px;'></div>")
-      routes.push("<button class='buttonmode' id ='share" + i + "' type='button' onclick=selectOption(this.id)>Sharrows <i class='fa fa-plus-circle'></i></button>")
+      routes.push("<button class='buttonmode' id ='share" + i + "' type='button' onclick=selectOption(this.id)>Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
       routes.push("<div style='height: 10px;'></div>")
-      routes.push("<button class='buttonmode' type='button' id ='strip" + i + "' onclick=selectOption(this.id)>Striped <i class='fa fa-plus-circle'></i></button>")
+      routes.push("<button class='buttonmode' type='button' id ='strip" + i + "' onclick=selectOption(this.id)>Striped &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
       routes.push("<div style='height: 10px;'></div>")
-      routes.push("<button class='buttonmode' type='button' id ='protect" + i + "' onclick=selectOption(this.id)>Protected <i class='fa fa-plus-circle'></i></button>")
+      routes.push("<button class='buttonmode' type='button' id ='protect" + i + "' onclick=selectOption(this.id)>Protected &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
       routes.push("</div>")
     }
     routes.push("</div>")
@@ -309,6 +309,7 @@ function selectOption(btn) {
     var property = document.getElementById(btn);
 
     var type_map = {"share" : share, "strip" : strip, "protect" : protect}
+    const type_full = {"share" : "Sharrows", "strip" : "Striped", "protect" : "Protected"}
 
     const type = btn.slice(0, -1)
     const routeid = btn.charAt(btn.length-1)
@@ -319,10 +320,17 @@ function selectOption(btn) {
         property.style.backgroundColor = "white"
         property.style.color = "#5a5c69"
         type_map[type][routeid] = 0;        
+        property.innerHTML = type_full[type] + "&nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i>"
     }
     else {
         property.style.backgroundColor = "#5a5c69"
         property.style.color = "white"
         type_map[type][routeid] = 1;
+        property.innerHTML = type_full[type] + "&nbsp;&nbsp;&nbsp;<i class='fas fa-check'></i>"
     }
-}
+  }
+
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+  
