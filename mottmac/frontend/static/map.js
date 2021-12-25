@@ -38,241 +38,6 @@ const geojson = {
             "tags": {
               "highway": "traffic_signals"
             }
-          },
-          {
-            "type": "node",
-            "id": 20979761,
-            "lat": 43.6575829,
-            "lon": -79.3893464,
-            "tags": {
-              "highway": "traffic_signals"
-            }
-          },
-          {
-            "type": "node",
-            "id": 21436517,
-            "lat": 43.6598263,
-            "lon": -79.3905908,
-            "tags": {
-              "highway": "traffic_signals",
-              "protected_left_turn": "s"
-            }
-          },
-          {
-            "type": "node",
-            "id": 21436518,
-            "lat": 43.6598822,
-            "lon": -79.3903312,
-            "tags": {
-              "highway": "traffic_signals",
-              "protected_left_turn": "s"
-            }
-          },
-          {
-            "type": "node",
-            "id": 21631731,
-            "lat": 43.6640762,
-            "lon": -79.3984403,
-            "tags": {
-              "highway": "traffic_signals"
-            }
-          },
-          {
-            "type": "node",
-            "id": 21631733,
-            "lat": 43.6630941,
-            "lon": -79.4019954,
-            "tags": {
-              "highway": "traffic_signals"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959504,
-            "lat": 43.6643769,
-            "lon": -79.3871554,
-            "tags": {
-              "highway": "traffic_signals",
-              "permissive_left_turn": "w"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959505,
-            "lat": 43.6656549,
-            "lon": -79.3876919,
-            "tags": {
-              "highway": "traffic_signals"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959509,
-            "lat": 43.6624808,
-            "lon": -79.386369,
-            "tags": {
-              "highway": "traffic_signals"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959510,
-            "lat": 43.6615668,
-            "lon": -79.386094,
-            "tags": {
-              "highway": "traffic_signals",
-              "traffic_signals": "signal"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959511,
-            "lat": 43.6608075,
-            "lon": -79.3858484,
-            "tags": {
-              "highway": "traffic_signals"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959512,
-            "lat": 43.6612236,
-            "lon": -79.3876917,
-            "tags": {
-              "highway": "stop"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959515,
-            "lat": 43.6605206,
-            "lon": -79.3873978,
-            "tags": {
-              "highway": "traffic_signals"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959516,
-            "lat": 43.6581872,
-            "lon": -79.3863686,
-            "tags": {
-              "highway": "traffic_signals"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959535,
-            "lat": 43.6634971,
-            "lon": -79.4000445,
-            "tags": {
-              "highway": "traffic_signals"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959539,
-            "lat": 43.6646701,
-            "lon": -79.4026205,
-            "tags": {
-              "highway": "traffic_signals",
-              "note": "No left turn from Spadina"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959542,
-            "lat": 43.6659399,
-            "lon": -79.4010187,
-            "tags": {
-              "highway": "stop"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959543,
-            "lat": 43.6650766,
-            "lon": -79.4006727,
-            "tags": {
-              "highway": "stop",
-              "stop": "all"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959546,
-            "lat": 43.6654314,
-            "lon": -79.398973,
-            "tags": {
-              "highway": "stop",
-              "note": "No left turn from St. George NB, 3:30-6:30p M-F",
-              "stop": "all"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959549,
-            "lat": 43.6620826,
-            "lon": -79.3976065,
-            "tags": {
-              "highway": "traffic_signals"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959553,
-            "lat": 43.6613168,
-            "lon": -79.4012896,
-            "tags": {
-              "highway": "traffic_signals"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959556,
-            "lat": 43.6600802,
-            "lon": -79.3986803,
-            "tags": {
-              "highway": "stop",
-              "note": "No stop signs facing middle of these two intersections"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959557,
-            "lat": 43.6600368,
-            "lon": -79.3988896,
-            "tags": {
-              "highway": "stop",
-              "note": "No stop signs facing middle of these two intersections"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959569,
-            "lat": 43.659659,
-            "lon": -79.3998677,
-            "tags": {
-              "highway": "traffic_signals"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24959584,
-            "lat": 43.6594997,
-            "lon": -79.4015277,
-            "tags": {
-              "highway": "traffic_signals"
-            }
-          },
-          {
-            "type": "node",
-            "id": 24960090,
-            "lat": 43.663141,
-            "lon": -79.3927677,
-            "tags": {
-              "highway": "stop"
-            }
           }
     ]};
     
@@ -496,21 +261,31 @@ function updateLegend() {
   const answer = document.getElementById('legend');
   var routes = []
 
+  routes.push("<div class='row'>")
+
   if (draw.getAll().features.length >= 1) {
     for (let i = 0; i < draw.getAll().features.length; i++) {
       const routeid = draw.getAll().features[i].id
 
-      routes.push("<span style='color:")
+      routes.push("<div class='col-4'><span style='color:")
       routes.push(id_colours[routeid])
       routes.push(";'>")
       routes.push("<b>Route")
       routes.push(i+1)
       routes.push("</b></span>")
-      routes.push("&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;")
+      routes.push("<div style='height: 10px;'></div>")
+      routes.push("<button class='buttonmode' id ='share" + i + "' type='button' onclick=selectOption(this.id)>Sharrows <i class='fa fa-plus-circle'></i></button>")
+      routes.push("<div style='height: 10px;'></div>")
+      routes.push("<button class='buttonmode' type='button' id ='strip" + i + "' onclick=selectOption(this.id)>Striped <i class='fa fa-plus-circle'></i></button>")
+      routes.push("<div style='height: 10px;'></div>")
+      routes.push("<button class='buttonmode' type='button' id ='protect" + i + "' onclick=selectOption(this.id)>Protected <i class='fa fa-plus-circle'></i></button>")
+      routes.push("</div>")
     }
+    routes.push("</div>")
     answer.innerHTML = routes.join(" ");
   }
   else {
+
     answer.innerHTML = "";
   }
 
@@ -524,4 +299,30 @@ function updateLegend() {
     drawLine[0].disabled = false;
     drawLine[0].classList.remove('disabled-button');
   }
+}
+
+var share = [0,0,0];
+var strip = [0,0,0];
+var protect = [0,0,0];
+
+function selectOption(btn) {
+    var property = document.getElementById(btn);
+
+    var type_map = {"share" : share, "strip" : strip, "protect" : protect}
+
+    const type = btn.slice(0, -1)
+    const routeid = btn.charAt(btn.length-1)
+
+    var count = type_map[type][routeid]
+
+    if (count == 1) {
+        property.style.backgroundColor = "white"
+        property.style.color = "#5a5c69"
+        type_map[type][routeid] = 0;        
+    }
+    else {
+        property.style.backgroundColor = "#5a5c69"
+        property.style.color = "white"
+        type_map[type][routeid] = 1;
+    }
 }
