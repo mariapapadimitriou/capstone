@@ -321,20 +321,18 @@ function selectOption(btn) {
 
     console.log(total_clicked)
 
-    if (total_clicked <= 3) {
-      if (count == 1) {
-        property.style.backgroundColor = "white"
-        property.style.color = "#5a5c69"
-        type_map[type][routeid] = 0;        
-        property.innerHTML = type_full[type] + "&nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i>"
+    if ((count == 0) & (total_clicked <= 2)) {
+      property.style.backgroundColor = "#5a5c69"
+      property.style.color = "white"
+      type_map[type][routeid] = 1;
+      property.innerHTML = type_full[type] + "&nbsp;&nbsp;&nbsp;<i class='fas fa-check'></i>"
     }
     else {
-        property.style.backgroundColor = "#5a5c69"
-        property.style.color = "white"
-        type_map[type][routeid] = 1;
-        property.innerHTML = type_full[type] + "&nbsp;&nbsp;&nbsp;<i class='fas fa-check'></i>"
+      property.style.backgroundColor = "white"
+      property.style.color = "#5a5c69"
+      type_map[type][routeid] = 0;        
+      property.innerHTML = type_full[type] + "&nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i>"
     }
-  }
 
 }
 
