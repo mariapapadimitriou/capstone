@@ -45,7 +45,7 @@ const map = new mapboxgl.Map({
 container: 'app', // container ID
 style: 'mapbox://styles/mapbox/light-v9', // style URL
 center: [-79.347015, 43.651070], // starting position [lng, lat]
-zoom: 12, // starting zoom
+zoom: 15, // starting zoom
 maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
 });
 
@@ -349,6 +349,9 @@ function updateLegend() {
 
     newdrawline.innerHTML = "Add New Route&nbsp<i class='fas fa-plus-circle'></i>"
   }
+  share = [0,0,0];
+  strip = [0,0,0];
+  protect = [0,0,0];
 }
 
 var share = [0,0,0];
