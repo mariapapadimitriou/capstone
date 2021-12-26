@@ -413,7 +413,6 @@ function updateCharts(){
     var routeid = draw.getAll().features[i].id
     c.push(id_colours[routeid])
     coords.push(id_coords[routeid].coordinates)
-    console.log(coords)
 
   var data = {
     "routetypes": {'sharrows': share, "striped": strip, "protected": protect},
