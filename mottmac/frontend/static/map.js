@@ -383,7 +383,7 @@ function selectOption(btn) {
       type_map[type][routeid] = 0;        
       property.innerHTML = type_full[type] + "&nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i>"
     }
-
+    updateCharts()
 }
 
   function capitalizeFirstLetter(string) {
@@ -400,4 +400,14 @@ function selectOption(btn) {
 
   document.getElementById('hey').onclick = function () {
     draw.changeMode('draw_line_string');
+}
+
+function updateCharts(){
+  var data = {
+    "routetypes": {'sharrows': share, "striped": strip, "protected": protect},
+    "colours": [],
+    "coordinates": [],
+    "ocerrides":[]
+};
+  $.post("", data);
 }
