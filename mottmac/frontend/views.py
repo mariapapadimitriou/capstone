@@ -5,11 +5,6 @@ from django.http import HttpResponse
 @csrf_exempt 
 def index(request):
 
-    lane_types = {}
+    print(request.POST)
 
-    for i in request.POST:
-        types = i[:-2]
-        lane_types[types] = request.POST.getlist(i)
-    print(lane_types)
-
-    return render(request, 'frontend/index.html')
+    return render(request, 'frontend/index.html', {})

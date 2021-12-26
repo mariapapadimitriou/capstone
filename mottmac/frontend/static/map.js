@@ -124,6 +124,7 @@ maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
 
   const colours = ['#36b9cc', "#4e73df", "#1cc88a"];
   var id_colours = {};
+  var id_coords = {};
 
   function createRoute() {
     // Set the profile
@@ -257,7 +258,8 @@ function addRoute(coords, routeid) {
           'line-opacity': 1
         }
       });
-    
+      
+      id_coords[routeid] = coords
       updateLegend()
   }
 
@@ -268,6 +270,7 @@ function addRoute(coords, routeid) {
     map.removeSource(id);
     updateLegend()
     delete id_colours[id]
+    delete id_coords[id]
   }
 
   map.addControl(
@@ -403,11 +406,21 @@ function selectOption(btn) {
 }
 
 function updateCharts(){
+  var c = []
+  var coords = []
+
+  for (let i = 0; i < draw.getAll().features.length; i++) {
+    var routeid = draw.getAll().features[i].id
+    c.push(id_colours[routeid])
+    coords.push(id_coords[routeid].coordinates)
+    console.log(coords)
+
   var data = {
     "routetypes": {'sharrows': share, "striped": strip, "protected": protect},
-    "colours": [],
-    "coordinates": [],
-    "ocerrides":[]
+    "colours": c,
+    "coordinates": coords,
+    "overrides":[]
 };
   $.post("", data);
+}
 }
