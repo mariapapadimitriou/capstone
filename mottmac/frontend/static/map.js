@@ -308,7 +308,7 @@ function updateLegend() {
       routes.push(i+1)
       routes.push("</b></span></div>")
       routes.push("<div style='height:10px'></div>")
-      routes.push("<div class='row' style='display: flex; justify-content: space-between; margin-right: 1px; margin-left: -1px;'>")
+      routes.push("<div class='row' style='display: flex; justify-content: space-between; margin-right: 1px; margin-left: -5px; margin-right: 5px;'>")
       routes.push("<button class='buttonmode' id ='share" + i + "' type='button' onclick=selectOption(this.id)>Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
       routes.push("<button class='buttonmode' type='button' id ='strip" + i + "' onclick=selectOption(this.id)>Striped &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
       routes.push("<button class='buttonmode' type='button' id ='protect" + i + "' onclick=selectOption(this.id)>Protected &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
@@ -323,15 +323,18 @@ function updateLegend() {
     answer.innerHTML = "";
   }
 
-  if (draw.getAll().features.length == 2) {
+  if (draw.getAll().features.length == 3) {
     var drawLine = document.getElementsByClassName('mapbox-gl-draw_line');
     var newdrawline = document.getElementById('hey');
 
     drawLine[0].disabled = true;
     newdrawline.disabled = true;
-
+    
     drawLine[0].classList.add('disabled-button');
     newdrawline.classList.add('hey-disabled');
+
+    newdrawline.innerHTML = "Add New Route&nbsp<i class='fas fa-ban'></i>"
+
   }
   
   else {
@@ -343,6 +346,8 @@ function updateLegend() {
 
     drawLine[0].classList.remove('disabled-button');
     newdrawline.classList.remove('hey-disabled');
+
+    newdrawline.innerHTML = "Add New Route&nbsp<i class='fas fa-plus-circle'></i>"
   }
 }
 
@@ -364,14 +369,14 @@ function selectOption(btn) {
     const total_clicked = (arraySum(share) + arraySum(strip) + arraySum(protect))
 
     if ((count == 0) & (total_clicked <= 2)) {
-      property.style.backgroundColor = "#5a5c69"
+      property.style.backgroundColor = "black"
       property.style.color = "white"
       type_map[type][routeid] = 1;
       property.innerHTML = type_full[type] + "&nbsp;&nbsp;&nbsp;<i class='fas fa-check'></i>"
     }
     else {
       property.style.backgroundColor = "white"
-      property.style.color = "#5a5c69"
+      property.style.color = "black"
       type_map[type][routeid] = 0;        
       property.innerHTML = type_full[type] + "&nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i>"
     }

@@ -127,9 +127,9 @@ input[type="range"]:active::-webkit-slider-thumb{
   position: relative;
   background-color: white;
   text-align: left;
-  margin-left: -10px;
+  margin-left: -5px;
 }
-  
+
 .disabled-button {
   -webkit-filter: opacity(.3) drop-shadow(0 0 0 #FFF);
   filter: opacity(.3) drop-shadow(0 0 0 #FFF);
@@ -138,7 +138,7 @@ input[type="range"]:active::-webkit-slider-thumb{
 
 .buttonmode {
   background-color: white;
-  color: #5a5c69;
+  color: black;
   border-radius: 20px;
   border-width: 1px;
   width: 95px;
@@ -146,40 +146,39 @@ input[type="range"]:active::-webkit-slider-thumb{
   font-size: 12px;
   text-align: center;
   font-weight: bold;
-  border-color: #5a5c69;
+  border-color: black;
 }
 
 .hey {
-  background-color: white;
-  color: #5a5c69;
-  border-radius: 10px; 
-  border-width: 1px;
+  background-color: black;
+  color: white;
+  border-radius: 20px; 
+  border-width: 2px;
   height: 35px;
   font-weight: bold;
-}
-
-.hey .fa fa-plus-circle {
-  color: black;
+  border-color: black;
 }
 
 .hey-disabled {
-  background-color: white;
-  color: #B3B3B3;
-  border-color: #B1B9B9;
+  background-color: black;
+  color: white;
+  border-color: white !important;
 }
 
 .hey-disabled:hover {
-  background-color: white !important;
-  color: #B1B9B9 !important;
+  background-color: black !important;
+  color: white !important;
+  border-color: white !important;
 }
 
 .hey:hover {
-  background-color: #5a5c69;
-  color: white;
+  background-color: white;
+  color: black;
+  border-color: black;
 }
 
 .buttonmode:hover {
-  background-color: #5a5c69;
+  background-color: black;
   color: white;
 }
 
