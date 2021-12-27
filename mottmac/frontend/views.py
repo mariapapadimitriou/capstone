@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 import numpy as np
+import json
 
 @csrf_exempt 
 def index(request):
@@ -36,23 +37,20 @@ def index(request):
             else:
                 result_store["coordinates"][indices].append(post_result.getlist(result))
 
-
     # USING RANDOM VALUES FOR NOW BUT WILL EVENTUALLY NEED TO CODE STUFF TO GET THESE NUMBERS
 
-    cost_plot = np.random.rand(2)
-    ridership_plot = np.random.rand(2)
-    emissions_plot = np.random.rand(2)
-    trafficvolume_plot = np.random.rand(2)
-    safety_plot = np.random.rand(2)
-
-    print(safety_plot)
+    cost_plot = list(np.random.rand(2))
+    ridership_plot = list(np.random.rand(2))
+    emissions_plot = list(np.random.rand(2))
+    trafficvolume_plot = list(np.random.rand(2))
+    safety_plot = list(np.random.rand(2))
 
     return render(request, 'frontend/index.html', {
-        "cost_plot" : cost_plot,
-        "ridership_plot" : ridership_plot,
-        "emissions_plot" : emissions_plot,
-        "trafficvolume_plot" : trafficvolume_plot,
-        "safety_plot" : safety_plot
+        "cost_plot" : json.dumps(cost_plot),
+        "ridership_plot" : json.dumps(ridership_plot),
+        "emissions_plot" : json.dumps(emissions_plot),
+        "trafficvolume_plot" : json.dumps(trafficvolume_plot),
+        "safety_plot" : json.dumps(safety_plot)
     })
 
 def getIndices(index_nums):

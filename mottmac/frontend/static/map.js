@@ -420,7 +420,6 @@ function updateCharts(){
     "coordinates": coords,
     "overrides":[sliderOne.value, sliderTwo.value]
 };
-console.log(sliderOne.value)
   $.post("", data);
 }
 }

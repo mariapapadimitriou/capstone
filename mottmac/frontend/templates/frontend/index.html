@@ -244,6 +244,19 @@
 <script type="text/javascript" src="{% static "linechart.js" %}"></script>
 <script type="text/javascript" src="{% static "sliders.js" %}"></script>
 
+
+<script>
+  var  cost_plot = {{ cost_plot }};
+  var  ridership_plot = {{ ridership_plot }};
+  var  emissions_plot = {{ emissions_plot }};
+  var  trafficvolume_plot = {{ trafficvolume_plot }};
+  var  safety_plot = {{ safety_plot }};
+
+  getCostPlot(cost_plot)
+
+</script>
+
+
 </body>
 
 </html>
