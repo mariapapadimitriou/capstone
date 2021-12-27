@@ -418,8 +418,9 @@ function updateCharts(){
     "routetypes": {'sharrows': share, "striped": strip, "protected": protect},
     "colours": c,
     "coordinates": coords,
-    "overrides":[]
+    "overrides":[sliderOne.value, sliderTwo.value]
 };
+console.log(sliderOne.value)
   $.post("", data);
 }
 }
