@@ -357,6 +357,8 @@ function updateLegend() {
   share = [0,0,0];
   strip = [0,0,0];
   protect = [0,0,0];
+
+  updateCharts()
 }
 
 var share = [0,0,0];
@@ -407,6 +409,8 @@ function selectOption(btn) {
     draw.changeMode('draw_line_string');
 }
 
+var data = {}
+
 function updateCharts(){
   var c = []
   var coords = []
@@ -416,37 +420,35 @@ function updateCharts(){
     c.push(id_colours[routeid])
     coords.push(id_coords[routeid].coordinates)
 
-  var data = {
+  data = {
     "routetypes": {'sharrows': share, "striped": strip, "protected": protect},
     "colours": c,
     "coordinates": coords,
     "overrides":[sliderOne.value, sliderTwo.value]
   };
   }
-  
-  $("#plotbtn").click(function() {
 
-    $.ajax({
-      type: "POST",
-      url: "/hi",
-      data: data,
-      dataType: 'json',
-      success: function(data) {
-        var plot_colours = data["colours_plot"]
-        var labels_plot = data["labels_plot"]
-        var cost_data = data["cost_data"]
-        var ridership_data = data["ridership_data"]
-        var emissions_data = data["emissions_data"]
-        var traffic_data = data["traffic_data"]
-        var safety_data = data["safety_data"]
+  $.ajax({
+    type: "POST",
+    url: "/hi",
+    data: data,
+    dataType: 'json',
+    success: function(data) {
+      var plot_colours = data["colours_plot"]
+      var labels_plot = data["labels_plot"]
+      var cost_data = data["cost_data"]
+      var ridership_data = data["ridership_data"]
+      var emissions_data = data["emissions_data"]
+      var traffic_data = data["traffic_data"]
+      var safety_data = data["safety_data"]
 
-        getCostPlot(plot_colours, labels_plot, cost_data)
-        getRidershipPlot(plot_colours, labels_plot, ridership_data)
-        getEmissionsPlot(plot_colours, labels_plot, emissions_data)
-        getTrafficPlot(plot_colours, labels_plot, traffic_data)
-        getSafetyPlot(plot_colours, labels_plot, safety_data)
+      getCostPlot(plot_colours, labels_plot, cost_data)
+      getRidershipPlot(plot_colours, labels_plot, ridership_data)
+      getEmissionsPlot(plot_colours, labels_plot, emissions_data)
+      getTrafficPlot(plot_colours, labels_plot, traffic_data)
+      getSafetyPlot(plot_colours, labels_plot, safety_data)
 
-      }
-    });
+    }
   });
+
 }
