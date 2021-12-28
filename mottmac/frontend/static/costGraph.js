@@ -1,36 +1,21 @@
-function getCostPlot(datapoints) {
-    var data = [
-        {
+function getCostPlot(cost_plot_colours, cost_plot_labels, cost_plot_data) {
+
+    var data = []
+
+    for (let i = 0; i < cost_plot_colours.length; i++) {
+
+        point = {
             type: 'box',
             marker: {
-                color: "#4e73df"
+                color: cost_plot_colours[i]
             },
-            name: "Route 1",
-            y: datapoints,
+            name: cost_plot_labels[i],
+            y: cost_plot_data[i],
             x: ["Cost", "Cost"],
-            showlegend: false,
-        },
-        {
-            type: 'box',
-            marker: {
-                color: "#36b9cc"
-            },
-            name: "Route 2",
-            y: datapoints,
-            x: ["Cost", "Cost"],
-            showlegend: false,
-        },
-        {
-            type: 'box',
-            marker: {
-                color: "#1cc88a"
-            },
-            name: "Route 3",
-            y: datapoints,
-            x: ["Cost", "Cost"],
-            showlegend: false,
+            showlegend: false
         }
-    ]
+        data.push(point)
+    }
                                           
     var layout = {
         font: {
@@ -63,5 +48,6 @@ function getCostPlot(datapoints) {
             hoverformat: '.2r', 
         },
     };
+
     return Plotly.newPlot('cost', data, layout, {displayModeBar: false});
 }
