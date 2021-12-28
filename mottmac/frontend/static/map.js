@@ -417,7 +417,7 @@ function updateCharts(){
 
   for (let i = 0; i < draw.getAll().features.length; i++) {
     var routeid = draw.getAll().features[i].id
-    c.push(id_colours[routeid])
+    c.push(id_colours[routeid])  
     coords.push(id_coords[routeid].coordinates)
 
   data = {
@@ -427,6 +427,8 @@ function updateCharts(){
     "overrides":[sliderOne.value, sliderTwo.value]
   };
   }
+
+  var new_colours = []
 
   $.ajax({
     type: "POST",
@@ -443,12 +445,25 @@ function updateCharts(){
       var safety_data = data["safety_data"]
       var multi_data = data["multi_data"]
 
-      getCostPlot(plot_colours, labels_plot, cost_data)
-      getRidershipPlot(plot_colours, labels_plot, ridership_data)
-      getEmissionsPlot(plot_colours, labels_plot, emissions_data)
-      getTrafficPlot(plot_colours, labels_plot, traffic_data)
-      getSafetyPlot(plot_colours, labels_plot, safety_data)
-      getMultiObjective(plot_colours, labels_plot, multi_data)
+      for (let i = 0; i < plot_colours.length; i++) {
+        if (new_colours.includes(pSBC(0.5, plot_colours[i]))) {
+          new_colours.push(pSBC(-0.750, plot_colours[i]))
+        }
+        else if (new_colours.includes(plot_colours[i])) {
+          new_colours.push(pSBC(0.5, plot_colours[i]))
+        }
+        else {
+          new_colours.push(plot_colours[i])
+        }
+      }
+
+      console.log(new_colours)
+      getCostPlot(new_colours, labels_plot, cost_data)
+      getRidershipPlot(new_colours, labels_plot, ridership_data)
+      getEmissionsPlot(new_colours, labels_plot, emissions_data)
+      getTrafficPlot(new_colours, labels_plot, traffic_data)
+      getSafetyPlot(new_colours, labels_plot, safety_data)
+      getMultiObjective(new_colours, labels_plot, multi_data)
 
     }
   });
