@@ -145,16 +145,16 @@
                                 </div>
                                 <div class="col-3">
                                   <div style = "height: 20px;"></div>
-                                  <div class="col justify-content-between" style = "margin-left: -10px;">
-                                    <button class="hey" id="hey">Add New Route&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>
-                                    &nbsp;&nbsp;&nbsp;
-                                    <button class="plotbtn" id="plotbtn" onclick='plot()'>Plot&nbsp;&nbsp;<i class='fas fa-sync-alt'></i></button>
-                                  </div>
-                                  <div class="legend-box" id="legend-box">
-                                    <p style="font-weight: bold; color: black;">Legend</p>
-                                    <div id="legend">
+                                    <div style = "justify-content: left; margin-left: -10px;">
+                                      <button class="hey" id="hey">Add New Route&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>
+                                      &nbsp;&nbsp;&nbsp;
+                                      <button class="plotbtn" id="plotbtn">Plot&nbsp;&nbsp;<i class='fas fa-sync-alt'></i></button>
                                     </div>
-                                  </div>
+                                    <div class="legend-box" id="legend-box">
+                                      <p style="font-weight: bold; color: black;">Legend</p>
+                                      <div id="legend">
+                                      </div>
+                                    </div>
                                 </div>
                               </div>
                             </div>
@@ -227,9 +227,6 @@
                 <div class="container my-auto">
                     <div class="copyright text-center my-auto">
                         <span>Copyright &copy; Maria Papadimitriou</span>
-                        {{ cost_plot_colours }}
-                        {{ cost_plot_labels }}
-                        {{ cost_plot_data }}
                     </div>
                 </div>
             </footer>
@@ -252,15 +249,6 @@
 
 <script>
 
-function plot() {
-
-  var cost_plot_colours = {{ cost_plot_colours }}
-  var cost_plot_labels = {{ cost_plot_labels }}
-  var cost_plot_data = {{ cost_plot_data }}
-
-  console.log(cost_plot_colours)
-
-}
 
 </script>
 

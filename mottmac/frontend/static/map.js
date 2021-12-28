@@ -293,12 +293,14 @@ function addRoute(coords, routeid) {
 map.addControl(new mapboxgl.FullscreenControl());
 map.addControl(new mapboxgl.NavigationControl());
 
+var routes = []
 function updateLegend() {
 
   const answer = document.getElementById('legend');
   var routes = []
 
   routes.push("<div class='row'><div class='col'>")
+
 
   if (draw.getAll().features.length >= 1) {
     for (let i = 0; i < draw.getAll().features.length; i++) {
@@ -312,9 +314,9 @@ function updateLegend() {
       routes.push("</b></span></div>")
       routes.push("<div style='height:10px'></div>")
       routes.push("<div class='row' style='display: flex; justify-content: space-between; margin-right: 1px; margin-left: -5px; margin-right: 5px;'>")
-      routes.push("<button class='buttonmode' id ='share" + i + "' type='button' onclick='selectOption(this.id)'>Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
-      routes.push("<button class='buttonmode' type='button' id ='strip" + i + "' onclick='selectOption(this.id)'>Striped &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
-      routes.push("<button class='buttonmode' type='button' id ='protect" + i + "' onclick='selectOption(this.id)'>Protected &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
+      routes.push("<button class='buttonmode' id ='share" + i + "' type='submit' onclick='selectOption(this.id)'>Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
+      routes.push("<button class='buttonmode' type='submit' id ='strip" + i + "' onclick='selectOption(this.id)'>Striped &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
+      routes.push("<button class='buttonmode' type='submit' id ='protect" + i + "' onclick='selectOption(this.id)'>Protected &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
       routes.push("</div>")
       routes.push("<div style='height:20px'></div>")
     }
@@ -419,7 +421,22 @@ function updateCharts(){
     "colours": c,
     "coordinates": coords,
     "overrides":[sliderOne.value, sliderTwo.value]
-};
-  $.post("", data);
-}
+  };
+  }
+  
+  $("#plotbtn").click(function() {
+
+    $.ajax({
+      type: "POST",
+      url: "/hi",
+      data: data,
+      dataType: 'json',
+      success: function(data) {
+        var cost_plot_colours = data["cost_plot_colours"]
+        var cost_plot_labels = data["cost_plot_labels"]
+        var cost_plot_data = data["cost_plot_data"]
+        getCostPlot(cost_plot_colours, cost_plot_labels, cost_plot_data)
+      }
+    });
+  });
 }

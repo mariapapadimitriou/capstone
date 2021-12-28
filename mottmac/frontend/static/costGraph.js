@@ -49,5 +49,5 @@ function getCostPlot(cost_plot_colours, cost_plot_labels, cost_plot_data) {
         },
     };
 
-    return Plotly.newPlot('cost', data, layout, {displayModeBar: false});
+    return Plotly.newPlot('cost', data, layout);
 }
