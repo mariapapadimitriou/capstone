@@ -432,10 +432,20 @@ function updateCharts(){
       data: data,
       dataType: 'json',
       success: function(data) {
-        var cost_plot_colours = data["cost_plot_colours"]
-        var cost_plot_labels = data["cost_plot_labels"]
-        var cost_plot_data = data["cost_plot_data"]
-        getCostPlot(cost_plot_colours, cost_plot_labels, cost_plot_data)
+        var plot_colours = data["colours_plot"]
+        var labels_plot = data["labels_plot"]
+        var cost_data = data["cost_data"]
+        var ridership_data = data["ridership_data"]
+        var emissions_data = data["emissions_data"]
+        var traffic_data = data["traffic_data"]
+        var safety_data = data["safety_data"]
+
+        getCostPlot(plot_colours, labels_plot, cost_data)
+        getRidershipPlot(plot_colours, labels_plot, ridership_data)
+        getEmissionsPlot(plot_colours, labels_plot, emissions_data)
+        getTrafficPlot(plot_colours, labels_plot, traffic_data)
+        getSafetyPlot(plot_colours, labels_plot, safety_data)
+
       }
     });
   });

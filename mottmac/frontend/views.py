@@ -114,39 +114,53 @@ def index2(request):
 
     # USING RANDOM VALUES FOR NOW BUT WILL EVENTUALLY NEED TO CODE STUFF TO GET THESE NUMBERS
 
-    cost_plot = {"colours": [], "label": [], "datapoints":[]}
+    colours_plot = []
+    labels_plot = []
+
+    cost_data = []
+    ridership_data = []
+    emissions_data = []
+    traffic_data = []
+    safety_data = []
 
     for i in range(len(result_store["colours"])):
 
         if result_store["routetypes"]["sharrows"][i] == "1":
-            label = "Route " + str(i + 1) + " - Sharrows"
-            cost_plot["label"].append(label)
-            cost_plot["colours"].append(result_store["colours"][i])
-            cost_plot["datapoints"].append(list(np.random.rand(2)))
+            label = "Sharrows"
+            labels_plot.append(label)
+            colours_plot.append(result_store["colours"][i])
+            cost_data.append(list(np.random.rand(2)))
+            ridership_data.append(list(np.random.rand(2)))
+            emissions_data.append(list(np.random.rand(2)))
+            traffic_data.append(list(np.random.rand(2)))
+            safety_data.append(list(np.random.rand(2)))
         if result_store["routetypes"]["striped"][i] == "1":
-            label = "Route " + str(i + 1) + " - Striped"
-            cost_plot["label"].append(label)
-            cost_plot["colours"].append(result_store["colours"][i])
-            cost_plot["datapoints"].append(list(np.random.rand(2)))
+            label = "Striped"
+            labels_plot.append(label)
+            colours_plot.append(result_store["colours"][i])
+            cost_data.append(list(np.random.rand(2)))
+            ridership_data.append(list(np.random.rand(2)))
+            emissions_data.append(list(np.random.rand(2)))
+            traffic_data.append(list(np.random.rand(2)))
+            safety_data.append(list(np.random.rand(2)))
         if result_store["routetypes"]["protected"][i] == "1":
-            label = "Route " + str(i + 1) + " - Protected"
-            cost_plot["label"].append(label)
-            cost_plot["colours"].append(result_store["colours"][i])
-            cost_plot["datapoints"].append(list(np.random.rand(2)))
+            label = "Protected"
+            labels_plot.append(label)
+            colours_plot.append(result_store["colours"][i])
+            cost_data.append(list(np.random.rand(2)))
+            ridership_data.append(list(np.random.rand(2)))
+            emissions_data.append(list(np.random.rand(2)))
+            traffic_data.append(list(np.random.rand(2)))
+            safety_data.append(list(np.random.rand(2)))
         
-    ridership_plot = list(np.random.rand(2))
-    emissions_plot = list(np.random.rand(2))
-    trafficvolume_plot = list(np.random.rand(2))
-    safety_plot = list(np.random.rand(2))
-
     context = {
-        "cost_plot_colours" : cost_plot["colours"],
-        "cost_plot_labels" : cost_plot["label"],
-        "cost_plot_data" : cost_plot["datapoints"],
-        "ridership_plot" : json.dumps(ridership_plot),
-        "emissions_plot" : json.dumps(emissions_plot),
-        "trafficvolume_plot" : json.dumps(trafficvolume_plot),
-        "safety_plot" : json.dumps(safety_plot)
+        "colours_plot" : colours_plot,
+        "labels_plot" : labels_plot,
+        "cost_data" : cost_data,
+        "ridership_data" : ridership_data,
+        "emissions_data" : emissions_data,
+        "traffic_data" : traffic_data,
+        "safety_data" : safety_data
     }
     return JsonResponse(context)
 

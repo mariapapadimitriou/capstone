@@ -1,16 +1,16 @@
-function getCostPlot(cost_plot_colours, cost_plot_labels, cost_plot_data) {
+function getCostPlot(plot_colours, plot_labels, plot_data) {
 
     var data = []
 
-    for (let i = 0; i < cost_plot_colours.length; i++) {
+    for (let i = 0; i < plot_colours.length; i++) {
 
         point = {
             type: 'box',
             marker: {
-                color: cost_plot_colours[i]
+                color: plot_colours[i]
             },
-            name: cost_plot_labels[i],
-            y: cost_plot_data[i],
+            name: plot_labels[i],
+            y: plot_data[i],
             x: ["Cost", "Cost"],
             showlegend: false
         }
@@ -49,5 +49,5 @@ function getCostPlot(cost_plot_colours, cost_plot_labels, cost_plot_data) {
         },
     };
 
-    return Plotly.newPlot('cost', data, layout);
+    return Plotly.newPlot('cost', data, layout, {displayModeBar: false});
 }
