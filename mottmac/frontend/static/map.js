@@ -44,7 +44,7 @@ const geojson = {
 const map = new mapboxgl.Map({
 container: 'app', // container ID
 style: 'mapbox://styles/mapbox/light-v9', // style URL
-center: [-79.347015, 43.651070], // starting position [lng, lat]
+center: [-79.3923, 43.6643], // starting position [lng, lat]
 zoom: 15, // starting zoom
 maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
 });
@@ -441,12 +441,14 @@ function updateCharts(){
       var emissions_data = data["emissions_data"]
       var traffic_data = data["traffic_data"]
       var safety_data = data["safety_data"]
+      var multi_data = data["multi_data"]
 
       getCostPlot(plot_colours, labels_plot, cost_data)
       getRidershipPlot(plot_colours, labels_plot, ridership_data)
       getEmissionsPlot(plot_colours, labels_plot, emissions_data)
       getTrafficPlot(plot_colours, labels_plot, traffic_data)
       getSafetyPlot(plot_colours, labels_plot, safety_data)
+      getMultiObjective(plot_colours, labels_plot, multi_data)
 
     }
   });

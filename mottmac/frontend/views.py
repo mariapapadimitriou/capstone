@@ -54,6 +54,7 @@ def index2(request):
     emissions_data = []
     traffic_data = []
     safety_data = []
+    multi_data = []
 
     for i in range(len(result_store["colours"])):
 
@@ -66,6 +67,7 @@ def index2(request):
             emissions_data.append(list(np.random.rand(2)))
             traffic_data.append(list(np.random.rand(2)))
             safety_data.append(list(np.random.rand(2)))
+            multi_data.append(list(np.random.rand(5)))
         if result_store["routetypes"]["striped"][i] == "1":
             label = "Striped"
             labels_plot.append(label)
@@ -75,6 +77,7 @@ def index2(request):
             emissions_data.append(list(np.random.rand(2)))
             traffic_data.append(list(np.random.rand(2)))
             safety_data.append(list(np.random.rand(2)))
+            multi_data.append(list(np.random.rand(5)))
         if result_store["routetypes"]["protected"][i] == "1":
             label = "Protected"
             labels_plot.append(label)
@@ -84,6 +87,7 @@ def index2(request):
             emissions_data.append(list(np.random.rand(2)))
             traffic_data.append(list(np.random.rand(2)))
             safety_data.append(list(np.random.rand(2)))
+            multi_data.append(list(np.random.rand(5)))
         
     context = {
         "colours_plot" : colours_plot,
@@ -92,7 +96,8 @@ def index2(request):
         "ridership_data" : ridership_data,
         "emissions_data" : emissions_data,
         "traffic_data" : traffic_data,
-        "safety_data" : safety_data
+        "safety_data" : safety_data,
+        "multi_data": multi_data,
     }
     return JsonResponse(context)
 

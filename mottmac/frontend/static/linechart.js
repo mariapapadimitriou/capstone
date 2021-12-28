@@ -1,31 +1,27 @@
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
 
+function getMultiObjective(plot_colours, plot_labels, plot_data) {
+
+  var multi_data = []
+
+  for (let i = 0; i < plot_colours.length; i++) {
+
+    point = {
+        data: plot_data[i],
+        label: plot_labels[i],
+        borderColor: plot_colours[i],
+        backgroundColor: plot_colours[i],
+        fill: false
+    }
+    multi_data.push(point)
+}
 
 new Chart(document.getElementById("myChart"), {
     type: 'line',
     data: {
       labels: ["Cost","Ridership","Emissions","Traffic Volume","Safety"],
-      datasets: [{ 
-          data: [0.8,0.3,0.7,0.7,0.76],
-          label: "Route 1 Sharrows",
-          borderColor: "#4e73df",
-          backgroundColor: "#4e73df",
-          fill: false
-        }, { 
-          data: [0.5,0.3,1,0.4,0.88],
-          label: "Route 1 Striped",
-          borderColor: "#1cc88a",
-          backgroundColor: "#1cc88a",
-          fill: false
-        }, { 
-          data: [0.58,0.73,0.47,0.17,0.69],
-          label: "Route 1 Protected",
-          borderColor: "#36b9cc",
-          backgroundColor: "#36b9cc",
-          fill: false
-        }
-      ]
+      datasets: multi_data
     },
     options: {
       elements: {
@@ -62,3 +58,4 @@ new Chart(document.getElementById("myChart"), {
       },
     }
   });
+}
