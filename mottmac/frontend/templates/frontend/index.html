@@ -63,7 +63,7 @@
                             <div class="card border-left-primary shadow h-100 py-2">
                               <div class="card-body">
                                 <div class="row" style="margin-top: -15px;">
-                                  <div class="col" style="height: 120px;">
+                                  <div class="col" style="height: 200px;">
                                     <div class="text-s font-weight-bold text-primary text-uppercase mb-1">Cost <i class="fas fa-info-circle"></i></div>
                                     <div id="cost" style="margin: 0px; padding:0px; width: 100%; height: 100%;"></div>
                                   </div>
@@ -77,7 +77,7 @@
                             <div class="card border-left-primary shadow h-100 py-2">
                               <div class="card-body">
                                 <div class="row" style="margin-top: -15px;">
-                                  <div class="col" style="height: 120px;">
+                                  <div class="col" style="height: 200px;">
                                     <div class="text-s font-weight-bold text-primary text-uppercase mb-1">Ridership <i class="fas fa-info-circle"></i></div>
                                     <div id="ridership" style="margin: 0px; padding:0px; width: 100%; height: 100%;"></div>
                                   </div>
@@ -164,9 +164,9 @@
                               <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                 <h6 class="m-0 font-weight-bold text-primary">Overrides</h6>
                               </div>
-                              <div class="card-body" style="height: 380px; font-size: 16px;">
+                              <div class="card-body" style="font-size: 16px;">
                                 <div class="row">
-                                  <div class="col-4" style="color: #5a5c69; font-weight: bold;">Cost  <i class="fas fa-info-circle"></i></div>
+                                  <div class="col-4" style="color: #5a5c69; font-weight: bold;">Cost - Sharrows  <i class="fas fa-info-circle"></i></div>
                                   <div class="col-1" style="text-align: center">
                                     <span id="range1">0</span>
                                   </div>
@@ -182,7 +182,39 @@
                                 </div>
                                 <div class="row" style="margin-top: 10px; margin-bottom: 10px;"></div>
                                 <div class="row">
-                                  <div class="col-4" style="color: #5a5c69; font-weight: bold;">% New Riders  <i class="fas fa-info-circle"></i></div>
+                                  <div class="col-4" style="color: #5a5c69; font-weight: bold;">Cost - Striped  <i class="fas fa-info-circle"></i></div>
+                                  <div class="col-1" style="text-align: center">
+                                    <span id="range1-striped">0</span>
+                                  </div>
+                                  <div class="col-5">
+                                    <div class="slider-striped">
+                                      <input type="range" min="0" max="100" value="30" id="slider1-striped" oninput="slideOneStriped()">
+                                      <input type="range" min="0" max="100" value="70" id="slider2-striped" oninput="slideTwoStriped()">
+                                    </div>
+                                  </div>
+                                  <div class="col-2" style="text-align: center">
+                                    <span id="range2-striped">100</span>
+                                  </div>
+                                </div>
+                                <div class="row" style="margin-top: 10px; margin-bottom: 10px;"></div>
+                                <div class="row">
+                                  <div class="col-4" style="color: #5a5c69; font-weight: bold;">Cost - Protected  <i class="fas fa-info-circle"></i></div>
+                                  <div class="col-1" style="text-align: center">
+                                    <span id="range1-protect">0</span>
+                                  </div>
+                                  <div class="col-5">
+                                    <div class="slider-protect">
+                                      <input type="range" min="0" max="100" value="30" id="slider1-protect" oninput="slideOneProtect()">
+                                      <input type="range" min="0" max="100" value="70" id="slider2-protect" oninput="slideTwoProtect()">
+                                    </div>
+                                  </div>
+                                  <div class="col-2" style="text-align: center">
+                                    <span id="range2-protect">100</span>
+                                  </div>
+                                </div>
+                                <div class="row" style="margin-top: 10px; margin-bottom: 10px;"></div>
+                                <div class="row">
+                                  <div class="col-4" style="color: #5a5c69; font-weight: bold;">% Bike Riders  <i class="fas fa-info-circle"></i></div>
                                   <div class="col-1" style="text-align: center">
                                     <span id="rangeRide1">0</span>
                                   </div>

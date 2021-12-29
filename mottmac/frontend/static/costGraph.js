@@ -29,7 +29,7 @@ function getCostPlot(plot_colours, plot_labels, plot_data) {
             autoexpand: true,
             b: 0,
             t: 0,
-            l: 20,
+            l: 30,
             r: 0
         },
         hovermode:'closest',

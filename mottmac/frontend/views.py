@@ -3,6 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 import numpy as np
 import json
 from django.http import JsonResponse
+np.random.seed(1)
 
 
 @csrf_exempt 
@@ -19,7 +20,7 @@ def index2(request):
         "routetypes": {},
         "colours": [],
         "coordinates": {},
-        "overrides":[]
+        "overrides":{}
     }
 
     for result in post_result:
@@ -43,6 +44,17 @@ def index2(request):
                 result_store["coordinates"][indices] = [post_result.getlist(result)]
             else:
                 result_store["coordinates"][indices].append(post_result.getlist(result))
+        if "overrides" in result:
+            if "cost_sharrows" in result:
+                result_store["overrides"]["cost_sharrows"] = post_result.getlist(result)
+            if "riders" in result:
+                result_store["overrides"]["riders"] = post_result.getlist(result)
+            if "cost_striped" in result:
+                result_store["overrides"]["cost_striped"] = post_result.getlist(result)
+            if "cost_protected" in result:
+                result_store["overrides"]["cost_protected"] = post_result.getlist(result)
+
+    print(result_store)
 
     # USING RANDOM VALUES FOR NOW BUT WILL EVENTUALLY NEED TO CODE STUFF TO GET THESE NUMBERS
 

@@ -424,7 +424,12 @@ function updateCharts(){
     "routetypes": {'sharrows': share, "striped": strip, "protected": protect},
     "colours": c,
     "coordinates": coords,
-    "overrides":[sliderOne.value, sliderTwo.value]
+    "overrides": {
+      "cost_sharrows": [sliderOne.value, sliderTwo.value], 
+      "riders": [sliderRide1.value, sliderRide2.value],
+      "cost_protected": [sliderOne_protect.value, sliderTwo_protect.value],
+      "cost_striped": [sliderOne_striped.value, sliderTwo_striped.value]
+    }
   };
   }
 
