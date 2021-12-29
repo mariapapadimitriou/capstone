@@ -20,7 +20,8 @@ def index2(request):
         "routetypes": {},
         "colours": [],
         "coordinates": {},
-        "overrides":{}
+        "overrides":{},
+        "length_of_paths":{}
     }
 
     for result in post_result:

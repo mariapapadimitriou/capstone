@@ -465,7 +465,6 @@ function updateCharts(){
       getCostPlot(new_colours, labels_plot, cost_data)
       getRidershipPlot(new_colours, labels_plot, ridership_data)
       getEmissionsPlot(new_colours, labels_plot, emissions_data)
-      getTrafficPlot(new_colours, labels_plot, traffic_data)
       getSafetyPlot(new_colours, labels_plot, safety_data)
       getMultiObjective(new_colours, labels_plot, multi_data)
 
