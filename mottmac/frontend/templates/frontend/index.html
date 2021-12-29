@@ -2,29 +2,271 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Bike is life</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Bike Route Comparison Tool</title>
     {% load static %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-    />
-    <link rel="stylesheet" type="text/css" href="{% static "css/index.css" %}"
-    />
-    <link
-    rel="stylesheet"
-    href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css"
-    integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ=="
-    crossorigin=""
-    />
+    
+
+    <!-- Custom fonts for this template-->
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+
+    <link rel="stylesheet" type="text/css" href="{% static "css/sb-admin-2.min.css" %}"/>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
+    <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
+
+    <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
+    <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet"/>
+
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.2/mapbox-gl-draw.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.2/mapbox-gl-draw.css" type="text/css">
+    <script src='https://cdn.plot.ly/plotly-2.6.3.min.js'></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/4ba8d40944.js" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
+    
   </head>
-  <body>
-    <div id="main">
-      <div id="app"></div>
+
+  <body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Begin Page Content -->
+                <div class="container-fluid" style="padding: 20px">
+
+                    <!-- Content Row -->
+                    <div class="row align-items-top row-grid">
+                      <div class="col-xl-3 col-md-12" id="allplots">
+                        <div class="row" style="padding: 0px 0px 0px 0px;">
+                          <div class="col">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                              <div class="card-body">
+                                <div class="row" style="margin-top: -15px;">
+                                  <div class="col" style="height: 200px;">
+                                    <div class="text-s font-weight-bold text-primary text-uppercase mb-1"><span data-tooltip-text="Cost (CAD) to construct proposed bike lane">Cost <i class="fas fa-info-circle"></i></span></div>
+                                    <div id="cost" style="margin: 0px; padding:0px; width: 100%; height: 100%;"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row" style="padding: 20px 0px 0px 0px;">
+                          <div class="col">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                              <div class="card-body">
+                                <div class="row" style="margin-top: -15px;">
+                                  <div class="col" style="height: 200px;">
+                                    <div class="text-s font-weight-bold text-primary text-uppercase mb-1"><span data-tooltip-text="Increase in number of bikers per day">Ridership <i class="fas fa-info-circle"></i></span></div>
+                                    <div id="ridership" style="margin: 0px; padding:0px; width: 100%; height: 100%;"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row" style="padding: 20px 0px 0px 0px;">
+                          <div class="col">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                              <div class="card-body">
+                                <div class="row" style="margin-top: -15px;">
+                                  <div class="col" style="height: 120px;">
+                                    <div class="text-s font-weight-bold text-primary text-uppercase mb-1"><span data-tooltip-text="% change in co2 emissions per year">Emissions <i class="fas fa-info-circle"></i></span></div>
+                                    <div id="emissions" style="margin: 0px; padding:0px; width: 100%; height: 100%;"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row" style="padding: 20px 0px 0px 0px;">
+                          <div class="col">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                              <div class="card-body">
+                                <div class="row" style="margin-top: -15px;">
+                                  <div class="col" style="height: 120px;">
+                                    <div class="text-s font-weight-bold text-primary text-uppercase mb-1"><span data-tooltip-text="KSI per year">Safety <i class="fas fa-info-circle"></i></span></div>
+                                    <div id="safety" style="margin: 0px; padding:0px; width: 100%; height: 100%;"></div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-9">
+                        <div class="row">
+                          <div class="col">
+                            <div class="card shadow mb-4">
+                              <!-- Card Header - Dropdown -->
+                              <div
+                                  class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                  <h6 class="m-0 font-weight-bold text-primary">Map</h6>
+                              </div>
+                              <!-- Card Body -->
+                              <div class="row">
+                                <div class="col-9">
+                                  <div id="app"></div>
+                                </div>
+                                <div class="col-3">
+                                  <div style = "height: 20px;"></div>
+                                    <div style = "justify-content: left; margin-left: -10px;">
+                                      <button class="hey" id="hey">Add New Route&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>
+                                    </div>
+                                    <div class="legend-box" id="legend-box">
+                                      <p style="font-weight: bold; color: black;">Legend</p>
+                                      <div id="legend">
+                                      </div>
+                                    </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col">
+                            <div class="card shadow mb-4">
+                              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Overrides</h6>
+                              </div>
+                              <div class="card-body" style="font-size: 14px;">
+                                <div class="row">
+                                  <div class="col-4" style="color: #5a5c69; font-weight: bold;">Cost - Sharrows  <i class="fas fa-info-circle"></i></div>
+                                  <div class="col-1" style="text-align: center">
+                                    <span id="range1">0</span>
+                                  </div>
+                                  <div class="col-5">
+                                    <div class="slider-track1" id="slidertrack1">
+                                      <input type="range" min="0" max="100" value="30" id="slider1" oninput="slideOne()">
+                                      <input type="range" min="0" max="100" value="70" id="slider2" oninput="slideTwo()">
+                                    </div>
+                                  </div>
+                                  <div class="col-2" style="text-align: center">
+                                    <span id="range2">100</span>
+                                  </div>
+                                </div>
+                                <div class="row" style="margin-top: 10px; margin-bottom: 10px;"></div>
+                                <div class="row">
+                                  <div class="col-4" style="color: #5a5c69; font-weight: bold;">Cost - Striped  <i class="fas fa-info-circle"></i></div>
+                                  <div class="col-1" style="text-align: center">
+                                    <span id="range1-striped">0</span>
+                                  </div>
+                                  <div class="col-5">
+                                    <div class="slider-striped">
+                                      <input type="range" min="0" max="100" value="30" id="slider1-striped" oninput="slideOneStriped()">
+                                      <input type="range" min="0" max="100" value="70" id="slider2-striped" oninput="slideTwoStriped()">
+                                    </div>
+                                  </div>
+                                  <div class="col-2" style="text-align: center">
+                                    <span id="range2-striped">100</span>
+                                  </div>
+                                </div>
+                                <div class="row" style="margin-top: 10px; margin-bottom: 10px;"></div>
+                                <div class="row">
+                                  <div class="col-4" style="color: #5a5c69; font-weight: bold;">Cost - Protected  <i class="fas fa-info-circle"></i></div>
+                                  <div class="col-1" style="text-align: center">
+                                    <span id="range1-protect">0</span>
+                                  </div>
+                                  <div class="col-5">
+                                    <div class="slider-protect">
+                                      <input type="range" min="0" max="100" value="30" id="slider1-protect" oninput="slideOneProtect()">
+                                      <input type="range" min="0" max="100" value="70" id="slider2-protect" oninput="slideTwoProtect()">
+                                    </div>
+                                  </div>
+                                  <div class="col-2" style="text-align: center">
+                                    <span id="range2-protect">100</span>
+                                  </div>
+                                </div>
+                                <div class="row" style="margin-top: 10px; margin-bottom: 10px;"></div>
+                                <div class="row">
+                                  <div class="col-4" style="color: #5a5c69; font-weight: bold;">% Bike Riders  <i class="fas fa-info-circle"></i></div>
+                                  <div class="col-1" style="text-align: center">
+                                    <span id="rangeRide1">0</span>
+                                  </div>
+                                  <div class="col-5">
+                                    <div class="slider-track2">
+                                      <input type="range" min="0" max="50" value="20" id="sliderRide1" oninput="slideOneRide()">
+                                      <input type="range" min="0" max="50" value="30" id="sliderRide2" oninput="slideTwoRide()">
+                                    </div>
+                                  </div>
+                                  <div class="col-2" style="text-align: center">
+                                    <span id="rangeRide2">100</span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="col">
+                            <div class="card shadow mb-4">
+                              <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                <h6 class="m-0 font-weight-bold text-primary">Multi-Objective Comparison</h6>
+                              </div>
+                              <div class="card-body">
+                                <div class="chart-area">
+                                  <div><canvas id="myChart" style="width:100%; height:330px"></canvas></div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+                <!-- /.container-fluid -->
+
+            </div>
+            <!-- End of Main Content -->
+
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Maria Papadimitriou</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+
     </div>
 
-    <script src="{% static "frontend/main.js" %}"></script>
-  </body>
+<script type="text/javascript" src="{% static "costGraph.js" %}"></script>
+<script type="text/javascript" src="{% static "ridershipGraph.js" %}"></script>
+<script type="text/javascript" src="{% static "emissionsGraph.js" %}"></script>
+<script type="text/javascript" src="{% static "trafficGraph.js" %}"></script>
+<script type="text/javascript" src="{% static "safetyGraph.js" %}"></script>
+<script type="text/javascript" src="{% static "map.js" %}"></script>
+<script type="text/javascript" src="{% static "linechart.js" %}"></script>
+<script type="text/javascript" src="{% static "sliders.js" %}"></script>
+
+
+<script>
+
+</script>
+
+</body>
+
 </html>
