@@ -215,9 +215,24 @@ function addRoute(coords, routeid) {
     if (!map.getSource(id)) return;
     map.removeLayer(id);
     map.removeSource(id);
-    updateLegend()
+    
     delete id_colours[id]
     delete id_coords[id]
+
+    if (draw.getAll().features.length == 0) {
+      
+      document.getElementById('legend').innerHTML = "";
+      
+      var share = [0,0,0];
+      var strip = [0,0,0];
+      var protect = [0,0,0];
+      updateCharts()
+    }
+    else {
+      updateLegend()
+    }
+    
+
   }
 
   map.addControl(
@@ -306,13 +321,13 @@ function updateLegend() {
   strip = [0,0,0];
   protect = [0,0,0];
 
-  updateCharts()
   updateButtons()
+  updateCharts()
+
 }
 
 function updateButtons() {
 
-  const total_clicked = (arraySum(share) + arraySum(strip) + arraySum(protect))
   const share1 = document.getElementById("share0")
   const share2 = document.getElementById("share1")
   const share3 = document.getElementById("share2")
@@ -384,9 +399,11 @@ function updateCharts(){
   var coords = []
 
   for (let i = 0; i < draw.getAll().features.length; i++) {
+  
     var routeid = draw.getAll().features[i].id
     c.push(id_colours[routeid])  
     coords.push(id_coords[routeid].coordinates)
+  }
 
   data = {
     "routetypes": {'sharrows': share, "striped": strip, "protected": protect},
@@ -398,7 +415,6 @@ function updateCharts(){
       "cost_protected": [sliderOne_protect.value, sliderTwo_protect.value],
       "cost_striped": [sliderOne_striped.value, sliderTwo_striped.value]
     }
-  };
   }
 
   var new_colours = []
