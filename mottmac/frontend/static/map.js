@@ -207,6 +207,7 @@ function addRoute(coords, routeid) {
       });
       
       id_coords[routeid] = coords
+
       updateLegend()
   }
 
@@ -397,18 +398,21 @@ var data = {}
 function updateCharts(){
   var c = []
   var coords = []
+  var arr_length = []
 
   for (let i = 0; i < draw.getAll().features.length; i++) {
   
     var routeid = draw.getAll().features[i].id
     c.push(id_colours[routeid])  
     coords.push(id_coords[routeid].coordinates)
+    arr_length.push(turf.length(id_coords[routeid]))
   }
 
   data = {
     "routetypes": {'sharrows': share, "striped": strip, "protected": protect},
     "colours": c,
     "coordinates": coords,
+    "length": arr_length,
     "overrides": {
       "cost_sharrows": [sliderOne.value, sliderTwo.value], 
       "riders": [sliderRide1.value, sliderRide2.value],
