@@ -301,12 +301,33 @@ function updateLegend() {
 
     newdrawline.innerHTML = "Add New Route&nbsp<i class='fas fa-plus-circle'></i>"
   }
-  share = [1,1,1];
+
+  share = [0,0,0];
   strip = [0,0,0];
   protect = [0,0,0];
 
   updateCharts()
+  updateButtons()
 }
+
+function updateButtons() {
+
+  const total_clicked = (arraySum(share) + arraySum(strip) + arraySum(protect))
+  const share1 = document.getElementById("share0")
+  const share2 = document.getElementById("share1")
+  const share3 = document.getElementById("share2")
+
+  if (share1 != null) {
+    share1.click()
+  }
+  if (share2 != null) {
+    share2.click()
+  }
+  if (share3 != null) {
+    share3.click()
+  }
+}
+
 
 var share = [0,0,0];
 var strip = [0,0,0];
