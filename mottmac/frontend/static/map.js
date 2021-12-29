@@ -1,45 +1,6 @@
 
 mapboxgl.accessToken = "pk.eyJ1IjoibWFyaWFwYXBhZGltaXRyaW91IiwiYSI6ImNreGF6eThsNjJyb2szMHBtbWplc2Z6dWoifQ.Em5B1yYl9AT6jPMlmM1b4w";
 
-const geojson = {
-    "version": 0.6,
-    "generator": "Overpass API 0.7.57.1 74a55df1",
-    "osm3s": {
-      "timestamp_osm_base": "2021-11-16T16:06:44Z",
-      "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
-    },
-    "elements": [
-        {
-            "type": "node",
-            "id": 20979738,
-            "lat": 43.6659368,
-            "lon": -79.3918763,
-            "tags": {
-              "button_operated": "yes",
-              "crossing": "traffic_signals",
-              "highway": "traffic_signals"
-            }
-          },
-          {
-            "type": "node",
-            "id": 20979746,
-            "lat": 43.6651098,
-            "lon": -79.3939147,
-            "tags": {
-              "crossing": "traffic_signals",
-              "highway": "crossing"
-            }
-          },
-          {
-            "type": "node",
-            "id": 20979760,
-            "lat": 43.6575265,
-            "lon": -79.3896244,
-            "tags": {
-              "highway": "traffic_signals"
-            }
-          }
-    ]};
     
 const map = new mapboxgl.Map({
 container: 'app', // container ID
@@ -48,20 +9,6 @@ center: [-79.3923, 43.6643], // starting position [lng, lat]
 zoom: 15, // starting zoom
 maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
 });
-
-  // add markers to map
-  for (const feature of geojson.elements) {
-    // create a HTML element for each feature
-    const el = document.createElement('div');
-    el.className = 'marker';
-
-    // make a marker for each feature and add it to the map
-    new mapboxgl.Marker(el, {
-      draggable: false,
-
-    }).setLngLat([feature.lon, feature.lat]).addTo(map);
-  }
-  
 
   const draw = new MapboxDraw({
     // Instead of showing all the draw tools, show only the line string and delete tools.
@@ -354,7 +301,7 @@ function updateLegend() {
 
     newdrawline.innerHTML = "Add New Route&nbsp<i class='fas fa-plus-circle'></i>"
   }
-  share = [0,0,0];
+  share = [1,1,1];
   strip = [0,0,0];
   protect = [0,0,0];
 
