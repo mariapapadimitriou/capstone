@@ -1,6 +1,8 @@
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
 
+var myChart;
+
 function getMultiObjective(plot_colours, plot_labels, plot_data) {
 
   var multi_data = []
@@ -16,8 +18,9 @@ function getMultiObjective(plot_colours, plot_labels, plot_data) {
     }
     multi_data.push(point)
 }
+if (myChart) myChart.destroy();
 
-new Chart(document.getElementById("myChart"), {
+myChart = new Chart(document.getElementById("myChart"), {
     type: 'line',
     data: {
       labels: ["Cost","Ridership","Emissions","Traffic Volume","Safety"],

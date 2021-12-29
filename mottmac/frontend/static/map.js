@@ -122,7 +122,7 @@ maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
     ]
   });
 
-  const colours = ['#36b9cc', "#4e73df", "#1cc88a"];
+  const colours = ['#36b9cc', "#B026FF", "#1cc88a"];
   var id_colours = {};
   var id_coords = {};
 
@@ -446,18 +446,17 @@ function updateCharts(){
       var multi_data = data["multi_data"]
 
       for (let i = 0; i < plot_colours.length; i++) {
-        if (new_colours.includes(pSBC(0.5, plot_colours[i]))) {
-          new_colours.push(pSBC(-0.750, plot_colours[i]))
+        if (new_colours.includes(pSBC(-0.5, plot_colours[i]))) {
+          new_colours.push(pSBC(-0.8, plot_colours[i]))
         }
         else if (new_colours.includes(plot_colours[i])) {
-          new_colours.push(pSBC(0.5, plot_colours[i]))
+          new_colours.push(pSBC(-0.5, plot_colours[i]))
         }
         else {
           new_colours.push(plot_colours[i])
         }
       }
 
-      console.log(new_colours)
       getCostPlot(new_colours, labels_plot, cost_data)
       getRidershipPlot(new_colours, labels_plot, ridership_data)
       getEmissionsPlot(new_colours, labels_plot, emissions_data)
