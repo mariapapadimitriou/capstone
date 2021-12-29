@@ -27,6 +27,9 @@ myChart = new Chart(document.getElementById("myChart"), {
       datasets: multi_data
     },
     options: {
+      animation: {
+        duration: 0
+      },
       elements: {
         line: {
             tension: 0
