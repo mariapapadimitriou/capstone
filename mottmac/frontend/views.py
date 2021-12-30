@@ -24,9 +24,9 @@ def index2(request):
     result_store = {
         "routetypes": {},
         "colours": [],
+        "route_length": [],
         "coordinates": {},
         "overrides":{},
-        "length_of_paths":{}
     }
 
     for result in post_result:
@@ -59,6 +59,10 @@ def index2(request):
                 result_store["overrides"]["cost_striped"] = post_result.getlist(result)
             if "cost_protected" in result:
                 result_store["overrides"]["cost_protected"] = post_result.getlist(result)
+        if "length" in result:
+            result_store["route_length"] = post_result.getlist(result)
+            for i in range(len(result_store["route_length"])):
+                result_store["route_length"][i] = float(result_store["route_length"][i])
 
     print(result_store)
 
