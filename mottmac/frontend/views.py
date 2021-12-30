@@ -5,6 +5,11 @@ import json
 from django.http import JsonResponse
 np.random.seed(1)
 
+# Cost Constants [lower bound, upper bound] (CHANGE TO REAL NUMBERS)
+SHARROWS_UNIT_COST = [10000,15000]
+STRIPED_UNIT_COST = [20000,30000]
+PROTECTED_UNIT_COST = [40000,60000]
+
 
 @csrf_exempt 
 def index(request):
@@ -73,6 +78,7 @@ def index2(request):
 
         if result_store["routetypes"]["sharrows"][i] == "1":
             label = "Sharrows"
+            print(SHARROWS_UNIT_COST[0])
             labels_plot.append(label)
             colours_plot.append(result_store["colours"][i])
             cost_data.append(list(np.random.rand(2)))
@@ -119,3 +125,20 @@ def index2(request):
 def getIndices(index_nums):
 
     return index_nums[0], index_nums[-1]
+
+### Metric Calculations
+
+# Cost
+def getCost(length_of_path, route_type):
+    
+    if route_type == 'sharrows':
+        min_cost = length_of_path*SHARROWS_UNIT_COST[0]
+        max_cost = length_of_path*SHARROWS_UNIT_COST[1]
+    elif route_type == 'striped':
+        min_cost = length_of_path*STRIPED_UNIT_COST[0]
+        min_cost = length_of_path*STRIPED_UNIT_COST[0]
+    elif route_type == 'protected':
+        min_cost = length_of_path*PROTECTED_UNIT_COST[0]
+        max_cost = length_of_path*PROTECTED_UNIT_COST[1]
+    
+    return cost
