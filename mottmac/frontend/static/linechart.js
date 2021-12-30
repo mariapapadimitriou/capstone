@@ -23,7 +23,7 @@ if (myChart) myChart.destroy();
 myChart = new Chart(document.getElementById("myChart"), {
     type: 'line',
     data: {
-      labels: ["Cost","Ridership","Emissions","Traffic Volume","Safety"],
+      labels: ["Cost","Ridership","Safety"],
       datasets: multi_data
     },
     options: {
