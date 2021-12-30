@@ -148,15 +148,13 @@ def getIndices(index_nums):
 
 ### Metric Calculations
 
-def getScaledMetrics(cost_data, ridership_data, safety_data):
-
-    print ([cost_data, ridership_data, safety_data])
+def getScaledMetrics(cost_data, ridership_data, safety_data):c
 
     meanCost = [mean(route) for route in cost_data]
     meanRidership = [mean(route) for route in ridership_data]
     meanSafety = [mean(route) for route in safety_data]
 
-    scaledCost = [route/sum(meanCost) for route in meanCost]
+    scaledCost = [1-(route/sum(meanCost)) for route in meanCost] # 1-scaled to flip (so lower cost is better)
     scaledRidership = [route/sum(meanRidership) for route in meanRidership]
     scaledSafety = [route/sum(meanSafety) for route in meanSafety]
 
