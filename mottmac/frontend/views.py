@@ -22,7 +22,6 @@ def index2(request):
         "route_length": [],
         "coordinates": {},
         "overrides":{},
-        "length_of_paths":{}
     }
 
     for result in post_result:
