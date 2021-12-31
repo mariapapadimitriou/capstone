@@ -53,6 +53,9 @@ myChart = new Chart(document.getElementById("myChart"), {
           }
         }],
         yAxes: [{
+          ticks: {
+            display: false
+          },
           gridLines: {
             color: "rgb(234, 236, 244)",
             zeroLineColor: "rgb(234, 236, 244)",
