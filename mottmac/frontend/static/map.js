@@ -231,6 +231,7 @@ function addRoute(coords, routeid) {
     }
     else {
       updateLegend()
+      updateCharts()
     }
     
 
