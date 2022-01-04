@@ -9,7 +9,7 @@ function slideOne(){
     if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= 0){
         sliderOne.value = parseInt(sliderTwo.value);
     }
-    displayValOne.textContent = sliderOne.value;
+    displayValOne.innerHTML = numbertoCurrency(sliderOne.value);
     fillColor(sliderOne, sliderTwo, sliderMaxValue, sliderTrack);
     updateCharts()
 }
@@ -17,7 +17,7 @@ function slideTwo(){
     if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= 0){
         sliderTwo.value = parseInt(sliderOne.value);
     }
-    displayValTwo.textContent = sliderTwo.value;
+    displayValTwo.innerHTML = numbertoCurrency(sliderTwo.value);
     fillColor(sliderOne, sliderTwo, sliderMaxValue, sliderTrack);
     updateCharts()
 }
@@ -31,17 +31,17 @@ const sliderMaxValue2 = document.getElementById("sliderRide1").max;
 
 function slideOneRide(){
     if(parseInt(sliderRide2.value) - parseInt(sliderRide1.value) <= 0){
-        sliderRide1.value = parseInt(sliderRide2.value) - 0;
+        sliderRide1.value = parseInt(sliderRide2.value);
     }
-    displayValOneRide.textContent = sliderRide1.value;
+    displayValOneRide.innerHTML = numbertoComma(sliderRide1.value);
     fillColor(sliderRide1, sliderRide2, sliderMaxValue2, sliderTrack2);
     updateCharts()
 }
 function slideTwoRide(){
     if(parseInt(sliderRide2.value) - parseInt(sliderRide1.value) <= 0){
-        sliderRide2.value = parseInt(sliderRide1.value) + 0;
+        sliderRide2.value = parseInt(sliderRide1.value);
     }
-    displayValTwoRide.textContent = sliderRide2.value;
+    displayValTwoRide.innerHTML = numbertoComma(sliderRide2.value);
     fillColor(sliderRide1, sliderRide2, sliderMaxValue2, sliderTrack2);
     updateCharts()
 }
@@ -57,7 +57,7 @@ function slideOneStriped(){
     if(parseInt(sliderTwo_striped.value) - parseInt(sliderOne_striped.value) <= 0){
         sliderOne_striped.value = parseInt(sliderTwo_striped.value);
     }
-    displayValOne_striped.textContent = sliderOne_striped.value;
+    displayValOne_striped.innerHTML = numbertoCurrency(sliderOne_striped.value);
     fillColor(sliderOne_striped, sliderTwo_striped, sliderMaxValue_striped, sliderTrack_striped);
     updateCharts()
 }
@@ -65,7 +65,7 @@ function slideTwoStriped(){
     if(parseInt(sliderTwo_striped.value) - parseInt(sliderOne_striped.value) <= 0){
         sliderTwo_striped.value = parseInt(sliderOne_striped.value);
     }
-    displayValTwo_striped.textContent = sliderTwo_striped.value;
+    displayValTwo_striped.innerHTML = numbertoCurrency(sliderTwo_striped.value);
     fillColor(sliderOne_striped, sliderTwo_striped, sliderMaxValue_striped, sliderTrack_striped);
     updateCharts()
 }
@@ -81,7 +81,7 @@ function slideOneProtect(){
     if(parseInt(sliderTwo_protect.value) - parseInt(sliderOne_protect.value) <= 0){
         sliderOne_protect.value = parseInt(sliderTwo_protect.value);
     }
-    displayValOne_protect.textContent = sliderOne_protect.value;
+    displayValOne_protect.innerHTML = numbertoCurrency(sliderOne_protect.value);
     fillColor(sliderOne_protect, sliderTwo_protect, sliderMaxValue_protect, sliderTrack_protect);
     updateCharts()
 }
@@ -89,11 +89,34 @@ function slideTwoProtect(){
     if(parseInt(sliderTwo_protect.value) - parseInt(sliderOne_protect.value) <= 0){
         sliderTwo_protect.value = parseInt(sliderOne_protect.value);
     }
-    displayValTwo_protect.textContent = sliderTwo_protect.value;
+    displayValTwo_protect.innerHTML = numbertoCurrency(sliderTwo_protect.value);
     fillColor(sliderOne_protect, sliderTwo_protect, sliderMaxValue_protect, sliderTrack_protect);
     updateCharts()
 }
 
+const sliderEm1 = document.getElementById("sliderEm1");
+const sliderEm2 = document.getElementById("sliderEm2");
+const displayValOneEm = document.getElementById("rangeEm1");
+const displayValTwoEm = document.getElementById("rangeEm2");
+const sliderTrack5 = document.querySelector(".slider-track5");
+const sliderMaxValue5 = document.getElementById("sliderEm1").max;
+
+function slideOneEm(){
+    if(parseInt(sliderEm2.value) - parseInt(sliderEm1.value) <= 0){
+        sliderEm1.value = parseInt(sliderEm2.value);
+    }
+    displayValOneEm.innerHTML = numbertoComma(sliderEm1.value);
+    fillColor(sliderEm1, sliderEm2, sliderMaxValue5, sliderTrack5);
+    updateCharts()
+}
+function slideTwoEm(){
+    if(parseInt(sliderEm2.value) - parseInt(sliderEm1.value) <= 0){
+        sliderEm2.value = parseInt(sliderEm1.value);
+    }
+    displayValTwoEm.innerHTML = numbertoComma(sliderEm2.value);
+    fillColor(sliderEm1, sliderEm2, sliderMaxValue5, sliderTrack5);
+    updateCharts()
+}
 
 function fillColor(s1,s2, m, track){
     percent1 = (s1.value / m) * 100;
@@ -112,3 +135,6 @@ window.slideTwoStriped();
 
 window.slideOneProtect();
 window.slideTwoProtect();
+
+window.slideOneEm();
+window.slideTwoEm();
