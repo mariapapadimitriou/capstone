@@ -76,7 +76,7 @@ function getCostPlot(plot_colours, plot_labels, plot_data) {
             autoexpand: true,
             b: 0,
             t: 10,
-            l: 30,
+            l: 35,
             r: 0
         },
         xaxis : {

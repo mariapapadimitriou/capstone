@@ -6,7 +6,7 @@ const map = new mapboxgl.Map({
 container: 'app', // container ID
 style: 'mapbox://styles/mariapapadimitriou/ckxrxguwp2ymn14nm3oyyezl9', // style URL
 center: [-79.3923, 43.6643], // starting position [lng, lat]
-zoom: 15, // starting zoom
+zoom: 12, // starting zoom
 maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
 });
 

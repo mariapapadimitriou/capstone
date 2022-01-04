@@ -2,8 +2,6 @@ Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,Bli
 Chart.defaults.global.defaultFontColor = '#858796';
 
 function getMultiObjective(plot_colours, plot_labels, plot_data) {
-
-  console.log(plot_data)
   
   data = []
 
@@ -17,19 +15,26 @@ function getMultiObjective(plot_colours, plot_labels, plot_data) {
       {
         x: ["Cost", "Ridership", "Safety"],
         y: mean_data[i],
+        name: plot_labels[i],
         error_y: {
           type: 'data',
           symmetric: false,
           array: add_data[i],
           arrayminus: sub_data[i],
-          visible: true
+          visible: true,
+          opacity: 0.2,
+          thickness: 4,
+          width: 4,
+          color: plot_colours[i]
         },
         type: 'line',
+        line: {
+          width: 4
+        },
         marker: {
           color: plot_colours[i],
           size: 10
         },
-        hoverinfo: "skip", // show only value, no serie name
       }
     )
   }
@@ -49,7 +54,7 @@ function getMultiObjective(plot_colours, plot_labels, plot_data) {
             autoexpand: true,
             b: 30,
             t: 10,
-            l: 30,
+            l: 0,
             r: 0
         },
         xaxis : {
