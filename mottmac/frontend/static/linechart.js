@@ -15,6 +15,7 @@ function getMultiObjective(plot_colours, plot_labels, plot_data) {
       {
         x: ["Cost", "Ridership", "Safety"],
         y: mean_data[i],
+        name: plot_labels[i],
         error_y: {
           type: 'data',
           symmetric: false,
@@ -34,7 +35,6 @@ function getMultiObjective(plot_colours, plot_labels, plot_data) {
           color: plot_colours[i],
           size: 10
         },
-        hoverinfo: "skip", // show only value, no serie name
       }
     )
   }
