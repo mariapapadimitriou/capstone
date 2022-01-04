@@ -462,6 +462,8 @@ function updateCharts(){
 
 }
 
+// RANDOM FUNCTIONS
+
 const pSBC=(p,c0,c1,l)=>{
   let r,g,b,P,f,t,h,i=parseInt,m=Math.round,a=typeof(c1)=="string";
   if(typeof(p)!="number"||p<-1||p>1||typeof(c0)!="string"||(c0[0]!='r'&&c0[0]!='#')||(c1&&!a))return null;
@@ -485,4 +487,28 @@ const pSBC=(p,c0,c1,l)=>{
   a=f.a,t=t.a,f=a>=0||t>=0,a=f?a<0?t:t<0?a:a*P+t*p:0;
   if(h)return"rgb"+(f?"a(":"(")+r+","+g+","+b+(f?","+m(a*1000)/1000:"")+")";
   else return"#"+(4294967296+r*16777216+g*65536+b*256+(f?m(a*255):0)).toString(16).slice(1,f?undefined:-2)
+}
+
+Array.prototype.max = function() {
+  return Math.max.apply(null, this);
+};
+
+Array.prototype.min = function() {
+  return Math.min.apply(null, this);
+};
+
+
+function numbertoCurrency(x) {
+
+  if (x < 0) {
+      return "-$" + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",").replace("-", "");
+  }
+  else {
+      return "$" + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+}
+
+function numbertoComma(x) {
+
+      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }

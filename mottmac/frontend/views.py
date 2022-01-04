@@ -112,8 +112,8 @@ def index2(request):
         for route_type in route_types:
 
             if result_store["routetypes"][route_type][i] == "1":
-
-                labels_plot.append(route_type.capitalize())
+                route_num_type = "Route " + str(i + 1) + " " + route_type.capitalize()
+                labels_plot.append(route_num_type)
                 colours_plot.append(result_store["colours"][i])
 
                 cost, ridership, emissions, safety, traffic = getMetrics(
