@@ -12,14 +12,29 @@ np.random.seed(1)
 
 # Cost Constants [lower bound, upper bound] (CHANGE TO REAL NUMBERS)
 # SET AT <!-- OVERRIDES - SET DEFAULTS HERE-->  in index.html
-# SHARROWS_UNIT_COST = [10000,15000]
-# STRIPED_UNIT_COST = [20000,30000]
-# PROTECTED_UNIT_COST = [40000,60000]
+SHARROWS_UNIT_COST = [10000,15000]
+STRIPED_UNIT_COST = [20000,40000]
+PROTECTED_UNIT_COST = [40000,60000]
+BIKE_RIDERS = [0, 100]
+EMISSIONS = [134, 134]
 
 @csrf_exempt 
 def index(request):
 
-    return render(request, 'frontend/index.html', {})
+    context = {
+        "SHARROWS_UNIT_COST_MIN": SHARROWS_UNIT_COST[0],
+        "SHARROWS_UNIT_COST_MAX": SHARROWS_UNIT_COST[1],
+        "STRIPED_UNIT_COST_MIN": STRIPED_UNIT_COST[0],
+        "STRIPED_UNIT_COST_MAX": STRIPED_UNIT_COST[1],
+        "PROTECTED_UNIT_COST_MIN": PROTECTED_UNIT_COST[0],
+        "PROTECTED_UNIT_COST_MAX": PROTECTED_UNIT_COST[1],
+        "BIKE_RIDERS_MIN": BIKE_RIDERS[0],
+        "BIKE_RIDERS_MAX": BIKE_RIDERS[1],
+        "EMISSIONS_MIN": EMISSIONS[0],
+        "EMISSIONS_MAX": EMISSIONS[1]
+    }
+    
+    return render(request, 'frontend/index.html', context)
 
 @csrf_exempt 
 def index2(request):
@@ -127,6 +142,10 @@ def index2(request):
     multi_data = getScaledMetrics(cost_data, ridership_data, safety_data)
   
     context = {
+        "SHARROWS_UNIT_COST": SHARROWS_UNIT_COST,
+        "STRIPED_UNIT_COST": STRIPED_UNIT_COST,
+        "PROTECTED_UNIT_COST":PROTECTED_UNIT_COST,
+        "BIKE_RIDERS":BIKE_RIDERS,
         "colours_plot" : colours_plot,
         "labels_plot" : labels_plot,
         "cost_data" : cost_data,
@@ -137,7 +156,6 @@ def index2(request):
         "multi_data": multi_data,
     }
     return JsonResponse(context)
-
 
 
 def getIndices(index_nums):

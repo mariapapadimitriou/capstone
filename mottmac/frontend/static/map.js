@@ -430,6 +430,7 @@ function updateCharts(){
     data: data,
     dataType: 'json',
     success: function(data) {
+
       var plot_colours = data["colours_plot"]
       var labels_plot = data["labels_plot"]
       var cost_data = data["cost_data"]
