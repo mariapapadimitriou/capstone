@@ -2,8 +2,6 @@ Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,Bli
 Chart.defaults.global.defaultFontColor = '#858796';
 
 function getMultiObjective(plot_colours, plot_labels, plot_data) {
-
-  console.log(plot_data)
   
   data = []
 
