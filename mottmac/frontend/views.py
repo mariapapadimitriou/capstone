@@ -150,20 +150,68 @@ def getIndices(index_nums):
 
 def getScaledMetrics(cost_data, ridership_data, safety_data):
 
-    meanCost = [mean(route) for route in cost_data]
-    meanRidership = [mean(route) for route in ridership_data]
-    meanSafety = [mean(route) for route in safety_data]
+    if len(cost_data) == 0 or len(ridership_data) == 0 or len(safety_data) == 0:
+        return [[],[],[]]
 
-    scaledCost = [1-(route/sum(meanCost)) for route in meanCost] # 1-scaled to flip (so lower cost is better)
-    scaledRidership = [route/sum(meanRidership) for route in meanRidership]
-    scaledSafety = [route/sum(meanSafety) for route in meanSafety]
+    cost = {
+        'mean': [mean(route) for route in cost_data],
+        'max': [max(route) for route in cost_data],
+        'min': [min(route) for route in cost_data],
+        'total_max': max([max(route) for route in cost_data]),
+        'total_min': min([min(route) for route in cost_data])
+    }
 
-    scaledMetrics = []
+    ridership = {
+        'mean': [mean(route) for route in ridership_data],
+        'max': [max(route) for route in ridership_data],
+        'min': [min(route) for route in ridership_data],
+        'total_max': max([max(route) for route in ridership_data]),
+        'total_min': min([min(route) for route in ridership_data])
+    }
 
-    for route in range(len(scaledCost)):
-        scaledMetrics.append([scaledCost[route], scaledRidership[route], scaledSafety[route]])
+    safety = {
+        'mean': [mean(route) for route in safety_data],
+        'max': [max(route) for route in safety_data],
+        'min': [min(route) for route in safety_data],
+        'total_max': max([max(route) for route in safety_data]),
+        'total_min': min([min(route) for route in safety_data])
+    }
 
-    return scaledMetrics
+    cost_scaled = { # 1-scaled to flip (so lower cost is better)
+        'mean': [1-scale(route, cost['total_max'], cost['total_min']) for route in cost['mean']],
+        'max': [1-scale(route, cost['total_max'], cost['total_min']) for route in cost['max']],
+        'min': [1-scale(route, cost['total_max'], cost['total_min']) for route in cost['min']]
+    }
+
+    ridership_scaled = {
+        'mean': [scale(route, ridership['total_max'], ridership['total_min']) for route in ridership['mean']],
+        'max': [scale(route, ridership['total_max'], ridership['total_min']) for route in ridership['max']],
+        'min': [scale(route, ridership['total_max'], ridership['total_min']) for route in ridership['min']]
+    }
+
+    safety_scaled = { 
+        'mean': [scale(route, safety['total_max'], safety['total_min']) for route in safety['mean']],
+        'max': [scale(route, safety['total_max'], safety['total_min']) for route in safety['max']],
+        'min': [scale(route, safety['total_max'], safety['total_min']) for route in safety['min']]
+    }
+
+    scaled_avg, scaled_max, scaled_min, scaled_add, scaled_subtract = [], [], [], [], []
+
+    for route in range(len(cost_scaled['mean'])):
+        scaled_avg.append([cost_scaled['mean'][route], ridership_scaled['mean'][route], safety_scaled['mean'][route]])
+        scaled_max.append([cost_scaled['max'][route], ridership_scaled['max'][route], safety_scaled['max'][route]])
+        scaled_min.append([cost_scaled['min'][route], ridership_scaled['min'][route], safety_scaled['min'][route]])
+
+        scaled_add.append([max_val - avg_val for max_val, avg_val in zip(scaled_max[route], scaled_avg[route])])
+        scaled_subtract.append([avg_val - min_val for avg_val, min_val in zip(scaled_avg[route], scaled_min[route])])
+
+    return [scaled_avg, scaled_add, scaled_subtract]
+
+def scale(val, max_current, min_current, max_desired = 1, min_desired = 0):
+
+    scaled = ((val-min_current)/(max_current-min_current))*(max_desired-min_desired) + min_desired
+
+    return scaled
 
 def getMetrics(route_type, unit_cost, length_of_path, start_coords, end_coords):
 

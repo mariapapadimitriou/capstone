@@ -7,17 +7,21 @@ function getMultiObjective(plot_colours, plot_labels, plot_data) {
   
   data = []
 
+  mean_data = plot_data[0]
+  add_data = plot_data[1]
+  sub_data = plot_data[2]
+
   for (let i=0; i < plot_labels.length; i++) {
 
     data.push(
       {
         x: ["Cost", "Ridership", "Safety"],
-        y: plot_data[i],
+        y: mean_data[i],
         error_y: {
           type: 'data',
           symmetric: false,
-          array: [1, 2, 1],
-          arrayminus: [0.2, 0.4, 1, 0.2],
+          array: add_data[i],
+          arrayminus: sub_data[i],
           visible: true
         },
         type: 'line',
