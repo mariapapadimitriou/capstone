@@ -33,6 +33,7 @@ route_types = ["sharrows", "striped", "protected"]
 
 ### Metric Calculations
 
+# Ridership and Emissions
 def getSurroundingArea(route_start, route_end, radius_km=1):
     # start: (long, lat) of route start
     # end: (long, lat) of route end
@@ -113,17 +114,39 @@ def getRoutePopulation(area):
     return route_population
 
 
-def getRidershipEmissions(start_coords, end_coords, riders, emissions_per_km):
+def getRidershipEmissions(start_coords, end_coords, length_of_path, riders, emissions_per_km):
+    # Uncertainty Arithmetic: https://sciencing.com/how-to-calculate-uncertainty-13710219.html
+        # When multiplying quantities with uncertainty, add together relative uncertainties
+        # Relative Uncertainty = (max-min)/(min+max)
 
-    surrounding_area = getSurroundingArea(start_coords, end_coords)
-    
+    # Ridership
+    surrounding_area = getSurroundingArea(start_coords, end_coords)   
     route_population = getRoutePopulation(surrounding_area)
-
     ridership = [route_population*riders[0]/100, route_population*riders[1]/100]
+    ridership_mean = mean(ridership)
+    
+    # Relative Uncertainties
+    ridership_uncertainty = (ridership[1]-ridership[0])/(ridership[1]+ridership[0])
+    emissions_per_km_uncertainty = (emissions_per_km[1]-emissions_per_km[0])/(emissions_per_km[1]+emissions_per_km[0])
+    total_relative_uncertainty = ridership_uncertainty+emissions_per_km_uncertainty
 
-    ## UNCERTAINTY ARITHMETIC OR WHATEVER SCOTT WAS TALKING ABOUT
-    emissions = [ridership[i]*emissions_per_km[i] for i in range(len(ridership))]
+    # Emissions
+    emissions_mean = mean(emissions_per_km)*length_of_path*ridership_mean
+    emissions = [emissions_mean-(emissions_mean*total_relative_uncertainty), emissions_mean+(emissions_mean*total_relative_uncertainty)]
 
+
+    print('ridership_uncertainty:', ridership_uncertainty)
+    print('emissions_per_km_uncertainty:', emissions_per_km_uncertainty)
+    print('total_relative_uncertainty:', total_relative_uncertainty)
+
+    print('emissions_per_km:', emissions_per_km)
+    print('length_of_path:', length_of_path)
+
+
+    print('emissions per km mean', mean(emissions_per_km))
+    print('emissions_mean:', emissions_mean)
+    
+    print('emissions:', emissions)
     return ridership, emissions
 
 # Cost
@@ -150,13 +173,11 @@ def getTraffic():
 
     return traffic
 
-# Ridership and Emissions
-
 # All Metrics
 def getMetrics(route_type, unit_cost, length_of_path, start_coords, end_coords, riders, emissions):
 
     cost = getCost(unit_cost, length_of_path)
-    ridership, emissions = getRidershipEmissions(start_coords, end_coords, riders, emissions)
+    ridership, emissions = getRidershipEmissions(start_coords, end_coords, length_of_path, riders, emissions)
     safety = getSafety(route_type)
     traffic = getTraffic()
 

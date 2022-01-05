@@ -33,7 +33,7 @@ function slideOneRide(){
     if(parseInt(sliderRide2.value) - parseInt(sliderRide1.value) <= 0){
         sliderRide1.value = parseInt(sliderRide2.value);
     }
-    displayValOneRide.innerHTML = numbertoComma(sliderRide1.value);
+    displayValOneRide.innerHTML = numbertoPercentage(sliderRide1.value);
     fillColor(sliderRide1, sliderRide2, sliderMaxValue2, sliderTrack2);
     updateCharts()
 }
@@ -41,7 +41,7 @@ function slideTwoRide(){
     if(parseInt(sliderRide2.value) - parseInt(sliderRide1.value) <= 0){
         sliderRide2.value = parseInt(sliderRide1.value);
     }
-    displayValTwoRide.innerHTML = numbertoComma(sliderRide2.value);
+    displayValTwoRide.innerHTML = numbertoPercentage(sliderRide2.value);
     fillColor(sliderRide1, sliderRide2, sliderMaxValue2, sliderTrack2);
     updateCharts()
 }
@@ -105,7 +105,7 @@ function slideOneEm(){
     if(parseInt(sliderEm2.value) - parseInt(sliderEm1.value) <= 0){
         sliderEm1.value = parseInt(sliderEm2.value);
     }
-    displayValOneEm.innerHTML = numbertoComma(sliderEm1.value);
+    displayValOneEm.innerHTML = numbertoGPerKm(sliderEm1.value);
     fillColor(sliderEm1, sliderEm2, sliderMaxValue5, sliderTrack5);
     updateCharts()
 }
@@ -113,7 +113,7 @@ function slideTwoEm(){
     if(parseInt(sliderEm2.value) - parseInt(sliderEm1.value) <= 0){
         sliderEm2.value = parseInt(sliderEm1.value);
     }
-    displayValTwoEm.innerHTML = numbertoComma(sliderEm2.value);
+    displayValTwoEm.innerHTML = numbertoGPerKm(sliderEm2.value);
     fillColor(sliderEm1, sliderEm2, sliderMaxValue5, sliderTrack5);
     updateCharts()
 }

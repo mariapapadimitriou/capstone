@@ -175,7 +175,7 @@
                               <div class="col">
                                 <div class="card shadow mb-4">
                                   <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Overrides</h6> <!-- OVERRIDES - SET DEFAULTS HERE--> 
+                                    <h6 class="m-0 font-weight-bold text-primary">Overrides</h6>  
                                   </div>
                                   <div class="card-body" style="font-size: 14px;">
                                     <div class="row">
@@ -233,8 +233,8 @@
                                       </div>
                                       <div class="col-4">
                                         <div class="slider-track2">
-                                          <input type="range" min="0" max="100" value={{BIKE_RIDERS_MIN}} id="sliderRide1" oninput="slideOneRide()">
-                                          <input type="range" min="0" max="100" value={{BIKE_RIDERS_MAX}} id="sliderRide2" oninput="slideTwoRide()">
+                                          <input type="range" min="0" max="20" value={{BIKE_RIDERS_MIN}} id="sliderRide1" oninput="slideOneRide()">
+                                          <input type="range" min="0" max="20" value={{BIKE_RIDERS_MAX}} id="sliderRide2" oninput="slideTwoRide()">
                                         </div>
                                       </div>
                                       <div class="col-2" style="text-align: center">
@@ -243,14 +243,14 @@
                                     </div>
                                     <div class="row" style="margin-top: 50px; margin-bottom: 10px;"></div>
                                     <div class="row">
-                                      <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Saved CO2 emissions per km for every 1 car removed">Saved CO2 (g) <i class="fas fa-info-circle"></i></span></div>
+                                      <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Saved CO2 emissions per km for every 1 car removed">Saved CO2 / km <i class="fas fa-info-circle"></i></span></div>
                                       <div class="col-2" style="text-align: center">
                                         <span id="rangeEm1">0</span>
                                       </div>
                                       <div class="col-4">
                                         <div class="slider-track5">
-                                          <input type="range" min="0" max="500" value={{EMISSIONS_MIN}} id="sliderEm1" oninput="slideOneEm()">
-                                          <input type="range" min="0" max="500" value={{EMISSIONS_MAX}} id="sliderEm2" oninput="slideTwoEm()">
+                                          <input type="range" min="0" max="300" value={{EMISSIONS_MIN}} id="sliderEm1" oninput="slideOneEm()">
+                                          <input type="range" min="0" max="300" value={{EMISSIONS_MAX}} id="sliderEm2" oninput="slideTwoEm()">
                                         </div>
                                       </div>
                                       <div class="col-2" style="text-align: center">

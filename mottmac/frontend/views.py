@@ -90,6 +90,10 @@ def index2(request):
                 result_store["overrides"]["riders"] = post_result.getlist(result)
                 for i in range(len(result_store["overrides"]["riders"])):
                     result_store["overrides"]["riders"][i] = float(result_store["overrides"]["riders"][i])
+            if "emissions" in result:
+                result_store["overrides"]["emissions"] = post_result.getlist(result)
+                for i in range(len(result_store["overrides"]["emissions"])):
+                    result_store["overrides"]["emissions"][i] = float(result_store["overrides"]["emissions"][i])
         
         if "length" in result:
             result_store["route_length"] = post_result.getlist(result)
@@ -130,7 +134,7 @@ def index2(request):
                     start_coords=result_store["coordinates"][str(i)][0], 
                     end_coords=result_store["coordinates"][str(i)][1],
                     riders=result_store["overrides"]["riders"],
-                    emissions=[133,135] #switch to override when available
+                    emissions=result_store["overrides"]["emissions"] #switch to override when available
                 )
 
                 cost_data.append(cost)

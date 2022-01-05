@@ -418,7 +418,8 @@ function updateCharts(){
       "cost_sharrows": [sliderOne.value, sliderTwo.value], 
       "riders": [sliderRide1.value, sliderRide2.value],
       "cost_protected": [sliderOne_protect.value, sliderTwo_protect.value],
-      "cost_striped": [sliderOne_striped.value, sliderTwo_striped.value]
+      "cost_striped": [sliderOne_striped.value, sliderTwo_striped.value],
+      "emissions": [sliderEm1.value, sliderEm2.value]
     }
   }
 
@@ -513,4 +514,14 @@ function numbertoCurrency(x) {
 function numbertoComma(x) {
 
       return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function numbertoPercentage(x) {
+
+  return x.toString() + "%";
+}
+
+function numbertoGPerKm(x) {
+
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " g/km";
 }
