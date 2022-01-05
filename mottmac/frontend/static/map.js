@@ -275,7 +275,7 @@ function updateLegend() {
       routes.push(";'>")
       routes.push("<b>Route")
       routes.push(i+1)
-      routes.push("</b></span></div>")
+      routes.push("</b>&nbsp;&nbsp;&nbsp;" + roundToTwo(turf.length(id_coords[routeid])) + "km</span></div>")
       routes.push("<div style='height:10px'></div>")
       routes.push("<div class='row' style='display: flex; justify-content: space-between; margin-right: 1px; margin-left: -5px; margin-right: 5px;'>")
       routes.push("<button class='buttonmode' id ='share" + i + "' type='submit' onclick='selectOption(this.id)'>Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
@@ -524,4 +524,6 @@ function numbertoPercentage(x) {
 function numbertoGPerKm(x) {
 
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " g/km";
-}
+
+function roundToTwo(num) {    
+  return +(Math.round(num + "e+2")  + "e-2");

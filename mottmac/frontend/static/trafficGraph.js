@@ -14,8 +14,7 @@ function getTrafficPlot(plot_colours, plot_labels, plot_data) {
         return_string += "</span>"
 
     }
-
-    console.log(return_string)
+    
     document.getElementById("traffic").innerHTML = return_string + "</div>"
 
 }
