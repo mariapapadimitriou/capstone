@@ -524,6 +524,8 @@ function numbertoPercentage(x) {
 function numbertoGPerKm(x) {
 
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " g/km";
+}
 
 function roundToTwo(num) {    
   return +(Math.round(num + "e+2")  + "e-2");
+}
