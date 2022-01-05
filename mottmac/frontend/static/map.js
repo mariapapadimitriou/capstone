@@ -451,7 +451,8 @@ function updateCharts(){
           new_colours.push(plot_colours[i])
         }
       }
-
+      
+      getTrafficPlot(new_colours, labels_plot, traffic_data)
       getCostPlot(new_colours, labels_plot, cost_data)
       getRidershipPlot(new_colours, labels_plot, ridership_data)
       getEmissionsPlot(new_colours, labels_plot, emissions_data)

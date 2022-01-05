@@ -3,6 +3,7 @@ from django.db import models
 from statistics import mean
 
 import sqlite3
+import random
 
 import geopandas as gpd
 import pandas as pd
@@ -69,7 +70,7 @@ def getSafety(route_type):
 # Traffic Congestion
 def getTraffic():
 
-    traffic = 0
+    traffic = round(random.random())
 
     return traffic
 
