@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/Users/daniellepage/School/Fourth Year/Capstone/capstone/mottmac/.venv/bin/python" "$0" "$@"
+'''exec' "/Users/daniellepage/School/Fourth Year/Capstone/capstone/mottmac/.venv/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re

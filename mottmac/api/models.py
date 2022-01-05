@@ -1,20 +1,26 @@
 from django.db import models
 
+import warnings
 from statistics import mean
-
 import sqlite3
 
-import geopandas as gpd
-import pandas as pd
-
 from shapely.wkt import loads
-from shapely.geometry.polygon import Polygon
+from shapely.geometry import Polygon
+import shapely.ops as ops
+
+from geopy.distance import distance
+from functools import partial
+import pyproj
+
+#import geopandas as gpd
+import pandas as pd
 
 conn = sqlite3.connect('data.db')
 neighbourhood_data = pd.read_sql_query("SELECT * FROM neighbourhood_data", conn)
 
 neighbourhood_data['coordinates'] = neighbourhood_data['coordinates'].apply(lambda x: loads(x))
-neighbourhood_data = gpd.GeoDataFrame(neighbourhood_data, geometry='coordinates')
+
+neighbourhood_coords = neighbourhood_data.set_index('neighbourhoodID')['coordinates']
 
 SAFETY = {
     'sharrows': [0,3], 
@@ -26,14 +32,98 @@ route_types = ["sharrows", "striped", "protected"]
 
 ### Metric Calculations
 
-def getMetrics(route_type, unit_cost, length_of_path, start_coords, end_coords, riders, emissions):
+def getSurroundingArea(route_start, route_end, radius_km=1):
+    # start: (long, lat) of route start
+    # end: (long, lat) of route end
+    # radius in km of area around route
+    
+    route_north = route_start if max(route_start[0], route_end[0]) == route_start[0] else route_end
+    route_south = route_start if min(route_start[0], route_end[0]) == route_start[0] else route_end
+    route_east = route_start if max(route_start[1], route_end[1]) == route_start[1] else route_end
+    route_west = route_start if min(route_start[1], route_end[1]) == route_start[1] else route_end
+    
+    # 0: North, 90: East, 180: South, 270: West
+    area_north = distance(kilometers=radius_km).destination(route_north, bearing=0)[0]
+    area_south = distance(kilometers=radius_km).destination(route_south, bearing=180)[0]
+    area_east = distance(kilometers=radius_km).destination(route_east, bearing=90)[1]
+    area_west = distance(kilometers=radius_km).destination(route_west, bearing=270)[1]
 
-    cost = getCost(unit_cost, length_of_path)
-    ridership, emissions = getRidershipEmissions(start_coords, end_coords, length_of_path, riders, emissions)
-    safety = getSafety(route_type)
-    traffic = getTraffic()
+    area_coords = [
+        (area_north, area_west),
+        (area_north, area_east),
+        (area_south, area_east),
+        (area_south, area_west),
+            ]
+    
+    return Polygon(area_coords)
 
-    return cost, ridership, emissions, safety, traffic 
+def getNeighbourhoodArea(coords):
+
+    with warnings.catch_warnings():
+        warnings.filterwarnings("ignore", category=FutureWarning)
+        projected_shape = ops.transform(
+            partial(
+                pyproj.transform,
+                pyproj.Proj(init='EPSG:4326'),
+                pyproj.Proj(
+                    proj='aea',
+                    lat_1=coords.bounds[1],
+                    lat_2=coords.bounds[3])),
+            coords)
+    
+    return round(projected_shape.area)
+
+def getNeighbourhoods(area):
+    
+    intersections = []
+
+    for neighbourhood in neighbourhood_coords.keys():
+
+        if neighbourhood_coords[neighbourhood].intersects(area):
+            intersections.append(neighbourhood)
+
+    return intersections
+
+def getIntersectionPopulation(neighbourhoodID, area):
+
+    neighbourhood = neighbourhood_data[neighbourhood_data.neighbourhoodID == neighbourhoodID]
+
+    intersection = neighbourhood['coordinates'].values[0].intersection(area)
+
+    intersection_area = getNeighbourhoodArea(intersection)
+    neighbourhood_area = neighbourhood['neighbourhoodArea'].values[0]
+
+    intersection_percentage = neighbourhood_area/intersection_area
+
+    intersection_population = neighbourhood['workingPopulation'].values[0]*intersection_percentage
+
+    return round(intersection_population)
+
+def getRoutePopulation(area):
+
+    neighbourhood_populations = []
+    neighbourhoods = getNeighbourhoods(area)
+
+    for neighbourhood in neighbourhoods:
+        neighbourhood_populations.append(getIntersectionPopulation(neighbourhood, area))
+
+    route_population = sum(neighbourhood_populations)
+
+    return route_population
+
+
+def getRidershipEmissions(start_coords, end_coords, riders, emissions_per_km):
+
+    surrounding_area = getSurroundingArea(start_coords, end_coords)
+    
+    route_population = getRoutePopulation(surrounding_area)
+
+    ridership = [route_population*riders[0]/100, route_population*riders[1]/100]
+
+    ## UNCERTAINTY ARITHMETIC OR WHATEVER SCOTT WAS TALKING ABOUT
+    emissions = [ridership[i]*emissions_per_km[i] for i in range(len(ridership))]
+
+    return ridership, emissions
 
 # Cost
 def getCost(unit_cost, length_of_path):
@@ -44,20 +134,6 @@ def getCost(unit_cost, length_of_path):
     cost = [min_cost, max_cost]
     
     return cost
-
-# Ridership and Emissions
-def getRidershipEmissions(start_coords, end_coords, length_of_path, riders, emissions):
-    ## Don't need length of path
-
-    if length_of_path > 1:
-        ridership = [(1-(1/length_of_path))*10, (1-(1/length_of_path))*30] # Fake Calcs
-    else:
-        ridership = [length_of_path*5, length_of_path*15]
-
-    ## UNCERTAINTY ARITHMETIC OR WHATEVER SCOTT WAS TALKING ABOUT
-    emissions = [x*0.5 for x in ridership]
-
-    return ridership, emissions
 
 # Safety
 def getSafety(route_type):
@@ -73,6 +149,17 @@ def getTraffic():
 
     return traffic
 
+# Ridership and Emissions
+
+# All Metrics
+def getMetrics(route_type, unit_cost, length_of_path, start_coords, end_coords, riders, emissions):
+
+    cost = getCost(unit_cost, length_of_path)
+    ridership, emissions = getRidershipEmissions(start_coords, end_coords, riders, emissions)
+    safety = getSafety(route_type)
+    traffic = getTraffic()
+
+    return cost, ridership, emissions, safety, traffic 
 
 # Scaled Metrics for Multi-Objective
 def getScaledMetrics(cost_data, ridership_data, safety_data):
@@ -139,6 +226,9 @@ def getScaledMetrics(cost_data, ridership_data, safety_data):
 
 def scale(val, max_current, min_current, max_desired = 1, min_desired = 0):
 
-    scaled = ((val-min_current)/(max_current-min_current))*(max_desired-min_desired) + min_desired
+    if max_current == min_current:
+        scaled = 0.5
+    else:
+        scaled = ((val-min_current)/(max_current-min_current))*(max_desired-min_desired) + min_desired
 
     return scaled
