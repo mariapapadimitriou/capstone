@@ -3,6 +3,7 @@ from django.db import models
 import warnings
 from statistics import mean
 import sqlite3
+import random
 
 from shapely.wkt import loads
 from shapely.geometry import Polygon
@@ -145,7 +146,7 @@ def getSafety(route_type):
 # Traffic Congestion
 def getTraffic():
 
-    traffic = 0
+    traffic = round(random.random())
 
     return traffic
 

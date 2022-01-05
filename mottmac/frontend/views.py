@@ -142,10 +142,6 @@ def index2(request):
     multi_data = getScaledMetrics(cost_data, ridership_data, safety_data)
   
     context = {
-        "SHARROWS_UNIT_COST": SHARROWS_UNIT_COST,
-        "STRIPED_UNIT_COST": STRIPED_UNIT_COST,
-        "PROTECTED_UNIT_COST":PROTECTED_UNIT_COST,
-        "BIKE_RIDERS":BIKE_RIDERS,
         "colours_plot" : colours_plot,
         "labels_plot" : labels_plot,
         "cost_data" : cost_data,
