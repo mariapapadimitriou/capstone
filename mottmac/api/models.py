@@ -98,7 +98,7 @@ def getIntersectionPopulation(neighbourhoodID, area):
     intersection_area = getNeighbourhoodArea(intersection)
     neighbourhood_area = neighbourhood['neighbourhoodArea'].values[0]
 
-    intersection_percentage = neighbourhood_area/intersection_area
+    intersection_percentage = intersection_area/neighbourhood_area
 
     intersection_population = neighbourhood['workingPopulation'].values[0]*intersection_percentage
 
@@ -121,7 +121,7 @@ def getRidershipEmissions(start_coords, end_coords, length_of_path, riders, emis
     # Uncertainty Arithmetic: https://sciencing.com/how-to-calculate-uncertainty-13710219.html
         # When multiplying quantities with uncertainty, add together relative uncertainties
         # Relative Uncertainty = (max-min)/(min+max)
-    print(start_coords, end_coords)
+
     # Ridership
     surrounding_area = getSurroundingArea(start_coords, end_coords)   
     route_population = getRoutePopulation(surrounding_area)
