@@ -29,6 +29,12 @@ SAFETY = {
     'protected': [2,5]
 }
 
+TRAFFIC = {
+    'sharrows': 0, 
+    'striped': 1,
+    'protected': 1
+}
+
 route_types = ["sharrows", "striped", "protected"]
 
 ### Metric Calculations
@@ -157,9 +163,12 @@ def getSafety(route_type):
     return safety
 
 # Traffic Congestion
-def getTraffic():
-
-    traffic = round(random.random())
+def getTraffic(route_type):
+    # average road lane width: 3.25 m 
+    # minimum road lane width: 3 m 
+    # width of striped lane: 1.75 m
+    # width of protected lane: 2 m (This is a bit of an estimate)
+    traffic = TRAFFIC[route_type]
 
     return traffic
 
@@ -169,7 +178,7 @@ def getMetrics(route_type, unit_cost, length_of_path, start_coords, end_coords, 
     cost = getCost(unit_cost, length_of_path)
     ridership, emissions = getRidershipEmissions(start_coords, end_coords, length_of_path, riders, emissions)
     safety = getSafety(route_type)
-    traffic = getTraffic()
+    traffic = getTraffic(route_type)
 
     return cost, ridership, emissions, safety, traffic 
 
