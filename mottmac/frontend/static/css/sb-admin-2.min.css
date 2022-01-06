@@ -190,6 +190,24 @@ input[type="range"]:active::-webkit-slider-thumb{
   border-color: black;
 }
 
+.refresh_button {
+  background-color: black;
+  color: white;
+  border-radius: 20px; 
+  border-width: 2px;
+  height: 35px;
+  font-weight: bold;
+  border-color: black;
+  margin-top: -20px;
+  margin-bottom: -20px;
+}
+
+.refresh_button:hover {
+  background-color: white;
+  color: black;
+  border-color: black;
+}
+
 .hey {
   background-color: black;
   color: white;

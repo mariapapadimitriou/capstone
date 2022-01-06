@@ -176,6 +176,9 @@
                                 <div class="card shadow mb-4">
                                   <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                     <h6 class="m-0 font-weight-bold text-primary">Overrides</h6>  
+                                    <div>
+                                      <button class="refresh_button" id="refresh_button">Refresh &nbsp;&nbsp;<i class="fas fa-sync-alt"></i></button>
+                                    </div>
                                   </div>
                                   <div class="card-body" style="font-size: 14px;">
                                     <div class="row">
@@ -332,6 +335,10 @@
 
 
 <script>
+
+  document.getElementById("refresh_button").addEventListener("click", function() {
+    updateCharts()
+  });
 
 </script>
 

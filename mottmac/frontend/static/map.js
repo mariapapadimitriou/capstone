@@ -397,6 +397,7 @@ function selectOption(btn) {
 var data = {}
 
 function updateCharts(){
+  
   var c = []
   var coords = []
   var arr_length = []
