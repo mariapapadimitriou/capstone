@@ -34,27 +34,30 @@ route_types = ["sharrows", "striped", "protected"]
 ### Metric Calculations
 
 # Ridership and Emissions
-def getSurroundingArea(route_start, route_end, radius_km=1):
+def getSurroundingArea(route_start, route_end):
     # start: (long, lat) of route start
     # end: (long, lat) of route end
     # radius in km of area around route
+    route_start = (float(route_start[1]), float(route_start[0]))
+    route_end = (float(route_end[1]), float(route_end[0]))
     
     route_north = route_start if max(route_start[0], route_end[0]) == route_start[0] else route_end
     route_south = route_start if min(route_start[0], route_end[0]) == route_start[0] else route_end
     route_east = route_start if max(route_start[1], route_end[1]) == route_start[1] else route_end
     route_west = route_start if min(route_start[1], route_end[1]) == route_start[1] else route_end
     
+    dist = distance(kilometers=1)
     # 0: North, 90: East, 180: South, 270: West
-    area_north = distance(kilometers=radius_km).destination(route_north, bearing=0)[0]
-    area_south = distance(kilometers=radius_km).destination(route_south, bearing=180)[0]
-    area_east = distance(kilometers=radius_km).destination(route_east, bearing=90)[1]
-    area_west = distance(kilometers=radius_km).destination(route_west, bearing=270)[1]
+    area_north = dist.destination(route_north, bearing=0)[0]
+    area_south = dist.destination(route_south, bearing=180)[0]
+    area_east = dist.destination(route_east, bearing=90)[1]
+    area_west = dist.destination(route_west, bearing=270)[1]
 
     area_coords = [
-        (area_north, area_west),
-        (area_north, area_east),
-        (area_south, area_east),
-        (area_south, area_west),
+        (area_west, area_north),
+        (area_east, area_north),
+        (area_east, area_south),
+        (area_west, area_south),
             ]
     
     return Polygon(area_coords)
@@ -118,7 +121,7 @@ def getRidershipEmissions(start_coords, end_coords, length_of_path, riders, emis
     # Uncertainty Arithmetic: https://sciencing.com/how-to-calculate-uncertainty-13710219.html
         # When multiplying quantities with uncertainty, add together relative uncertainties
         # Relative Uncertainty = (max-min)/(min+max)
-
+    print(start_coords, end_coords)
     # Ridership
     surrounding_area = getSurroundingArea(start_coords, end_coords)   
     route_population = getRoutePopulation(surrounding_area)
@@ -134,19 +137,6 @@ def getRidershipEmissions(start_coords, end_coords, length_of_path, riders, emis
     emissions_mean = mean(emissions_per_km)*length_of_path*ridership_mean
     emissions = [emissions_mean-(emissions_mean*total_relative_uncertainty), emissions_mean+(emissions_mean*total_relative_uncertainty)]
 
-
-    print('ridership_uncertainty:', ridership_uncertainty)
-    print('emissions_per_km_uncertainty:', emissions_per_km_uncertainty)
-    print('total_relative_uncertainty:', total_relative_uncertainty)
-
-    print('emissions_per_km:', emissions_per_km)
-    print('length_of_path:', length_of_path)
-
-
-    print('emissions per km mean', mean(emissions_per_km))
-    print('emissions_mean:', emissions_mean)
-    
-    print('emissions:', emissions)
     return ridership, emissions
 
 # Cost
