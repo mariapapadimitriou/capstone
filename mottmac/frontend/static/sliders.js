@@ -55,7 +55,6 @@ function slideOneModal(){
     }
     displayValOneModal.innerHTML = numbertoPercentage(sliderModal1.value);
     fillColor(sliderModal1, sliderModal2, sliderMaxValue_modal, sliderTrack_modal);
-    updateCharts()
 }
 function slideTwoModal(){
     if(parseInt(sliderModal2.value) - parseInt(sliderModal1.value) <= 0){
@@ -63,7 +62,6 @@ function slideTwoModal(){
     }
     displayValTwoModal.innerHTML = numbertoPercentage(sliderModal2.value);
     fillColor(sliderModal1, sliderModal2, sliderMaxValue_modal, sliderTrack_modal);
-    updateCharts()
 }
 
 const sliderOne_striped = document.getElementById("slider1-striped");
