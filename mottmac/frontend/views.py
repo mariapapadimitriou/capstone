@@ -16,6 +16,7 @@ SHARROWS_UNIT_COST = [10000,15000]
 STRIPED_UNIT_COST = [20000,40000]
 PROTECTED_UNIT_COST = [40000,60000]
 BIKE_RIDERS = [3, 5]
+MODAL_SHIFT = [10,15]
 EMISSIONS = [134, 134]
 
 @csrf_exempt 
@@ -30,6 +31,8 @@ def index(request):
         "PROTECTED_UNIT_COST_MAX": PROTECTED_UNIT_COST[1],
         "BIKE_RIDERS_MIN": BIKE_RIDERS[0],
         "BIKE_RIDERS_MAX": BIKE_RIDERS[1],
+        "MODAL_MIN": MODAL_SHIFT[0],
+        "MODAL_MAX": MODAL_SHIFT[1],
         "EMISSIONS_MIN": EMISSIONS[0],
         "EMISSIONS_MAX": EMISSIONS[1]
     }
@@ -90,6 +93,10 @@ def index2(request):
                 result_store["overrides"]["riders"] = post_result.getlist(result)
                 for i in range(len(result_store["overrides"]["riders"])):
                     result_store["overrides"]["riders"][i] = float(result_store["overrides"]["riders"][i])
+            if "modal_shift" in result:
+                result_store["overrides"]["modal_shift"] = post_result.getlist(result)
+                for i in range(len(result_store["overrides"]["modal_shift"])):
+                    result_store["overrides"]["modal_shift"][i] = float(result_store["overrides"]["modal_shift"][i])
             if "emissions" in result:
                 result_store["overrides"]["emissions"] = post_result.getlist(result)
                 for i in range(len(result_store["overrides"]["emissions"])):
@@ -134,7 +141,8 @@ def index2(request):
                     start_coords=result_store["coordinates"][str(i)][0], 
                     end_coords=result_store["coordinates"][str(i)][1],
                     riders=result_store["overrides"]["riders"],
-                    emissions=result_store["overrides"]["emissions"] #switch to override when available
+                    modal_shift=result_store["overrides"]["modal_shift"],
+                    emissions=result_store["overrides"]["emissions"] 
                 )
 
                 cost_data.append(cost)

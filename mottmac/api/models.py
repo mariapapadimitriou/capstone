@@ -123,7 +123,7 @@ def getRoutePopulation(area):
     return route_population
 
 
-def getRidershipEmissions(start_coords, end_coords, length_of_path, riders, emissions_per_km):
+def getRidershipEmissions(start_coords, end_coords, length_of_path, riders, modal_shift, emissions_per_km):
     # Uncertainty Arithmetic: https://sciencing.com/how-to-calculate-uncertainty-13710219.html
         # When multiplying quantities with uncertainty, add together relative uncertainties
         # Relative Uncertainty = (max-min)/(min+max)
@@ -133,14 +133,21 @@ def getRidershipEmissions(start_coords, end_coords, length_of_path, riders, emis
     route_population = getRoutePopulation(surrounding_area)
     ridership = [route_population*riders[0]/100, route_population*riders[1]/100]
     ridership_mean = mean(ridership)
-    
-    # Relative Uncertainties
-    ridership_uncertainty = (ridership[1]-ridership[0])/(ridership[1]+ridership[0])
-    emissions_per_km_uncertainty = (emissions_per_km[1]-emissions_per_km[0])/(emissions_per_km[1]+emissions_per_km[0])
-    total_relative_uncertainty = ridership_uncertainty+emissions_per_km_uncertainty
+
+    # Modal Shift
+    modal_shift = [x/100 for x in modal_shift] # Convert percentages to decimals
+    modal_shift_mean = mean(modal_shift)
 
     # Emissions
-    emissions_mean = mean(emissions_per_km)*length_of_path*ridership_mean
+        # emissions saved (kg) = (CO2 saved(g/km)) * (route length(km)) * (riders) * (modal shift %) / (1000(g/kg))
+    emissions_mean = mean(emissions_per_km)*length_of_path*ridership_mean*modal_shift_mean/1000 # divide by 1000 to go from g to kg
+
+    # Uncertainty
+    ridership_uncertainty = (ridership[1]-ridership[0])/(ridership[1]+ridership[0])
+    modal_shift_uncertainty = (modal_shift[1]-modal_shift[0])/(modal_shift[1]+modal_shift[0])
+    emissions_per_km_uncertainty = (emissions_per_km[1]-emissions_per_km[0])/(emissions_per_km[1]+emissions_per_km[0])
+    total_relative_uncertainty = ridership_uncertainty+modal_shift_uncertainty+emissions_per_km_uncertainty
+
     emissions = [emissions_mean-(emissions_mean*total_relative_uncertainty), emissions_mean+(emissions_mean*total_relative_uncertainty)]
 
     return ridership, emissions
@@ -173,10 +180,10 @@ def getTraffic(route_type):
     return traffic
 
 # All Metrics
-def getMetrics(route_type, unit_cost, length_of_path, start_coords, end_coords, riders, emissions):
+def getMetrics(route_type, unit_cost, length_of_path, start_coords, end_coords, riders, modal_shift, emissions):
 
     cost = getCost(unit_cost, length_of_path)
-    ridership, emissions = getRidershipEmissions(start_coords, end_coords, length_of_path, riders, emissions)
+    ridership, emissions = getRidershipEmissions(start_coords, end_coords, length_of_path, riders, modal_shift, emissions)
     safety = getSafety(route_type)
     traffic = getTraffic(route_type)
 

@@ -46,6 +46,30 @@ function slideTwoRide(){
     updateCharts()
 }
 
+const sliderModal1 = document.getElementById("sliderModal1");
+const sliderModal2 = document.getElementById("sliderModal2");
+const displayValOneModal = document.getElementById("rangeModal1");
+const displayValTwoModal = document.getElementById("rangeModal2");
+const sliderTrack_modal = document.querySelector(".slider-modal");
+const sliderMaxValue_modal = document.getElementById("sliderModal1").max;
+
+function slideOneModal(){
+    if(parseInt(sliderModal2.value) - parseInt(sliderModal1.value) <= 0){
+        sliderModal1.value = parseInt(sliderModal2.value);
+    }
+    displayValOneModal.innerHTML = numbertoPercentage(sliderModal1.value);
+    fillColor(sliderModal1, sliderModal2, sliderMaxValue_modal, sliderTrack_modal);
+    updateCharts()
+}
+function slideTwoModal(){
+    if(parseInt(sliderModal2.value) - parseInt(sliderModal1.value) <= 0){
+        sliderModal2.value = parseInt(sliderModal1.value);
+    }
+    displayValTwoModal.innerHTML = numbertoPercentage(sliderModal2.value);
+    fillColor(sliderModal1, sliderModal2, sliderMaxValue_modal, sliderTrack_modal);
+    updateCharts()
+}
+
 const sliderOne_striped = document.getElementById("slider1-striped");
 const sliderTwo_striped = document.getElementById("slider2-striped");
 const displayValOne_striped = document.getElementById("range1-striped");
@@ -129,6 +153,9 @@ window.slideTwo();
 
 window.slideOneRide();
 window.slideTwoRide();
+
+window.slideOneModal();
+window.slideTwoModal();
 
 window.slideOneStriped();
 window.slideTwoStriped();

@@ -417,6 +417,7 @@ function updateCharts(){
     "overrides": {
       "cost_sharrows": [sliderOne.value, sliderTwo.value], 
       "riders": [sliderRide1.value, sliderRide2.value],
+      "modal_shift": [sliderModal1.value, sliderModal2.value],
       "cost_protected": [sliderOne_protect.value, sliderTwo_protect.value],
       "cost_striped": [sliderOne_striped.value, sliderTwo_striped.value],
       "emissions": [sliderEm1.value, sliderEm2.value]
@@ -524,6 +525,11 @@ function numbertoPercentage(x) {
 function numbertoGPerKm(x) {
 
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " g/km";
+}
+
+function numbertoKg(x) {
+
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " kg";
 }
 
 function roundToTwo(num) {    

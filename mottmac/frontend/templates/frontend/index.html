@@ -94,7 +94,7 @@
                               <div class="card-body">
                                 <div class="row" style="margin-top: -15px;">
                                   <div class="col" style="height: 115px;">
-                                    <div class="text-s font-weight-bold text-primary text-uppercase mb-1"><span data-tooltip-text="% change in co2 emissions per year">Emissions <i class="fas fa-info-circle"></i></span></div>
+                                    <div class="text-s font-weight-bold text-primary text-uppercase mb-1"><span data-tooltip-text="Kg of saved CO2 emissions">Emissions <i class="fas fa-info-circle"></i></span></div>
                                     <div id="emissions" style="margin: 0px; padding:0px; width: 100%; height: 100%;"></div>
                                   </div>
                                 </div>
@@ -241,6 +241,24 @@
                                         <span id="rangeRide2">100</span>
                                       </div>
                                     </div>
+
+                                    <div class="row" style="margin-top: 50px; margin-bottom: 10px;"></div>
+                                    <div class="row">
+                                      <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Percent New Bikers">% New Riders <i class="fas fa-info-circle"></i></span></div>
+                                      <div class="col-2" style="text-align: center">
+                                        <span id="rangeModal1">0</span>
+                                      </div>
+                                      <div class="col-4">
+                                        <div class="slider-modal">
+                                          <input type="range" min="0" max="30" value={{MODAL_MIN}} id="sliderModal1" oninput="slideOneModal()">
+                                          <input type="range" min="0" max="30" value={{MODAL_MAX}} id="sliderModal2" oninput="slideTwoModal()">
+                                        </div>
+                                      </div>
+                                      <div class="col-2" style="text-align: center">
+                                        <span id="rangeModal2">100</span>
+                                      </div>
+                                    </div>
+
                                     <div class="row" style="margin-top: 50px; margin-bottom: 10px;"></div>
                                     <div class="row">
                                       <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Saved CO2 emissions per km for every 1 car removed">Saved CO2 / km <i class="fas fa-info-circle"></i></span></div>
