@@ -277,3 +277,51 @@ te
 	position: absolute;
 	z-index: 9999;
 }
+
+.iconscontainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.iconscontainer .icon {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  left: 0px;
+  background-color: #fff;
+}
+
+.iconscontainer .icon span {
+  position: absolute;
+  top: 60%;
+  left: -60px;
+  margin-top: 10px;
+  padding: 10px 10px;
+  font-weight: 500;
+  width: 300px;
+  white-space: wrap;
+  color: #000;
+  font-size: 14px;
+  border-width: 10px;
+  border-radius: 20px;
+  background-color: #fff;
+  border: 3px solid #4e73df;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  opacity: 0;
+  z-index: 1;
+}
+.iconscontainer .icon:hover span {
+  top: 100%;
+  opacity: 1;
+}
+
+code {
+  color: grey;
+}

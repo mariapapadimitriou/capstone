@@ -1,6 +1,7 @@
 function getCostPlot(plot_colours, plot_labels, plot_data) {
 
     var data = [];
+
     let nunSerie = 0;
     
     let thresholdsHover = {

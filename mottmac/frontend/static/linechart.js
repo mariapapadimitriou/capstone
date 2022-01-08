@@ -3,7 +3,20 @@ Chart.defaults.global.defaultFontColor = '#858796';
 
 function getMultiObjective(plot_colours, plot_labels, plot_data) {
   
-  data = []
+  data = [{
+    x: ["Cost", "Ridership", "Safety"],
+    y: [0, 0, 0],
+    type: 'line',
+    line: {
+      width: 1
+    },
+    marker: {
+      color: "#ECECEB",
+      size: 10,
+      opacity: 0
+    },
+    hoverinfo: "skip"
+  }]
 
   mean_data = plot_data[0]
   add_data = plot_data[1]
