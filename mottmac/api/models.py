@@ -22,17 +22,26 @@ neighbourhood_data['coordinates'] = neighbourhood_data['coordinates'].apply(lamb
 
 neighbourhood_coords = neighbourhood_data.set_index('neighbourhoodID')['coordinates']
 
+# # Exp Value
+# SAFETY = {
+#     'sharrows': [0.22,0.22], 
+#     'striped': [0.53,0.53],
+#     'protected': [0.88,0.88]
+# }
+
+# 95% CI (Scaled so Reference = 0.00)
 SAFETY = {
-    'sharrows': [0,3], 
-    'striped': [1,3],
-    'protected': [2,5]
+    'sharrows': [-1.25, 0.79], 
+    'striped': [-0.48, 0.68],
+    'protected': [0.46, 0.98]
 }
 
-TRAFFIC = {
-    'sharrows': 0, 
-    'striped': 1,
-    'protected': 1
-}
+# # % decrease in injuries
+# SAFETY = {
+#     'sharrows': [0.05, 0.05], 
+#     'striped': [0.34, 0.34],
+#     'protected': [0.85, 0.85]
+# }
 
 route_types = ["sharrows", "striped", "protected"]
 
@@ -168,15 +177,15 @@ def getSafety(route_type):
 
     return safety
 
-# Traffic Congestion
-def getTraffic(route_type):
-    # average road lane width: 3.25 m 
-    # minimum road lane width: 3 m 
-    # width of striped lane: 1.75 m
-    # width of protected lane: 2 m (This is a bit of an estimate)
-    traffic = TRAFFIC[route_type]
+# # Traffic Congestion
+# def getTraffic(route_type):
+#     # average road lane width: 3.25 m 
+#     # minimum road lane width: 3 m 
+#     # width of striped lane: 1.75 m
+#     # width of protected lane: 2 m (This is a bit of an estimate)
+#     traffic = TRAFFIC[route_type]
 
-    return traffic
+#     return traffic
 
 # All Metrics
 def getMetrics(route_type, unit_cost, length_of_path, start_coords, end_coords, riders, modal_shift, emissions):
@@ -184,9 +193,9 @@ def getMetrics(route_type, unit_cost, length_of_path, start_coords, end_coords, 
     cost = getCost(unit_cost, length_of_path)
     ridership, emissions = getRidershipEmissions(start_coords, end_coords, length_of_path, riders, modal_shift, emissions)
     safety = getSafety(route_type)
-    traffic = getTraffic(route_type)
+    # traffic = getTraffic(route_type)
 
-    return cost, ridership, emissions, safety, traffic 
+    return cost, ridership, emissions, safety#, traffic 
 
 # Scaled Metrics for Multi-Objective
 def getScaledMetrics(cost_data, ridership_data, emissions_data, safety_data):

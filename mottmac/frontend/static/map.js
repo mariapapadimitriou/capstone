@@ -439,7 +439,7 @@ function updateCharts(){
       var cost_data = data["cost_data"]
       var ridership_data = data["ridership_data"]
       var emissions_data = data["emissions_data"]
-      var traffic_data = data["traffic_data"]
+      //var traffic_data = data["traffic_data"]
       var safety_data = data["safety_data"]
       var multi_data = data["multi_data"]
 
@@ -503,36 +503,4 @@ Array.prototype.min = function() {
 };
 
 
-function numbertoCurrency(x) {
 
-  if (x < 0) {
-      return "-$" + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",").replace("-", "");
-  }
-  else {
-      return "$" + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-  }
-}
-
-function numbertoComma(x) {
-
-      return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-function numbertoPercentage(x) {
-
-  return x.toString() + "%";
-}
-
-function numbertoGPerKm(x) {
-
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " g/km";
-}
-
-function numbertoKg(x) {
-
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " kg";
-}
-
-function roundToTwo(num) {    
-  return +(Math.round(num + "e+2")  + "e-2");
-}
