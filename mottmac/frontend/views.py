@@ -10,8 +10,7 @@ from django.http import JsonResponse
 from api.models import *
 np.random.seed(1)
 
-# Override Initial Values 
-
+# Initial Override Values 
 SHARROWS_UNIT_COST = [5800,5800]
 STRIPED_UNIT_COST = [14500,26500]
 PROTECTED_UNIT_COST = [159000,171000]
@@ -151,7 +150,7 @@ def index2(request):
                 traffic_data.append(traffic)
                 safety_data.append(safety)
 
-    multi_data = getScaledMetrics(cost_data, ridership_data, safety_data)
+    multi_data = getScaledMetrics(cost_data, ridership_data, emissions_data, safety_data)
   
     context = {
         "colours_plot" : colours_plot,

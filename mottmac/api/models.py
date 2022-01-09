@@ -13,7 +13,6 @@ from geopy.distance import distance
 from functools import partial
 import pyproj
 
-#import geopandas as gpd
 import pandas as pd
 
 conn = sqlite3.connect('data.db')
@@ -190,7 +189,7 @@ def getMetrics(route_type, unit_cost, length_of_path, start_coords, end_coords, 
     return cost, ridership, emissions, safety, traffic 
 
 # Scaled Metrics for Multi-Objective
-def getScaledMetrics(cost_data, ridership_data, safety_data):
+def getScaledMetrics(cost_data, ridership_data, emissions_data, safety_data):
 
     if len(cost_data) == 0 or len(ridership_data) == 0 or len(safety_data) == 0:
         return [[],[],[]]
@@ -214,6 +213,14 @@ def getScaledMetrics(cost_data, ridership_data, safety_data):
         'total_min': min([min(route) for route in ridership_data])
     }
 
+    emissions = {
+        'mean': [mean(route) for route in emissions_data],
+        'max': [max(route) for route in emissions_data],
+        'min': [min(route) for route in emissions_data],
+        'total_max': max([max(route) for route in emissions_data]),
+        'total_min': min([min(route) for route in emissions_data])
+    }
+
     safety = {
         'mean': [mean(route) for route in safety_data],
         'max': [max(route) for route in safety_data],
@@ -234,6 +241,12 @@ def getScaledMetrics(cost_data, ridership_data, safety_data):
         'min': [scale(route, ridership['total_max'], ridership['total_min']) for route in ridership['min']]
     }
 
+    emissions_scaled = {
+        'mean': [scale(route, emissions['total_max'], emissions['total_min']) for route in emissions['mean']],
+        'max': [scale(route, emissions['total_max'], emissions['total_min']) for route in emissions['max']],
+        'min': [scale(route, emissions['total_max'], emissions['total_min']) for route in emissions['min']]
+    }
+
     safety_scaled = { 
         'mean': [scale(route, safety['total_max'], safety['total_min']) for route in safety['mean']],
         'max': [scale(route, safety['total_max'], safety['total_min']) for route in safety['max']],
@@ -243,9 +256,9 @@ def getScaledMetrics(cost_data, ridership_data, safety_data):
     scaled_avg, scaled_max, scaled_min, scaled_add, scaled_subtract = [], [], [], [], []
 
     for route in range(len(cost_scaled['mean'])):
-        scaled_avg.append([cost_scaled['mean'][route], ridership_scaled['mean'][route], safety_scaled['mean'][route]])
-        scaled_max.append([cost_scaled['max'][route], ridership_scaled['max'][route], safety_scaled['max'][route]])
-        scaled_min.append([cost_scaled['min'][route], ridership_scaled['min'][route], safety_scaled['min'][route]])
+        scaled_avg.append([cost_scaled['mean'][route], ridership_scaled['mean'][route], emissions_scaled['mean'][route], safety_scaled['mean'][route]])
+        scaled_max.append([cost_scaled['max'][route], ridership_scaled['max'][route], emissions_scaled['max'][route], safety_scaled['max'][route]])
+        scaled_min.append([cost_scaled['min'][route], ridership_scaled['min'][route], emissions_scaled['min'][route], safety_scaled['min'][route]])
 
         scaled_add.append([max_val - avg_val for max_val, avg_val in zip(scaled_max[route], scaled_avg[route])])
         scaled_subtract.append([avg_val - min_val for avg_val, min_val in zip(scaled_avg[route], scaled_min[route])])
