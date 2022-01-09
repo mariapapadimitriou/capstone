@@ -10,11 +10,10 @@ from django.http import JsonResponse
 from api.models import *
 np.random.seed(1)
 
-# Cost Constants [lower bound, upper bound] (CHANGE TO REAL NUMBERS)
-# SET AT <!-- OVERRIDES - SET DEFAULTS HERE-->  in index.html
-SHARROWS_UNIT_COST = [10000,15000]
-STRIPED_UNIT_COST = [20000,40000]
-PROTECTED_UNIT_COST = [40000,60000]
+# Initial Override Values 
+SHARROWS_UNIT_COST = [5800,5800]
+STRIPED_UNIT_COST = [14500,26500]
+PROTECTED_UNIT_COST = [159000,171000]
 BIKE_RIDERS = [3, 5]
 MODAL_SHIFT = [10,15]
 EMISSIONS = [134, 134]
@@ -151,7 +150,7 @@ def index2(request):
                 traffic_data.append(traffic)
                 safety_data.append(safety)
 
-    multi_data = getScaledMetrics(cost_data, ridership_data, safety_data)
+    multi_data = getScaledMetrics(cost_data, ridership_data, emissions_data, safety_data)
   
     context = {
         "colours_plot" : colours_plot,
