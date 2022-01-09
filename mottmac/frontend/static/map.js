@@ -351,6 +351,8 @@ var strip = [0,0,0];
 var protect = [0,0,0];
 
 function selectOption(btn) {
+
+  if (draw.getMode() != "draw_line_string") {
     var property = document.getElementById(btn);
 
     var type_map = {"share" : share, "strip" : strip, "protect" : protect}
@@ -376,6 +378,7 @@ function selectOption(btn) {
       property.innerHTML = type_full[type] + "&nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i>"
     }
     updateCharts()
+  }
 }
 
   function capitalizeFirstLetter(string) {
