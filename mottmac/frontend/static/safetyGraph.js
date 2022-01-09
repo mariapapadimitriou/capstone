@@ -24,8 +24,10 @@ function getSafetyPlot(plot_colours, plot_labels, plot_data) {
     for (const serie of plot_labels) {
         
         var index_of = plot_labels.indexOf(serie)
-        const threshold_max = Math.round(plot_data[index_of].max())
-        const threshold_min = Math.round(plot_data[index_of].min())
+        // const threshold_max = Math.round(plot_data[index_of].max())
+        // const threshold_min = Math.round(plot_data[index_of].min())
+        const threshold_max = plot_data[index_of].max() //floats
+        const threshold_min = plot_data[index_of].min()
     
         // boxplot https://plotly.com/javascript/reference/#box-text
         data.push({
@@ -46,13 +48,13 @@ function getSafetyPlot(plot_colours, plot_labels, plot_data) {
         if (threshold_max < 0) {
             thresholdsHover.x.push(serie);
             thresholdsHover.y.push(threshold_min);
-            thresholdsHover.text.push('<b>Max: </b>' + numbertoComma(threshold_max) + '<br><b>Min: </b>' + numbertoComma(threshold_min))
+            thresholdsHover.text.push('<b>Max: </b>' + roundToTwo(threshold_max) + '<br><b>Min: </b>' + roundToTwo(threshold_min))
             ++nunSerie;
         }
         else {
             thresholdsHover.x.push(serie);
             thresholdsHover.y.push(threshold_max);
-            thresholdsHover.text.push('<b>Max: </b>' + numbertoComma(threshold_max) + '<br><b>Min: </b>' + numbertoComma(threshold_min))
+            thresholdsHover.text.push('<b>Max: </b>' + roundToTwo(threshold_max) + '<br><b>Min: </b>' + roundToTwo(threshold_min))
             ++nunSerie;
         }
 
@@ -84,7 +86,7 @@ function getSafetyPlot(plot_colours, plot_labels, plot_data) {
         },
         yaxis : {
             zeroline:false, 
-            hoverformat: '.1f' // float precision
+            hoverformat: '.2f' // float precision
         },
         showlegend: false
     },

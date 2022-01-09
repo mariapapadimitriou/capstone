@@ -115,7 +115,7 @@ def index2(request):
     cost_data = []
     ridership_data = []
     emissions_data = []
-    traffic_data = []
+    # traffic_data = []
     safety_data = []
 
     unit_costs = {
@@ -133,7 +133,7 @@ def index2(request):
                 labels_plot.append(route_num_type)
                 colours_plot.append(result_store["colours"][i])
 
-                cost, ridership, emissions, safety, traffic = getMetrics(
+                cost, ridership, emissions, safety = getMetrics(
                     route_type=route_type, 
                     unit_cost=unit_costs[route_type], 
                     length_of_path=result_store["route_length"][i], 
@@ -147,7 +147,7 @@ def index2(request):
                 cost_data.append(cost)
                 ridership_data.append(ridership)
                 emissions_data.append(emissions)
-                traffic_data.append(traffic)
+                # traffic_data.append(traffic)
                 safety_data.append(safety)
 
     multi_data = getScaledMetrics(cost_data, ridership_data, emissions_data, safety_data)
@@ -158,7 +158,7 @@ def index2(request):
         "cost_data" : cost_data,
         "ridership_data" : ridership_data,
         "emissions_data" : emissions_data,
-        "traffic_data" : traffic_data,
+        # "traffic_data" : traffic_data,
         "safety_data" : safety_data,
         "multi_data": multi_data,
     }
