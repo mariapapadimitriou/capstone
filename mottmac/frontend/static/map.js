@@ -302,7 +302,7 @@ function updateLegend() {
     drawLine[0].classList.add('disabled-button');
     newdrawline.classList.add('hey-disabled');
 
-    newdrawline.innerHTML = "Add New Route&nbsp<i class='fas fa-ban'></i>"
+    newdrawline.innerHTML = "Add New Route&nbsp;&nbsp;<i class='fas fa-ban'></i>"
 
   }
   
@@ -316,7 +316,7 @@ function updateLegend() {
     drawLine[0].classList.remove('disabled-button');
     newdrawline.classList.remove('hey-disabled');
 
-    newdrawline.innerHTML = "Add New Route&nbsp<i class='fas fa-plus-circle'></i>"
+    newdrawline.innerHTML = "Add New Route&nbsp;&nbsp;<i class='fas fa-plus-circle'></i>"
   }
 
   share = [0,0,0];
@@ -455,7 +455,7 @@ function updateCharts(){
         }
       }
       
-      getTrafficPlot(new_colours, labels_plot, traffic_data)
+      //getTrafficPlot(new_colours, labels_plot, traffic_data)
       getCostPlot(new_colours, labels_plot, cost_data)
       getRidershipPlot(new_colours, labels_plot, ridership_data)
       getEmissionsPlot(new_colours, labels_plot, emissions_data)
