@@ -236,10 +236,6 @@ input[type="range"]:active::-webkit-slider-thumb{
   border-color: black;
 }
 
-.buttonmode:hover {
-  background-color: black;
-  color: white;
-}
 
 
 
@@ -324,4 +320,21 @@ te
 
 code {
   color: grey;
+}
+
+.currentroutes-box {
+  height: 30px;
+  width: 170px;
+  position: absolute;
+  top: 10px;
+  left: 20px;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 5px;
+  text-align: left;
+  color: #333332;
+  font-size: 13px;
+  font-weight: bold;
+  clear: right;
+  border: 1px solid rgba(51, 51, 50, 0.2);
+  border-radius: 5px;
 }
