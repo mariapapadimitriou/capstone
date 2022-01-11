@@ -357,6 +357,7 @@ function selectOption(btn) {
 
     var type_map = {"share" : share, "strip" : strip, "protect" : protect}
     const type_full = {"share" : "Sharrows", "strip" : "Striped", "protect" : "Protected"}
+    var clrs = {"share0" : '#36b9cc', "share1" : '#B026FF', "share2" : '#1cc88a', "strip0" : pSBC(-0.5, '#36b9cc'), "strip1" : pSBC(-0.5, '#B026FF'), "strip2" : pSBC(-0.5, '#1cc88a'), "protect0" : pSBC(-0.8, '#36b9cc'), "protect1" : pSBC(-0.8, '#B026FF'), "protect2" : pSBC(-0.8, '#1cc88a')}
 
     const type = btn.slice(0, -1)
     const routeid = btn.charAt(btn.length-1)
@@ -366,7 +367,7 @@ function selectOption(btn) {
     const total_clicked = (arraySum(share) + arraySum(strip) + arraySum(protect))
 
     if ((count == 0) & (total_clicked <= 2)) {
-      property.style.backgroundColor = "black"
+      property.style.backgroundColor = clrs[btn]
       property.style.color = "white"
       type_map[type][routeid] = 1;
       property.innerHTML = type_full[type] + "&nbsp;&nbsp;&nbsp;<i class='fas fa-check'></i>"
