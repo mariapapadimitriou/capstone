@@ -131,36 +131,6 @@ def getRoutePopulation(area):
     return route_population
 
 
-
-# def getRidershipEmissionsOld(start_coords, end_coords, length_of_path, riders, modal_shift, emissions_per_km):
-#     # Uncertainty Arithmetic: https://sciencing.com/how-to-calculate-uncertainty-13710219.html
-#         # When multiplying quantities with uncertainty, add together relative uncertainties
-#         # Relative Uncertainty = (max-min)/(min+max)
-
-#     # Ridership
-#     surrounding_area = getSurroundingArea(start_coords, end_coords)   
-#     route_population = getRoutePopulation(surrounding_area)
-#     ridership = [route_population*riders[0]/100, route_population*riders[1]/100]
-#     ridership_mean = mean(ridership)
-
-#     # Modal Shift
-#     modal_shift = [x/100 for x in modal_shift] # Convert percentages to decimals
-#     modal_shift_mean = mean(modal_shift)
-
-#     # Emissions
-#         # emissions saved (kg) = (CO2 saved(g/km)) * (route length(km)) * (riders) * (modal shift %) / (1000(g/kg))
-#     emissions_mean = mean(emissions_per_km)*length_of_path*ridership_mean*modal_shift_mean/1000 # divide by 1000 to go from g to kg
-
-#     # Uncertainty
-#     ridership_uncertainty = (ridership[1]-ridership[0])/(ridership[1]+ridership[0])
-#     modal_shift_uncertainty = (modal_shift[1]-modal_shift[0])/(modal_shift[1]+modal_shift[0])
-#     emissions_per_km_uncertainty = (emissions_per_km[1]-emissions_per_km[0])/(emissions_per_km[1]+emissions_per_km[0])
-#     total_relative_uncertainty = ridership_uncertainty+modal_shift_uncertainty+emissions_per_km_uncertainty
-
-#     emissions = [emissions_mean-(emissions_mean*total_relative_uncertainty), emissions_mean+(emissions_mean*total_relative_uncertainty)]
-
-#     return ridership, emissions
-
 def intervalMultiply(ab,cd):
     # Interval Arithmetic: https://web.mit.edu/hyperbook/Patrikalakis-Maekawa-Cho/node45.html
     # [a,b]*[c,d] = [min(ac,ad,bc,bd), max(ac,ad,bc,bd)]
@@ -175,24 +145,15 @@ def intervalMultiply(ab,cd):
 
 def getRidershipEmissions(start_coords, end_coords, length_of_path, riders, new_riders, emissions_per_km):
 
-
     # Ridership
     surrounding_area = getSurroundingArea(start_coords, end_coords)   
     route_population = getRoutePopulation(surrounding_area)
     ridership = [x*route_population/100 for x in riders] # Percentage to decimals
 
-    print(ridership)
-    print(emissions_per_km)
-    print(length_of_path)
-
     # Modal Shift and Emissions
     new_riders = [x/100 for x in new_riders] # Percentage to decimals
     modal_shift = intervalMultiply(ridership, new_riders)
     emissions = [x*length_of_path/1000 for x in intervalMultiply(emissions_per_km,modal_shift)]
-
-    print(new_riders)
-    print(modal_shift)
-    print(emissions)
 
     return ridership, emissions
 

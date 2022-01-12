@@ -9,14 +9,14 @@ function slideOne(){
     if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= 0){
         sliderOne.value = parseInt(sliderTwo.value);
     }
-    displayValOne.innerHTML = numbertoCurrency(sliderOne.value);
+    displayValOne.innerHTML = numbertoCurrency(-sliderOne.value);
     fillColor(sliderOne, sliderTwo, sliderMaxValue, sliderTrack);
 }
 function slideTwo(){
     if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= 0){
         sliderTwo.value = parseInt(sliderOne.value);
     }
-    displayValTwo.innerHTML = numbertoCurrency(sliderTwo.value);
+    displayValTwo.innerHTML = numbertoCurrency(-sliderTwo.value);
     fillColor(sliderOne, sliderTwo, sliderMaxValue, sliderTrack);
 }
 
@@ -75,14 +75,14 @@ function slideOneStriped(){
     if(parseInt(sliderTwo_striped.value) - parseInt(sliderOne_striped.value) <= 0){
         sliderOne_striped.value = parseInt(sliderTwo_striped.value);
     }
-    displayValOne_striped.innerHTML = numbertoCurrency(sliderOne_striped.value);
+    displayValOne_striped.innerHTML = numbertoCurrency(-sliderOne_striped.value);
     fillColor(sliderOne_striped, sliderTwo_striped, sliderMaxValue_striped, sliderTrack_striped);
 }
 function slideTwoStriped(){
     if(parseInt(sliderTwo_striped.value) - parseInt(sliderOne_striped.value) <= 0){
         sliderTwo_striped.value = parseInt(sliderOne_striped.value);
     }
-    displayValTwo_striped.innerHTML = numbertoCurrency(sliderTwo_striped.value);
+    displayValTwo_striped.innerHTML = numbertoCurrency(-sliderTwo_striped.value);
     fillColor(sliderOne_striped, sliderTwo_striped, sliderMaxValue_striped, sliderTrack_striped);
 }
 
@@ -97,14 +97,14 @@ function slideOneProtect(){
     if(parseInt(sliderTwo_protect.value) - parseInt(sliderOne_protect.value) <= 0){
         sliderOne_protect.value = parseInt(sliderTwo_protect.value);
     }
-    displayValOne_protect.innerHTML = numbertoCurrency(sliderOne_protect.value);
+    displayValOne_protect.innerHTML = numbertoCurrency(-sliderOne_protect.value);
     fillColor(sliderOne_protect, sliderTwo_protect, sliderMaxValue_protect, sliderTrack_protect);
 }
 function slideTwoProtect(){
     if(parseInt(sliderTwo_protect.value) - parseInt(sliderOne_protect.value) <= 0){
         sliderTwo_protect.value = parseInt(sliderOne_protect.value);
     }
-    displayValTwo_protect.innerHTML = numbertoCurrency(sliderTwo_protect.value);
+    displayValTwo_protect.innerHTML = numbertoCurrency(-sliderTwo_protect.value);
     fillColor(sliderOne_protect, sliderTwo_protect, sliderMaxValue_protect, sliderTrack_protect);
 }
 
