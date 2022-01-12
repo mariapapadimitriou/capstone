@@ -449,7 +449,7 @@ function updateCharts(){
 
       for (let i = 0; i < plot_colours.length; i++) {
         if (new_colours.includes(pSBC(-0.5, plot_colours[i]))) {
-          new_colours.push(pSBC(-0.8, plot_colours[i]))
+          new_colours.push(pSBC(-0.9, plot_colours[i]))
         }
         else if (new_colours.includes(plot_colours[i])) {
           new_colours.push(pSBC(-0.5, plot_colours[i]))

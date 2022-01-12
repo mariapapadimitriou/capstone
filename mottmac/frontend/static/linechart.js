@@ -4,7 +4,7 @@ Chart.defaults.global.defaultFontColor = '#858796';
 function getMultiObjective(plot_colours, plot_labels, plot_data) {
   
   data = [{
-    x: ["Cost", "Ridership", "Emissions", "Safety"],
+    x: ["Cost", "Ridership", "Saved Emissions", "Safety"],
     y: [0, 0, 0, 0],
     type: 'line',
     line: {
@@ -26,7 +26,7 @@ function getMultiObjective(plot_colours, plot_labels, plot_data) {
 
     data.push(
       {
-        x: ["Cost", "Ridership", "Emissions", "Safety"],
+        x: ["Cost", "Ridership", "Saved Emissions", "Safety"],
         y: mean_data[i],
         name: plot_labels[i],
         hoverinfo: "skip",
