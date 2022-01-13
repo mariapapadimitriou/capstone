@@ -53,6 +53,22 @@
 
             <!-- Main Content -->
             <div id="content">
+              <div id="modalOne" class="modal">
+                <div class="modal-content">
+                  <div class="contact-form">
+                    <form action="/">
+                      <h2 id="routename">Save Route</h2>
+                      <div>
+                        <input type="text" name="name" placeholder="Route Name">
+                      </div>
+                      <div class="formactionbtns">
+                      <button class = "formbtns" type="submit" id="formsubmit" href="/">Submit</button>
+                      <button class = "formbtns"  type="cancel" id="formcancel" >Cancel</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid" style="padding: 20px">
@@ -173,6 +189,11 @@
                               <div
                                   class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                   <h6 class="m-0 font-weight-bold text-primary">Map</h6>
+                                  <select class="selectpicker" multiple data-style="btn-primary">
+                                    <option>Mustard</option>
+                                    <option>Ketchup</option>
+                                    <option>Relish</option>
+                                  </select>                                  
                               </div>
                               <!-- Card Body -->
                               <div class="row">
