@@ -72,7 +72,7 @@ def saveOverride(override_dict):
         return status
     
     
-    columns = ",".join(OVERRIDE_COLUMNS.keys())
+    columns = ",".join(OVERRIDE_COLUMNS)
     override_vals = tuple(override_dict.values())
     sqlQuery = "INSERT INTO saved_overrides ({0}) VALUES ({1})".format(columns, OVERRIDE_PLACEHOLDERS)
 
@@ -100,7 +100,7 @@ def saveOverride(override_dict):
         status_message = "This route name is already in use. Please choose another name and try again."
         return status_message, status
     
-    columns = ",".join(ROUTE_COLUMNS.keys())
+    columns = ",".join(ROUTE_COLUMNS)
     route_vals = tuple(route_dict.values())
     sqlQuery = "INSERT INTO saved_routes ({0}) VALUES ({1})".format(columns, ROUTE_PLACEHOLDERS)
 
@@ -160,3 +160,63 @@ def getSavedRoute(route_name):
         route[col] = route_vals[i]
     
     return route
+
+### EDIT
+
+def editOverride(override_dict):
+    
+    override_name = override_dict['override_name']
+        
+    if override_name not in getAllNames("override"):
+        status, status_message = 1, "Error: This override does not exist."
+        return status, status_message
+    
+    sqlQuery = "UPDATE saved_overrides SET "
+    for col in OVERRIDE_COLUMNS[1:]:
+        sqlQuery = sqlQuery + "{col} = {value}, ".format(col=col, value=override_dict[col])
+    
+    sqlQuery = sqlQuery + "update_time = CURRENT_TIMESTAMP WHERE override_name = '{}'".format(override_name)
+    
+    conn, curs = getConnCurs()
+
+    try:
+        curs.execute(sqlQuery)
+        conn.commit()
+        status, status_message = 0, override_name + " has been successfully updated."
+    except:
+        status, status_message = 1,  "Error - Please try again."
+        
+    finally:
+        curs.close()
+        conn.close()
+        
+    return status, status_message
+
+    def editRoute(route_dict):
+    
+    route_name = route_dict['route_name']
+        
+    if route_name not in getAllNames("route"):
+        status, status_message = 1, "Error: This route does not exist."
+        return status, status_message
+    
+    sqlQuery = "UPDATE saved_routes SET "
+    for col in ROUTE_COLUMNS[1:]:
+        sqlQuery = sqlQuery + "{col} = {value}, ".format(col=col, value=route_dict[col])
+    
+    sqlQuery = sqlQuery + "update_time = CURRENT_TIMESTAMP WHERE route_name = '{}'".format(route_name)
+    
+    conn, curs = getConnCurs()
+
+    try:
+        curs.execute(sqlQuery)
+        conn.commit()
+        status, status_message = 0, route_name + " has been successfully updated."
+    except:
+        status, status_message = 1,  "Error - Please try again."
+        
+    finally:
+        curs.close()
+        conn.close()
+        
+    return status, status_message
