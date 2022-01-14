@@ -270,14 +270,14 @@ function updateLegend() {
     for (let i = 0; i < draw.getAll().features.length; i++) {
       const routeid = draw.getAll().features[i].id
 
-      routes.push("<div class='row'><span style='margin-left: 10px; color:")
+      routes.push("<div style='display: flex; flex-direction: row; justify-content: flex-start;'><span style='color:")
       routes.push(id_colours[routeid])
       routes.push(";'>")
       routes.push("<b>Route")
       routes.push(i+1)
       routes.push("</b>&nbsp;&nbsp;&nbsp;" + roundToTwo(turf.length(id_coords[routeid])) + "km</span></div>")
       routes.push("<div style='height:10px'></div>")
-      routes.push("<div class='row' style='display: flex; justify-content: space-between; margin-right: 1px; margin-left: -5px; margin-right: 5px;'>")
+      routes.push("<div style='display: flex; justify-content: space-between; margin-right: 1px; margin-left: -5px; margin-right: 5px;'>")
       routes.push("<button class='buttonmode' id ='share" + i + "' type='submit' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
       routes.push("<button class='buttonmode' type='submit' id ='strip" + i + "' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Striped &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
       routes.push("<button class='buttonmode' type='submit' id ='protect" + i + "' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Protected &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
@@ -458,15 +458,18 @@ function updateCharts(){
       var safety_data = data["safety_data"]
       var multi_data = data["multi_data"]
 
-      for (let i = 0; i < plot_colours.length; i++) {
-        if (new_colours.includes(pSBC(-0.5, plot_colours[i]))) {
-          new_colours.push(pSBC(-0.8, plot_colours[i]))
+      for (let i = 0; i < labels_plot.length; i++) {
+        var routetype = labels_plot[i].split(" ")[2]
+        var co = plot_colours[i]
+
+        if (routetype=="Sharrows") {
+          new_colours.push(plot_colours[i])
         }
-        else if (new_colours.includes(plot_colours[i])) {
+        else if (routetype=="Striped") {
           new_colours.push(pSBC(-0.5, plot_colours[i]))
         }
         else {
-          new_colours.push(plot_colours[i])
+          new_colours.push(pSBC(-0.8, plot_colours[i]))
         }
       }
       
