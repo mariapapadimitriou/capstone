@@ -191,21 +191,20 @@ input[type="range"]:active::-webkit-slider-thumb{
 }
 
 .refresh_button {
-  background-color: black;
+  background-color: #4e73df;
   color: white;
-  border-radius: 20px; 
+  border-radius: 5px; 
   border-width: 2px;
-  height: 35px;
+  height: 36px;
   font-weight: bold;
-  border-color: black;
-  margin-top: -20px;
-  margin-bottom: -20px;
+  border: none;
+  text-align: center;
 }
 
 .refresh_button:hover {
   background-color: white;
-  color: black;
-  border-color: black;
+  color: #4e73df;
+  border: 2px solid #4e73df;
 }
 
 .hey {
@@ -337,4 +336,97 @@ code {
   clear: right;
   border: 1px solid rgba(51, 51, 50, 0.2);
   border-radius: 5px;
+}
+
+.saveroutebtn {
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  border: none;
+  width: fit-content;
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 8;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.modal-content {
+  margin: 50px auto;
+  border: 1px solid #999;
+  width: 60%;
+}
+
+form {
+  padding: 25px;
+  margin: 25px;
+  box-shadow: 0 2px 5px #f5f5f5;
+  background: #eee;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+}
+
+form input {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  outline: none;
+}
+
+.formactionbtns {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 10px;
+  border: none;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.formbtns {
+  background-color: black;
+  color: white;
+  border-radius: 20px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
+  border: none;
+  font-family: "Nunito";
+}
+
+.formbtns:hover {
+  background-color: #858796;
+  color: white;
+}
+
+.bootstrap-select .btn {
+  background-color: #4e73df;
+  color: white;
+}
+
+.filter-option {
+  color: white;
+  font-weight: bold;
+}
+
+.bootstrap-select .btn::after {
+  color: white;
+}
+
+.mapdiv .bootstrap-select .btn {
+  margin: -10px 10px -10px 10px;
 }
