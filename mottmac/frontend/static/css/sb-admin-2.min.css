@@ -191,21 +191,20 @@ input[type="range"]:active::-webkit-slider-thumb{
 }
 
 .refresh_button {
-  background-color: black;
+  background-color: #4e73df;
   color: white;
-  border-radius: 20px; 
+  border-radius: 5px; 
   border-width: 2px;
-  height: 35px;
+  height: 36px;
   font-weight: bold;
-  border-color: black;
-  margin-top: -20px;
-  margin-bottom: -20px;
+  border: none;
+  text-align: center;
 }
 
 .refresh_button:hover {
   background-color: white;
-  color: black;
-  border-color: black;
+  color: #4e73df;
+  border: 2px solid #4e73df;
 }
 
 .hey {
@@ -340,13 +339,14 @@ code {
 }
 
 .saveroutebtn {
-  border-radius: 50%;
-  background-color: white;
+  border-radius: 20px;
+  background-color: black;
+  color: white;
   border: none;
-}
-
-.saveroutebtn:hover {
-  background-color: white;
+  width: fit-content;
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: 10px;
 }
 
 .modal {
@@ -400,7 +400,10 @@ form input {
   background-color: black;
   color: white;
   border-radius: 20px;
-  width: 100px;
+  width: 150px;
+  height: 50px;
+  font-size: 20px;
+  font-weight: bold;
   border: none;
   font-family: "Nunito";
 }
@@ -410,3 +413,20 @@ form input {
   color: white;
 }
 
+.bootstrap-select .btn {
+  background-color: #4e73df;
+  color: white;
+}
+
+.filter-option {
+  color: white;
+  font-weight: bold;
+}
+
+.bootstrap-select .btn::after {
+  color: white;
+}
+
+.mapdiv .bootstrap-select .btn {
+  margin: -10px 10px -10px 10px;
+}
