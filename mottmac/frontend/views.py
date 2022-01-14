@@ -33,10 +33,35 @@ def index(request):
         "MODAL_MIN": MODAL_SHIFT[0],
         "MODAL_MAX": MODAL_SHIFT[1],
         "EMISSIONS_MIN": EMISSIONS[0],
-        "EMISSIONS_MAX": EMISSIONS[1]
+        "EMISSIONS_MAX": EMISSIONS[1],
+        "savedrouteslist": ["marias route", "danielles route", "margarets route", "johns route"],
+        "savedoverrideslist": ["marias overrides", "danielles overrides", "margarets overrides", "johns overrides"],
     }
     
     return render(request, 'frontend/index.html', context)
+
+@csrf_exempt 
+def saveRoute(request):
+
+    print(request.POST)
+
+    #saveRouteRequest()from saved.py
+
+    context = {}
+
+    return JsonResponse(context)
+
+
+@csrf_exempt 
+def saveOverrides(request):
+
+    print(request.POST)
+
+    #saveOverrideRequest()
+
+    context = {}
+
+    return JsonResponse(context)
 
 @csrf_exempt 
 def index2(request):

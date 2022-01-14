@@ -372,11 +372,12 @@ form {
 }
 
 form input {
-  width: 90%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 20px;
   border: 1px solid black;
   outline: none;
+  justify-content: center;
 }
 
 .formactionbtns {

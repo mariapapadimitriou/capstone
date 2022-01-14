@@ -59,9 +59,9 @@
                   <div class="contact-form">
                     <form action="/">
                       <div>
-                        <h1 style="color: black; font-weight: bold;">Save Route</h1>
+                        <h1 id = "savetype" style="color: black; font-weight: bold;"></h1>
                         <h2 id="routename"></h2>
-                        <input type="text" name="name" placeholder="Route Name">
+                        <input type="text" name="name" id = "route_name" placeholder="Enter here (required)">
                       </div>
                       <div class="formactionbtns">
                       <button class = "formbtns" type="submit" id="formsubmit" href="/">Submit</button>
@@ -71,7 +71,6 @@
                   </div>
                 </div>
               </div>
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid" style="padding: 20px">
 
@@ -192,11 +191,9 @@
                                   class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                   <h6 class="m-0 font-weight-bold text-primary">Map</h6>
                                   <select class="selectpicker" multiple data-max-options="2" data-live-search="true" title="Saved Routes" data-selected-text-format="count">
-                                    <option>Route 1</option>
-                                    <option>Route 2</option>
-                                    <option>Route 3</option>
-                                    <option>Route 4</option>
-                                    <option>Route 5</option>
+                                    {%for r in savedrouteslist %}
+                                    <option>{{r}}</option>
+                                    {% endfor %}
                                   </select>                                  
                               </div>
                               <!-- Card Body -->
@@ -234,13 +231,11 @@
                                     <div style="display: flex; flex-direction: row; justify-content: flex-end; width: 100%; margin: -10px -10px -10px 10px; gap: 10px;">
                                       <button class="refresh_button" id="refresh_button">Refresh &nbsp;&nbsp;<i class="fas fa-sync-alt"></i>&nbsp;</button>
                                       <select class="selectpicker" data-live-search="true" title="Saved Overrides">
-                                        <option>Route 1</option>
-                                        <option>Route 2</option>
-                                        <option>Route 3</option>
-                                        <option>Route 4</option>
-                                        <option>Route 5</option>
+                                       {%for o in savedoverrideslist %}
+                                        <option>{{o}}</option>
+                                        {% endfor %}
                                       </select>   
-                                      <button class="refresh_button">Save &nbsp;&nbsp;<i class='fas fa-save'></i>&nbsp;</button>
+                                      <button class="refresh_button" id="saveoverridebtn" onclick="saveOverrides()">Save &nbsp;&nbsp;<i class='fas fa-save'></i>&nbsp;</button>
                                     </div>
                                   </div>
                                   <div class="card-body" style="font-size: 14px;">
@@ -405,8 +400,7 @@
 <script type="text/javascript" src="{% static "numberFormats.js" %}"></script>
 <script type="text/javascript" src="{% static "linechart.js" %}"></script>
 <script type="text/javascript" src="{% static "sliders.js" %}"></script>
-
-
+<script type="text/javascript" src="{% static "save.js" %}"></script>
 <script>
 
   document.getElementById("refresh_button").addEventListener("click", function() {
