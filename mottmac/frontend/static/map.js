@@ -278,9 +278,9 @@ function updateLegend() {
       routes.push("</b>&nbsp;&nbsp;&nbsp;" + roundToTwo(turf.length(id_coords[routeid])) + "km</span></div>")
       routes.push("<div style='height:10px'></div>")
       routes.push("<div class='row' style='display: flex; justify-content: space-between; margin-right: 1px; margin-left: -5px; margin-right: 5px;'>")
-      routes.push("<button class='buttonmode' id ='share" + i + "' type='submit' onclick='selectOption(this.id)'>Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
-      routes.push("<button class='buttonmode' type='submit' id ='strip" + i + "' onclick='selectOption(this.id)'>Striped &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
-      routes.push("<button class='buttonmode' type='submit' id ='protect" + i + "' onclick='selectOption(this.id)'>Protected &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
+      routes.push("<button class='buttonmode' id ='share" + i + "' type='submit' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
+      routes.push("<button class='buttonmode' type='submit' id ='strip" + i + "' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Striped &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
+      routes.push("<button class='buttonmode' type='submit' id ='protect" + i + "' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Protected &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
       routes.push("</div>")
       routes.push("<div style='height:20px'></div>")
     }
@@ -350,24 +350,35 @@ var share = [0,0,0];
 var strip = [0,0,0];
 var protect = [0,0,0];
 
-function selectOption(btn) {
+function selectOption(btn, clr) {
 
   if (draw.getMode() != "draw_line_string") {
     var property = document.getElementById(btn);
 
     var type_map = {"share" : share, "strip" : strip, "protect" : protect}
     const type_full = {"share" : "Sharrows", "strip" : "Striped", "protect" : "Protected"}
-    var clrs = {"share0" : '#36b9cc', "share1" : '#B026FF', "share2" : '#1cc88a', "strip0" : pSBC(-0.5, '#36b9cc'), "strip1" : pSBC(-0.5, '#B026FF'), "strip2" : pSBC(-0.5, '#1cc88a'), "protect0" : pSBC(-0.8, '#36b9cc'), "protect1" : pSBC(-0.8, '#B026FF'), "protect2" : pSBC(-0.8, '#1cc88a')}
 
     const type = btn.slice(0, -1)
     const routeid = btn.charAt(btn.length-1)
+
+    var btn_clr = clr
+
+    if(type=="share") {
+      btn_clr = clr
+    }
+    else if (type=="strip") {
+      btn_clr = pSBC(-0.5, clr)
+    }
+    else {
+      btn_clr = pSBC(-0.8, clr)
+    }
 
     var count = type_map[type][routeid]
 
     const total_clicked = (arraySum(share) + arraySum(strip) + arraySum(protect))
 
     if ((count == 0) & (total_clicked <= 2)) {
-      property.style.backgroundColor = clrs[btn]
+      property.style.backgroundColor = btn_clr
       property.style.color = "white"
       type_map[type][routeid] = 1;
       property.innerHTML = type_full[type] + "&nbsp;&nbsp;&nbsp;<i class='fas fa-check'></i>"
@@ -447,11 +458,16 @@ function updateCharts(){
       var safety_data = data["safety_data"]
       var multi_data = data["multi_data"]
 
-      var clrs = {"share0" : '#36b9cc', "share1" : '#B026FF', "share2" : '#1cc88a', "strip0" : pSBC(-0.5, '#36b9cc'), "strip1" : pSBC(-0.5, '#B026FF'), "strip2" : pSBC(-0.5, '#1cc88a'), "protect0" : pSBC(-0.8, '#36b9cc'), "protect1" : pSBC(-0.8, '#B026FF'), "protect2" : pSBC(-0.8, '#1cc88a')}
-      var name_map = {"Route 1 Sharrows": "share0", "Route 2 Sharrows": "share1", "Route 3 Sharrows": "share2", "Route 1 Striped": "strip0", "Route 2 Striped": "strip1", "Route 3 Striped": "strip2", "Route 1 Protected": "protect0", "Route 2 Protected": "protect1", "Route 3 Protected": "protect2"}
-
-      for (let i = 0; i < labels_plot.length; i++) {
-        new_colours.push(clrs[name_map[labels_plot[i]]])
+      for (let i = 0; i < plot_colours.length; i++) {
+        if (new_colours.includes(pSBC(-0.5, plot_colours[i]))) {
+          new_colours.push(pSBC(-0.8, plot_colours[i]))
+        }
+        else if (new_colours.includes(plot_colours[i])) {
+          new_colours.push(pSBC(-0.5, plot_colours[i]))
+        }
+        else {
+          new_colours.push(plot_colours[i])
+        }
       }
       
       //getTrafficPlot(new_colours, labels_plot, traffic_data)
@@ -466,40 +482,32 @@ function updateCharts(){
 
 }
 
-// RANDOM FUNCTIONS
+function saveRoute(btn) {
 
-const pSBC=(p,c0,c1,l)=>{
-  let r,g,b,P,f,t,h,i=parseInt,m=Math.round,a=typeof(c1)=="string";
-  if(typeof(p)!="number"||p<-1||p>1||typeof(c0)!="string"||(c0[0]!='r'&&c0[0]!='#')||(c1&&!a))return null;
-  if(!this.pSBCr)this.pSBCr=(d)=>{
-      let n=d.length,x={};
-      if(n>9){
-          [r,g,b,a]=d=d.split(","),n=d.length;
-          if(n<3||n>4)return null;
-          x.r=i(r[3]=="a"?r.slice(5):r.slice(4)),x.g=i(g),x.b=i(b),x.a=a?parseFloat(a):-1
-      }else{
-          if(n==8||n==6||n<4)return null;
-          if(n<6)d="#"+d[1]+d[1]+d[2]+d[2]+d[3]+d[3]+(n>4?d[4]+d[4]:"");
-          d=i(d.slice(1),16);
-          if(n==9||n==5)x.r=d>>24&255,x.g=d>>16&255,x.b=d>>8&255,x.a=m((d&255)/0.255)/1000;
-          else x.r=d>>16,x.g=d>>8&255,x.b=d&255,x.a=-1
-      }return x};
-  h=c0.length>9,h=a?c1.length>9?true:c1=="c"?!h:false:h,f=this.pSBCr(c0),P=p<0,t=c1&&c1!="c"?this.pSBCr(c1):P?{r:0,g:0,b:0,a:-1}:{r:255,g:255,b:255,a:-1},p=P?p*-1:p,P=1-p;
-  if(!f||!t)return null;
-  if(l)r=m(P*f.r+p*t.r),g=m(P*f.g+p*t.g),b=m(P*f.b+p*t.b);
-  else r=m((P*f.r**2+p*t.r**2)**0.5),g=m((P*f.g**2+p*t.g**2)**0.5),b=m((P*f.b**2+p*t.b**2)**0.5);
-  a=f.a,t=t.a,f=a>=0||t>=0,a=f?a<0?t:t<0?a:a*P+t*p:0;
-  if(h)return"rgb"+(f?"a(":"(")+r+","+g+","+b+(f?","+m(a*1000)/1000:"")+")";
-  else return"#"+(4294967296+r*16777216+g*65536+b*256+(f?m(a*255):0)).toString(16).slice(1,f?undefined:-2)
+  document.getElementById('modalOne').style.display = "block";
+  let routenum = parseInt(btn.charAt(btn.length-1)) + 1
+  document.getElementById('routename').innerHTML = "Route " + (routenum)
 }
 
-Array.prototype.max = function() {
-  return Math.max.apply(null, this);
-};
+window.onclick = function(event) {
+  if(event.target.className === "modal") {
+    event.target.style.display = "none";
+  }
+}
 
-Array.prototype.min = function() {
-  return Math.min.apply(null, this);
-};
+const form = document.querySelector('form');
+form.addEventListener('submit', function(e) {
+    e.preventDefault();
+});
 
+form.addEventListener('cancel', function(e) {
+  e.preventDefault();
+});
 
+document.getElementById('formsubmit').onclick =  function(){
+  document.getElementById('modalOne').style.display = "none";
+}
 
+document.getElementById('formcancel').onclick =  function(){
+  document.getElementById('modalOne').style.display = "none";
+}
