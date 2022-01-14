@@ -52,7 +52,7 @@ function saveRoute(btn) {
       }
       else {
         var data = {
-          "override_set_name" : document.getElementById("route_name").value,
+          "override_name" : document.getElementById("route_name").value,
           "sharrows_cost_min" : document.getElementById("slider1").value,
           "sharrows_cost_max" : document.getElementById("slider2").value,
           "striped_cost_min" : document.getElementById("slider1-striped").value,

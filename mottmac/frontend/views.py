@@ -7,6 +7,7 @@ import numpy as np
 import json
 from django.http import JsonResponse
 
+from api.saved import *
 from api.models import *
 from api.saved import *
 np.random.seed(1)
@@ -44,22 +45,16 @@ def index(request):
 @csrf_exempt 
 def saveRoute(request):
 
-    request_dic = request.POST
+    request_dic = dict(request.POST)
 
-    calc = {}
+    status, message = saveRouteRequest(request_dic)
+    print(status, message)
 
-    for key in request.POST:
-        if "start" in key:
-            calc["start_coordinates"] = request_dic.getlist(key)
-        elif "end" in key:
-            calc["end_coordinates"] = request_dic.getlist(key)
-        else:
-            calc["route_name"] = request_dic[key]
 
-    # saveRouteRequest()
-
-    print(calc)
-    context = {}
+    context = {
+        "status": status,
+        "message": message
+    }
 
     return JsonResponse(context)
 
@@ -67,21 +62,15 @@ def saveRoute(request):
 @csrf_exempt 
 def saveOverrides(request):
 
-    request_dic = request.POST
+    request_dic = dict(request.POST)
 
-    calc = {}
+    status, message = saveOverrideRequest(request_dic)
+    print(status, message)
 
-    for key in request.POST:
-        if key == "override_set_name":
-            calc[key] = request_dic.get(key)
-        else:
-            calc[key] = int(request_dic.get(key))
-
-    #saveOverrideRequest()
-
-    print(calc)
-    
-    context = {}
+    context = {
+        "status": status,
+        "message": message
+    }
 
     return JsonResponse(context)
 
