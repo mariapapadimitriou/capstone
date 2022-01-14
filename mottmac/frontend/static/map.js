@@ -278,9 +278,9 @@ function updateLegend() {
       routes.push("</b>&nbsp;&nbsp;&nbsp;" + roundToTwo(turf.length(id_coords[routeid])) + "km</span></div>")
       routes.push("<div style='height:10px'></div>")
       routes.push("<div class='row' style='display: flex; justify-content: space-between; margin-right: 1px; margin-left: -5px; margin-right: 5px;'>")
-      routes.push("<button class='buttonmode' id ='share" + i + "' type='submit' onclick='selectOption(this.id)'>Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
-      routes.push("<button class='buttonmode' type='submit' id ='strip" + i + "' onclick='selectOption(this.id)'>Striped &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
-      routes.push("<button class='buttonmode' type='submit' id ='protect" + i + "' onclick='selectOption(this.id)'>Protected &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
+      routes.push("<button class='buttonmode' id ='share" + i + "' type='submit' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
+      routes.push("<button class='buttonmode' type='submit' id ='strip" + i + "' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Striped &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
+      routes.push("<button class='buttonmode' type='submit' id ='protect" + i + "' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Protected &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
       routes.push("</div>")
       routes.push("<div style='height:20px'></div>")
     }
@@ -350,24 +350,35 @@ var share = [0,0,0];
 var strip = [0,0,0];
 var protect = [0,0,0];
 
-function selectOption(btn) {
+function selectOption(btn, clr) {
 
   if (draw.getMode() != "draw_line_string") {
     var property = document.getElementById(btn);
 
     var type_map = {"share" : share, "strip" : strip, "protect" : protect}
     const type_full = {"share" : "Sharrows", "strip" : "Striped", "protect" : "Protected"}
-    var clrs = {"share0" : '#36b9cc', "share1" : '#B026FF', "share2" : '#1cc88a', "strip0" : pSBC(-0.5, '#36b9cc'), "strip1" : pSBC(-0.5, '#B026FF'), "strip2" : pSBC(-0.5, '#1cc88a'), "protect0" : pSBC(-0.8, '#36b9cc'), "protect1" : pSBC(-0.8, '#B026FF'), "protect2" : pSBC(-0.8, '#1cc88a')}
 
     const type = btn.slice(0, -1)
     const routeid = btn.charAt(btn.length-1)
+
+    var btn_clr = clr
+
+    if(type=="share") {
+      btn_clr = clr
+    }
+    else if (type=="strip") {
+      btn_clr = pSBC(-0.5, clr)
+    }
+    else {
+      btn_clr = pSBC(-0.8, clr)
+    }
 
     var count = type_map[type][routeid]
 
     const total_clicked = (arraySum(share) + arraySum(strip) + arraySum(protect))
 
     if ((count == 0) & (total_clicked <= 2)) {
-      property.style.backgroundColor = clrs[btn]
+      property.style.backgroundColor = btn_clr
       property.style.color = "white"
       type_map[type][routeid] = 1;
       property.innerHTML = type_full[type] + "&nbsp;&nbsp;&nbsp;<i class='fas fa-check'></i>"
@@ -447,11 +458,16 @@ function updateCharts(){
       var safety_data = data["safety_data"]
       var multi_data = data["multi_data"]
 
-      var clrs = {"share0" : '#36b9cc', "share1" : '#B026FF', "share2" : '#1cc88a', "strip0" : pSBC(-0.5, '#36b9cc'), "strip1" : pSBC(-0.5, '#B026FF'), "strip2" : pSBC(-0.5, '#1cc88a'), "protect0" : pSBC(-0.8, '#36b9cc'), "protect1" : pSBC(-0.8, '#B026FF'), "protect2" : pSBC(-0.8, '#1cc88a')}
-      var name_map = {"Route 1 Sharrows": "share0", "Route 2 Sharrows": "share1", "Route 3 Sharrows": "share2", "Route 1 Striped": "strip0", "Route 2 Striped": "strip1", "Route 3 Striped": "strip2", "Route 1 Protected": "protect0", "Route 2 Protected": "protect1", "Route 3 Protected": "protect2"}
-
-      for (let i = 0; i < labels_plot.length; i++) {
-        new_colours.push(clrs[name_map[labels_plot[i]]])
+      for (let i = 0; i < plot_colours.length; i++) {
+        if (new_colours.includes(pSBC(-0.5, plot_colours[i]))) {
+          new_colours.push(pSBC(-0.8, plot_colours[i]))
+        }
+        else if (new_colours.includes(plot_colours[i])) {
+          new_colours.push(pSBC(-0.5, plot_colours[i]))
+        }
+        else {
+          new_colours.push(plot_colours[i])
+        }
       }
       
       //getTrafficPlot(new_colours, labels_plot, traffic_data)
