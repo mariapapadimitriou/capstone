@@ -560,6 +560,7 @@ form.addEventListener('submit', function(e) {
         dataType: 'json',
       });
     }
+    document.getElementById("route_name").value = ""
 });
 
 form.addEventListener('cancel', function(e) {
