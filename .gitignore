@@ -1,4 +1,4 @@
 **/.DS_Store
 **/.venv/**
 **/__pycache__/**
-data.db
+mottmac/data.db
