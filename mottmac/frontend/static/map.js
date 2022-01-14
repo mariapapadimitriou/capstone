@@ -458,15 +458,18 @@ function updateCharts(){
       var safety_data = data["safety_data"]
       var multi_data = data["multi_data"]
 
-      for (let i = 0; i < plot_colours.length; i++) {
-        if (new_colours.includes(pSBC(-0.5, plot_colours[i]))) {
-          new_colours.push(pSBC(-0.8, plot_colours[i]))
+      for (let i = 0; i < labels_plot.length; i++) {
+        var routetype = labels_plot[i].split(" ")[2]
+        var co = plot_colours[i]
+
+        if (routetype=="Sharrows") {
+          new_colours.push(plot_colours[i])
         }
-        else if (new_colours.includes(plot_colours[i])) {
+        else if (routetype=="Striped") {
           new_colours.push(pSBC(-0.5, plot_colours[i]))
         }
         else {
-          new_colours.push(plot_colours[i])
+          new_colours.push(pSBC(-0.8, plot_colours[i]))
         }
       }
       
