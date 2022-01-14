@@ -458,11 +458,16 @@ function updateCharts(){
       var safety_data = data["safety_data"]
       var multi_data = data["multi_data"]
 
-      var clrs = {"share0" : '#36b9cc', "share1" : '#B026FF', "share2" : '#1cc88a', "strip0" : pSBC(-0.5, '#36b9cc'), "strip1" : pSBC(-0.5, '#B026FF'), "strip2" : pSBC(-0.5, '#1cc88a'), "protect0" : pSBC(-0.8, '#36b9cc'), "protect1" : pSBC(-0.8, '#B026FF'), "protect2" : pSBC(-0.8, '#1cc88a')}
-      var name_map = {"Route 1 Sharrows": "share0", "Route 2 Sharrows": "share1", "Route 3 Sharrows": "share2", "Route 1 Striped": "strip0", "Route 2 Striped": "strip1", "Route 3 Striped": "strip2", "Route 1 Protected": "protect0", "Route 2 Protected": "protect1", "Route 3 Protected": "protect2"}
-
-      for (let i = 0; i < labels_plot.length; i++) {
-        new_colours.push(clrs[name_map[labels_plot[i]]])
+      for (let i = 0; i < plot_colours.length; i++) {
+        if (new_colours.includes(pSBC(-0.5, plot_colours[i]))) {
+          new_colours.push(pSBC(-0.8, plot_colours[i]))
+        }
+        else if (new_colours.includes(plot_colours[i])) {
+          new_colours.push(pSBC(-0.5, plot_colours[i]))
+        }
+        else {
+          new_colours.push(plot_colours[i])
+        }
       }
       
       //getTrafficPlot(new_colours, labels_plot, traffic_data)
