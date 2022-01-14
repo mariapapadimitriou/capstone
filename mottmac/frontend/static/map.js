@@ -460,7 +460,6 @@ function updateCharts(){
 
       for (let i = 0; i < labels_plot.length; i++) {
         var routetype = labels_plot[i].split(" ")[2]
-        var co = plot_colours[i]
 
         if (routetype=="Sharrows") {
           new_colours.push(plot_colours[i])
