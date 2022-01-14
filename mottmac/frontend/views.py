@@ -7,6 +7,7 @@ import numpy as np
 import json
 from django.http import JsonResponse
 
+from api.saved import *
 from api.models import *
 np.random.seed(1)
 
@@ -34,8 +35,8 @@ def index(request):
         "MODAL_MAX": MODAL_SHIFT[1],
         "EMISSIONS_MIN": EMISSIONS[0],
         "EMISSIONS_MAX": EMISSIONS[1],
-        "savedrouteslist": ["marias route", "danielles route", "margarets route", "johns route"],
-        "savedoverrideslist": ["marias overrides", "danielles overrides", "margarets overrides", "johns overrides"],
+        "savedrouteslist": getAllNames('route'),
+        "savedoverrideslist": getAllNames('override'),
     }
     
     return render(request, 'frontend/index.html', context)
@@ -43,11 +44,16 @@ def index(request):
 @csrf_exempt 
 def saveRoute(request):
 
-    print(request.POST)
+    print(dict(request.POST))
 
-    #saveRouteRequest()from saved.py
+    status, message = saveRouteRequest(dict(request.POST))
+    print(status, message)
 
-    context = {}
+
+    context = {
+        "status": status,
+        "message": message
+    }
 
     return JsonResponse(context)
 
@@ -57,9 +63,13 @@ def saveOverrides(request):
 
     print(request.POST)
 
-    #saveOverrideRequest()
+    status, message = saveOverrideRequest(dict(request.POST))
+    print(status, message)
 
-    context = {}
+    context = {
+        "status": status,
+        "message": message
+    }
 
     return JsonResponse(context)
 
