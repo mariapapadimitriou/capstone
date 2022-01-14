@@ -270,12 +270,12 @@ function updateLegend() {
     for (let i = 0; i < draw.getAll().features.length; i++) {
       const routeid = draw.getAll().features[i].id
 
-      routes.push("<div style='display: flex; flex-direction: row; justify-content: flex-start;'><span style='color:")
+      routes.push("<div style='display: flex; flex-direction: row; justify-content: space-between;'><span style='color:")
       routes.push(id_colours[routeid])
       routes.push(";'>")
       routes.push("<b>Route")
       routes.push(i+1)
-      routes.push("</b>&nbsp;&nbsp;&nbsp;" + roundToTwo(turf.length(id_coords[routeid])) + "km</span></div>")
+      routes.push("</b>&nbsp;&nbsp;&nbsp;" + roundToTwo(turf.length(id_coords[routeid])) + "km</span><span><button class='saveroutebtn' id='save" + i + "'onclick='saveRoute(this.id)'>Save&nbsp;&nbsp;<i class='fas fa-save'></i></button></span></div>")
       routes.push("<div style='height:10px'></div>")
       routes.push("<div style='display: flex; justify-content: space-between; margin-right: 1px; margin-left: -5px; margin-right: 5px;'>")
       routes.push("<button class='buttonmode' id ='share" + i + "' type='submit' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
