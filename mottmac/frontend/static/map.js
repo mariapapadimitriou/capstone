@@ -270,7 +270,7 @@ function updateLegend() {
     for (let i = 0; i < draw.getAll().features.length; i++) {
       const routeid = draw.getAll().features[i].id
 
-      routes.push("<div><span style='margin-left: 10px; color:")
+      routes.push("<div style='display: flex; flex-direction: row; justify-content: flex-start;'><span style='color:")
       routes.push(id_colours[routeid])
       routes.push(";'>")
       routes.push("<b>Route")
