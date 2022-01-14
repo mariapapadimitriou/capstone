@@ -39,6 +39,29 @@ def index(request):
     return render(request, 'frontend/index.html', context)
 
 @csrf_exempt 
+def saveRoute(request):
+
+    print(request.POST)
+
+    #saveRouteRequest()from saved.py
+
+    context = {}
+
+    return JsonResponse(context)
+
+
+@csrf_exempt 
+def saveOverrides(request):
+
+    print(request.POST)
+
+    #saveOverrideRequest()
+
+    context = {}
+
+    return JsonResponse(context)
+
+@csrf_exempt 
 def index2(request):
 
     post_result = request.POST

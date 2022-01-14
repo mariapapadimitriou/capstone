@@ -63,7 +63,7 @@ def getAllNames(name_type):
     # Status = 0 on success
     # Status = 1 on error
 
-def saveOverride(override_dict):
+def saveOverrideRequest(override_dict):
     
     override_name = override_dict['override_name']
         
@@ -91,7 +91,7 @@ def saveOverride(override_dict):
     
     return status
 
-    def saveRoute(route_dict):
+    def saveRouteRequest(route_dict):
     
     route_name = route_dict['route_name']
         

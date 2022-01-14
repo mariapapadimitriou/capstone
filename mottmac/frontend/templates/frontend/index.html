@@ -59,9 +59,9 @@
                   <div class="contact-form">
                     <form action="/">
                       <div>
-                        <h1 style="color: black; font-weight: bold;">Save Route</h1>
+                        <h1 id = "savetype" style="color: black; font-weight: bold;"></h1>
                         <h2 id="routename"></h2>
-                        <input type="text" name="name" placeholder="Route Name">
+                        <input type="text" name="name" id = "route_name" placeholder="Enter here (required)">
                       </div>
                       <div class="formactionbtns">
                       <button class = "formbtns" type="submit" id="formsubmit" href="/">Submit</button>
@@ -71,7 +71,6 @@
                   </div>
                 </div>
               </div>
-
                 <!-- Begin Page Content -->
                 <div class="container-fluid" style="padding: 20px">
 
@@ -240,7 +239,7 @@
                                         <option>Route 4</option>
                                         <option>Route 5</option>
                                       </select>   
-                                      <button class="refresh_button">Save &nbsp;&nbsp;<i class='fas fa-save'></i>&nbsp;</button>
+                                      <button class="refresh_button" id="saveoverridebtn" onclick="saveOverrides()">Save &nbsp;&nbsp;<i class='fas fa-save'></i>&nbsp;</button>
                                     </div>
                                   </div>
                                   <div class="card-body" style="font-size: 14px;">
