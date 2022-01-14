@@ -3,7 +3,7 @@ from .views import index, index2, saveRoute, saveOverrides
 
 urlpatterns = [
     path('', index),
-    path('hi', index2),
+    path('plotcharts', index2),
     path('saveroute', saveRoute),
     path('saveoverrides', saveOverrides),
 ]

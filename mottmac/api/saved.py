@@ -91,7 +91,7 @@ def saveOverrideRequest(override_dict):
     
     return status
 
-    def saveRouteRequest(route_dict):
+def saveRouteRequest(route_dict):
     
     route_name = route_dict['route_name']
         
@@ -192,7 +192,7 @@ def editOverride(override_dict):
         
     return status, status_message
 
-    def editRoute(route_dict):
+def editRoute(route_dict):
     
     route_name = route_dict['route_name']
         

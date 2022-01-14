@@ -444,7 +444,7 @@ function updateCharts(){
 
   $.ajax({
     type: "POST",
-    url: "/hi",
+    url: "/plotcharts",
     data: data,
     dataType: 'json',
     success: function(data) {

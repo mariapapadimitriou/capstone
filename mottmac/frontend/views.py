@@ -8,6 +8,7 @@ import json
 from django.http import JsonResponse
 
 from api.models import *
+from api.saved import *
 np.random.seed(1)
 
 # Initial Override Values 
@@ -34,8 +35,8 @@ def index(request):
         "MODAL_MAX": MODAL_SHIFT[1],
         "EMISSIONS_MIN": EMISSIONS[0],
         "EMISSIONS_MAX": EMISSIONS[1],
-        "savedrouteslist": ["marias route", "danielles route", "margarets route", "johns route"],
-        "savedoverrideslist": ["marias overrides", "danielles overrides", "margarets overrides", "johns overrides"],
+        "savedrouteslist": getAllNames('route'),
+        "savedoverrideslist": getAllNames('override'),
     }
     
     return render(request, 'frontend/index.html', context)
@@ -43,10 +44,21 @@ def index(request):
 @csrf_exempt 
 def saveRoute(request):
 
-    print(request.POST)
+    request_dic = request.POST
 
-    #saveRouteRequest()from saved.py
+    calc = {}
 
+    for key in request.POST:
+        if "start" in key:
+            calc["start_coordinates"] = request_dic.getlist(key)
+        elif "end" in key:
+            calc["end_coordinates"] = request_dic.getlist(key)
+        else:
+            calc["route_name"] = request_dic[key]
+
+    # saveRouteRequest()
+
+    print(calc)
     context = {}
 
     return JsonResponse(context)
@@ -55,10 +67,20 @@ def saveRoute(request):
 @csrf_exempt 
 def saveOverrides(request):
 
-    print(request.POST)
+    request_dic = request.POST
+
+    calc = {}
+
+    for key in request.POST:
+        if key == "override_set_name":
+            calc[key] = request_dic.get(key)
+        else:
+            calc[key] = int(request_dic.get(key))
 
     #saveOverrideRequest()
 
+    print(calc)
+    
     context = {}
 
     return JsonResponse(context)
