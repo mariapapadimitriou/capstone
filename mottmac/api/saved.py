@@ -101,7 +101,7 @@ def saveOverrideRequest(override_dict):
     override_name = override_dict['override_name'][0]
         
     if override_name in getAllNames("override"):
-        status, status_message = 1, "Override name {} is already in use. Please choose another name and try again.".format(override_name)
+        status, status_message = 1, "Override name '{}' is already in use. Please choose another name and try again.".format(override_name)
         return status, status_message
     
     
@@ -114,7 +114,8 @@ def saveOverrideRequest(override_dict):
     try:
         curs.execute(sqlQuery, override_vals)
         conn.commit()
-        status, status_message = 0, override_name + " has been successfully saved."
+        status, status_message = 0, "'{}' has been successfully saved.".format(override_name)
+
     except Exception as inst:
         print(type(inst))
         status, status_message = 1, "Error - Please try again."
@@ -132,8 +133,7 @@ def saveRouteRequest(route_dict):
     end_coordinates = str(route_dict['end_coordinates[]'])
         
     if route_name in getAllNames("route"):
-        status = 1
-        status_message = "Route name {} is already in use. Please choose another name and try again.".format(route_name)
+        status, status_message = 1, "Route name '{}' is already in use. Please choose another name and try again.".format(route_name)
         return status, status_message
     
     columns = ",".join(ROUTE_COLUMNS)
@@ -145,11 +145,9 @@ def saveRouteRequest(route_dict):
     try:
         curs.execute(sqlQuery, route_vals)
         conn.commit()
-        status = 0
-        status_message = route_name + " has been successfully saved."
+        status, status_message = 0, "'{}' has been successfully saved.".format(route_name)
     except:
-        status = 1
-        status_message = "Error - Please try again."
+        status, status_message = 1, "Error - Please try again."
         
     finally:
         curs.close()

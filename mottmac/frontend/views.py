@@ -50,7 +50,6 @@ def saveRoute(request):
     status, message = saveRouteRequest(request_dic)
     print(status, message)
 
-
     context = {
         "status": status,
         "message": message
