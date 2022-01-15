@@ -101,7 +101,7 @@ def saveOverrideRequest(override_dict):
     override_name = override_dict['override_name'][0]
         
     if override_name in getAllNames("override"):
-        status, status_message = 1, "This override name is already in use. Please choose another name and try again."
+        status, status_message = 1, "Override name {} is already in use. Please choose another name and try again.".format(override_name)
         return status, status_message
     
     
@@ -133,8 +133,8 @@ def saveRouteRequest(route_dict):
         
     if route_name in getAllNames("route"):
         status = 1
-        status_message = "This route name is already in use. Please choose another name and try again."
-        return status_message, status
+        status_message = "Route name {} is already in use. Please choose another name and try again.".format(route_name)
+        return status, status_message
     
     columns = ",".join(ROUTE_COLUMNS)
     route_vals = tuple([route_name, start_coordinates, end_coordinates])
@@ -189,7 +189,7 @@ def editOverride(override_dict):
         
     return status, status_message
 
-def editRoute(route_dict):
+def editRoute(route_dict): # Update to use start_coordinates and end_coordinates
     
     route_name = route_dict['route_name']
     coordinates = str(route_dict['coordinates']).replace("'", "''")

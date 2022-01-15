@@ -54,14 +54,14 @@
 
             <!-- Main Content -->
             <div id="content">
-              <div id="modalOne" class="modal">
+              <div id="submitPopup" class="modal">
                 <div class="modal-content">
                   <div class="contact-form">
                     <form action="/">
                       <div>
                         <h1 id = "savetype" style="color: black; font-weight: bold;"></h1>
                         <h2 id="routename"></h2>
-                        <input type="text" name="name" id = "route_name" placeholder="Enter here (required)">
+                        <input type="text" name="name" id = "save_name" placeholder="Enter here (required)">
                       </div>
                       <div class="formactionbtns">
                       <button class = "formbtns" type="submit" id="formsubmit" href="/">Submit</button>
@@ -230,7 +230,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Overrides</h6>  
                                     <div style="display: flex; flex-direction: row; justify-content: flex-end; width: 100%; margin: -10px -10px -10px 10px; gap: 10px;">
                                       <button class="refresh_button" id="refresh_button">Refresh &nbsp;&nbsp;<i class="fas fa-sync-alt"></i>&nbsp;</button>
-                                      <select class="selectpicker" data-live-search="true" title="Saved Overrides">
+                                      <select class="selectpicker" data-live-search="true" title="Saved Overrides" id="selectoverride" onclick="selectOverride()">
                                        {%for o in savedoverrideslist %}
                                         <option>{{o}}</option>
                                         {% endfor %}

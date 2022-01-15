@@ -1,7 +1,7 @@
 
 function saveRoute(btn) {
 
-    document.getElementById('modalOne').style.display = "block";
+    document.getElementById('submitPopup').style.display = "block";
     let routenum = parseInt(btn.charAt(btn.length-1)) + 1
     document.getElementById('savetype').innerHTML = "Save Route"
     document.getElementById('routename').innerHTML = "Route " + (routenum)
@@ -9,8 +9,9 @@ function saveRoute(btn) {
   }
   
   function saveOverrides() {
-    document.getElementById('modalOne').style.display = "block";
+    document.getElementById('submitPopup').style.display = "block";
     document.getElementById('savetype').innerHTML = "Save Overrides"
+    document.getElementById('routename').innerHTML = null
   }
   
   var save_routes = []
@@ -37,7 +38,7 @@ function saveRoute(btn) {
       if (document.getElementById('savetype').innerHTML == "Save Route") {
   
         var data = {
-          "route_name" : document.getElementById("route_name").value,
+          "route_name" : document.getElementById("save_name").value,
           "start_coordinates" : save_routes[0][0],
           "end_coordinates" : save_routes[0][1]
         }
@@ -52,7 +53,7 @@ function saveRoute(btn) {
       }
       else {
         var data = {
-          "override_name" : document.getElementById("route_name").value,
+          "override_name" : document.getElementById("save_name").value,
           "sharrows_cost_min" : document.getElementById("slider1").value,
           "sharrows_cost_max" : document.getElementById("slider2").value,
           "striped_cost_min" : document.getElementById("slider1-striped").value,
@@ -74,7 +75,7 @@ function saveRoute(btn) {
           dataType: 'json',
         });
       }
-      document.getElementById("route_name").value = ""
+      document.getElementById("save_name").value = ""
   });
   
   form.addEventListener('cancel', function(e) {
@@ -82,10 +83,10 @@ function saveRoute(btn) {
   });
   
   document.getElementById('formsubmit').onclick =  function(){
-    document.getElementById('modalOne').style.display = "none";
+    document.getElementById('submitPopup').style.display = "none";
   }
   
   document.getElementById('formcancel').onclick =  function(){
-    document.getElementById('modalOne').style.display = "none";
+    document.getElementById('submitPopup').style.display = "none";
   }
   
