@@ -66,7 +66,7 @@ document.getElementById('formsubmit').onclick =  function(e){
       }
       else {
         var data = {
-          "override_name" : document.getElementById("save_name").value,
+          "override_name" : document.getElementById("save_name").value.trim(),
           "sharrows_cost_min" : document.getElementById("slider1").value,
           "sharrows_cost_max" : document.getElementById("slider2").value,
           "striped_cost_min" : document.getElementById("slider1-striped").value,
