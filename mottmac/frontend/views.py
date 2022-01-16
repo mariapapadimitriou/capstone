@@ -73,6 +73,26 @@ def saveOverrides(request):
 
     return JsonResponse(context)
 
+
+@csrf_exempt 
+def getOverrides(request):
+
+    request_dic = dict(request.POST)["name"]
+    override = getSavedOverride(request_dic[0])
+
+    return JsonResponse(override)
+
+
+@csrf_exempt 
+def getRoutes(request):
+
+    request_dic = dict(request.POST)
+    print(request_dic)
+    route = getSavedRoute(request_dic)
+
+    return JsonResponse({})
+
+
 @csrf_exempt 
 def index2(request):
 

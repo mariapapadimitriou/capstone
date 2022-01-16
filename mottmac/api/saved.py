@@ -242,7 +242,7 @@ def getSavedOverride(override_name):
 
 def getSavedRoute(route_name):
     
-    sqlQuery = "SELECT * FROM saved_routes where route_name = '{}'".format(route_name)
+    sqlQuery = "SELECT * FROM saved_routes where route_name = \'{}\'".format(route_name)
     
     conn, curs = getConnCurs()
 
