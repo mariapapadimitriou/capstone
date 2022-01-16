@@ -65,7 +65,11 @@ function getRoutes() {
         data: data,
         dataType: 'json',
         success: function(data) {
-
+            if (draw.getAll().features.length <= 2) {
+                var feature = { type: 'LineString', coordinates: [data["start_coordinates"],data["end_coordinates"]] };
+                draw.add(feature);
+                createRoute()
+            }
           }
     });
 }

@@ -74,6 +74,7 @@ maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
   var id_coords = {};
 
   function createRoute() {
+    
     // Set the profile
     const profile = 'driving';
     // Get the coordinates that were drawn on the map

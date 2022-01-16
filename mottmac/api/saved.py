@@ -6,7 +6,7 @@ import json
 
 OVERRIDE_COLUMNS = ['override_name', 'sharrows_cost_min', 'sharrows_cost_max', 'striped_cost_min', 'striped_cost_max', 'protected_cost_min', 'protected_cost_max', 
                     'bicycle_commuters_min', 'bicycle_commuters_max', 'new_riders_min', 'new_riders_max', 'emissions_per_km_min', 'emissions_per_km_max']
-ROUTE_COLUMNS = ['route_name', 'start_coordinates', 'end_coordinates']
+ROUTE_COLUMNS = ['route_name', 'start_coordinates', "end_coordinates"]
 # ROUTE_COLUMNS = ['route_name', 'coordinates']
 
 OVERRIDE_PLACEHOLDERS = ("?,"*len(OVERRIDE_COLUMNS))[:-1]
@@ -257,7 +257,9 @@ def getSavedRoute(route_name):
     for i, col in enumerate(ROUTE_COLUMNS):
         route[col] = route_vals[i]
 
-    route['coordinates'] = json.loads(route['coordinates'].replace('\'', '"'))
-    
+    route['start_coordinates'] = json.loads(route['start_coordinates'].replace('\'', '"'))
+    route['end_coordinates'] = json.loads(route['end_coordinates'].replace('\'', '"'))
+
+    print(route)
     return route
 
