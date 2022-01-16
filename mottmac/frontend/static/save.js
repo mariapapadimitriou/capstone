@@ -113,7 +113,7 @@ document.getElementById('formcancel').onclick =  function(e){
 }
 
 function validate(e) {
-    if (!/^[a-zA-Z0-9 ]+$/.test(e.value)) {
+    if (!/^[a-zA-Z0-9 ]+$/.test(e.value) & document.getElementById("save_name").value.length > 0) {
         document.getElementById("save_name").value = document.getElementById("save_name").value.slice(0, document.getElementById("save_name").value.length-1)
         document.getElementById("validchars").innerHTML = "Input must contain only letters or numbers."
         document.getElementById("validchars").style.color = "red"
