@@ -1,6 +1,5 @@
 function getOverrides() {
 
-    console.log("here")
     var o_name = document.getElementById("overridepicker").value
 
     $.ajax({
@@ -9,8 +8,6 @@ function getOverrides() {
         data: {"name" : o_name},
         dataType: 'json',
         success: function(data) {
-
-        window.updateCharts();
 
             document.getElementById("save_name").value = data["override_name"]
 

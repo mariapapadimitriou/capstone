@@ -21,7 +21,6 @@ function getCoords(i){
     var routeid = draw.getAll().features[i].id
     var coords = id_coords[routeid].coordinates
     save_routes.push([coords[0], coords[coords.length-1]])
-    console.log(save_routes)
 }
   
   
@@ -31,95 +30,84 @@ window.onclick = function(event) {
   }
 }
   
-const form = document.querySelector('form');
-
-form.addEventListener('submit', function(e) {
+document.getElementById('formsubmit').onclick =  function(e){
     e.preventDefault();
+
+    document.getElementById('submitPopup').style.display = "none";
 
     if (document.getElementById('savetype').innerHTML == "Save Route") {
 
-      var data = {
-        "route_name" : document.getElementById("save_name").value,
-        "start_coordinates" : save_routes[0][0],
-        "end_coordinates" : save_routes[0][1]
-      }
-    
-      $.ajax({
-        type: "POST",
-        url: "/saveroute",
-        data: data,
-        dataType: 'json',
-        success: function(response) {
-          var status = response.status
-          if (status == 0){
-            document.getElementById('statusheader').innerHTML = "Success"
-            document.getElementById('statusheader').style.color = "green"
-          }
-          else {
-            document.getElementById('statusheader').innerHTML = "Failure"
-            document.getElementById('statusheader').style.color = "red"
-          }
-          document.getElementById('statusmessage').innerHTML = response.message
+        var data = {
+          "route_name" : document.getElementById("save_name").value,
+          "start_coordinates" : save_routes[0][0],
+          "end_coordinates" : save_routes[0][1]
         }
-      });
-
-    }
-    else {
-      var data = {
-        "override_name" : document.getElementById("save_name").value,
-        "sharrows_cost_min" : document.getElementById("slider1").value,
-        "sharrows_cost_max" : document.getElementById("slider2").value,
-        "striped_cost_min" : document.getElementById("slider1-striped").value,
-        "striped_cost_max" : document.getElementById("slider2-striped").value,
-        "protected_cost_min" : document.getElementById("slider1-protect").value,
-        "protected_cost_max" : document.getElementById("slider2-protect").value,
-        "bicycle_commuters_min" : document.getElementById("sliderRide1").value,
-        "bicycle_commuters_max" : document.getElementById("sliderRide2").value,
-        "new_riders_min" : document.getElementById("sliderModal1").value,
-        "new_riders_max" : document.getElementById("sliderModal2").value,
-        "emissions_per_km_min" : document.getElementById("sliderEm1").value,
-        "emissions_per_km_max" : document.getElementById("sliderEm2").value,
+      
+        $.ajax({
+          type: "POST",
+          url: "/saveroute",
+          data: data,
+          dataType: 'json',
+          success: function(response) {
+            var status = response.status
+            if (status == 0){
+              document.getElementById('statusheader').innerHTML = "Success"
+              document.getElementById('statusheader').style.color = "green"
+            }
+            else {
+              document.getElementById('statusheader').innerHTML = "Failure"
+              document.getElementById('statusheader').style.color = "red"
+            }
+            document.getElementById('statusmessage').innerHTML = response.message
+          }
+        });
+  
+      }
+      else {
+        var data = {
+          "override_name" : document.getElementById("save_name").value,
+          "sharrows_cost_min" : document.getElementById("slider1").value,
+          "sharrows_cost_max" : document.getElementById("slider2").value,
+          "striped_cost_min" : document.getElementById("slider1-striped").value,
+          "striped_cost_max" : document.getElementById("slider2-striped").value,
+          "protected_cost_min" : document.getElementById("slider1-protect").value,
+          "protected_cost_max" : document.getElementById("slider2-protect").value,
+          "bicycle_commuters_min" : document.getElementById("sliderRide1").value,
+          "bicycle_commuters_max" : document.getElementById("sliderRide2").value,
+          "new_riders_min" : document.getElementById("sliderModal1").value,
+          "new_riders_max" : document.getElementById("sliderModal2").value,
+          "emissions_per_km_min" : document.getElementById("sliderEm1").value,
+          "emissions_per_km_max" : document.getElementById("sliderEm2").value,
+        }
+  
+            $.ajax({
+                type: "POST",
+                url: "/saveoverrides",
+                data: data,
+                dataType: 'json',
+                success: function(response) {
+                  var status = response.status
+                  if (status == 0){
+                    document.getElementById('statusheader').innerHTML = "Success"
+                    document.getElementById('statusheader').style.color = "green"
+                  }
+                  else {
+                    document.getElementById('statusheader').innerHTML = "Failure"
+                    document.getElementById('statusheader').style.color = "red"
+                  }
+                  document.getElementById('statusmessage').innerHTML = response.message
+                }
+              });
+            
       }
 
-          $.ajax({
-              type: "POST",
-              url: "/saveoverrides",
-              data: data,
-              dataType: 'json',
-              success: function(response) {
-                var status = response.status
-                if (status == 0){
-                  document.getElementById('statusheader').innerHTML = "Success"
-                  document.getElementById('statusheader').style.color = "green"
-                }
-                else {
-                  document.getElementById('statusheader').innerHTML = "Failure"
-                  document.getElementById('statusheader').style.color = "red"
-                }
-                document.getElementById('statusmessage').innerHTML = response.message
-              }
-            });
-          
-    }
-    document.getElementById("save_name").value = ""
-});
-
-
-
-
-  
-form.addEventListener('cancel', function(e) {
-  e.preventDefault();
-});
-
-document.getElementById('formsubmit').onclick =  function(){
-  document.getElementById('submitPopup').style.display = "none";
   document.getElementById('submitStatusPopup').style.display = "block";
   
 }
 
-document.getElementById('formcancel').onclick =  function(){
-  document.getElementById('submitPopup').style.display = "none";
+document.getElementById('formcancel').onclick =  function(e){
+    e.preventDefault();
+    document.getElementById('submitPopup').style.display = "none";
 }
 
   

@@ -223,7 +223,7 @@ def editRoute(route_dict): # Update to use start_coordinates and end_coordinates
 
 def getSavedOverride(override_name):
     
-    sqlQuery = "SELECT * FROM saved_overrides where override_name = '{}'".format(override_name)
+    sqlQuery = "SELECT * FROM saved_overrides where override_name = \"{}\"".format(override_name)
     
     conn, curs = getConnCurs()
 
@@ -242,7 +242,7 @@ def getSavedOverride(override_name):
 
 def getSavedRoute(route_name):
     
-    sqlQuery = "SELECT * FROM saved_routes where route_name = \'{}\'".format(route_name)
+    sqlQuery = "SELECT * FROM saved_routes where route_name = \"{}\"".format(route_name)
     
     conn, curs = getConnCurs()
 
