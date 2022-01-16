@@ -243,7 +243,6 @@ def getSavedOverride(override_name):
 def getSavedRoute(route_name):
     
     sqlQuery = "SELECT * FROM saved_routes where route_name = \"{}\"".format(route_name)
-    
     conn, curs = getConnCurs()
 
     curs.execute(sqlQuery)    
@@ -260,6 +259,5 @@ def getSavedRoute(route_name):
     route['start_coordinates'] = json.loads(route['start_coordinates'].replace('\'', '"'))
     route['end_coordinates'] = json.loads(route['end_coordinates'].replace('\'', '"'))
 
-    print(route)
     return route
 

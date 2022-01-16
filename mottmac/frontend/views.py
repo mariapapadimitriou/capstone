@@ -88,6 +88,7 @@ def getRoutes(request):
 
     request_dic = dict(request.POST)["name"]
     route = getSavedRoute(request_dic[0])
+
     route["start_coordinates"] = [float(route["start_coordinates"][0]),float(route["start_coordinates"][1])]
     route["end_coordinates"] = [float(route["end_coordinates"][0]),float(route["end_coordinates"][1])]
 

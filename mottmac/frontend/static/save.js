@@ -39,7 +39,7 @@ document.getElementById('formsubmit').onclick =  function(e){
     if (document.getElementById('savetype').innerHTML == "Save Route") {
 
         var data = {
-          "route_name" : document.getElementById("save_name").value,
+          "route_name" : document.getElementById("save_name").value.trim(),
           "start_coordinates" : save_routes[0][0],
           "end_coordinates" : save_routes[0][1]
         }
