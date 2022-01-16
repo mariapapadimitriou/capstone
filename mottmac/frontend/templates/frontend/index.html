@@ -61,10 +61,12 @@
                       <div>
                         <h1 id = "savetype" style="color: black; font-weight: bold;"></h1>
                         <h2 id="routename"></h2>
-                        <input type="text" name="name" id = "save_name" placeholder="Enter here (required)">
+                        <input type="text" name="name" id = "save_name"  onkeyup="validate(this)" required placeholder="Enter here (letters and numbers only, no punctuation or special characters)" pattern="[a-zA-Z0-9]+" title="letters and numbers only, no punctuation or special characters" autocomplete="off">
                       </div>
+                      <div id="validchars"></div>
+                      <div style="height: 20px;"></div>
                       <div class="formactionbtns">
-                      <button class = "formbtns" type="submit" id="formsubmit" href="/">Submit</button>
+                      <input class = "formbtns" type="submit" id="formsubmit"></input>
                       <button class = "formbtns"  type="cancel" id="formcancel" >Cancel</button>
                       </div>
                     </form>

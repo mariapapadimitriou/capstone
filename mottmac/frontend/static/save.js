@@ -1,18 +1,19 @@
 
 function saveRoute(btn) {
 
-  document.getElementById('submitPopup').style.display = "block";
-  let routenum = parseInt(btn.charAt(btn.length-1)) + 1
-  document.getElementById('savetype').innerHTML = "Save Route"
-  document.getElementById('routename').innerHTML = "Route " + (routenum)
+    document.getElementById("save_name").value = ""
+    document.getElementById('submitPopup').style.display = "block";
+    let routenum = parseInt(btn.charAt(btn.length-1)) + 1
+    document.getElementById('savetype').innerHTML = "Save Route"
+    document.getElementById('routename').innerHTML = "Route " + (routenum)
   
 }
   
 function saveOverrides() {
-
-  document.getElementById('submitPopup').style.display = "block";
-  document.getElementById('savetype').innerHTML = "Save Overrides"
-  document.getElementById('routename').innerHTML = null
+    document.getElementById("save_name").value = ""
+    document.getElementById('submitPopup').style.display = "block";
+    document.getElementById('savetype').innerHTML = "Save Overrides"
+    document.getElementById('routename').innerHTML = null
 }
   
 var save_routes = []
@@ -100,14 +101,22 @@ document.getElementById('formsubmit').onclick =  function(e){
               });
             
       }
-
-  document.getElementById('submitStatusPopup').style.display = "block";
+    document.getElementById("validchars").innerHTML = ""
+    document.getElementById('submitStatusPopup').style.display = "block";
   
 }
 
 document.getElementById('formcancel').onclick =  function(e){
     e.preventDefault();
+    document.getElementById("validchars").innerHTML = ""
     document.getElementById('submitPopup').style.display = "none";
 }
 
-  
+function validate(e) {
+    if (!/^[a-zA-Z0-9 ]+$/.test(e.value)) {
+        document.getElementById("save_name").value = document.getElementById("save_name").value.slice(0, document.getElementById("save_name").value.length-1)
+        document.getElementById("validchars").innerHTML = "Input must contain only letters or numbers."
+        document.getElementById("validchars").style.color = "red"
+    }
+
+}
