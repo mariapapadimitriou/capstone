@@ -52,6 +52,8 @@ function getOverrides() {
     });
 }
 
+var id_names = {}
+
 function getRoutes() {
     var r_name = document.getElementById("routepicker").value
 
@@ -65,9 +67,13 @@ function getRoutes() {
         data: data,
         dataType: 'json',
         success: function(data) {
+            var r = data["route_name"]
+
             if (draw.getAll().features.length <= 2) {
                 var feature = { type: 'LineString', coordinates: [data["start_coordinates"],data["end_coordinates"]] };
-                draw.add(feature);
+                var featureid = draw.add(feature);
+
+                id_names[featureid] = r
                 createRoute()
             }
           }

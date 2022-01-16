@@ -274,8 +274,13 @@ function updateLegend() {
       routes.push("<div style='display: flex; flex-direction: row; justify-content: space-between;'><span style='color:")
       routes.push(id_colours[routeid])
       routes.push(";'>")
-      routes.push("<b>Route")
-      routes.push(i+1)
+      if (routeid in id_names) {
+        routes.push("<b>" + id_names[routeid])
+      }
+      else {
+        routes.push("<b>Route")
+        routes.push(i+1)
+      }
       routes.push("</b>&nbsp;&nbsp;&nbsp;" + roundToTwo(turf.length(id_coords[routeid])) + "km</span><span><button class='saveroutebtn' id='save" + i + "'onclick='saveRoute(this.id);getCoords("+ i +");'>Save&nbsp;&nbsp;<i class='fas fa-save'></i></button></span></div>")
       routes.push("<div style='height:10px'></div>")
       routes.push("<div style='display: flex; justify-content: space-between; margin-right: 1px; margin-left: -5px; margin-right: 5px;'>")
