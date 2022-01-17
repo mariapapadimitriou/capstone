@@ -99,8 +99,11 @@ def getAllNames(saved_type):
 def saveOverrideRequest(override_dict):
     
     override_name = override_dict['override_name'][0]
-        
-    if override_name in getAllNames("override"):
+
+    if override_name == "":
+        status, status_message = 1, "An override name is required. Please enter an override name and try again." 
+        return status, status_message
+    elif override_name in getAllNames("override"):
         status, status_message = 1, "Override name '{}' is already in use. Please choose another name and try again.".format(override_name)
         return status, status_message
     
@@ -132,7 +135,10 @@ def saveRouteRequest(route_dict):
     start_coordinates = str(route_dict['start_coordinates[]'])
     end_coordinates = str(route_dict['end_coordinates[]'])
         
-    if route_name in getAllNames("route"):
+    if route_name == "":
+        status, status_message = 1, "A route name is required. Please enter a route name and try again." 
+        return status, status_message
+    elif route_name in getAllNames("route"):
         status, status_message = 1, "Route name '{}' is already in use. Please choose another name and try again.".format(route_name)
         return status, status_message
     

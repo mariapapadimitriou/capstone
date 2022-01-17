@@ -2,6 +2,8 @@
 function saveRoute(btn) {
 
     document.getElementById("save_name").value = ""
+    document.getElementById("validchars").innerHTML = "";
+    document.getElementById('statusmessage').innerHTML = "";
     document.getElementById('submitPopup').style.display = "block";
     let routenum = parseInt(btn.charAt(btn.length-1)) + 1
     document.getElementById('savetype').innerHTML = "Save Route"
@@ -11,6 +13,8 @@ function saveRoute(btn) {
   
 function saveOverrides() {
     document.getElementById("save_name").value = ""
+    document.getElementById("validchars").innerHTML = "";
+    document.getElementById('statusmessage').innerHTML = "";
     document.getElementById('submitPopup').style.display = "block";
     document.getElementById('savetype').innerHTML = "Save Overrides"
     document.getElementById('routename').innerHTML = null
@@ -26,11 +30,11 @@ function getCoords(i){
   
   
 window.onclick = function(event) {
-  if(event.target.className === "modal") {
+  if(event.target.className == "modal") {
     event.target.style.display = "none";
   }
 }
-  
+ 
 document.getElementById('formsubmit').onclick =  function(e){
     e.preventDefault();
 
