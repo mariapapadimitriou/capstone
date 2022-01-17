@@ -64,7 +64,6 @@ def saveRoute(request):
         "status": status,
         "message": message
     }
-
     return JsonResponse(context)
 
 
@@ -80,7 +79,6 @@ def saveOverrides(request):
         "status": status,
         "message": message
     }
-
     return JsonResponse(context)
 
 
@@ -235,8 +233,3 @@ def index2(request):
 def getIndices(index_nums):
 
     return index_nums[0], index_nums[-1]
-
-
-
-
-
