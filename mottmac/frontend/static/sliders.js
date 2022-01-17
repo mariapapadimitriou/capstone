@@ -1,133 +1,151 @@
-const sliderOne = document.getElementById("slider1");
-const sliderTwo = document.getElementById("slider2");
-const displayValOne = document.getElementById("range1");
-const displayValTwo = document.getElementById("range2");
-const sliderTrack = document.querySelector(".slider-track1");
-const sliderMaxValue = document.getElementById("slider1").max;
+// SHARROWS COST SLIDER
 
-function slideOne(){
-    if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= 0){
-        sliderOne.value = parseInt(sliderTwo.value);
+const sharrows_cost_slider_1 = document.getElementById("sharrows_cost_slider_1");
+const sharrows_cost_slider_2 = document.getElementById("sharrows_cost_slider_2");
+const sharrows_cost_range_1 = document.getElementById("sharrows_cost_range_1");
+const sharrows_cost_range_2 = document.getElementById("sharrows_cost_range_2");
+const sharrows_cost_track = document.querySelector(".sharrows_cost_track");
+const sharrows_cost_slider_max = document.getElementById("sharrows_cost_slider_1").max;
+
+function sharrowsCostSlide1(){
+    if(parseInt(sharrows_cost_slider_2.value) - parseInt(sharrows_cost_slider_1.value) <= 0){
+        sharrows_cost_slider_1.value = parseInt(sharrows_cost_slider_2.value);
     }
-    displayValOne.innerHTML = numbertoCurrency(-sliderOne.value);
-    fillColor(sliderOne, sliderTwo, sliderMaxValue, sliderTrack);
-}
-function slideTwo(){
-    if(parseInt(sliderTwo.value) - parseInt(sliderOne.value) <= 0){
-        sliderTwo.value = parseInt(sliderOne.value);
-    }
-    displayValTwo.innerHTML = numbertoCurrency(-sliderTwo.value);
-    fillColor(sliderOne, sliderTwo, sliderMaxValue, sliderTrack);
+    sharrows_cost_range_1.innerHTML = numbertoCurrency(-sharrows_cost_slider_1.value);
+    fillColor(sharrows_cost_slider_1, sharrows_cost_slider_2, sharrows_cost_slider_max, sharrows_cost_track);
 }
 
-const sliderRide1 = document.getElementById("sliderRide1");
-const sliderRide2 = document.getElementById("sliderRide2");
-const displayValOneRide = document.getElementById("rangeRide1");
-const displayValTwoRide = document.getElementById("rangeRide2");
-const sliderTrack2 = document.querySelector(".slider-track2");
-const sliderMaxValue2 = document.getElementById("sliderRide1").max;
-
-function slideOneRide(){
-    if(parseInt(sliderRide2.value) - parseInt(sliderRide1.value) <= 0){
-        sliderRide1.value = parseInt(sliderRide2.value);
+function sharrowsCostSlide2(){
+    if(parseInt(sharrows_cost_slider_2.value) - parseInt(sharrows_cost_slider_1.value) <= 0){
+        sharrows_cost_slider_2.value = parseInt(sharrows_cost_slider_1.value);
     }
-    displayValOneRide.innerHTML = numbertoPercentage(sliderRide1.value);
-    fillColor(sliderRide1, sliderRide2, sliderMaxValue2, sliderTrack2);
-}
-function slideTwoRide(){
-    if(parseInt(sliderRide2.value) - parseInt(sliderRide1.value) <= 0){
-        sliderRide2.value = parseInt(sliderRide1.value);
-    }
-    displayValTwoRide.innerHTML = numbertoPercentage(sliderRide2.value);
-    fillColor(sliderRide1, sliderRide2, sliderMaxValue2, sliderTrack2);
+    sharrows_cost_range_2.innerHTML = numbertoCurrency(-sharrows_cost_slider_2.value);
+    fillColor(sharrows_cost_slider_1, sharrows_cost_slider_2, sharrows_cost_slider_max, sharrows_cost_track);
 }
 
-const sliderModal1 = document.getElementById("sliderModal1");
-const sliderModal2 = document.getElementById("sliderModal2");
-const displayValOneModal = document.getElementById("rangeModal1");
-const displayValTwoModal = document.getElementById("rangeModal2");
-const sliderTrack_modal = document.querySelector(".slider-modal");
-const sliderMaxValue_modal = document.getElementById("sliderModal1").max;
+// STRIPED COST SLIDER 
 
-function slideOneModal(){
-    if(parseInt(sliderModal2.value) - parseInt(sliderModal1.value) <= 0){
-        sliderModal1.value = parseInt(sliderModal2.value);
+const striped_cost_slider_1 = document.getElementById("striped_cost_slider_1");
+const striped_cost_slider_2 = document.getElementById("striped_cost_slider_2");
+const striped_cost_range_1 = document.getElementById("striped_cost_range_1");
+const striped_cost_range_2 = document.getElementById("striped_cost_range_2");
+const striped_cost_track = document.querySelector(".striped_cost_track");
+const striped_cost_slider_max = document.getElementById("striped_cost_slider_1").max;
+
+function stripedCostSlide1(){
+    if(parseInt(striped_cost_slider_2.value) - parseInt(striped_cost_slider_1.value) <= 0){
+        striped_cost_slider_1.value = parseInt(striped_cost_slider_2.value);
     }
-    displayValOneModal.innerHTML = numbertoPercentage(sliderModal1.value);
-    fillColor(sliderModal1, sliderModal2, sliderMaxValue_modal, sliderTrack_modal);
-}
-function slideTwoModal(){
-    if(parseInt(sliderModal2.value) - parseInt(sliderModal1.value) <= 0){
-        sliderModal2.value = parseInt(sliderModal1.value);
-    }
-    displayValTwoModal.innerHTML = numbertoPercentage(sliderModal2.value);
-    fillColor(sliderModal1, sliderModal2, sliderMaxValue_modal, sliderTrack_modal);
+    striped_cost_range_1.innerHTML = numbertoCurrency(striped_cost_slider_1.value);
+    fillColor(striped_cost_slider_1, striped_cost_slider_2, striped_cost_slider_max, striped_cost_track);
 }
 
-const sliderOne_striped = document.getElementById("slider1-striped");
-const sliderTwo_striped = document.getElementById("slider2-striped");
-const displayValOne_striped = document.getElementById("range1-striped");
-const displayValTwo_striped = document.getElementById("range2-striped");
-const sliderTrack_striped = document.querySelector(".slider-striped");
-const sliderMaxValue_striped = document.getElementById("slider1-striped").max;
-
-function slideOneStriped(){
-    if(parseInt(sliderTwo_striped.value) - parseInt(sliderOne_striped.value) <= 0){
-        sliderOne_striped.value = parseInt(sliderTwo_striped.value);
+function stripedCostSlide2(){
+    if(parseInt(striped_cost_slider_2.value) - parseInt(striped_cost_slider_1.value) <= 0){
+        striped_cost_slider_2.value = parseInt(striped_cost_slider_1.value);
     }
-    displayValOne_striped.innerHTML = numbertoCurrency(-sliderOne_striped.value);
-    fillColor(sliderOne_striped, sliderTwo_striped, sliderMaxValue_striped, sliderTrack_striped);
-}
-function slideTwoStriped(){
-    if(parseInt(sliderTwo_striped.value) - parseInt(sliderOne_striped.value) <= 0){
-        sliderTwo_striped.value = parseInt(sliderOne_striped.value);
-    }
-    displayValTwo_striped.innerHTML = numbertoCurrency(-sliderTwo_striped.value);
-    fillColor(sliderOne_striped, sliderTwo_striped, sliderMaxValue_striped, sliderTrack_striped);
+    striped_cost_range_2.innerHTML = numbertoCurrency(striped_cost_slider_2.value);
+    fillColor(striped_cost_slider_1, striped_cost_slider_2, striped_cost_slider_max, striped_cost_track);
 }
 
-const sliderOne_protect = document.getElementById("slider1-protect");
-const sliderTwo_protect = document.getElementById("slider2-protect");
-const displayValOne_protect = document.getElementById("range1-protect");
-const displayValTwo_protect = document.getElementById("range2-protect");
-const sliderTrack_protect = document.querySelector(".slider-protect");
-const sliderMaxValue_protect = document.getElementById("slider1-protect").max;
+// PROTECT COST SLIDER 
 
-function slideOneProtect(){
-    if(parseInt(sliderTwo_protect.value) - parseInt(sliderOne_protect.value) <= 0){
-        sliderOne_protect.value = parseInt(sliderTwo_protect.value);
+const protected_cost_slider_1 = document.getElementById("protected_cost_slider_1");
+const protected_cost_slider_2 = document.getElementById("protected_cost_slider_2");
+const protected_cost_range_1 = document.getElementById("protected_cost_range_1");
+const protected_cost_range_2 = document.getElementById("protected_cost_range_2");
+const protected_cost_track = document.querySelector(".protected_cost_track");
+const protected_cost_slider_max = document.getElementById("protected_cost_slider_1").max;
+
+function protectedCostSlide1(){
+    if(parseInt(protected_cost_slider_2.value) - parseInt(protected_cost_slider_1.value) <= 0){
+        protected_cost_slider_1.value = parseInt(protected_cost_slider_2.value);
     }
-    displayValOne_protect.innerHTML = numbertoCurrency(-sliderOne_protect.value);
-    fillColor(sliderOne_protect, sliderTwo_protect, sliderMaxValue_protect, sliderTrack_protect);
-}
-function slideTwoProtect(){
-    if(parseInt(sliderTwo_protect.value) - parseInt(sliderOne_protect.value) <= 0){
-        sliderTwo_protect.value = parseInt(sliderOne_protect.value);
-    }
-    displayValTwo_protect.innerHTML = numbertoCurrency(-sliderTwo_protect.value);
-    fillColor(sliderOne_protect, sliderTwo_protect, sliderMaxValue_protect, sliderTrack_protect);
+    protected_cost_range_1.innerHTML = numbertoCurrency(protected_cost_slider_1.value);
+    fillColor(protected_cost_slider_1, protected_cost_slider_2, protected_cost_slider_max, protected_cost_track);
 }
 
-const sliderEm1 = document.getElementById("sliderEm1");
-const sliderEm2 = document.getElementById("sliderEm2");
-const displayValOneEm = document.getElementById("rangeEm1");
-const displayValTwoEm = document.getElementById("rangeEm2");
-const sliderTrack5 = document.querySelector(".slider-track5");
-const sliderMaxValue5 = document.getElementById("sliderEm1").max;
-
-function slideOneEm(){
-    if(parseInt(sliderEm2.value) - parseInt(sliderEm1.value) <= 0){
-        sliderEm1.value = parseInt(sliderEm2.value);
+function protectedCostSlide2(){
+    if(parseInt(protected_cost_slider_2.value) - parseInt(protected_cost_slider_1.value) <= 0){
+        protected_cost_slider_2.value = parseInt(protected_cost_slider_1.value);
     }
-    displayValOneEm.innerHTML = numbertoGPerKm(sliderEm1.value);
-    fillColor(sliderEm1, sliderEm2, sliderMaxValue5, sliderTrack5);
+    protected_cost_range_2.innerHTML = numbertoCurrency(protected_cost_slider_2.value);
+    fillColor(protected_cost_slider_1, protected_cost_slider_2, protected_cost_slider_max, protected_cost_track);
 }
-function slideTwoEm(){
-    if(parseInt(sliderEm2.value) - parseInt(sliderEm1.value) <= 0){
-        sliderEm2.value = parseInt(sliderEm1.value);
+
+// % BIKE COMMUTERS SLIDER
+
+const bike_commuters_slider_1 = document.getElementById("bike_commuters_slider_1");
+const bike_commuters_slider_2 = document.getElementById("bike_commuters_slider_2");
+const bike_commuters_range_1 = document.getElementById("bike_commuters_range_1");
+const bike_commuters_range_2 = document.getElementById("bike_commuters_range_2");
+const bike_commuters_track = document.querySelector(".bike_commuters_track");
+const bike_commuters_slider_max = document.getElementById("bike_commuters_slider_1").max;
+
+function bikeCommutersSlide1(){
+    if(parseInt(bike_commuters_slider_2.value) - parseInt(bike_commuters_slider_1.value) <= 0){
+        bike_commuters_slider_1.value = parseInt(bike_commuters_slider_2.value);
     }
-    displayValTwoEm.innerHTML = numbertoGPerKm(sliderEm2.value);
-    fillColor(sliderEm1, sliderEm2, sliderMaxValue5, sliderTrack5);
+    bike_commuters_range_1.innerHTML = numbertoPercentage(bike_commuters_slider_1.value);
+    fillColor(bike_commuters_slider_1, bike_commuters_slider_2, bike_commuters_slider_max, bike_commuters_track);
+}
+
+function bikeCommutersSlide2(){
+    if(parseInt(bike_commuters_slider_2.value) - parseInt(bike_commuters_slider_1.value) <= 0){
+        bike_commuters_slider_2.value = parseInt(bike_commuters_slider_1.value);
+    }
+    bike_commuters_range_2.innerHTML = numbertoPercentage(bike_commuters_slider_2.value);
+    fillColor(bike_commuters_slider_1, bike_commuters_slider_2, bike_commuters_slider_max, bike_commuters_track);
+}
+
+// % NEW RIDERS
+
+const modal_shift_slider_1 = document.getElementById("modal_shift_slider_1");
+const modal_shift_slider_2 = document.getElementById("modal_shift_slider_2");
+const modal_shift_range_1 = document.getElementById("modal_shift_range_1");
+const modal_shift_range_2 = document.getElementById("modal_shift_range_2");
+const modal_shift_track = document.querySelector(".modal_shift_track");
+const modal_shift_slider_max = document.getElementById("modal_shift_slider_1").max;
+
+function modalShiftSlide1(){
+    if(parseInt(modal_shift_slider_2.value) - parseInt(modal_shift_slider_1.value) <= 0){
+        modal_shift_slider_1.value = parseInt(modal_shift_slider_2.value);
+    }
+    modal_shift_range_1.innerHTML = numbertoPercentage(modal_shift_slider_1.value);
+    fillColor(modal_shift_slider_1, modal_shift_slider_2, modal_shift_slider_max, modal_shift_track);
+}
+
+function modalShiftSlide2(){
+    if(parseInt(modal_shift_slider_2.value) - parseInt(modal_shift_slider_1.value) <= 0){
+        modal_shift_slider_2.value = parseInt(modal_shift_slider_1.value);
+    }
+    modal_shift_range_2.innerHTML = numbertoPercentage(modal_shift_slider_2.value);
+    fillColor(modal_shift_slider_1, modal_shift_slider_2, modal_shift_slider_max, modal_shift_track);
+}
+
+// SAVED CO2
+
+const emissions_slider_1 = document.getElementById("emissions_slider_1");
+const emissions_slider_2 = document.getElementById("emissions_slider_2");
+const emissions_range_1 = document.getElementById("emissions_range_1");
+const emissions_range_2 = document.getElementById("emissions_range_2");
+const emissions_track = document.querySelector(".emissions_track");
+const emissions_slider_max = document.getElementById("emissions_slider_1").max;
+
+function emissionsSlide1(){
+    if(parseInt(emissions_slider_2.value) - parseInt(emissions_slider_1.value) <= 0){
+        emissions_slider_1.value = parseInt(emissions_slider_2.value);
+    }
+    emissions_range_1.innerHTML = numbertoGPerKm(emissions_slider_1.value);
+    fillColor(emissions_slider_1, emissions_slider_2, emissions_slider_max, emissions_track);
+}
+
+function emissionsSlide2(){
+    if(parseInt(emissions_slider_2.value) - parseInt(emissions_slider_1.value) <= 0){
+        emissions_slider_2.value = parseInt(emissions_slider_1.value);
+    }
+    emissions_range_2.innerHTML = numbertoGPerKm(emissions_slider_2.value);
+    fillColor(emissions_slider_1, emissions_slider_2, emissions_slider_max, emissions_track);
 }
 
 function fillColor(s1,s2, m, track){
@@ -136,22 +154,22 @@ function fillColor(s1,s2, m, track){
     track.style.background = `linear-gradient(to right, #dadae5 ${percent1}% , #5a5c69 ${percent1}% , #5a5c69 ${percent2}%, #dadae5 ${percent2}%)`;
 }
 
-window.slideOne();
-window.slideTwo();
+sharrowsCostSlide1();
+sharrowsCostSlide2();
 
-window.slideOneRide();
-window.slideTwoRide();
+stripedCostSlide1();
+stripedCostSlide2();
 
-window.slideOneModal();
-window.slideTwoModal();
+protectedCostSlide1();
+protectedCostSlide2();
 
-window.slideOneStriped();
-window.slideTwoStriped();
+bikeCommutersSlide1();
+bikeCommutersSlide2();
 
-window.slideOneProtect();
-window.slideTwoProtect();
+modalShiftSlide1();
+modalShiftSlide2();
 
-window.slideOneEm();
-window.slideTwoEm();
+emissionsSlide1();
+emissionsSlide2();
 
-window.updateCharts();
+updateCharts();
