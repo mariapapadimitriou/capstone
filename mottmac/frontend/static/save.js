@@ -62,7 +62,7 @@ document.getElementById('formsubmit').onclick =  function(e){
             }
             else {
               document.getElementById("validname").innerHTML = response.message
-            }
+            }            
           }
         });
   
@@ -122,6 +122,7 @@ document.getElementById('formcancel').onclick =  function(e){
 function validate(e) {
     if (!/^[a-zA-Z0-9 ]+$/.test(e.value) & document.getElementById("save_name").value.length > 0) {
         document.getElementById("save_name").value = document.getElementById("save_name").value.slice(0, document.getElementById("save_name").value.length-1)
+        document.getElementById("validchars").innerHTML = "Input must contain only letters or numbers."
     }
 
 }
