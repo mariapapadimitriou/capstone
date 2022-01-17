@@ -34,8 +34,6 @@ window.onclick = function(event) {
 document.getElementById('formsubmit').onclick =  function(e){
     e.preventDefault();
 
-    document.getElementById('submitPopup').style.display = "none";
-
     if (document.getElementById('savetype').innerHTML == "Save Route") {
 
         var data = {
@@ -52,17 +50,19 @@ document.getElementById('formsubmit').onclick =  function(e){
           success: function(response) {
             var status = response.status
             if (status == 0){
-              document.getElementById('statusheader').innerHTML = "Success"
-              document.getElementById('statusheader').style.color = "green"
+              document.getElementById('submitPopup').style.display = "none";
+
+              document.getElementById("validchars").innerHTML = ""
+              document.getElementById('statusmessage').innerHTML = response.message
+
+              document.getElementById('submitStatusPopup').style.display = "block";
 
               $("#routepicker").append($('<option>'+data["route_name"]+'</option>'));
               $('#routepicker').selectpicker('refresh');
             }
             else {
-              document.getElementById('statusheader').innerHTML = "Failure"
-              document.getElementById('statusheader').style.color = "red"
+              document.getElementById("validname").innerHTML = response.message
             }
-            document.getElementById('statusmessage').innerHTML = response.message
           }
         });
   
@@ -92,37 +92,36 @@ document.getElementById('formsubmit').onclick =  function(e){
             success: function(response) {
               var status = response.status
               if (status == 0){
-                document.getElementById('statusheader').innerHTML = "Success"
-                document.getElementById('statusheader').style.color = "green"
+                document.getElementById('submitPopup').style.display = "none";
+
+                document.getElementById("validchars").innerHTML = ""
+                document.getElementById('statusmessage').innerHTML = response.message
+
+                document.getElementById('submitStatusPopup').style.display = "block";
 
                 $("#overridepicker").append($('<option>'+data["override_name"]+'</option>'));
                 $('#overridepicker').selectpicker('refresh');
               }
               else {
-                document.getElementById('statusheader').innerHTML = "Failure"
-                document.getElementById('statusheader').style.color = "red"
+                document.getElementById("validname").innerHTML = response.message
               }
-              document.getElementById('statusmessage').innerHTML = response.message
             }
           });
             
       }
-    document.getElementById("validchars").innerHTML = ""
-    document.getElementById('submitStatusPopup').style.display = "block";
   
 }
 
 document.getElementById('formcancel').onclick =  function(e){
     e.preventDefault();
     document.getElementById("validchars").innerHTML = ""
+    document.getElementById("validname").innerHTML = ""
     document.getElementById('submitPopup').style.display = "none";
 }
 
 function validate(e) {
     if (!/^[a-zA-Z0-9 ]+$/.test(e.value) & document.getElementById("save_name").value.length > 0) {
         document.getElementById("save_name").value = document.getElementById("save_name").value.slice(0, document.getElementById("save_name").value.length-1)
-        document.getElementById("validchars").innerHTML = "Input must contain only letters or numbers."
-        document.getElementById("validchars").style.color = "red"
     }
 
 }
