@@ -21,28 +21,13 @@ conn.close()
 
 neighbourhood_data['coordinates'] = neighbourhood_data['coordinates'].apply(lambda x: loads(x))
 
-neighbourhood_coords = neighbourhood_data.set_index('neighbourhoodID')['coordinates']
+neighbourhood_coords = neighbourhood_data.set_index('neighbourhood_id')['coordinates']
 
-# # Exp Value
-# SAFETY = {
-#     'sharrows': [0.22,0.22], 
-#     'striped': [0.53,0.53],
-#     'protected': [0.88,0.88]
-# }
-
-# 95% CI (Scaled so Reference = 0.00)
 SAFETY = {
     'sharrows': [-1.25, 0.79], 
     'striped': [-0.48, 0.68],
     'protected': [0.46, 0.98]
 }
-
-# # % decrease in injuries
-# SAFETY = {
-#     'sharrows': [0.05, 0.05], 
-#     'striped': [0.34, 0.34],
-#     'protected': [0.85, 0.85]
-# }
 
 route_types = ["sharrows", "striped", "protected"]
 
@@ -104,18 +89,18 @@ def getNeighbourhoods(area):
 
     return intersections
 
-def getIntersectionPopulation(neighbourhoodID, area):
+def getIntersectionPopulation(neighbourhood_id, area):
 
-    neighbourhood = neighbourhood_data[neighbourhood_data.neighbourhoodID == neighbourhoodID]
+    neighbourhood = neighbourhood_data[neighbourhood_data.neighbourhood_id == neighbourhood_id]
 
     intersection = neighbourhood['coordinates'].values[0].intersection(area)
 
     intersection_area = getNeighbourhoodArea(intersection)
-    neighbourhood_area = neighbourhood['neighbourhoodArea'].values[0]
+    neighbourhood_area = neighbourhood['neighbourhood_area'].values[0]
 
     intersection_percentage = intersection_area/neighbourhood_area
 
-    intersection_population = neighbourhood['workingPopulation'].values[0]*intersection_percentage
+    intersection_population = neighbourhood['working_population'].values[0]*intersection_percentage
 
     return round(intersection_population)
 
