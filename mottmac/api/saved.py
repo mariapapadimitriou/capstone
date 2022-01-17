@@ -123,7 +123,7 @@ def saveOverrideRequest(override_dict):
     finally:
         curs.close()
         conn.close()
-    
+
     return status, status_message
 
 def saveRouteRequest(route_dict):
@@ -156,67 +156,64 @@ def saveRouteRequest(route_dict):
     return status, status_message
 
 
-### EDIT
+# ### EDIT
 
-def editOverride(override_dict):
+# def editOverride(override_dict):
     
-    override_name = override_dict['override_name']
+#     override_name = override_dict['override_name']
         
-    if override_name not in getAllNames("override"):
-        status, status_message = 1, "Error: This override does not exist."
-        return status, status_message
+#     if override_name not in getAllNames("override"):
+#         status, status_message = 1, "Error: This override does not exist."
+#         return status, status_message
     
-    sqlQuery = "UPDATE saved_overrides SET "
-    for col in OVERRIDE_COLUMNS[1:]:
-        sqlQuery = sqlQuery + "{col} = {value}, ".format(col=col, value=override_dict[col])
+#     sqlQuery = "UPDATE saved_overrides SET "
+#     for col in OVERRIDE_COLUMNS[1:]:
+#         sqlQuery = sqlQuery + "{col} = {value}, ".format(col=col, value=override_dict[col])
     
-    sqlQuery = sqlQuery + "update_time = CURRENT_TIMESTAMP WHERE override_name = '{}'".format(override_name)
+#     sqlQuery = sqlQuery + "update_time = CURRENT_TIMESTAMP WHERE override_name = '{}'".format(override_name)
     
-    conn, curs = getConnCurs()
+#     conn, curs = getConnCurs()
 
-    try:
-        curs.execute(sqlQuery)
-        conn.commit()
-        status, status_message = 0, override_name + " has been successfully updated."
-    except:
-        status, status_message = 1,  "Error - Please try again."
+#     try:
+#         curs.execute(sqlQuery)
+#         conn.commit()
+#         status, status_message = 0, override_name + " has been successfully updated."
+#     except:
+#         status, status_message = 1,  "Error - Please try again."
         
-    finally:
-        curs.close()
-        conn.close()
+#     finally:
+#         curs.close()
+#         conn.close()
         
-    return status, status_message
+#     return status, status_message
 
-def editRoute(route_dict): # Update to use start_coordinates and end_coordinates
+# def editRoute(route_dict):
     
-    route_name = route_dict['route_name']
-    coordinates = str(route_dict['coordinates']).replace("'", "''")
+#     route_name = route_dict['route_name']
+#     start_coordinates = str(route_dict['start_coordinates']).replace("'", "''")
+#     end_coordinates = str(route_dict['end_coordinates']).replace("'", "''")
         
-    if route_name not in getAllNames("route"):
-        status, status_message = 1, "Error: This route does not exist."
-        return status, status_message
+#     if route_name not in getAllNames("route"):
+#         status, status_message = 1, "Error: This route does not exist."
+#         return status, status_message
     
-    sqlQuery = "UPDATE saved_routes SET coordinates = '{0}', update_time = CURRENT_TIMESTAMP WHERE route_name = '{1}'".format(coordinates, route_name)
+#     sqlQuery = """UPDATE saved_routes SET start_coordinates = '{0}', end_coordinates = '{1}',
+#                     update_time = CURRENT_TIMESTAMP WHERE route_name = '{2}'""".format(start_coordinates, end_coordinates, route_name)
     
-    # for col in ROUTE_COLUMNS[1:]:
-    #     sqlQuery = sqlQuery + "{col} = {value}, ".format(col=col, value=route_dict[col])
-    
-    # sqlQuery = sqlQuery + "update_time = CURRENT_TIMESTAMP WHERE route_name = '{}'".format(route_name)
-    
-    conn, curs = getConnCurs()
+#     conn, curs = getConnCurs()
 
-    try:
-        curs.execute(sqlQuery)
-        conn.commit()
-        status, status_message = 0, route_name + " has been successfully updated."
-    except:
-        status, status_message = 1,  "Error - Please try again."
+#     try:
+#         curs.execute(sqlQuery)
+#         conn.commit()
+#         status, status_message = 0, route_name + " has been successfully updated."
+#     except:
+#         status, status_message = 1,  "Error - Please try again."
         
-    finally:
-        curs.close()
-        conn.close()
+#     finally:
+#         curs.close()
+#         conn.close()
         
-    return status, status_message
+#     return status, status_message
 
 
 ### RETRIEVE VALUES
