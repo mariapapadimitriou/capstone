@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import index, index2, saveRoute, saveOverrides, getOverrides, getRoutes
+from .views import index, index2, saveRoute, saveOverrides, getOverrides, getRoutes, login, register
 
 urlpatterns = [
     path('', index),
@@ -8,4 +8,6 @@ urlpatterns = [
     path('saveoverrides', saveOverrides),
     path('getoverrides', getOverrides),
     path('getroutes', getRoutes),
+    path('login.html', login),
+    path('register.html', register),
 ]

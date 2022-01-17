@@ -74,18 +74,18 @@ document.getElementById('formsubmit').onclick =  function(e){
       else {
         var data = {
           "override_name" : document.getElementById("save_name").value.trim(),
-          "sharrows_cost_min" : document.getElementById("slider1").value,
-          "sharrows_cost_max" : document.getElementById("slider2").value,
-          "striped_cost_min" : document.getElementById("slider1-striped").value,
-          "striped_cost_max" : document.getElementById("slider2-striped").value,
-          "protected_cost_min" : document.getElementById("slider1-protect").value,
-          "protected_cost_max" : document.getElementById("slider2-protect").value,
-          "bicycle_commuters_min" : document.getElementById("sliderRide1").value,
-          "bicycle_commuters_max" : document.getElementById("sliderRide2").value,
-          "new_riders_min" : document.getElementById("sliderModal1").value,
-          "new_riders_max" : document.getElementById("sliderModal2").value,
-          "emissions_per_km_min" : document.getElementById("sliderEm1").value,
-          "emissions_per_km_max" : document.getElementById("sliderEm2").value,
+          "sharrows_cost_min" : document.getElementById("sharrows_cost_slider_1").value,
+          "sharrows_cost_max" : document.getElementById("sharrows_cost_slider_2").value,
+          "striped_cost_min" : document.getElementById("striped_cost_slider_1").value,
+          "striped_cost_max" : document.getElementById("striped_cost_slider_2").value,
+          "protected_cost_min" : document.getElementById("protected_cost_slider_1").value,
+          "protected_cost_max" : document.getElementById("protected_cost_slider_2").value,
+          "bicycle_commuters_min" : document.getElementById("bike_commuters_slider_1").value,
+          "bicycle_commuters_max" : document.getElementById("bike_commuters_slider_2").value,
+          "new_riders_min" : document.getElementById("modal_shift_slider_1").value,
+          "new_riders_max" : document.getElementById("modal_shift_slider_2").value,
+          "emissions_per_km_min" : document.getElementById("emissions_slider_1").value,
+          "emissions_per_km_max" : document.getElementById("emissions_slider_2").value,
         }
   
         $.ajax({

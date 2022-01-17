@@ -7,40 +7,46 @@
 
     <title>Bike Route Comparison Tool</title>
     {% load static %}
+
+    <!--Select Pickers Bootstrap-->
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/css/bootstrap-select.min.css">
     
-
-    <!-- Custom fonts for this template-->
+    <!-- Custom Nunito Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-    <!-- Custom styles for this template-->
+    <!-- Template Styles-->
+    <link rel="stylesheet" type="text/css" href="{% static "css/dashboard.css" %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static "css/site.css" %}"/>
 
-    <link rel="stylesheet" type="text/css" href="{% static "css/sb-admin-2.min.css" %}"/>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin=""/>
-    <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"></script>
+    <!--MapBox-->
     <script src='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.js'></script>
     <link href='https://api.mapbox.com/mapbox.js/v3.3.1/mapbox.css' rel='stylesheet' />
 
     <script src="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.js"></script>
     <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v2.6.1/mapbox-gl.css" rel="stylesheet"/>
 
-    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.2/mapbox-gl-draw.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-draw/v1.2.2/mapbox-gl-draw.css" type="text/css">
-    <script src='https://cdn.plot.ly/plotly-2.6.3.min.js'></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> 
-    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.min.js"></script>
     <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.2/mapbox-gl-geocoder.css" type="text/css">
 
+    <!--Turf.js-->
+    <script src="https://unpkg.com/@turf/turf@6/turf.min.js"></script>
+
+    <!--Plotly.js and other charts-->
+    <script src='https://cdn.plot.ly/plotly-2.6.3.min.js'></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script> 
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
+    <!--FontAwesome Icons-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://kit.fontawesome.com/4ba8d40944.js" crossorigin="anonymous"></script>
 
+    <!---->
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/d3-format@3"></script>
     
   </head>
 
@@ -61,7 +67,7 @@
                       <div>
                         <h1 id = "savetype" style="color: black; font-weight: bold;"></h1>
                         <h2 id="routename"></h2>
-                        <input type="text" name="name" id = "save_name"  onkeypress="validate(this)" onkeyup="validate(this)" required placeholder="Enter here (letters and numbers only, no punctuation or special characters)" pattern="[a-zA-Z0-9]+" title="letters and numbers only, no punctuation or special characters" autocomplete="off">
+                        <input type="text" name="name" id = "save_name"  onkeypress="validate(this)" onkeyup="validate(this)" required placeholder="Enter here (letters and numbers only, no punctuation or special characters)" title="letters and numbers only, no punctuation or special characters" autocomplete="off">
                       </div>
                       <div id="validchars" style="color: red;"></div>
                       <div id="validname" style="color: red;"></div>
@@ -78,7 +84,7 @@
                 <div class="modal-dialog modal-md">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h3 id = "statusheader" style="color: green;"">Success</h3>
+                      <h3 id = "statusheader" style="color: green;">Success</h3>
                     </div>
                     <div class="modal-body">
                       <p id = "statusmessage" style="color: black; justify-content: center;"></p>
@@ -98,7 +104,7 @@
                             <div class="card border-left-primary shadow h-100 py-2">
                               <div class="card-body">
                                 <div class="row" style="margin-top: -15px;">
-                                  <div class="col" style="height: 171px;">
+                                  <div class="col chartbox">
                                     <div class="text-s font-weight-bold text-primary text-uppercase mb-1">
                                       <div class="iconscontainer">
                                         Cost&nbsp;&nbsp;&nbsp;
@@ -124,7 +130,7 @@
                             <div class="card border-left-primary shadow h-100 py-2">
                               <div class="card-body">
                                 <div class="row" style="margin-top: -15px;">
-                                  <div class="col" style="height: 171px;">
+                                  <div class="col chartbox">
                                     <div class="text-s font-weight-bold text-primary text-uppercase mb-1">
                                       <div class="iconscontainer">
                                         Ridership&nbsp;&nbsp;&nbsp;
@@ -150,7 +156,7 @@
                             <div class="card border-left-primary shadow h-100 py-2">
                               <div class="card-body">
                                 <div class="row" style="margin-top: -15px;">
-                                  <div class="col" style="height: 171px;">
+                                  <div class="col chartbox">
                                     <div class="text-s font-weight-bold text-primary text-uppercase mb-1">
                                       <div class="iconscontainer">
                                         Saved Emissions&nbsp;&nbsp;&nbsp;
@@ -176,7 +182,7 @@
                             <div class="card border-left-primary shadow h-100 py-2">
                               <div class="card-body">
                                 <div class="row" style="margin-top: -15px;">
-                                  <div class="col" style="height: 171px;">
+                                  <div class="col chartbox">
                                     <div class="text-s font-weight-bold text-primary text-uppercase mb-1">
                                       <div class="iconscontainer">
                                         Safety&nbsp;&nbsp;&nbsp;
@@ -225,7 +231,7 @@
                                 <div class="col-3">
                                   <div style = "height: 20px;"></div>
                                     <div style = "justify-content: left; margin-left: -10px;">
-                                      <button class="hey" id="hey">Add New Route&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>
+                                      <button class="addroutebtn" id="addroutebtn">Add New Route&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>
                                     </div>
                                     <div class="legend-box" id="legend-box">
                                       <p style="font-weight: bold; color: black;">Legend</p>
@@ -262,64 +268,64 @@
                                     <div class="row">
                                       <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Unit Cost (CAD) per km">Cost - Sharrows <i class="fas fa-info-circle"></i></span></div>
                                       <div class="col-2" style="text-align: center">
-                                        <span id="range1">0</span>
+                                        <span id="sharrows_cost_range_1">0</span>
                                       </div>
                                       <div class="col-4">
-                                        <div class="slider-track1" id="slidertrack1"> 
-                                          <input type="range" min="0" max="50000" value={{SHARROWS_UNIT_COST_MIN}} id="slider1" oninput="slideOne()">
-                                          <input type="range" min="0" max="50000" value={{SHARROWS_UNIT_COST_MAX}} id="slider2" oninput="slideTwo()">
+                                        <div class="sharrows_cost_track" id="sharrows_cost_track"> 
+                                          <input type="range" min="0" max="50000" value={{SHARROWS_UNIT_COST_MIN}} id="sharrows_cost_slider_1" oninput="sharrowsCostSlide1()">
+                                          <input type="range" min="0" max="50000" value={{SHARROWS_UNIT_COST_MAX}} id="sharrows_cost_slider_2" oninput="sharrowsCostSlide2()">
                                         </div>
                                       </div>
                                       <div class="col-2" style="text-align: center">
-                                        <span id="range2">100</span>
+                                        <span id="sharrows_cost_range_2">100</span>
                                       </div>
                                     </div>
                                     <div class="row" style="margin-top: 42px; margin-bottom: 10px;"></div>
                                     <div class="row">
                                       <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Unit Cost (CAD) per km">Cost - Striped <i class="fas fa-info-circle"></i></span></div>
                                       <div class="col-2" style="text-align: center">
-                                        <span id="range1-striped">0</span>
+                                        <span id="striped_cost_range_1">0</span>
                                       </div>
                                       <div class="col-4">
-                                        <div class="slider-striped">
-                                          <input type="range" min="0" max="75000" value={{STRIPED_UNIT_COST_MIN}} id="slider1-striped" oninput="slideOneStriped()">
-                                          <input type="range" min="0" max="75000" value={{STRIPED_UNIT_COST_MAX}} id="slider2-striped" oninput="slideTwoStriped()">
+                                        <div class="striped_cost_track">
+                                          <input type="range" min="0" max="75000" value={{STRIPED_UNIT_COST_MIN}} id="striped_cost_slider_1" oninput="stripedCostSlide1()">
+                                          <input type="range" min="0" max="75000" value={{STRIPED_UNIT_COST_MAX}} id="striped_cost_slider_2" oninput="stripedCostSlide2()">
                                         </div>
                                       </div>
                                       <div class="col-2" style="text-align: center">
-                                        <span id="range2-striped">100</span>
+                                        <span id="striped_cost_range_2">100</span>
                                       </div>
                                     </div>
                                     <div class="row" style="margin-top: 42px; margin-bottom: 10px;"></div>
                                     <div class="row">
                                       <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Unit Cost (CAD) per km">Cost - Protected <i class="fas fa-info-circle"></i></span></div>
                                       <div class="col-2" style="text-align: center">
-                                        <span id="range1-protect">0</span>
+                                        <span id="protected_cost_range_1">0</span>
                                       </div>
                                       <div class="col-4">
-                                        <div class="slider-protect">
-                                          <input type="range" min="0" max="500000" value={{PROTECTED_UNIT_COST_MIN}} id="slider1-protect" oninput="slideOneProtect()">
-                                          <input type="range" min="0" max="500000" value={{PROTECTED_UNIT_COST_MAX}} id="slider2-protect" oninput="slideTwoProtect()">
+                                        <div class="protected_cost_track">
+                                          <input type="range" min="0" max="500000" value={{PROTECTED_UNIT_COST_MIN}} id="protected_cost_slider_1" oninput="protectedCostSlide1()">
+                                          <input type="range" min="0" max="500000" value={{PROTECTED_UNIT_COST_MAX}} id="protected_cost_slider_2" oninput="protectedCostSlide2()">
                                         </div>
                                       </div>
                                       <div class="col-2" style="text-align: center">
-                                        <span id="range2-protect">100</span>
+                                        <span id="protected_cost_range_2">100</span>
                                       </div>
                                     </div>
                                     <div class="row" style="margin-top: 42px; margin-bottom: 10px;"></div>
                                     <div class="row">
                                       <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Percentage of 15-55 year olds who are bicycle commuters">% Bike Commuters <i class="fas fa-info-circle"></i></span></div>
                                       <div class="col-2" style="text-align: center">
-                                        <span id="rangeRide1">0</span>
+                                        <span id="bike_commuters_range_1">0</span>
                                       </div>
                                       <div class="col-4">
-                                        <div class="slider-track2">
-                                          <input type="range" min="0" max="20" value={{BIKE_RIDERS_MIN}} id="sliderRide1" oninput="slideOneRide()">
-                                          <input type="range" min="0" max="20" value={{BIKE_RIDERS_MAX}} id="sliderRide2" oninput="slideTwoRide()">
+                                        <div class="bike_commuters_track">
+                                          <input type="range" min="0" max="20" value={{BIKE_RIDERS_MIN}} id="bike_commuters_slider_1" oninput="bikeCommutersSlide1()">
+                                          <input type="range" min="0" max="20" value={{BIKE_RIDERS_MAX}} id="bike_commuters_slider_2" oninput="bikeCommutersSlide2()">
                                         </div>
                                       </div>
                                       <div class="col-2" style="text-align: center">
-                                        <span id="rangeRide2">100</span>
+                                        <span id="bike_commuters_range_2">100</span>
                                       </div>
                                     </div>
 
@@ -327,16 +333,16 @@
                                     <div class="row">
                                       <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Percentage of riders on path who are new cyclists">% New Riders <i class="fas fa-info-circle"></i></span></div>
                                       <div class="col-2" style="text-align: center">
-                                        <span id="rangeModal1">0</span>
+                                        <span id="modal_shift_range_1">0</span>
                                       </div>
                                       <div class="col-4">
-                                        <div class="slider-modal">
-                                          <input type="range" min="0" max="30" value={{MODAL_MIN}} id="sliderModal1" oninput="slideOneModal()">
-                                          <input type="range" min="0" max="30" value={{MODAL_MAX}} id="sliderModal2" oninput="slideTwoModal()">
+                                        <div class="modal_shift_track">
+                                          <input type="range" min="0" max="30" value={{MODAL_MIN}} id="modal_shift_slider_1" oninput="modalShiftSlide1()">
+                                          <input type="range" min="0" max="30" value={{MODAL_MAX}} id="modal_shift_slider_2" oninput="modalShiftSlide2()">
                                         </div>
                                       </div>
                                       <div class="col-2" style="text-align: center">
-                                        <span id="rangeModal2">100</span>
+                                        <span id="modal_shift_range_2">100</span>
                                       </div>
                                     </div>
 
@@ -344,16 +350,16 @@
                                     <div class="row">
                                       <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Saved CO2e emissions per km for every 1 car removed">Saved CO2e / km <i class="fas fa-info-circle"></i></span></div>
                                       <div class="col-2" style="text-align: center">
-                                        <span id="rangeEm1">0</span>
+                                        <span id="emissions_range_1">0</span>
                                       </div>
                                       <div class="col-4">
-                                        <div class="slider-track5">
-                                          <input type="range" min="0" max="300" value={{EMISSIONS_MIN}} id="sliderEm1" oninput="slideOneEm()">
-                                          <input type="range" min="0" max="300" value={{EMISSIONS_MAX}} id="sliderEm2" oninput="slideTwoEm()">
+                                        <div class="emissions_track">
+                                          <input type="range" min="0" max="300" value={{EMISSIONS_MIN}} id="emissions_slider_1" oninput="emissionsSlide1()">
+                                          <input type="range" min="0" max="300" value={{EMISSIONS_MAX}} id="emissions_slider_2" oninput="emissionsSlide2()">
                                         </div>
                                       </div>
                                       <div class="col-2" style="text-align: center">
-                                        <span id="rangeEm2">100</span>
+                                        <span id="emissions_range_2">100</span>
                                       </div>
                                     </div>
                                   </div>
@@ -374,7 +380,7 @@
                                     </div>
                                     <div style="height: 6px;"></div>
                                     <div class="row" style="margin-left: 2px">
-                                      <img src="../../static/data/gradient3.png" width="50%" height="350px">
+                                      <img src="../../static/data/gradient.png" width="50%" height="350px">
                                     </div>
                                     <div style="height: 6px;"></div>
                                     <div class="row" style="color: #858796; font-size: 12px; font-weight: bold; margin-left: -10px;">
@@ -404,13 +410,8 @@
     </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"></script>
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap-select@1.14.0-beta2/dist/js/bootstrap-select.min.js"></script>
-
-
-
 <script type="text/javascript" src="{% static "costGraph.js" %}"></script>
 <script type="text/javascript" src="{% static "ridershipGraph.js" %}"></script>
 <script type="text/javascript" src="{% static "emissionsGraph.js" %}"></script>
@@ -422,6 +423,7 @@
 <script type="text/javascript" src="{% static "sliders.js" %}"></script>
 <script type="text/javascript" src="{% static "save.js" %}"></script>
 <script type="text/javascript" src="{% static "get.js" %}"></script>
+<script type="text/javascript" src="{% static "functions.js" %}"></script>
 <script>
 
   document.getElementById("refresh_button").addEventListener("click", function() {
