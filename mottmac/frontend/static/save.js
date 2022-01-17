@@ -54,6 +54,9 @@ document.getElementById('formsubmit').onclick =  function(e){
             if (status == 0){
               document.getElementById('statusheader').innerHTML = "Success"
               document.getElementById('statusheader').style.color = "green"
+
+              $("#routepicker").append($('<option>'+data["route_name"]+'</option>'));
+              $('#routepicker').selectpicker('refresh');
             }
             else {
               document.getElementById('statusheader').innerHTML = "Failure"
@@ -81,24 +84,27 @@ document.getElementById('formsubmit').onclick =  function(e){
           "emissions_per_km_max" : document.getElementById("sliderEm2").value,
         }
   
-            $.ajax({
-                type: "POST",
-                url: "/saveoverrides",
-                data: data,
-                dataType: 'json',
-                success: function(response) {
-                  var status = response.status
-                  if (status == 0){
-                    document.getElementById('statusheader').innerHTML = "Success"
-                    document.getElementById('statusheader').style.color = "green"
-                  }
-                  else {
-                    document.getElementById('statusheader').innerHTML = "Failure"
-                    document.getElementById('statusheader').style.color = "red"
-                  }
-                  document.getElementById('statusmessage').innerHTML = response.message
-                }
-              });
+        $.ajax({
+            type: "POST",
+            url: "/saveoverrides",
+            data: data,
+            dataType: 'json',
+            success: function(response) {
+              var status = response.status
+              if (status == 0){
+                document.getElementById('statusheader').innerHTML = "Success"
+                document.getElementById('statusheader').style.color = "green"
+
+                $("#overridepicker").append($('<option>'+data["override_name"]+'</option>'));
+                $('#overridepicker').selectpicker('refresh');
+              }
+              else {
+                document.getElementById('statusheader').innerHTML = "Failure"
+                document.getElementById('statusheader').style.color = "red"
+              }
+              document.getElementById('statusmessage').innerHTML = response.message
+            }
+          });
             
       }
     document.getElementById("validchars").innerHTML = ""
