@@ -134,13 +134,14 @@ def saveRouteRequest(route_dict):
     route_name = route_dict['route_name'][0]
     start_coordinates = str(route_dict['start_coordinates[]'])
     end_coordinates = str(route_dict['end_coordinates[]'])
+    route_id = str(route_dict["route_id"][0])
         
     if route_name == "":
         status, status_message = 1, "A route name is required. Please enter a route name and try again." 
-        return status, status_message
+        return status, status_message, route_id
     elif route_name in getAllNames("route"):
         status, status_message = 1, "Route name '{}' is already in use. Please choose another name and try again.".format(route_name)
-        return status, status_message
+        return status, status_message, route_id
     
     columns = ",".join(ROUTE_COLUMNS)
     route_vals = tuple([route_name, start_coordinates, end_coordinates])
@@ -159,8 +160,7 @@ def saveRouteRequest(route_dict):
         curs.close()
         conn.close()
     
-    return status, status_message
-
+    return status, status_message, route_id
 
 # ### EDIT
 

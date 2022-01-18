@@ -1,5 +1,3 @@
-var id_names = {}
-
 function getOverrides() {
 
     var o_name = document.getElementById("overridepicker").value
@@ -57,25 +55,28 @@ function getOverrides() {
 function getRoutes() {
     var r_name = document.getElementById("routepicker").value
 
-    data = {
-        "name" : r_name
+    if (r_name != "") {
+        data = {
+            "name" : r_name
+        }
+    
+        $.ajax({
+            type: "POST",
+            url: "/getroutes",
+            data: data,
+            dataType: 'json',
+            success: function(data) {
+                var r = data["route_name"]
+    
+                if (draw.getAll().features.length <= 2) {
+
+                    var feature = { type: 'LineString', coordinates: [data["start_coordinates"],data["end_coordinates"]]};
+                    var featureid = draw.add(feature);
+                    id_names[featureid] = r
+
+                    createRoute()
+                }
+              }
+        });
     }
-
-    $.ajax({
-        type: "POST",
-        url: "/getroutes",
-        data: data,
-        dataType: 'json',
-        success: function(data) {
-            var r = data["route_name"]
-
-            if (draw.getAll().features.length <= 2) {
-                var feature = { type: 'LineString', coordinates: [data["start_coordinates"],data["end_coordinates"]] };
-                var featureid = draw.add(feature);
-
-                id_names[featureid] = r
-                createRoute()
-            }
-          }
-    });
 }

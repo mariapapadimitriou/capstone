@@ -57,12 +57,12 @@ def saveRoute(request):
 
     request_dic = dict(request.POST)
 
-    status, message = saveRouteRequest(request_dic)
-    print(status, message)
+    status, message, route_id = saveRouteRequest(request_dic)
 
     context = {
         "status": status,
-        "message": message
+        "message": message,
+        "route_id": route_id
     }
     return JsonResponse(context)
 

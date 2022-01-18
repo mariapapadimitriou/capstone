@@ -67,7 +67,7 @@
                       <div>
                         <h1 id = "savetype" style="color: black; font-weight: bold;"></h1>
                         <h2 id="routename"></h2>
-                        <input type="text" name="name" id = "save_name"  onkeypress="validate(this)" onkeyup="validate(this)" required placeholder="Enter here (letters and numbers only, no punctuation or special characters)" title="letters and numbers only, no punctuation or special characters" autocomplete="off">
+                        <input type="text" name="name" id = "save_name"  onkeypress="validate(this)" onkeyup="validate(this)" required placeholder="Enter here (letters and numbers only, no punctuation or special characters)" title="letters and numbers only, no punctuation or special characters" autocomplete="off" maxlength="15">
                       </div>
                       <div id="validchars" style="color: red;"></div>
                       <div id="validname" style="color: red;"></div>
@@ -212,7 +212,7 @@
                               <div
                                   class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                   <h6 class="m-0 font-weight-bold text-primary">Map</h6>
-                                  <select class="selectpicker" id="routepicker" onchange="getRoutes()" data-live-search="true" title="Saved Routes" data-selected-text-format="count">
+                                  <select class="selectpicker show-tick" data-allow-clear="true" id="routepicker" onchange="getRoutes()" data-live-search="true" title="Select Route" data-selected-text-format="count">
                                     {%for r in savedrouteslist %}
                                     <option>{{r}}</option>
                                     {% endfor %}
@@ -252,7 +252,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Overrides</h6>  
                                     <div style="display: flex; flex-direction: row; justify-content: flex-end; width: 100%; margin: -10px -10px -10px 10px; gap: 10px;">
                                       <button class="refresh_button" id="refresh_button">Refresh &nbsp;&nbsp;<i class="fas fa-sync-alt"></i>&nbsp;</button>
-                                      <select class="selectpicker" id="overridepicker" onchange="getOverrides()" data-live-search="true" title="Saved Overrides">
+                                      <select class="selectpicker show-tick" data-allow-clear="true" id="overridepicker" onchange="getOverrides()" data-live-search="true" title="Saved Overrides">
                                         {%for o in savedoverrideslist %}
                                           {% if o == "Default" %}
                                             <option select>{{o}}</option>
