@@ -7,7 +7,7 @@ var id_coords = {};
 var routes = [];
 var data = {}
 
-var share = [1,1,1];
+var share = [0,0,0];
 var strip = [0,0,0];
 var protect = [0,0,0];
 
