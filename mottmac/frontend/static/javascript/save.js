@@ -65,6 +65,7 @@ document.getElementById('formsubmit').onclick = function(e){
 
           $("#routepicker").append($('<option>'+data["route_name"]+'</option>'));
           $('#routepicker').selectpicker('refresh');
+          $('#routepicker').selectpicker('val', data["route_name"]);
 
           id_names[data["route_id"]] = data["route_name"]
           updateLegend()
