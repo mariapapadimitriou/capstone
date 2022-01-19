@@ -52,6 +52,10 @@ function getOverrides() {
     });
 }
 
+function getKeyByValue(object, value) {
+    return Object.keys(object).find(key => object[key] === value);
+}
+
 function getRoutes() {
     var r_name = document.getElementById("routepicker").value
 
@@ -67,11 +71,20 @@ function getRoutes() {
             dataType: 'json',
             success: function(data) {
                 var r = data["route_name"]
+                var route_id = data["route_id"]
+                id_names = data["route_ids"]
     
                 if (draw.getAll().features.length <= 2) {
 
-                    var feature = { type: 'LineString', coordinates: [data["start_coordinates"],data["end_coordinates"]]};
+                    var feature = {
+                        id: route_id,
+                        type: 'Feature',
+                        properties: {},
+                        geometry: { type: 'LineString', coordinates: [data["start_coordinates"],data["end_coordinates"]] }
+                    }
+
                     var featureid = draw.add(feature);
+                    
                     id_names[featureid] = r
 
                     createRoute()
@@ -79,4 +92,5 @@ function getRoutes() {
               }
         });
     }
+    console.log(id_names)
 }

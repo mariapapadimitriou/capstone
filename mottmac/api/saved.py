@@ -6,8 +6,7 @@ import json
 
 OVERRIDE_COLUMNS = ['override_name', 'sharrows_cost_min', 'sharrows_cost_max', 'striped_cost_min', 'striped_cost_max', 'protected_cost_min', 'protected_cost_max', 
                     'bicycle_commuters_min', 'bicycle_commuters_max', 'new_riders_min', 'new_riders_max', 'emissions_per_km_min', 'emissions_per_km_max']
-ROUTE_COLUMNS = ['route_name', 'start_coordinates', "end_coordinates"]
-# ROUTE_COLUMNS = ['route_name', 'coordinates']
+ROUTE_COLUMNS = ['route_name', 'start_coordinates', "end_coordinates", "route_id"]
 
 OVERRIDE_PLACEHOLDERS = ("?,"*len(OVERRIDE_COLUMNS))[:-1]
 ROUTE_PLACEHOLDERS = ("?,"*len(ROUTE_COLUMNS))[:-1]
@@ -50,9 +49,9 @@ def getConnCurs():
 def getAllSaved(saved_type, user = None):
     # name_type is either "override" or "route"
 
-    if name_type == 'override':
+    if saved_type == 'override':
         columns = ','.join(OVERRIDE_COLUMNS)
-    elif name_type == 'route':
+    elif saved_type == 'route':
         columns = ','.join(ROUTE_COLUMNS)
     else:
         return None
@@ -144,7 +143,7 @@ def saveRouteRequest(route_dict):
         return status, status_message, route_id
     
     columns = ",".join(ROUTE_COLUMNS)
-    route_vals = tuple([route_name, start_coordinates, end_coordinates])
+    route_vals = tuple([route_name, start_coordinates, end_coordinates, route_id])
     sqlQuery = "INSERT INTO saved_routes ({0}) VALUES ({1})".format(columns, ROUTE_PLACEHOLDERS)
 
     conn, curs = getConnCurs()
@@ -249,13 +248,13 @@ def getSavedRoute(route_name):
     conn, curs = getConnCurs()
 
     curs.execute(sqlQuery)    
-    route_vals = curs.fetchone()
+    route_vals = list(curs.fetchone())
     
     curs.close()
     conn.close()
     
     route = {}
-    
+
     for i, col in enumerate(ROUTE_COLUMNS):
         route[col] = route_vals[i]
 
