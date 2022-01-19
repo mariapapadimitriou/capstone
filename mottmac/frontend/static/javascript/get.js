@@ -92,5 +92,4 @@ function getRoutes() {
               }
         });
     }
-    console.log(id_names)
 }
