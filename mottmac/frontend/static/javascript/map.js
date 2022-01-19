@@ -1,13 +1,13 @@
-
 mapboxgl.accessToken = "pk.eyJ1IjoibWFyaWFwYXBhZGltaXRyaW91IiwiYSI6ImNreGF6eThsNjJyb2szMHBtbWplc2Z6dWoifQ.Em5B1yYl9AT6jPMlmM1b4w";
 
 const colours = ['#36b9cc', "#B026FF", "#1cc88a"];
 var id_colours = {};
 var id_coords = {};
+var id_names = {};
 var routes = [];
-var data = {}
+var data = {};
 
-var share = [1,1,1];
+var share = [0,0,0];
 var strip = [0,0,0];
 var protect = [0,0,0];
 
@@ -94,7 +94,6 @@ function createRoute() {
 
   for (let i = 0; i < draw.getAll().features.length; i++) {
     const routeid = draw.getAll().features[i].id
-    const routeidx = i
 
     if (typeof map.getLayer(routeid) == 'undefined') {
       
@@ -240,18 +239,19 @@ function updateLegend() {
   if (draw.getAll().features.length >= 1) {
     for (let i = 0; i < draw.getAll().features.length; i++) {
       const routeid = draw.getAll().features[i].id
+      if (routeid in id_names) {
+        var routename = id_names[routeid]
+      }
+      else {
+        id_names[routeid] = "Route " + (i + 1)
+        var routename = id_names[routeid]
+      }
 
       routes.push("<div style='display: flex; flex-direction: row; justify-content: space-between;'><span style='color:")
       routes.push(id_colours[routeid])
-      routes.push(";'>")
-      if (routeid in id_names) {
-        routes.push("<b>" + id_names[routeid])
-      }
-      else {
-        routes.push("<b>Route")
-        routes.push(i+1)
-      }
-      routes.push("</b>&nbsp;&nbsp;&nbsp;" + roundToTwo(turf.length(id_coords[routeid])) + "km</span><span><button class='saveroutebtn' id='save" + i + "'onclick='saveRoute(this.id);getCoords("+ i +");'>Save&nbsp;&nbsp;<i class='fas fa-save'></i></button></span></div>")
+      routes.push(";'><span id=routename_" + i + ">")
+      routes.push("<b>"+ routename)
+      routes.push("</b></span><span>&nbsp;&nbsp;&nbsp;" + roundToTwo(turf.length(id_coords[routeid])) + "km</span></span><span><button class='saveroutebtn' id='save" + i + "' onclick=\"saveRoute(this.id, \'" + routeid + "\'); getCoords("+ i +");\">Save&nbsp;&nbsp;<i class='fas fa-save'></i></button></span></div>")
       routes.push("<div style='height:10px'></div>")
       routes.push("<div style='display: flex; justify-content: space-between; margin-right: 1px; margin-left: -5px; margin-right: 5px;'>")
       routes.push("<button class='buttonmode' id ='share" + i + "' type='submit' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")

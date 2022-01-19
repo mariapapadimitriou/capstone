@@ -49,7 +49,7 @@ def index(request):
         "savedrouteslist": getAllNames('route'),
         "savedoverrideslist": getAllNames('override'),
     }
-    
+
     return render(request, 'frontend/index.html', context)
 
 @csrf_exempt 
@@ -57,12 +57,12 @@ def saveRoute(request):
 
     request_dic = dict(request.POST)
 
-    status, message = saveRouteRequest(request_dic)
-    print(status, message)
+    status, message, route_id = saveRouteRequest(request_dic)
 
     context = {
         "status": status,
-        "message": message
+        "message": message,
+        "route_id": route_id
     }
     return JsonResponse(context)
 
@@ -99,7 +99,8 @@ def getRoutes(request):
 
     route["start_coordinates"] = [float(route["start_coordinates"][0]),float(route["start_coordinates"][1])]
     route["end_coordinates"] = [float(route["end_coordinates"][0]),float(route["end_coordinates"][1])]
-
+    route["route_ids"] = getAllSaved('route').set_index('route_id').to_dict()['route_name']
+    
     return JsonResponse(route)
 
 

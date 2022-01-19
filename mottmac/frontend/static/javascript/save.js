@@ -1,6 +1,7 @@
 var save_routes = []
+var save_id = []
 
-function saveRoute(btn) {
+function saveRoute(btn, route_id) {
   document.getElementById("save_name").value = ""
   document.getElementById("validchars").innerHTML = "";
   document.getElementById('statusmessage').innerHTML = "";
@@ -21,8 +22,10 @@ function saveOverrides() {
   
 function getCoords(i){
     save_routes = []
+    save_id = []
     var routeid = draw.getAll().features[i].id
     var coords = id_coords[routeid].coordinates
+    save_id.push(routeid)
     save_routes.push([coords[0], coords[coords.length-1]])
 }
   
@@ -33,13 +36,14 @@ window.onclick = function(event) {
 }
  
 document.getElementById('formsubmit').onclick = function(e){
-  
+
   e.preventDefault();
 
   if (document.getElementById('savetype').innerHTML == "Save Route") {
 
     var data = {
       "route_name" : document.getElementById("save_name").value.trim(),
+      "route_id" : save_id[0],
       "start_coordinates" : save_routes[0][0],
       "end_coordinates" : save_routes[0][1]
     }
@@ -61,6 +65,9 @@ document.getElementById('formsubmit').onclick = function(e){
 
           $("#routepicker").append($('<option>'+data["route_name"]+'</option>'));
           $('#routepicker').selectpicker('refresh');
+
+          id_names[data["route_id"]] = data["route_name"]
+          updateLegend()
         }
         else {
           document.getElementById("validname").innerHTML = response.message

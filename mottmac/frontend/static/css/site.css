@@ -377,6 +377,11 @@ form input {
   margin: -10px 10px -10px 10px;
 }
 
+.close bs-select-clear-selected span:hover {
+  color: white;
+  background-color: white;
+}
+
 @media screen and (max-width:1770px) {
   .chartbox {
       height: 300px;
