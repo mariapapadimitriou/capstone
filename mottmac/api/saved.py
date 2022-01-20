@@ -90,6 +90,47 @@ def getAllNames(saved_type):
     return names    
 
 
+def getSavedOverride(override_name):
+    
+    sqlQuery = "SELECT * FROM saved_overrides where override_name = \"{}\"".format(override_name)
+    
+    conn, curs = getConnCurs()
+
+    curs.execute(sqlQuery)    
+    override_vals = curs.fetchone()
+    
+    curs.close()
+    conn.close()
+    
+    override = {}
+    
+    for i, col in enumerate(OVERRIDE_COLUMNS):
+        override[col] = override_vals[i]
+    
+    return override
+
+def getSavedRoute(route_name):
+    
+    sqlQuery = "SELECT * FROM saved_routes where route_name = \"{}\"".format(route_name)
+    conn, curs = getConnCurs()
+
+    curs.execute(sqlQuery)    
+    route_vals = list(curs.fetchone())
+    
+    curs.close()
+    conn.close()
+    
+    route = {}
+
+    for i, col in enumerate(ROUTE_COLUMNS):
+        route[col] = route_vals[i]
+
+    route['start_coordinates'] = json.loads(route['start_coordinates'].replace('\'', '"'))
+    route['end_coordinates'] = json.loads(route['end_coordinates'].replace('\'', '"'))
+
+    return route
+
+
 ### SAVE VALUES
 
     # Status = 0 on success
@@ -161,6 +202,44 @@ def saveRouteRequest(route_dict):
     
     return status, status_message, route_id
 
+def deleteOverride(override_name):
+    
+    sqlQuery = "DELETE FROM saved_overrides where override_name = \"{}\"".format(override_name)
+    
+    conn, curs = getConnCurs()
+
+    try:
+        curs.execute(sqlQuery) 
+        conn.commit()
+        status, status_message = 0, "'{}' has been successfully deleted.".format(override_name)
+    except:
+        status, status_message = 1, "Error - Please try again."
+        
+    finally:
+        curs.close()
+        conn.close()
+
+    return status, status_message
+
+def deleteRoute(route_name):
+    
+    sqlQuery = "DELETE FROM saved_routes where route_name = \"{}\"".format(route_name)
+    
+    conn, curs = getConnCurs()
+
+    try:
+        curs.execute(sqlQuery) 
+        conn.commit()
+        status, status_message = 0, "'{}' has been successfully deleted.".format(route_name)
+    except:
+        status, status_message = 1, "Error - Please try again."
+        
+    finally:
+        curs.close()
+        conn.close()
+
+    return status, status_message
+
 # ### EDIT
 
 # def editOverride(override_dict):
@@ -223,43 +302,4 @@ def saveRouteRequest(route_dict):
 
 ### RETRIEVE VALUES
 
-def getSavedOverride(override_name):
-    
-    sqlQuery = "SELECT * FROM saved_overrides where override_name = \"{}\"".format(override_name)
-    
-    conn, curs = getConnCurs()
-
-    curs.execute(sqlQuery)    
-    override_vals = curs.fetchone()
-    
-    curs.close()
-    conn.close()
-    
-    override = {}
-    
-    for i, col in enumerate(OVERRIDE_COLUMNS):
-        override[col] = override_vals[i]
-    
-    return override
-
-def getSavedRoute(route_name):
-    
-    sqlQuery = "SELECT * FROM saved_routes where route_name = \"{}\"".format(route_name)
-    conn, curs = getConnCurs()
-
-    curs.execute(sqlQuery)    
-    route_vals = list(curs.fetchone())
-    
-    curs.close()
-    conn.close()
-    
-    route = {}
-
-    for i, col in enumerate(ROUTE_COLUMNS):
-        route[col] = route_vals[i]
-
-    route['start_coordinates'] = json.loads(route['start_coordinates'].replace('\'', '"'))
-    route['end_coordinates'] = json.loads(route['end_coordinates'].replace('\'', '"'))
-
-    return route
 
