@@ -194,7 +194,8 @@ def getScaledMetrics(cost_data, ridership_data, emissions_data, safety_data):
         'max': [max(route) for route in cost_data],
         'min': [min(route) for route in cost_data],
         'total_max': max([max(route) for route in cost_data]),
-        'total_min': min([min(route) for route in cost_data])
+        'total_min': 0
+        # 'total_min': min([min(route) for route in cost_data])
     }
 
     ridership = {
@@ -210,15 +211,18 @@ def getScaledMetrics(cost_data, ridership_data, emissions_data, safety_data):
         'max': [max(route) for route in emissions_data],
         'min': [min(route) for route in emissions_data],
         'total_max': max([max(route) for route in emissions_data]),
-        'total_min': min([min(route) for route in emissions_data])
+        'total_min': 0
+        # 'total_min': min([min(route) for route in emissions_data])
     }
 
     safety = {
         'mean': [mean(route) for route in safety_data],
         'max': [max(route) for route in safety_data],
         'min': [min(route) for route in safety_data],
-        'total_max': max([max(route) for route in safety_data]),
-        'total_min': min([min(route) for route in safety_data])
+        'total_max': 0.98,
+        'total_min': -1.25
+        # 'total_max': max([max(route) for route in safety_data]),
+        # 'total_min': min([min(route) for route in safety_data])
     }
 
     cost_scaled = { # 1-scaled to flip (so lower cost is better)
