@@ -36,7 +36,7 @@ function stripedCostSlide1(){
     if(parseInt(striped_cost_slider_2.value) - parseInt(striped_cost_slider_1.value) <= 0){
         striped_cost_slider_1.value = parseInt(striped_cost_slider_2.value);
     }
-    striped_cost_range_1.innerHTML = numbertoCurrency(striped_cost_slider_1.value);
+    striped_cost_range_1.innerHTML = numbertoCurrency(-striped_cost_slider_1.value);
     fillColor(striped_cost_slider_1, striped_cost_slider_2, striped_cost_slider_max, striped_cost_track);
 }
 
@@ -44,7 +44,7 @@ function stripedCostSlide2(){
     if(parseInt(striped_cost_slider_2.value) - parseInt(striped_cost_slider_1.value) <= 0){
         striped_cost_slider_2.value = parseInt(striped_cost_slider_1.value);
     }
-    striped_cost_range_2.innerHTML = numbertoCurrency(striped_cost_slider_2.value);
+    striped_cost_range_2.innerHTML = numbertoCurrency(-striped_cost_slider_2.value);
     fillColor(striped_cost_slider_1, striped_cost_slider_2, striped_cost_slider_max, striped_cost_track);
 }
 
@@ -61,7 +61,7 @@ function protectedCostSlide1(){
     if(parseInt(protected_cost_slider_2.value) - parseInt(protected_cost_slider_1.value) <= 0){
         protected_cost_slider_1.value = parseInt(protected_cost_slider_2.value);
     }
-    protected_cost_range_1.innerHTML = numbertoCurrency(protected_cost_slider_1.value);
+    protected_cost_range_1.innerHTML = numbertoCurrency(-protected_cost_slider_1.value);
     fillColor(protected_cost_slider_1, protected_cost_slider_2, protected_cost_slider_max, protected_cost_track);
 }
 
@@ -69,7 +69,7 @@ function protectedCostSlide2(){
     if(parseInt(protected_cost_slider_2.value) - parseInt(protected_cost_slider_1.value) <= 0){
         protected_cost_slider_2.value = parseInt(protected_cost_slider_1.value);
     }
-    protected_cost_range_2.innerHTML = numbertoCurrency(protected_cost_slider_2.value);
+    protected_cost_range_2.innerHTML = numbertoCurrency(-protected_cost_slider_2.value);
     fillColor(protected_cost_slider_1, protected_cost_slider_2, protected_cost_slider_max, protected_cost_track);
 }
 
