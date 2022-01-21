@@ -65,8 +65,8 @@ Array.prototype.min = function() {
 };
 
 function validate(e) {
-  if (!/^[a-zA-Z0-9 ]+$/.test(e.value) & document.getElementById("save_name").value.length > 0) {
-    document.getElementById("save_name").value = document.getElementById("save_name").value.slice(0, document.getElementById("save_name").value.length-1)
-    document.getElementById("validchars").innerHTML = "Input must contain only letters or numbers."
+  if (!/^[a-zA-Z0-9 ]+$/.test(e.value) & document.getElementById("save-name").value.length > 0) {
+    document.getElementById("save-name").value = document.getElementById("save-name").value.slice(0, document.getElementById("save-name").value.length-1)
+    document.getElementById("valid-chars").innerHTML = "Input must contain only letters or numbers."
   }
 }

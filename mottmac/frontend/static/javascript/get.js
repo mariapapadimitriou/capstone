@@ -9,7 +9,7 @@ function getOverrides() {
         dataType: 'json',
         success: function(data) {
 
-            document.getElementById("save_name").value = data["override_name"]
+            document.getElementById("save-name").value = data["override_name"]
 
             document.getElementById("sharrows_cost_slider_1").value = data["sharrows_cost_min"]
             document.getElementById("sharrows_cost_slider_2").value = data["sharrows_cost_max"]

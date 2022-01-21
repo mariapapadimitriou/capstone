@@ -2,22 +2,22 @@ var save_routes = []
 var save_id = []
 
 function saveRoute(btn, route_id) {
-  document.getElementById("save_name").value = ""
-  document.getElementById("validchars").innerHTML = "";
-  document.getElementById('statusmessage').innerHTML = "";
-  document.getElementById('submitPopup').style.display = "block";
+  document.getElementById("save-name").value = ""
+  document.getElementById("valid-chars").innerHTML = "";
+  document.getElementById('save-status-message').innerHTML = "";
+  document.getElementById('save-popup').style.display = "block";
   let routenum = parseInt(btn.charAt(btn.length-1)) + 1
-  document.getElementById('savetype').innerHTML = "Save Route"
-  document.getElementById('routename').innerHTML = "Route " + (routenum)
+  document.getElementById('save-header').innerHTML = "Save Route"
+  document.getElementById('save-route-num').innerHTML = "Route " + (routenum)
 }
   
 function saveOverrides() {
-  document.getElementById("save_name").value = ""
-  document.getElementById("validchars").innerHTML = "";
-  document.getElementById('statusmessage').innerHTML = "";
-  document.getElementById('submitPopup').style.display = "block";
-  document.getElementById('savetype').innerHTML = "Save Overrides"
-  document.getElementById('routename').innerHTML = null
+  document.getElementById("save-name").value = ""
+  document.getElementById("valid-chars").innerHTML = "";
+  document.getElementById('save-status-message').innerHTML = "";
+  document.getElementById('save-popup').style.display = "block";
+  document.getElementById('save-header').innerHTML = "Save Overrides"
+  document.getElementById('save-route-num').innerHTML = null
 }
   
 function getCoords(i){
@@ -35,14 +35,14 @@ window.onclick = function(event) {
   }
 }
  
-document.getElementById('formsubmit').onclick = function(e){
+document.getElementById('save-submit').onclick = function(e){
 
   e.preventDefault();
 
-  if (document.getElementById('savetype').innerHTML == "Save Route") {
+  if (document.getElementById('save-header').innerHTML == "Save Route") {
 
     var data = {
-      "route_name" : document.getElementById("save_name").value.trim(),
+      "route_name" : document.getElementById("save-name").value.trim(),
       "route_id" : save_id[0],
       "start_coordinates" : save_routes[0][0],
       "end_coordinates" : save_routes[0][1]
@@ -56,12 +56,12 @@ document.getElementById('formsubmit').onclick = function(e){
       success: function(response) {
         var status = response.status
         if (status == 0){
-          document.getElementById('submitPopup').style.display = "none";
+          document.getElementById('save-popup').style.display = "none";
 
-          document.getElementById("validchars").innerHTML = ""
-          document.getElementById('statusmessage').innerHTML = response.message
+          document.getElementById("valid-chars").innerHTML = ""
+          document.getElementById('save-status-message').innerHTML = response.message
 
-          document.getElementById('submitStatusPopup').style.display = "block";
+          document.getElementById('save-status-popup').style.display = "block";
 
           $("#routepicker").append($('<option>'+data["route_name"]+'</option>'));
           $('#routepicker').selectpicker('refresh');
@@ -71,14 +71,14 @@ document.getElementById('formsubmit').onclick = function(e){
           updateLegend()
         }
         else {
-          document.getElementById("validname").innerHTML = response.message
+          document.getElementById("valid-name").innerHTML = response.message
         }            
       }
     });
   }
   else {
     var data = {
-      "override_name" : document.getElementById("save_name").value.trim(),
+      "override_name" : document.getElementById("save-name").value.trim(),
       "sharrows_cost_min" : document.getElementById("sharrows_cost_slider_1").value,
       "sharrows_cost_max" : document.getElementById("sharrows_cost_slider_2").value,
       "striped_cost_min" : document.getElementById("striped_cost_slider_1").value,
@@ -101,27 +101,27 @@ document.getElementById('formsubmit').onclick = function(e){
       success: function(response) {
         var status = response.status
         if (status == 0){
-          document.getElementById('submitPopup').style.display = "none";
+          document.getElementById('save-popup').style.display = "none";
 
-          document.getElementById("validchars").innerHTML = ""
-          document.getElementById('statusmessage').innerHTML = response.message
+          document.getElementById("valid-chars").innerHTML = ""
+          document.getElementById('save-status-message').innerHTML = response.message
 
-          document.getElementById('submitStatusPopup').style.display = "block";
+          document.getElementById('save-status-popup').style.display = "block";
 
           $("#overridepicker").append($('<option>'+data["override_name"]+'</option>'));
           $('#overridepicker').selectpicker('refresh');
         }
         else {
-          document.getElementById("validname").innerHTML = response.message
+          document.getElementById("valid-name").innerHTML = response.message
         }
       }
     }); 
   }
 }
 
-document.getElementById('formcancel').onclick =  function(e){
+document.getElementById('save-cancel').onclick =  function(e){
   e.preventDefault();
-  document.getElementById("validchars").innerHTML = ""
-  document.getElementById("validname").innerHTML = ""
-  document.getElementById('submitPopup').style.display = "none";
+  document.getElementById("valid-chars").innerHTML = ""
+  document.getElementById("valid-name").innerHTML = ""
+  document.getElementById('save-popup').style.display = "none";
 }
