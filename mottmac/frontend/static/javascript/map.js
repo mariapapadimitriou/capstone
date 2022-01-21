@@ -239,20 +239,23 @@ function updateLegend() {
   if (draw.getAll().features.length >= 1) {
     for (let i = 0; i < draw.getAll().features.length; i++) {
       const routeid = draw.getAll().features[i].id
+
       if (routeid in id_names) {
         var routename = id_names[routeid]
+        var dropdown = "<div class='menu-nav'><div class='menu-item'></div><div class='dropdown-options-container' tabindex='-1'><div class='three-dots'><i class='fas fa-ellipsis-h'></i></div><div class='dropdown-options'><a><div><button id='save" + i + "' onclick=\"saveRoute(this.id, \'" + routeid + "\'); getCoords("+ i +");\"><span>Save As</span><span><i class='fas fa-save'></i></span></button></div></a><a><div><button>Update<i class='fas fa-pen'></i></button></div></a><a><div><button>Delete<i class='fas fa-trash'></i></button></div></a><a><div><button>Rename<i class='fas fa-font'></i></button></div></a></div></div></div>"
       }
       else {
         id_names[routeid] = "Route " + (i + 1)
         var routename = id_names[routeid]
+        var dropdown = "<div class='menu-nav'><div class='menu-item'></div><div class='dropdown-options-container' tabindex='-1'><div class='three-dots'><i class='fas fa-ellipsis-h'></i></div><div class='dropdown-options'><a><div><button id='save" + i + "' onclick=\"saveRoute(this.id, \'" + routeid + "\'); getCoords("+ i +");\"><span>Save</span><span><i class='fas fa-save'></i></span></button></div></a></div></div></div>"
       }
 
       routes.push("<div style='display: flex; flex-direction: row; justify-content: space-between;'><span style='color:")
       routes.push(id_colours[routeid])
-      routes.push(";'><span id=routename_" + i + ">")
+      routes.push(";'><span id='routename_" + i + "'>")
       routes.push("<b>"+ routename)
-      routes.push("</b></span><span>&nbsp;&nbsp;&nbsp;" + roundToTwo(turf.length(id_coords[routeid])) + "km</span></span><span><button class='saveroutebtn' id='save" + i + "' onclick=\"saveRoute(this.id, \'" + routeid + "\'); getCoords("+ i +");\">Save&nbsp;&nbsp;<i class='fas fa-save'></i></button></span></div>")
-      routes.push("<div style='height:10px'></div>")
+      routes.push("</b></span><span>&nbsp;&nbsp;&nbsp;" + roundToTwo(turf.length(id_coords[routeid])) + "km</span></span><span>" + dropdown + "</span></div>")
+      routes.push("<div style='height: 10px;'></div>")
       routes.push("<div style='display: flex; justify-content: space-between; margin-right: 1px; margin-left: -5px; margin-right: 5px;'>")
       routes.push("<button class='buttonmode' id ='share" + i + "' type='submit' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
       routes.push("<button class='buttonmode' type='submit' id ='strip" + i + "' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Striped &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
@@ -261,6 +264,7 @@ function updateLegend() {
       routes.push("<div style='height:20px'></div>")
     }
     routes.push("</div><div style='height:20px'></div>")
+    console.log(routes.join(" "))
     answer.innerHTML = routes.join(" ");
   }
   else {
