@@ -5,10 +5,22 @@ function getSaveRoutePopup(btn, route_id) {
   document.getElementById("save-name").value = ""
   document.getElementById("valid-chars").innerHTML = "";
   document.getElementById('save-status-message').innerHTML = "";
-  document.getElementById('save-popup').style.display = "block";
-  let routenum = parseInt(btn.charAt(btn.length-1)) + 1
+  
   document.getElementById('save-header').innerHTML = "Save Route"
-  document.getElementById('save-route-num').innerHTML = "Route " + (routenum)
+  document.getElementById('save-route-num').innerHTML = route_id
+
+  document.getElementById('save-popup').style.display = "block";
+}
+
+function getSaveAsRoutePopup(btn, route_id) {
+  document.getElementById("save-name").value = ""
+  document.getElementById("valid-chars").innerHTML = "";
+  document.getElementById('save-status-message').innerHTML = "";
+  
+  document.getElementById('save-header').innerHTML = "Save As New Route"
+  document.getElementById('save-route-num').innerHTML = route_id
+
+  document.getElementById('save-popup').style.display = "block";
 }
 
 function getUpdateRoutePopup(btn, route_id) {

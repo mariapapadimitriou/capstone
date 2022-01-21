@@ -244,7 +244,7 @@ function updateLegend() {
 
       if (routeid in id_names) {
         var routename = id_names[routeid]
-        dropdown.push("<a><div><button id='save" + i + "' onclick=\"getSaveRoutePopup(this.id, \'" + routeid + "\'); getCoords("+ i +");\"><span>Save As</span><span><i class='fas fa-save'></i></span></button></div></a>")
+        dropdown.push("<a><div><button id='saveas" + i + "' onclick=\"getSaveAsRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Save As</span><span><i class='fas fa-save'></i></span></button></div></a>")
         dropdown.push("<a><div><button>Update<i class='fas fa-pen'></i></button></div></a>")
         dropdown.push("<a><div><button>Delete<i class='fas fa-trash'></i></button></div></a>")
         dropdown.push("<a><div><button>Rename<i class='fas fa-font'></i></button></div></a>")
@@ -254,7 +254,7 @@ function updateLegend() {
       else {
         id_names[routeid] = "Route " + (i + 1)
         var routename = id_names[routeid]
-        dropdown.push("<a><div><button id='save" + i + "' onclick=\"getSaveRoutePopup(this.id, \'" + routeid + "\'); getCoords("+ i +");\"><span>Save</span><span><i class='fas fa-save'></i></span></button></div></a></div></div></div>")
+        dropdown.push("<a><div><button id='save" + i + "' onclick=\"getSaveRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Save</span><span><i class='fas fa-save'></i></span></button></div></a></div></div></div>")
       }
 
       routes.push("<div style='display: flex; flex-direction: row; justify-content: space-between;'><span style='color:")
