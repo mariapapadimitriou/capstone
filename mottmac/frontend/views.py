@@ -53,11 +53,11 @@ def index(request):
     return render(request, 'frontend/index.html', context)
 
 @csrf_exempt 
-def saveRoute(request):
+def saveRouteRequest(request):
 
     request_dic = dict(request.POST)
 
-    status, message, route_id = saveRouteRequest(request_dic)
+    status, message, route_id = saveRoute(request_dic)
 
     context = {
         "status": status,
@@ -68,11 +68,11 @@ def saveRoute(request):
 
 
 @csrf_exempt 
-def saveOverrides(request):
+def saveOverridesRequest(request):
 
     request_dic = dict(request.POST)
 
-    status, message = saveOverrideRequest(request_dic)
+    status, message = saveOverrides(request_dic)
     print(status, message)
 
     context = {
@@ -83,19 +83,19 @@ def saveOverrides(request):
 
 
 @csrf_exempt 
-def getOverrides(request):
+def getOverridesRequest(request):
 
     request_dic = dict(request.POST)["name"]
-    override = getSavedOverride(request_dic[0])
+    override = getOverrides(request_dic[0])
 
     return JsonResponse(override)
 
 
 @csrf_exempt 
-def getRoutes(request):
+def getRouteRequest(request):
 
     request_dic = dict(request.POST)["name"]
-    route = getSavedRoute(request_dic[0])
+    route = getRoute(request_dic[0])
 
     route["start_coordinates"] = [float(route["start_coordinates"][0]),float(route["start_coordinates"][1])]
     route["end_coordinates"] = [float(route["end_coordinates"][0]),float(route["end_coordinates"][1])]

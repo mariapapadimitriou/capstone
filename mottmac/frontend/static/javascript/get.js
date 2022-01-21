@@ -1,4 +1,4 @@
-function getOverrides() {
+function setOverrides() {
 
     var o_name = document.getElementById("overridepicker").value
 
@@ -56,7 +56,7 @@ function getKeyByValue(object, value) {
     return Object.keys(object).find(key => object[key] === value);
 }
 
-function getRoutes() {
+function plotSavedRoute() {
     var r_name = document.getElementById("routepicker").value
 
     if (r_name != "") {
@@ -66,7 +66,7 @@ function getRoutes() {
     
         $.ajax({
             type: "POST",
-            url: "/getroutes",
+            url: "/getroute",
             data: data,
             dataType: 'json',
             success: function(data) {

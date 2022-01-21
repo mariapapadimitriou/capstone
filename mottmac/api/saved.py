@@ -90,7 +90,7 @@ def getAllNames(saved_type):
     return names    
 
 
-def getSavedOverride(override_name):
+def getOverrides(override_name):
     
     sqlQuery = "SELECT * FROM saved_overrides where override_name = \"{}\"".format(override_name)
     
@@ -109,7 +109,7 @@ def getSavedOverride(override_name):
     
     return override
 
-def getSavedRoute(route_name):
+def getRoute(route_name):
     
     sqlQuery = "SELECT * FROM saved_routes where route_name = \"{}\"".format(route_name)
     conn, curs = getConnCurs()
@@ -136,7 +136,7 @@ def getSavedRoute(route_name):
     # Status = 0 on success
     # Status = 1 on error
 
-def saveOverrideRequest(override_dict):
+def saveOverrides(override_dict):
     
     override_name = override_dict['override_name'][0]
 
@@ -169,7 +169,7 @@ def saveOverrideRequest(override_dict):
 
     return status, status_message
 
-def saveRouteRequest(route_dict):
+def saveRoute(route_dict):
     
     route_name = route_dict['route_name'][0]
     start_coordinates = str(route_dict['start_coordinates[]'])
@@ -202,7 +202,7 @@ def saveRouteRequest(route_dict):
     
     return status, status_message, route_id
 
-def deleteOverride(override_name):
+def deleteOverrides(override_name):
     
     sqlQuery = "DELETE FROM saved_overrides where override_name = \"{}\"".format(override_name)
     
@@ -242,7 +242,7 @@ def deleteRoute(route_name):
 
 # ### EDIT
 
-# def editOverride(override_dict):
+# def editOverrides(override_dict):
     
 #     override_name = override_dict['override_name']
         

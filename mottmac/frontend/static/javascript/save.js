@@ -1,7 +1,17 @@
 var save_routes = []
 var save_id = []
 
-function saveRoute(btn, route_id) {
+function getSaveRoutePopup(btn, route_id) {
+  document.getElementById("save-name").value = ""
+  document.getElementById("valid-chars").innerHTML = "";
+  document.getElementById('save-status-message').innerHTML = "";
+  document.getElementById('save-popup').style.display = "block";
+  let routenum = parseInt(btn.charAt(btn.length-1)) + 1
+  document.getElementById('save-header').innerHTML = "Save Route"
+  document.getElementById('save-route-num').innerHTML = "Route " + (routenum)
+}
+
+function getUpdateRoutePopup(btn, route_id) {
   document.getElementById("save-name").value = ""
   document.getElementById("valid-chars").innerHTML = "";
   document.getElementById('save-status-message').innerHTML = "";
@@ -11,7 +21,7 @@ function saveRoute(btn, route_id) {
   document.getElementById('save-route-num').innerHTML = "Route " + (routenum)
 }
   
-function saveOverrides() {
+function getSaveOverridesPopup() {
   document.getElementById("save-name").value = ""
   document.getElementById("valid-chars").innerHTML = "";
   document.getElementById('save-status-message').innerHTML = "";
