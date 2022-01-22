@@ -8,7 +8,8 @@ urlpatterns = [
     path('saveoverrides', saveOverridesRequest),
     path('getoverrides', getOverridesRequest),
     path('getroute', getRouteRequest),
-    path('updateroute', updateRouteRequest), 
+    path('updateroute', updateRouteRequest),
+    path('deleteroute', deleteRouteRequest), 
     path('login.html', login),
     path('register.html', register),
 ]

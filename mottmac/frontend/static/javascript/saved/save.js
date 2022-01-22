@@ -23,7 +23,6 @@ function getSaveAsRoutePopup(btn, route_name) {
   document.getElementById('save-popup').style.display = "block";
 }
 
-  
 function getSaveOverridesPopup() {
   document.getElementById("save-name").value = ""
   document.getElementById("valid-chars").innerHTML = "";

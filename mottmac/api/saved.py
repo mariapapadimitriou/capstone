@@ -221,8 +221,10 @@ def deleteOverrides(override_name):
 
     return status, status_message
 
-def deleteRoute(route_name):
+def deleteRoute(route_dict):
     
+    route_name = route_dict['route_name'][0]
+
     sqlQuery = "DELETE FROM saved_routes where route_name = \"{}\"".format(route_name)
     
     conn, curs = getConnCurs()

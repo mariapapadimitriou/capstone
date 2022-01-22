@@ -1,44 +1,40 @@
-save_routes = []
-save_id = []
 
-function getUpdateRoutePopup(btn, route_name) {
+function getDeleteRoutePopup(btn, route_name) {
   
-    document.getElementById('update-header').innerHTML = "Update Route Coordinates"
-    document.getElementById('update-route-name').innerHTML = route_name
+    document.getElementById('delete-header').innerHTML = "Delete Route"
+    document.getElementById('delete-route-name').innerHTML = route_name
   
-    document.getElementById('update-popup').style.display = "block";
+    document.getElementById('delete-popup').style.display = "block";
   }
 
-document.getElementById('update-submit').onclick = function(e){
+document.getElementById('delete-submit').onclick = function(e){
 
   e.preventDefault();
 
-  if (document.getElementById('update-header').innerHTML == "Update Route Coordinates") { 
+  if (document.getElementById('delete-header').innerHTML == "Delete Route") { 
 
     var data = {
-      "route_name" : document.getElementById("update-route-name").innerHTML,
-      "start_coordinates" : save_routes[0][0],
-      "end_coordinates" : save_routes[0][1]
+      "route_name" : document.getElementById("delete-route-name").innerHTML
     }
     console.log(data)
     $.ajax({
       type: "POST",
-      url: "/updateroute",
+      url: "/deleteroute",
       data: data,
       dataType: 'json',
       success: function(response) {
 
-        document.getElementById('update-popup').style.display = "none";
+        document.getElementById('delete-popup').style.display = "none";
         
-        document.getElementById('update-status-message').innerHTML = response.message
+        document.getElementById('delete-status-message').innerHTML = response.message
 
-        document.getElementById('update-status-popup').style.display = "block";
+        document.getElementById('delete-status-popup').style.display = "block";
           
       }
     });
   }
   else {
-      alert('revisit for updating overrides. if this comes up now something went wrong :)')
+      alert('revisit for deleting overrides. if this comes up now something went wrong :)')
   //   var data = {
   //     "override_name" : document.getElementById("save-name").value.trim(),
   //     "sharrows_cost_min" : document.getElementById("sharrows_cost_slider_1").value,
@@ -81,7 +77,7 @@ document.getElementById('update-submit').onclick = function(e){
   }
 }
 
-document.getElementById('update-cancel').onclick =  function(e){
-  e.preventDefault();
-  document.getElementById('update-popup').style.display = "none";
-}
+document.getElementById('delete-cancel').onclick =  function(e){
+    e.preventDefault();
+    document.getElementById('delete-popup').style.display = "none";
+  }
