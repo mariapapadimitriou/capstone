@@ -1,10 +1,10 @@
-var save_routes = []
-var save_id = []
+// var save_routes = []
+// var save_id = []
 
 function getSaveRoutePopup(btn, route_name) {
   document.getElementById("save-name").value = ""
-  document.getElementById("valid-chars").innerHTML = "";
-  document.getElementById('save-status-message').innerHTML = "";
+  document.getElementById("save-name-valid-chars").innerHTML = "";
+  document.getElementById('status-message').innerHTML = "";
   
   document.getElementById('save-header').innerHTML = "Save Route"
   document.getElementById('save-route-num').innerHTML = route_name
@@ -14,8 +14,8 @@ function getSaveRoutePopup(btn, route_name) {
 
 function getSaveAsRoutePopup(btn, route_name) {
   document.getElementById("save-name").value = ""
-  document.getElementById("valid-chars").innerHTML = "";
-  document.getElementById('save-status-message').innerHTML = "";
+  document.getElementById("save-name-valid-chars").innerHTML = "";
+  document.getElementById('status-message').innerHTML = "";
   
   document.getElementById('save-header').innerHTML = "Save As New Route"
   document.getElementById('save-route-num').innerHTML = route_name
@@ -23,11 +23,10 @@ function getSaveAsRoutePopup(btn, route_name) {
   document.getElementById('save-popup').style.display = "block";
 }
 
-  
 function getSaveOverridesPopup() {
   document.getElementById("save-name").value = ""
-  document.getElementById("valid-chars").innerHTML = "";
-  document.getElementById('save-status-message').innerHTML = "";
+  document.getElementById("save-name-valid-chars").innerHTML = "";
+  document.getElementById('status-message').innerHTML = "";
   document.getElementById('save-popup').style.display = "block";
   document.getElementById('save-header').innerHTML = "Save Overrides"
   document.getElementById('save-route-num').innerHTML = null
@@ -37,7 +36,7 @@ document.getElementById('save-submit').onclick = function(e){
 
   e.preventDefault();
 
-  if (document.getElementById('save-header').innerHTML == "Save Route") {
+  if (["Save Route", "Save As New Route"].includes(document.getElementById('save-header').innerHTML)) {
 
     var data = {
       "route_name" : document.getElementById("save-name").value.trim(),
@@ -56,10 +55,10 @@ document.getElementById('save-submit').onclick = function(e){
         if (status == 0){
           document.getElementById('save-popup').style.display = "none";
 
-          document.getElementById("valid-chars").innerHTML = ""
-          document.getElementById('save-status-message').innerHTML = response.message
+          document.getElementById("save-name-valid-chars").innerHTML = ""
+          document.getElementById('status-message').innerHTML = response.message
 
-          document.getElementById('save-status-popup').style.display = "block";
+          document.getElementById('status-popup').style.display = "block";
 
           $("#routepicker").append($('<option>'+data["route_name"]+'</option>'));
           $('#routepicker').selectpicker('refresh');
@@ -69,7 +68,7 @@ document.getElementById('save-submit').onclick = function(e){
           updateLegend()
         }
         else {
-          document.getElementById("valid-name").innerHTML = response.message
+          document.getElementById("valid-save-name").innerHTML = response.message
         }            
       }
     });
@@ -101,16 +100,16 @@ document.getElementById('save-submit').onclick = function(e){
         if (status == 0){
           document.getElementById('save-popup').style.display = "none";
 
-          document.getElementById("valid-chars").innerHTML = ""
-          document.getElementById('save-status-message').innerHTML = response.message
+          document.getElementById("save-name-valid-chars").innerHTML = ""
+          document.getElementById('status-message').innerHTML = response.message
 
-          document.getElementById('save-status-popup').style.display = "block";
+          document.getElementById('status-popup').style.display = "block";
 
           $("#overridepicker").append($('<option>'+data["override_name"]+'</option>'));
           $('#overridepicker').selectpicker('refresh');
         }
         else {
-          document.getElementById("valid-name").innerHTML = response.message
+          document.getElementById("valid-save-name").innerHTML = response.message
         }
       }
     }); 
@@ -119,8 +118,8 @@ document.getElementById('save-submit').onclick = function(e){
 
 document.getElementById('save-cancel').onclick =  function(e){
   e.preventDefault();
-  document.getElementById("valid-chars").innerHTML = ""
-  document.getElementById("valid-name").innerHTML = ""
+  document.getElementById("save-name-valid-chars").innerHTML = ""
+  document.getElementById("valid-save-name").innerHTML = ""
   document.getElementById('save-popup').style.display = "none";
 }
 
