@@ -6,6 +6,7 @@ var id_coords = {};
 var id_names = {};
 var routes = [];
 var data = {};
+var addroutebtn_clicked = false
 
 var share = [0,0,0];
 var strip = [0,0,0];
@@ -183,6 +184,8 @@ function addRoute(coords, routeid) {
   id_coords[routeid] = coords
 
   updateLegend()
+  addroutebtn_clicked = true
+  changeAddRouteButton()
 }
 
 function removeRoute(routeid) {
@@ -207,6 +210,8 @@ function removeRoute(routeid) {
     updateLegend()
     updateCharts()
   }
+  addroutebtn_clicked = true
+  changeAddRouteButton()
 }
 
 map.addControl(
@@ -229,6 +234,13 @@ map.addControl(new mapboxgl.FullscreenControl());
 map.addControl(new mapboxgl.NavigationControl());
 
 function updateLegend() {
+
+  if (addroutebtn_clicked == false) {
+    addroutebtn_clicked = true
+  }
+  else {
+    addroutebtn_clicked = false
+  }
 
   const answer = document.getElementById('legend');
   var routes = []
@@ -285,10 +297,11 @@ function updateLegend() {
     drawLine[0].disabled = true;
     newdrawline.disabled = true;
     
+    newdrawline.innerHTML = "Disabled <i class='fas fa-ban'></i>"
+
+    newdrawline.classList.remove("addroutebtn-clicked")
     drawLine[0].classList.add('disabled-button');
     newdrawline.classList.add('addroutebtn-disabled');
-
-    newdrawline.innerHTML = "Add New Route&nbsp;&nbsp;<i class='fas fa-ban'></i>"
 
   }
   
@@ -302,7 +315,7 @@ function updateLegend() {
     drawLine[0].classList.remove('disabled-button');
     newdrawline.classList.remove('addroutebtn-disabled');
 
-    newdrawline.innerHTML = "Add New Route&nbsp;&nbsp;<i class='fas fa-plus-circle'></i>"
+    newdrawline.innerHTML = "Add New Route <i class='fas fa-plus-circle'></i>"
   }
 
   share = [0,0,0];
@@ -375,8 +388,29 @@ function selectOption(btn, clr, state) {
   }
 }
 
+function changeAddRouteButton() {
+
+  if ((arraySum(share) + arraySum(strip) + arraySum(protect)) <=2) {
+    if (addroutebtn_clicked == false) {
+      draw.changeMode('draw_line_string');
+      addroutebtn_clicked = true
+      document.getElementById("addroutebtn").classList.add('addroutebtn-clicked');
+      document.getElementById("addroutebtn").innerHTML = "Cancel <i class='fas fa-times-circle'></i>"
+    }
+    else {
+      draw.changeMode('simple_select');
+      addroutebtn_clicked = false
+      document.getElementById("addroutebtn").classList.remove('addroutebtn-clicked');
+      document.getElementById("addroutebtn").innerHTML = "Add New Route <i class='fas fa-plus-circle'></i>"
+    }
+  }
+  else {
+    document.getElementById("addroutebtn").innerHTML = "Disabled <i class='fas fa-ban'></i>"
+  }
+}
+
 document.getElementById('addroutebtn').onclick = function () {
-  draw.changeMode('draw_line_string');
+  changeAddRouteButton()
 }
 
 function updateCharts(){
