@@ -7,9 +7,8 @@ import numpy as np
 import json
 from django.http import JsonResponse
 
-from api.saved import *
+from api.saved import getAllNames
 from api.models import *
-from api.saved import *
 np.random.seed(1)
 
 # Initial Override Values 
@@ -51,71 +50,6 @@ def index(request):
     }
 
     return render(request, 'frontend/index.html', context)
-
-@csrf_exempt 
-def saveRouteRequest(request):
-
-    request_dic = dict(request.POST)
-
-    status, message, route_id = saveRoute(request_dic)
-
-    context = {
-        "status": status,
-        "message": message,
-        "route_id": route_id
-    }
-    return JsonResponse(context)
-
-
-@csrf_exempt 
-def saveOverridesRequest(request):
-
-    request_dic = dict(request.POST)
-
-    status, message = saveOverrides(request_dic)
-    print(status, message)
-
-    context = {
-        "status": status,
-        "message": message
-    }
-    return JsonResponse(context)
-
-@csrf_exempt 
-def updateRouteRequest(request):
-
-    request_dic = dict(request.POST)
-
-    status, message = updateRoute(request_dic)
-    print(status, message)
-    
-    context = {
-        "status": status,
-        "message": message
-    }
-    return JsonResponse(context)
-
-
-@csrf_exempt 
-def getOverridesRequest(request):
-
-    request_dic = dict(request.POST)["name"]
-    override = getOverrides(request_dic[0])
-
-    return JsonResponse(override)
-
-
-@csrf_exempt 
-def getRouteRequest(request):
-
-    request_dic = dict(request.POST)["name"]
-    route = getRoute(request_dic[0])
-
-    route["start_coordinates"] = [float(route["start_coordinates"][0]),float(route["start_coordinates"][1])]
-    route["end_coordinates"] = [float(route["end_coordinates"][0]),float(route["end_coordinates"][1])]
-    route["route_ids"] = getAllSaved('route').set_index('route_id').to_dict()['route_name']
-    
-    return JsonResponse(route)
 
 
 @csrf_exempt 
@@ -186,8 +120,6 @@ def index2(request):
             for i in range(len(result_store["route_length"])):
                 result_store["route_length"][i] = float(result_store["route_length"][i])
 
-
-    # USING RANDOM VALUES FOR NOW BUT WILL EVENTUALLY NEED TO CODE STUFF TO GET THESE NUMBERS
 
     colours_plot = []
     labels_plot = []

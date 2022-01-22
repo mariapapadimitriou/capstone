@@ -64,10 +64,10 @@ Array.prototype.min = function() {
   return Math.min.apply(null, this);
 };
 
-function validate(e) {
-  if (!/^[a-zA-Z0-9 ]+$/.test(e.value) & document.getElementById("save-name").value.length > 0) {
-    document.getElementById("save-name").value = document.getElementById("save-name").value.slice(0, document.getElementById("save-name").value.length-1)
-    document.getElementById("valid-chars").innerHTML = "Input must contain only letters or numbers."
+function validate(e, id) {
+  if (!/^[a-zA-Z0-9 ]+$/.test(e.value) & document.getElementById(id).value.length > 0) {
+    document.getElementById(id).value = document.getElementById(id).value.slice(0, document.getElementById(id).value.length-1)
+    document.getElementById(id+"-valid-chars").innerHTML = "Input must contain only letters or numbers."
   }
 }
 
