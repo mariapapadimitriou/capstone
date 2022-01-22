@@ -80,3 +80,8 @@ function getUpdateRoutePopup(btn, route_name) {
     //   }); 
     }
   }
+
+  document.getElementById('update-cancel').onclick =  function(e){
+    e.preventDefault();
+    document.getElementById('update-popup').style.display = "none";
+  }

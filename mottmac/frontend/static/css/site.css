@@ -426,7 +426,7 @@ a {
   transition: opacity 0.1s, z-index 0.1s, max-height 1s;
 }
 
-.dropdown-options-container:focus {
+.dropdown-options-container:focus{
   outline: none;
 }
 
@@ -438,7 +438,7 @@ a {
 }
 
 .dropdown-options div {
-  display:flex; 
+  display: flex; 
   flex-direction: row; 
   justify-content: space-between;
   width: 150px;
