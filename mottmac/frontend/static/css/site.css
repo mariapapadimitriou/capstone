@@ -172,14 +172,13 @@ input[type="range"]:active::-webkit-slider-thumb{
 .addroutebtn-disabled {
   background-color: black;
   color: white;
-  border-color: transparent;
   opacity: 0.5;
 }
 
 .addroutebtn-disabled:hover {
+  opacity: 0.5;
   background-color: black !important;
   color: white !important;
-  border-color: white !important;
 }
 
 .addroutebtn:hover {

@@ -17,6 +17,15 @@ document.getElementById('delete-submit').onclick = function(e){
       "route_name" : document.getElementById("delete-route-name").innerHTML
     }
 
+    var route_id = getKeyByValue(id_names, data["route_name"])
+    draw.delete(route_id)
+    delete id_names[route_id]
+    delete id_colours[route_id]
+    delete id_coords[route_id]
+    map.removeLayer(route_id)
+    map.removeSource(route_id)
+    updateLegend()
+
     $.ajax({
       type: "POST",
       url: "/deleteroute",

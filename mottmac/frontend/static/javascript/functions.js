@@ -85,3 +85,7 @@ if(event.target.className == "modal") {
   event.target.style.display = "none";
 }
 }
+
+function getKeyByValue(object, value) {
+  return Object.keys(object).find(key => object[key] === value);
+}
