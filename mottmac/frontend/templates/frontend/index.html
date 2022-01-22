@@ -60,6 +60,7 @@
 
             <!-- Main Content -->
             <div id="content">
+              <!-- Submission Modals -->
               <div id="save-popup" class="modal">
                 <div class="modal-content">
                   <div class="contact-form">
@@ -80,6 +81,24 @@
                   </div>
                 </div>
               </div>
+              <div id="update-popup" class="modal">
+                <div class="modal-content">
+                  <div class="contact-form">
+                    <form action="/">
+                      <div>
+                        <h1 id = "update-header" style="color: black; font-weight: bold;"></h1>
+                        <h2 id="update-route-name"></h2>
+                      </div>
+                      <div style="height: 20px;"></div>
+                      <div class="formactionbtns">
+                      <input class = "formbtns" type="submit" id="update-submit"></input>
+                      <button class = "formbtns"  type="cancel" id="update-cancel" >Cancel</button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <!-- Status Modals -->
               <div id="save-status-popup" class="modal">
                 <div class="modal-dialog modal-md">
                   <div class="modal-content">
@@ -91,8 +110,20 @@
                     </div>
                   </div>
                 </div>
-
               </div>
+              <div id="update-status-popup" class="modal">
+                <div class="modal-dialog modal-md">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h3 id = "update-status-header" style="color: green;">Success</h3>
+                    </div>
+                    <div class="modal-body">
+                      <p id = "update-status-message" style="color: black; justify-content: center;"></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
                 <!-- Begin Page Content -->
                 <div class="container-fluid" style="padding: 20px">
 
@@ -428,6 +459,7 @@
 <script type="text/javascript" src="{% static "javascript/linechart.js" %}"></script>
 <script type="text/javascript" src="{% static "javascript/sliders.js" %}"></script>
 <script type="text/javascript" src="{% static "javascript/save.js" %}"></script>
+<script type="text/javascript" src="{% static "javascript/update.js" %}"></script>
 <script type="text/javascript" src="{% static "javascript/get.js" %}"></script>
 <script type="text/javascript" src="{% static "javascript/functions.js" %}"></script>
 <script>

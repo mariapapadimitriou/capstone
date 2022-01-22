@@ -245,7 +245,7 @@ function updateLegend() {
       if (routeid in id_names) {
         var routename = id_names[routeid]
         dropdown.push("<a><div><button id='saveas" + i + "' onclick=\"getSaveAsRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Save As</span><span><i class='fas fa-save'></i></span></button></div></a>")
-        dropdown.push("<a><div><button>Update<i class='fas fa-pen'></i></button></div></a>")
+        dropdown.push("<a><div><button id='update" + i + "' onclick=\"getUpdateRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Update</span><span><i class='fas fa-pen'></i></span></button></div></a>")
         dropdown.push("<a><div><button>Delete<i class='fas fa-trash'></i></button></div></a>")
         dropdown.push("<a><div><button>Rename<i class='fas fa-font'></i></button></div></a>")
         dropdown.push("</div></div></div>")
@@ -271,7 +271,7 @@ function updateLegend() {
       routes.push("<div style='height:20px'></div>")
     }
     routes.push("</div><div style='height:20px'></div>")
-    console.log(routes.join(" "))
+
     answer.innerHTML = routes.join(" ");
   }
   else {

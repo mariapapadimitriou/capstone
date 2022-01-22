@@ -1,37 +1,28 @@
 var save_routes = []
 var save_id = []
 
-function getSaveRoutePopup(btn, route_id) {
+function getSaveRoutePopup(btn, route_name) {
   document.getElementById("save-name").value = ""
   document.getElementById("valid-chars").innerHTML = "";
   document.getElementById('save-status-message').innerHTML = "";
   
   document.getElementById('save-header').innerHTML = "Save Route"
-  document.getElementById('save-route-num').innerHTML = route_id
+  document.getElementById('save-route-num').innerHTML = route_name
 
   document.getElementById('save-popup').style.display = "block";
 }
 
-function getSaveAsRoutePopup(btn, route_id) {
+function getSaveAsRoutePopup(btn, route_name) {
   document.getElementById("save-name").value = ""
   document.getElementById("valid-chars").innerHTML = "";
   document.getElementById('save-status-message').innerHTML = "";
   
   document.getElementById('save-header').innerHTML = "Save As New Route"
-  document.getElementById('save-route-num').innerHTML = route_id
+  document.getElementById('save-route-num').innerHTML = route_name
 
   document.getElementById('save-popup').style.display = "block";
 }
 
-function getUpdateRoutePopup(btn, route_id) {
-  document.getElementById("save-name").value = ""
-  document.getElementById("valid-chars").innerHTML = "";
-  document.getElementById('save-status-message').innerHTML = "";
-  document.getElementById('save-popup').style.display = "block";
-  let routenum = parseInt(btn.charAt(btn.length-1)) + 1
-  document.getElementById('save-header').innerHTML = "Save Route"
-  document.getElementById('save-route-num').innerHTML = "Route " + (routenum)
-}
   
 function getSaveOverridesPopup() {
   document.getElementById("save-name").value = ""
@@ -40,21 +31,6 @@ function getSaveOverridesPopup() {
   document.getElementById('save-popup').style.display = "block";
   document.getElementById('save-header').innerHTML = "Save Overrides"
   document.getElementById('save-route-num').innerHTML = null
-}
-  
-function getCoords(i){
-    save_routes = []
-    save_id = []
-    var routeid = draw.getAll().features[i].id
-    var coords = id_coords[routeid].coordinates
-    save_id.push(routeid)
-    save_routes.push([coords[0], coords[coords.length-1]])
-}
-  
-window.onclick = function(event) {
-  if(event.target.className == "modal") {
-    event.target.style.display = "none";
-  }
 }
  
 document.getElementById('save-submit').onclick = function(e){
@@ -147,3 +123,4 @@ document.getElementById('save-cancel').onclick =  function(e){
   document.getElementById("valid-name").innerHTML = ""
   document.getElementById('save-popup').style.display = "none";
 }
+

@@ -271,33 +271,35 @@ def deleteRoute(route_name):
         
 #     return status, status_message
 
-# def editRoute(route_dict):
-    
-#     route_name = route_dict['route_name']
-#     start_coordinates = str(route_dict['start_coordinates']).replace("'", "''")
-#     end_coordinates = str(route_dict['end_coordinates']).replace("'", "''")
-        
-#     if route_name not in getAllNames("route"):
-#         status, status_message = 1, "Error: This route does not exist."
-#         return status, status_message
-    
-#     sqlQuery = """UPDATE saved_routes SET start_coordinates = '{0}', end_coordinates = '{1}',
-#                     update_time = CURRENT_TIMESTAMP WHERE route_name = '{2}'""".format(start_coordinates, end_coordinates, route_name)
-    
-#     conn, curs = getConnCurs()
+def updateRoute(route_dict):
 
-#     try:
-#         curs.execute(sqlQuery)
-#         conn.commit()
-#         status, status_message = 0, route_name + " has been successfully updated."
-#     except:
-#         status, status_message = 1,  "Error - Please try again."
+    route_name = route_dict['route_name'][0]
+
+    start_coordinates = str(route_dict['start_coordinates[]']).replace('\'', '"')
+    end_coordinates = str(route_dict['end_coordinates[]']).replace('\'', '"')
         
-#     finally:
-#         curs.close()
-#         conn.close()
+    if route_name not in getAllNames("route"):
+        status, status_message = 1, "Error: This route does not exist."
+        return status, status_message
+    
+    sqlQuery = """UPDATE saved_routes SET start_coordinates = '{0}', end_coordinates = '{1}',
+                    update_time = CURRENT_TIMESTAMP WHERE route_name = '{2}'""".format(start_coordinates, end_coordinates, route_name)
+
+    conn, curs = getConnCurs()
+
+    try:
+        curs.execute(sqlQuery)
+        conn.commit()
+        status, status_message = 0, "'{}' has been successfully updated.".format(route_name)
+
+    except:
+        status, status_message = 1,  "Error - Please try again."
         
-#     return status, status_message
+    finally:
+        curs.close()
+        conn.close()
+
+    return status, status_message
 
 
 ### RETRIEVE VALUES

@@ -81,6 +81,20 @@ def saveOverridesRequest(request):
     }
     return JsonResponse(context)
 
+@csrf_exempt 
+def updateRouteRequest(request):
+
+    request_dic = dict(request.POST)
+
+    status, message = updateRoute(request_dic)
+    print(status, message)
+    
+    context = {
+        "status": status,
+        "message": message
+    }
+    return JsonResponse(context)
+
 
 @csrf_exempt 
 def getOverridesRequest(request):

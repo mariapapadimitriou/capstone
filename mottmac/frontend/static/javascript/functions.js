@@ -70,3 +70,18 @@ function validate(e) {
     document.getElementById("valid-chars").innerHTML = "Input must contain only letters or numbers."
   }
 }
+
+function getCoords(i){
+  save_routes = []
+  save_id = []
+  var routeid = draw.getAll().features[i].id
+  var coords = id_coords[routeid].coordinates
+  save_id.push(routeid)
+  save_routes.push([coords[0], coords[coords.length-1]])
+}
+
+window.onclick = function(event) {
+if(event.target.className == "modal") {
+  event.target.style.display = "none";
+}
+}
