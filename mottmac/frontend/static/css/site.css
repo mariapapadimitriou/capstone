@@ -138,7 +138,8 @@ input[type="range"]:active::-webkit-slider-thumb{
   background-color: white;
   color: black;
   border-radius: 20px;
-  border-width: 1px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+  border: none;
   width: 95px;
   height: 30px;
   font-size: 12px;
