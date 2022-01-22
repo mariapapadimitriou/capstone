@@ -67,9 +67,9 @@
                       <div>
                         <h1 id = "save-header" style="color: black; font-weight: bold;"></h1>
                         <h2 id="save-route-num"></h2>
-                        <input type="text" name="name" id = "save-name"  onkeypress="validate(this)" onkeyup="validate(this)" required placeholder="Enter here (letters and numbers only, no punctuation or special characters)" title="letters and numbers only, no punctuation or special characters" autocomplete="off" maxlength="10">
+                        <input type="text" name="name" id = "save-name"  onkeypress="validate(this, 'save-name')" onkeyup="validate(this, 'save-name')" required placeholder="Enter here (letters and numbers only, no punctuation or special characters)" title="letters and numbers only, no punctuation or special characters" autocomplete="off" maxlength="10">
                       </div>
-                      <div id="valid-chars" style="color: red;"></div>
+                      <div id="save-name-valid-chars" style="color: red;"></div>
                       <div id="valid-name" style="color: red;"></div>
                       <div style="height: 20px;"></div>
                       <div class="formactionbtns">
@@ -80,14 +80,14 @@
                   </div>
                 </div>
               </div>
-              <div id="save-status-popup" class="modal">
+              <div id="status-popup" class="modal">
                 <div class="modal-dialog modal-md">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h3 id = "save-status-header" style="color: green;">Success</h3>
+                      <h3 id = "status-header" style="color: green;">Success</h3>
                     </div>
                     <div class="modal-body">
-                      <p id = "save-status-message" style="color: black; justify-content: center;"></p>
+                      <p id = "status-message" style="color: black; justify-content: center;"></p>
                     </div>
                   </div>
                 </div>

@@ -30,9 +30,9 @@ document.getElementById('update-submit').onclick = function(e){
 
         document.getElementById('update-popup').style.display = "none";
         
-        document.getElementById('update-status-message').innerHTML = response.message
+        document.getElementById('status-message').innerHTML = response.message
 
-        document.getElementById('update-status-popup').style.display = "block";
+        document.getElementById('status-popup').style.display = "block";
           
       }
     });
@@ -66,9 +66,9 @@ document.getElementById('update-submit').onclick = function(e){
   //         document.getElementById('save-popup').style.display = "none";
 
   //         document.getElementById("valid-chars").innerHTML = ""
-  //         document.getElementById('save-status-message').innerHTML = response.message
+  //         document.getElementById('status-message').innerHTML = response.message
 
-  //         document.getElementById('save-status-popup').style.display = "block";
+  //         document.getElementById('status-popup').style.display = "block";
 
   //         $("#overridepicker").append($('<option>'+data["override_name"]+'</option>'));
   //         $('#overridepicker').selectpicker('refresh');

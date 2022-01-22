@@ -304,6 +304,40 @@ def updateRoute(route_dict):
     return status, status_message
 
 
+def renameRoute(route_dict):
+
+    old_route_name = route_dict['old_route_name'][0]
+    new_route_name = route_dict['new_route_name'][0]
+
+    route_names = getAllNames("route")
+
+    if old_route_name not in route_names:
+        status, status_message = 1, "Error: Route '{}' does not exist.".format(old_route_name)
+    
+    elif new_route_name in route_names:
+        status, status_message = 1, "Route name '{}' is already in use. Please choose another name and try again.".format(new_route_name)
+        
+    else:
+        sqlQuery = """UPDATE saved_routes SET route_name = '{0}',
+                        update_time = CURRENT_TIMESTAMP WHERE route_name = '{1}'""".format(new_route_name, old_route_name)
+
+        conn, curs = getConnCurs()
+
+        try:
+            curs.execute(sqlQuery)
+            conn.commit()
+            status, status_message = 0, "'{0}' has been successfully renamed to '{1}'.".format(old_route_name, new_route_name)
+
+        except:
+            status, status_message = 1,  "Error - Please try again."
+            
+        finally:
+            curs.close()
+            conn.close()
+
+    return status, status_message
+
+
 ### RETRIEVE VALUES
 
 

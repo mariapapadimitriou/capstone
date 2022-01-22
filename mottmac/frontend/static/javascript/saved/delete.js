@@ -16,7 +16,7 @@ document.getElementById('delete-submit').onclick = function(e){
     var data = {
       "route_name" : document.getElementById("delete-route-name").innerHTML
     }
-    console.log(data)
+
     $.ajax({
       type: "POST",
       url: "/deleteroute",
@@ -26,9 +26,13 @@ document.getElementById('delete-submit').onclick = function(e){
 
         document.getElementById('delete-popup').style.display = "none";
         
-        document.getElementById('delete-status-message').innerHTML = response.message
+        document.getElementById('status-message').innerHTML = response.message
 
-        document.getElementById('delete-status-popup').style.display = "block";
+        document.getElementById('status-popup').style.display = "block";
+
+        $('#routepicker').selectpicker('val', data["route_name"]);
+        $('#routepicker option:selected').remove(); 
+        $('#routepicker').selectpicker('refresh');
           
       }
     });
@@ -62,9 +66,9 @@ document.getElementById('delete-submit').onclick = function(e){
   //         document.getElementById('save-popup').style.display = "none";
 
   //         document.getElementById("valid-chars").innerHTML = ""
-  //         document.getElementById('save-status-message').innerHTML = response.message
+  //         document.getElementById('status-message').innerHTML = response.message
 
-  //         document.getElementById('save-status-popup').style.display = "block";
+  //         document.getElementById('status-popup').style.display = "block";
 
   //         $("#overridepicker").append($('<option>'+data["override_name"]+'</option>'));
   //         $('#overridepicker').selectpicker('refresh');

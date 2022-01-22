@@ -1,5 +1,6 @@
 from django.urls import path
 from .views import *
+from api.requests import *
 
 urlpatterns = [
     path('', index),
@@ -9,7 +10,8 @@ urlpatterns = [
     path('getoverrides', getOverridesRequest),
     path('getroute', getRouteRequest),
     path('updateroute', updateRouteRequest),
-    path('deleteroute', deleteRouteRequest), 
+    path('deleteroute', deleteRouteRequest),
+    path('renameroute', renameRouteRequest),  
     path('login.html', login),
     path('register.html', register),
 ]
