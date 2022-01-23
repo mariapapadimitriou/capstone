@@ -10,6 +10,9 @@ function getSaveRoutePopup(btn, route_name) {
   document.getElementById('save-route-num').innerHTML = route_name
 
   document.getElementById('save-popup').style.display = "block";
+  
+  toggle(btn[btn.length-1], dropdown_click)
+  closeSettings("dropdownoptions" + btn[btn.length-1])
 }
 
 function getSaveAsRoutePopup(btn, route_name) {
@@ -21,6 +24,9 @@ function getSaveAsRoutePopup(btn, route_name) {
   document.getElementById('save-route-num').innerHTML = route_name
 
   document.getElementById('save-popup').style.display = "block";
+  
+  toggle(btn[btn.length-1], dropdown_click)
+  closeSettings("dropdownoptions" + btn[btn.length-1])
 }
 
 function getSaveOverridesPopup() {

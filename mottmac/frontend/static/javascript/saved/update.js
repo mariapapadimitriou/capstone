@@ -3,11 +3,13 @@ save_id = []
 
 function getUpdateRoutePopup(btn, route_name) {
   
-    document.getElementById('update-header').innerHTML = "Update Route Coordinates"
-    document.getElementById('update-route-name').innerHTML = route_name
-  
-    document.getElementById('update-popup').style.display = "block";
-  }
+  document.getElementById('update-header').innerHTML = "Update Route Coordinates"
+  document.getElementById('update-route-name').innerHTML = route_name
+
+  document.getElementById('update-popup').style.display = "block";
+  toggle(btn[btn.length-1], dropdown_click)
+  closeSettings("dropdownoptions" + btn[btn.length-1])
+}
 
 document.getElementById('update-submit').onclick = function(e){
 

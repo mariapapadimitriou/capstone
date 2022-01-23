@@ -7,6 +7,8 @@ function getRenameRoutePopup(btn, route_name) {
     document.getElementById('rename-current-name').innerHTML = route_name
   
     document.getElementById('rename-popup').style.display = "block";
+    toggle(btn[btn.length-1], dropdown_click)
+    closeSettings("dropdownoptions" + btn[btn.length-1])
   }
   
    

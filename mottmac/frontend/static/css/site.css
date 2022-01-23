@@ -378,12 +378,12 @@ form input {
 }
 
 .menu-nav {
-  background-color: white;
   display: flex;
   height: 10px;
 }
 
 .menu-item {
+  background-color: purple;
   color: black;
   padding: 0px;
   top: 0px;
@@ -397,13 +397,7 @@ form input {
   margin-right: 10px;
 }
 
-a {
-  text-decoration: none;
-  color: white;
-}
-
 .dropdown-options a div {
-  padding: 5px 0px;
   cursor: pointer;
 }
 
@@ -425,17 +419,6 @@ a {
   transition: opacity 0.1s, z-index 0.1s, max-height 1s;
 }
 
-.dropdown-options-container:focus{
-  outline: none;
-}
-
-.dropdown-options-container:focus .dropdown-options {
-  opacity: 1;
-  z-index: 100;
-  max-height: 100vh;
-  transition: opacity 0.2s, z-index 0.2s, max-height 1s;
-}
-
 .dropdown-options div {
   display: flex; 
   flex-direction: row; 
@@ -446,6 +429,7 @@ a {
 .dropdown-options button {
   background-color: transparent;
   color: #1B1D24;
+  height: 30px;
   border: none;
   width: 100%;
   font-weight: normal;
@@ -453,9 +437,15 @@ a {
   display: flex;
   justify-content: row;
   justify-content: space-between;
+  align-items: center;
 }
 
 .dropdown-options button:hover {
   background-color: #EAECF4;
   color: #1B1D24;
+}
+
+.dropdownbtn {
+  background-color: transparent;
+  border: none;
 }

@@ -89,3 +89,13 @@ if(event.target.className == "modal") {
 function getKeyByValue(object, value) {
   return Object.keys(object).find(key => object[key] === value);
 }
+
+function toggle(id, objarray) {
+
+  if (dropdown_click[id] == 1) {
+    objarray[id] = 0
+  }
+  else {
+    objarray[id] = 1
+  }
+}

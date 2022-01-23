@@ -8,6 +8,8 @@ var routes = [];
 var data = {};
 var addroutebtn_clicked = false
 
+var dropdown_click = [0,0,0]
+
 var share = [0,0,0];
 var strip = [0,0,0];
 var protect = [0,0,0];
@@ -182,7 +184,6 @@ function addRoute(coords, routeid) {
   });
   
   id_coords[routeid] = coords
-
   updateLegend()
   addroutebtn_clicked = true
   changeAddRouteButton()
@@ -251,7 +252,7 @@ function updateLegend() {
     for (let i = 0; i < draw.getAll().features.length; i++) {
       const routeid = draw.getAll().features[i].id
 
-      var dropdown = ["<div class='menu-nav'><div class='menu-item'></div><div class='dropdown-options-container' tabindex='-1'><div class='three-dots'><i class='fas fa-ellipsis-h'></i></div><div class='dropdown-options'>"]
+      var dropdown = ["<div class='menu-nav'><div class='menu-item'></div><div class='dropdown-options-container' tabindex='-1'><div class='three-dots'><button class='dropdownbtn' id='dropbtn" +  i + "' onclick='dropdownbtnClick(this.id)'><i class='fas fa-ellipsis-h'></i></div></button><div class='dropdown-options' id='dropdownoptions" + i + "'>"]
 
       if (routeid in id_names) {
         var routename = id_names[routeid]
@@ -409,6 +410,39 @@ function changeAddRouteButton() {
 
 document.getElementById('addroutebtn').onclick = function () {
   changeAddRouteButton()
+}
+
+function dropdownbtnClick(i) {
+
+  index_num = i[i.length-1]
+  var ind = "dropdownoptions" + index_num
+
+  if (dropdown_click[index_num] == 0) {
+    dropdown_click[index_num] = 1
+    openSettings(ind)
+  }
+  else {
+    dropdown_click[index_num] = 0
+    closeSettings(ind)
+  }
+}
+
+function openSettings(ind) {
+  document.getElementById(ind).style.opacity = 1
+  document.getElementById(ind).style.zIndex = 999
+  document.getElementById(ind).style.backgroundColor = "white"
+  document.getElementById(ind).style.display = "block"
+  document.getElementById(ind).style.maxHeight = "100vh"
+  document.getElementById(ind).style.transition = "transition: opacity 0.2s, z-index 0.2s, max-height 0.2s;"
+}
+
+function closeSettings(ind) {
+  document.getElementById(ind).style.opacity = 0
+  document.getElementById(ind).style.zIndex = -1
+  document.getElementById(ind).style.backgroundColor = "white"
+  document.getElementById(ind).style.display = "none"
+  document.getElementById(ind).style.maxHeight = "0"
+  document.getElementById(ind).style.transition = "transition: opacity 0.1s, z-index 0.1s, max-height 1s;"
 }
 
 function updateCharts(){

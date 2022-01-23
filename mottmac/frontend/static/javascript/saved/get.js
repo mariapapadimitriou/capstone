@@ -53,39 +53,42 @@ function setOverrides() {
 }
 
 function plotSavedRoute() {
-    var r_name = document.getElementById("routepicker").value
-
-    if (r_name != "") {
-        data = {
-            "name" : r_name
-        }
     
-        $.ajax({
-            type: "POST",
-            url: "/getroute",
-            data: data,
-            dataType: 'json',
-            success: function(data) {
-                var r = data["route_name"]
-                var route_id = data["route_id"]
-                id_names = data["route_ids"]
-    
-                if (draw.getAll().features.length <= 2) {
+    if (draw.getMode() != "draw_line_string") {
+        var r_name = document.getElementById("routepicker").value
 
-                    var feature = {
-                        id: route_id,
-                        type: 'Feature',
-                        properties: {},
-                        geometry: {type: 'LineString', coordinates: [data["start_coordinates"],data["end_coordinates"]] }
+        if (r_name != "") {
+            data = {
+                "name" : r_name
+            }
+        
+            $.ajax({
+                type: "POST",
+                url: "/getroute",
+                data: data,
+                dataType: 'json',
+                success: function(data) {
+                    var r = data["route_name"]
+                    var route_id = data["route_id"]
+                    id_names = data["route_ids"]
+        
+                    if (draw.getAll().features.length <= 2) {
+    
+                        var feature = {
+                            id: route_id,
+                            type: 'Feature',
+                            properties: {},
+                            geometry: {type: 'LineString', coordinates: [data["start_coordinates"],data["end_coordinates"]] }
+                        }
+    
+                        var featureid = draw.add(feature);
+                        
+                        id_names[featureid] = r
+    
+                        createRoute()
                     }
-
-                    var featureid = draw.add(feature);
-                    
-                    id_names[featureid] = r
-
-                    createRoute()
-                }
-              }
-        });
+                  }
+            });
+        }
     }
 }

@@ -1,11 +1,11 @@
 
 function getDeleteRoutePopup(btn, route_name) {
-  
-    document.getElementById('delete-header').innerHTML = "Delete Route"
-    document.getElementById('delete-route-name').innerHTML = route_name
-  
-    document.getElementById('delete-popup').style.display = "block";
-  }
+  document.getElementById('delete-header').innerHTML = "Delete Route"
+  document.getElementById('delete-route-name').innerHTML = route_name
+  document.getElementById('delete-popup').style.display = "block";
+  toggle(btn[btn.length-1], dropdown_click)
+  closeSettings("dropdownoptions" + btn[btn.length-1])
+}
 
 document.getElementById('delete-submit').onclick = function(e){
 
