@@ -247,7 +247,6 @@ function updateLegend() {
 
   routes.push("<div class='row'><div class='col'>")
 
-
   if (draw.getAll().features.length >= 1) {
     for (let i = 0; i < draw.getAll().features.length; i++) {
       const routeid = draw.getAll().features[i].id
@@ -264,8 +263,7 @@ function updateLegend() {
 
         }
       else {
-        id_names[routeid] = "Route " + (i + 1)
-        var routename = id_names[routeid]
+        var routename = "Route " + (i + 1)
         dropdown.push("<a><div><button id='save" + i + "' onclick=\"getSaveRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Save</span><span><i class='fas fa-save'></i></span></button></div></a></div></div></div>")
       }
 

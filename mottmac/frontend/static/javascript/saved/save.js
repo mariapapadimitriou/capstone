@@ -38,11 +38,41 @@ document.getElementById('save-submit').onclick = function(e){
 
   if (["Save Route", "Save As New Route"].includes(document.getElementById('save-header').innerHTML)) {
 
-    var data = {
-      "route_name" : document.getElementById("save-name").value.trim(),
-      "route_id" : save_id[0],
-      "start_coordinates" : save_routes[0][0],
-      "end_coordinates" : save_routes[0][1]
+    if (document.getElementById('save-header').innerHTML == "Save Route") {
+      var data = {
+        "route_name" : document.getElementById("save-name").value.trim(),
+        "route_id" : save_id[0],
+        "start_coordinates" : save_routes[0][0],
+        "end_coordinates" : save_routes[0][1]
+      }
+    }
+    else {
+
+      draw.delete(save_id[0])
+      delete id_names[save_id[0]]
+      delete id_colours[save_id[0]]
+      delete id_coords[save_id[0]]
+      map.removeLayer(save_id[0])
+      map.removeSource(save_id[0])
+
+      var feature = {
+        type: 'Feature',
+        properties: {},
+        geometry: {type: 'LineString', coordinates: [save_routes[0][0], save_routes[0][1]] }
+      }
+
+      var featureid = draw.add(feature);
+
+      var data = {
+        "route_name" : document.getElementById("save-name").value.trim(),
+        "route_id" : featureid[0],
+        "start_coordinates" : feature.geometry.coordinates[0],
+        "end_coordinates" : feature.geometry.coordinates[feature.geometry.coordinates.length - 1]
+      }
+
+      id_names[featureid[0]] = data["route_name"]
+      id_coords[featureid[0]] = feature.geometry
+      createRoute()
     }
 
     $.ajax({

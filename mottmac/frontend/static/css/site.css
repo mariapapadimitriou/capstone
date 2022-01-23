@@ -403,7 +403,8 @@ a {
 }
 
 .dropdown-options a div {
-  padding: 5px;
+  padding: 5px 0px;
+  cursor: pointer;
 }
 
 .dropdown-options a div:hover {

@@ -52,10 +52,6 @@ function setOverrides() {
     });
 }
 
-function getKeyByValue(object, value) {
-    return Object.keys(object).find(key => object[key] === value);
-}
-
 function plotSavedRoute() {
     var r_name = document.getElementById("routepicker").value
 
@@ -80,7 +76,7 @@ function plotSavedRoute() {
                         id: route_id,
                         type: 'Feature',
                         properties: {},
-                        geometry: { type: 'LineString', coordinates: [data["start_coordinates"],data["end_coordinates"]] }
+                        geometry: {type: 'LineString', coordinates: [data["start_coordinates"],data["end_coordinates"]] }
                     }
 
                     var featureid = draw.add(feature);
