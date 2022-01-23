@@ -22,7 +22,6 @@ document.getElementById('update-submit').onclick = function(e){
       "start_coordinates" : save_routes[0][0],
       "end_coordinates" : save_routes[0][1]
     }
-    console.log(data)
     $.ajax({
       type: "POST",
       url: "/updateroute",

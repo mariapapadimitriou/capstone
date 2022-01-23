@@ -370,13 +370,6 @@ form input {
   background-color: white;
 }
 
-@media screen and (max-width:1770px) {
-  .chartbox {
-      height: 300px;
-  }
-
-}
-
 .menu-nav {
   display: flex;
   height: 10px;
@@ -408,7 +401,6 @@ form input {
 
 .dropdown-options {
   position: absolute;
-  right: 10px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 10px;
@@ -448,4 +440,11 @@ form input {
 .dropdownbtn {
   background-color: transparent;
   border: none;
+}
+
+@media screen and (max-width:1770px) {
+  .chartbox {
+      height: 300px;
+  }
+
 }

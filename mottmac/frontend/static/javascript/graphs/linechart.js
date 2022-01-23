@@ -77,5 +77,5 @@ function getMultiObjective(plot_colours, plot_labels, plot_data) {
         },
         showlegend: false
     }
-  return Plotly.newPlot('myChart', data, layout, {displayModeBar: false});
+  return Plotly.newPlot('myChart', data, layout, {displayModeBar: false, responsive: true});
 }

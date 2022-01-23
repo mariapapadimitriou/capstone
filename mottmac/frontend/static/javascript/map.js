@@ -417,7 +417,7 @@ function dropdownbtnClick(i) {
   index_num = i[i.length-1]
   var ind = "dropdownoptions" + index_num
 
-  if (dropdown_click[index_num] == 0) {
+  if (dropdown_click[index_num] == 0 & arraySum(dropdown_click) <= 0) {
     dropdown_click[index_num] = 1
     openSettings(ind)
   }
@@ -434,6 +434,8 @@ function openSettings(ind) {
   document.getElementById(ind).style.display = "block"
   document.getElementById(ind).style.maxHeight = "100vh"
   document.getElementById(ind).style.transition = "transition: opacity 0.2s, z-index 0.2s, max-height 0.2s;"
+  document.getElementById(ind).style.right = "15px";
+  document.getElementById(ind).style.boxShadow = "rgba(0, 0, 0, 0.24) 0px 3px 8px;"
 }
 
 function closeSettings(ind) {
@@ -442,7 +444,7 @@ function closeSettings(ind) {
   document.getElementById(ind).style.backgroundColor = "white"
   document.getElementById(ind).style.display = "none"
   document.getElementById(ind).style.maxHeight = "0"
-  document.getElementById(ind).style.transition = "transition: opacity 0.1s, z-index 0.1s, max-height 1s;"
+  document.getElementById(ind).style.transition = "transition: opacity 0.2s, z-index 0.2s, max-height 0.2s;"
 }
 
 function updateCharts(){

@@ -94,7 +94,8 @@ function getCostPlot(plot_colours, plot_labels, plot_data) {
     {
         scrollZoom: false,
         hoverFormat: '.2f',
-        displayModeBar: false
+        displayModeBar: false,
+        responsive: true
     },
     )
 }
