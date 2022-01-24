@@ -588,18 +588,6 @@ form input {
       'card6'
       'card7';
   }
-
-  .card:nth-child(5) {
-    grid-area: card5;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas:
-      'subhead'
-      'subcard2'
-      'subcard1';
-    top: 0px;
-  }
 }
 
 .arrowdiv {
