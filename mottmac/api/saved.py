@@ -56,7 +56,7 @@ def getAllSaved(saved_type, user = None):
     else:
         return None
     
-    sqlQuery = "SELECT {columns} FROM saved_{saved_type}s".format(columns = columns, saved_type = saved_type) 
+    sqlQuery = "SELECT {columns} FROM [saved.{saved_type}s]".format(columns = columns, saved_type = saved_type) 
     
     if user is not None:
         sqlQuery = sqlQuery + " where user = '{}'".format(user)
@@ -79,7 +79,7 @@ def getAllNames(saved_type):
     
     conn, curs = getConnCurs()
 
-    curs.execute("SELECT {0}_name FROM saved_{0}s".format(saved_type))    
+    curs.execute("SELECT {0}_name FROM [saved.{0}s]".format(saved_type))    
     names = curs.fetchall()
     
     curs.close()
@@ -92,7 +92,7 @@ def getAllNames(saved_type):
 
 def getOverrides(override_name):
     
-    sqlQuery = "SELECT * FROM saved_overrides where override_name = \"{}\"".format(override_name)
+    sqlQuery = "SELECT * FROM [saved.overrides] where override_name = \"{}\"".format(override_name)
     
     conn, curs = getConnCurs()
 
@@ -111,7 +111,7 @@ def getOverrides(override_name):
 
 def getRoute(route_name):
     
-    sqlQuery = "SELECT * FROM saved_routes where route_name = \"{}\"".format(route_name)
+    sqlQuery = "SELECT * FROM [saved.routes] where route_name = \"{}\"".format(route_name)
     conn, curs = getConnCurs()
 
     curs.execute(sqlQuery)    
@@ -150,7 +150,7 @@ def saveOverrides(override_dict):
     
     columns = ",".join(OVERRIDE_COLUMNS)
     override_vals = tuple([val[0] for val in override_dict.values()])
-    sqlQuery = "INSERT INTO saved_overrides ({0}) VALUES ({1})".format(columns, OVERRIDE_PLACEHOLDERS)
+    sqlQuery = "INSERT INTO [saved.overrides] ({0}) VALUES ({1})".format(columns, OVERRIDE_PLACEHOLDERS)
 
     conn, curs = getConnCurs()
 
@@ -186,7 +186,7 @@ def saveRoute(route_dict):
     
     columns = ",".join(ROUTE_COLUMNS)
     route_vals = tuple([route_name, start_coordinates, end_coordinates, route_id, location_id])
-    sqlQuery = "INSERT INTO saved_routes ({0}) VALUES ({1})".format(columns, ROUTE_PLACEHOLDERS)
+    sqlQuery = "INSERT INTO [saved.routes] ({0}) VALUES ({1})".format(columns, ROUTE_PLACEHOLDERS)
 
     conn, curs = getConnCurs()
 
@@ -205,7 +205,7 @@ def saveRoute(route_dict):
 
 def deleteOverrides(override_name):
     
-    sqlQuery = "DELETE FROM saved_overrides where override_name = \"{}\"".format(override_name)
+    sqlQuery = "DELETE FROM [saved.overrides] where override_name = \"{}\"".format(override_name)
     
     conn, curs = getConnCurs()
 
@@ -226,7 +226,7 @@ def deleteRoute(route_dict):
     
     route_name = route_dict['route_name'][0]
 
-    sqlQuery = "DELETE FROM saved_routes where route_name = \"{}\"".format(route_name)
+    sqlQuery = "DELETE FROM [saved.routes] where route_name = \"{}\"".format(route_name)
     
     conn, curs = getConnCurs()
 
@@ -253,7 +253,7 @@ def deleteRoute(route_dict):
 #         status, status_message = 1, "Error: This override does not exist."
 #         return status, status_message
     
-#     sqlQuery = "UPDATE saved_overrides SET "
+#     sqlQuery = "UPDATE [saved.overrides] SET "
 #     for col in OVERRIDE_COLUMNS[1:]:
 #         sqlQuery = sqlQuery + "{col} = {value}, ".format(col=col, value=override_dict[col])
     
@@ -285,7 +285,7 @@ def updateRoute(route_dict):
         status, status_message = 1, "Error: This route does not exist."
         return status, status_message
     
-    sqlQuery = """UPDATE saved_routes SET start_coordinates = '{0}', end_coordinates = '{1}',
+    sqlQuery = """UPDATE [saved.routes] SET start_coordinates = '{0}', end_coordinates = '{1}',
                     update_time = CURRENT_TIMESTAMP WHERE route_name = '{2}'""".format(start_coordinates, end_coordinates, route_name)
 
     conn, curs = getConnCurs()
@@ -319,7 +319,7 @@ def renameRoute(route_dict):
         status, status_message = 1, "Route name '{}' is already in use. Please choose another name and try again.".format(new_route_name)
         
     else:
-        sqlQuery = """UPDATE saved_routes SET route_name = '{0}',
+        sqlQuery = """UPDATE [saved.routes] SET route_name = '{0}',
                         update_time = CURRENT_TIMESTAMP WHERE route_name = '{1}'""".format(new_route_name, old_route_name)
 
         conn, curs = getConnCurs()

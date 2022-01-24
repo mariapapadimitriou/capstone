@@ -16,7 +16,7 @@ import pyproj
 import pandas as pd
 
 conn = sqlite3.connect('data.db')
-neighbourhood_data = pd.read_sql_query("SELECT * FROM neighbourhood_data", conn)
+neighbourhood_data = pd.read_sql_query("SELECT * FROM [location.neighbourhoods]", conn)
 conn.close()
 
 neighbourhood_data['coordinates'] = neighbourhood_data['coordinates'].apply(lambda x: loads(x))
