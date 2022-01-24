@@ -191,6 +191,8 @@ async function getMatch(coordinates, radius, profile, routeid) {
     );
     draw.delete(routeid)
     delete id_colours[routeid]
+    addroutebtn_clicked = true
+    changeAddRouteButton()
     updateLegend()
     return;
   }
