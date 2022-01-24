@@ -6,77 +6,129 @@ var id_coords = {};
 var id_names = {};
 var routes = [];
 var data = {};
+var addroutebtn_clicked = false
+
+var dropdown_click = [0,0,0]
 
 var share = [0,0,0];
 var strip = [0,0,0];
 var protect = [0,0,0];
 
-const map = new mapboxgl.Map({
-container: 'app', // container ID
-style: 'mapbox://styles/mariapapadimitriou/ckxrxguwp2ymn14nm3oyyezl9', // style URL
-center: [-79.3923, 43.6643], // starting position [lng, lat]
-zoom: 15, // starting zoom
-maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
-});
+var map = null;
+var draw = null;
+var location_bounds = null;
 
-const draw = new MapboxDraw({
-  // Instead of showing all the draw tools, show only the line string and delete tools.
-  displayControlsDefault: false,
-  controls: {
-    line_string: true,
-    trash: true,
-  },
-  // Set the draw mode to draw LineStrings by default.
-  defaultMode: 'simple_select',
-  styles: [
-    // Set the line style for the user-input coordinates.
-    {
-      id: 'gl-draw-line',
-      type: 'line',
-      filter: ['all', ['==', '$type', 'LineString'], ['!=', 'mode', 'static']],
-      layout: {
-        'line-cap': 'round',
-        'line-join': 'round'
+function create_map(location_bounds){
+  map = new mapboxgl.Map({
+    container: 'app', // container ID
+    style: 'mapbox://styles/mariapapadimitriou/ckxrxguwp2ymn14nm3oyyezl9', // style URL
+    center: [-79.3923, 43.6643], // starting position [lng, lat]
+    zoom: 10, // starting zoom
+    // maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
+    maxBounds: location_bounds
+  });
+  
+  draw = new MapboxDraw({
+    // Instead of showing all the draw tools, show only the line string and delete tools.
+    displayControlsDefault: false,
+    controls: {
+      line_string: true,
+      trash: true,
+    },
+    // Set the draw mode to draw LineStrings by default.
+    defaultMode: 'simple_select',
+    styles: [
+      // Set the line style for the user-input coordinates.
+      {
+        id: 'gl-draw-line',
+        type: 'line',
+        filter: ['all', ['==', '$type', 'LineString'], ['!=', 'mode', 'static']],
+        layout: {
+          'line-cap': 'round',
+          'line-join': 'round'
+        },
+        paint: {
+          'line-color': 'black',
+          'line-dasharray': [0.2, 2],
+          'line-width': 4,
+          'line-opacity': 0.7
+        }
       },
-      paint: {
-        'line-color': 'black',
-        'line-dasharray': [0.2, 2],
-        'line-width': 4,
-        'line-opacity': 0.7
+      // Style the vertex point halos.
+      {
+        id: 'gl-draw-polygon-and-line-vertex-halo-active',
+        type: 'circle',
+        filter: [
+          'all',
+          ['==', 'meta', 'vertex'],
+          ['==', '$type', 'Point'],
+          ['!=', 'mode', 'static']
+        ],
+        paint: {
+          'circle-radius': 12,
+          'circle-color': '#FFF'
+        }
+      },
+      // Style the vertex points.
+      {
+        id: 'gl-draw-polygon-and-line-vertex-active',
+        type: 'circle',
+        filter: [
+          'all',
+          ['==', 'meta', 'vertex'],
+          ['==', '$type', 'Point'],
+          ['!=', 'mode', 'static']
+        ],
+        paint: {
+          'circle-radius': 8,
+          'circle-color': 'black'
+        }
       }
-    },
-    // Style the vertex point halos.
-    {
-      id: 'gl-draw-polygon-and-line-vertex-halo-active',
-      type: 'circle',
-      filter: [
-        'all',
-        ['==', 'meta', 'vertex'],
-        ['==', '$type', 'Point'],
-        ['!=', 'mode', 'static']
-      ],
-      paint: {
-        'circle-radius': 12,
-        'circle-color': '#FFF'
-      }
-    },
-    // Style the vertex points.
-    {
-      id: 'gl-draw-polygon-and-line-vertex-active',
-      type: 'circle',
-      filter: [
-        'all',
-        ['==', 'meta', 'vertex'],
-        ['==', '$type', 'Point'],
-        ['!=', 'mode', 'static']
-      ],
-      paint: {
-        'circle-radius': 8,
-        'circle-color': 'black'
-      }
+    ]
+  });
+
+  map.addControl(
+    new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+        marker: false,
+        // bbox: [-79.644849,43.553266,-79.068067,43.849127], // Boundary for Toronto
+        bbox: location_bounds
+    }),
+    "top-right"
+  );
+  
+  map.addControl(draw);
+  
+  map.on('draw.create', createRoute);
+  map.on('draw.update', updateRoute);
+  map.on('draw.delete', removeRoute);
+  
+  map.addControl(new mapboxgl.FullscreenControl());
+  map.addControl(new mapboxgl.NavigationControl()); 
+
+}
+
+function setLocationBounds(){
+
+  location_id = document.getElementById("locationpicker").value;
+
+  var data = {
+      "location_id" : location_id
     }
-  ]
-});
+    $.ajax({
+      type: "POST",
+      url: "/getlocationbounds",
+      data: data,
+      dataType: 'json',
+      success: function(response) {
+
+        location_bounds = response.bounds;
+        create_map(location_bounds)
+      }
+    });
+
+}
 
 function createRoute() {
   
@@ -181,8 +233,9 @@ function addRoute(coords, routeid) {
   });
   
   id_coords[routeid] = coords
-
   updateLegend()
+  addroutebtn_clicked = true
+  changeAddRouteButton()
 }
 
 function removeRoute(routeid) {
@@ -207,54 +260,50 @@ function removeRoute(routeid) {
     updateLegend()
     updateCharts()
   }
+  addroutebtn_clicked = true
+  changeAddRouteButton()
 }
 
-map.addControl(
-  new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl,
-      marker: false,
-      bbox: [-79.644849,43.553266,-79.068067,43.849127], // Boundary for Toronto
-  }),
-  "top-right"
-);
-
-map.addControl(draw);
-
-map.on('draw.create', createRoute);
-map.on('draw.update', updateRoute);
-map.on('draw.delete', removeRoute);
-
-map.addControl(new mapboxgl.FullscreenControl());
-map.addControl(new mapboxgl.NavigationControl());
 
 function updateLegend() {
+
+  if (addroutebtn_clicked == false) {
+    addroutebtn_clicked = true
+  }
+  else {
+    addroutebtn_clicked = false
+  }
 
   const answer = document.getElementById('legend');
   var routes = []
 
   routes.push("<div class='row'><div class='col'>")
 
-
   if (draw.getAll().features.length >= 1) {
     for (let i = 0; i < draw.getAll().features.length; i++) {
       const routeid = draw.getAll().features[i].id
 
+      var dropdown = ["<div class='menu-nav'><div class='menu-item'></div><div class='dropdown-options-container' tabindex='-1'><div class='three-dots'><button class='dropdownbtn' id='dropbtn" +  i + "' onclick='dropdownbtnClick(this.id)'><i class='fas fa-ellipsis-h'></i></div></button><div class='dropdown-options' id='dropdownoptions" + i + "'>"]
+
       if (routeid in id_names) {
         var routename = id_names[routeid]
-        var dropdown = "<div class='menu-nav'><div class='menu-item'></div><div class='dropdown-options-container' tabindex='-1'><div class='three-dots'><i class='fas fa-ellipsis-h'></i></div><div class='dropdown-options'><a><div><button id='save" + i + "' onclick=\"saveRoute(this.id, \'" + routeid + "\'); getCoords("+ i +");\"><span>Save As</span><span><i class='fas fa-save'></i></span></button></div></a><a><div><button>Update<i class='fas fa-pen'></i></button></div></a><a><div><button>Delete<i class='fas fa-trash'></i></button></div></a><a><div><button>Rename<i class='fas fa-font'></i></button></div></a></div></div></div>"
-      }
+        dropdown.push("<a><div><button id='saveas" + i + "' onclick=\"getSaveAsRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Save As</span><span><i class='fas fa-save'></i></span></button></div></a>")
+        dropdown.push("<a><div><button id='update" + i + "' onclick=\"getUpdateRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Update</span><span><i class='fas fa-pen'></i></span></button></div></a>")
+        dropdown.push("<a><div><button id='delete" + i + "' onclick=\"getDeleteRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Delete</span><span><i class='fas fa-trash'></i></span></button></div></a>")
+        dropdown.push("<a><div><button id='rename" + i + "' onclick=\"getRenameRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Rename</span><span><i class='fas fa-font'></i></span></button></div></a>")
+        dropdown.push("</div></div></div>")
+
+        }
       else {
-        id_names[routeid] = "Route " + (i + 1)
-        var routename = id_names[routeid]
-        var dropdown = "<div class='menu-nav'><div class='menu-item'></div><div class='dropdown-options-container' tabindex='-1'><div class='three-dots'><i class='fas fa-ellipsis-h'></i></div><div class='dropdown-options'><a><div><button id='save" + i + "' onclick=\"saveRoute(this.id, \'" + routeid + "\'); getCoords("+ i +");\"><span>Save</span><span><i class='fas fa-save'></i></span></button></div></a></div></div></div>"
+        var routename = "Route " + (i + 1)
+        dropdown.push("<a><div><button id='save" + i + "' onclick=\"getSaveRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Save</span><span><i class='fas fa-save'></i></span></button></div></a></div></div></div>")
       }
 
       routes.push("<div style='display: flex; flex-direction: row; justify-content: space-between;'><span style='color:")
       routes.push(id_colours[routeid])
       routes.push(";'><span id='routename_" + i + "'>")
       routes.push("<b>"+ routename)
-      routes.push("</b></span><span>&nbsp;&nbsp;&nbsp;" + roundToTwo(turf.length(id_coords[routeid])) + "km</span></span><span>" + dropdown + "</span></div>")
+      routes.push("</b></span><span>&nbsp;&nbsp;&nbsp;" + roundToTwo(turf.length(id_coords[routeid])) + "km</span></span><span>" + dropdown.join("") + "</span></div>")
       routes.push("<div style='height: 10px;'></div>")
       routes.push("<div style='display: flex; justify-content: space-between;'>")
       routes.push("<button class='buttonmode' id ='share" + i + "' type='submit' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
@@ -264,7 +313,7 @@ function updateLegend() {
       routes.push("<div style='height:20px'></div>")
     }
     routes.push("</div><div style='height:20px'></div>")
-    console.log(routes.join(" "))
+
     answer.innerHTML = routes.join(" ");
   }
   else {
@@ -278,10 +327,11 @@ function updateLegend() {
     drawLine[0].disabled = true;
     newdrawline.disabled = true;
     
+    newdrawline.innerHTML = "Disabled <i class='fas fa-ban'></i>"
+
+    newdrawline.classList.remove("addroutebtn-clicked")
     drawLine[0].classList.add('disabled-button');
     newdrawline.classList.add('addroutebtn-disabled');
-
-    newdrawline.innerHTML = "Add New Route&nbsp;&nbsp;<i class='fas fa-ban'></i>"
 
   }
   
@@ -295,7 +345,7 @@ function updateLegend() {
     drawLine[0].classList.remove('disabled-button');
     newdrawline.classList.remove('addroutebtn-disabled');
 
-    newdrawline.innerHTML = "Add New Route&nbsp;&nbsp;<i class='fas fa-plus-circle'></i>"
+    newdrawline.innerHTML = "Add New Route <i class='fas fa-plus-circle'></i>"
   }
 
   share = [0,0,0];
@@ -368,8 +418,64 @@ function selectOption(btn, clr, state) {
   }
 }
 
+function changeAddRouteButton() {
+
+  if ((arraySum(share) + arraySum(strip) + arraySum(protect)) <=2) {
+    if (addroutebtn_clicked == false) {
+      draw.changeMode('draw_line_string');
+      addroutebtn_clicked = true
+      document.getElementById("addroutebtn").classList.add('addroutebtn-clicked');
+      document.getElementById("addroutebtn").innerHTML = "Cancel <i class='fas fa-times-circle'></i>"
+    }
+    else {
+      draw.changeMode('simple_select');
+      addroutebtn_clicked = false
+      document.getElementById("addroutebtn").classList.remove('addroutebtn-clicked');
+      document.getElementById("addroutebtn").innerHTML = "Add New Route <i class='fas fa-plus-circle'></i>"
+    }
+  }
+  else {
+    document.getElementById("addroutebtn").innerHTML = "Disabled <i class='fas fa-ban'></i>"
+  }
+}
+
 document.getElementById('addroutebtn').onclick = function () {
-  draw.changeMode('draw_line_string');
+  changeAddRouteButton()
+}
+
+function dropdownbtnClick(i) {
+
+  index_num = i[i.length-1]
+  var ind = "dropdownoptions" + index_num
+
+  if (dropdown_click[index_num] == 0 & arraySum(dropdown_click) <= 0) {
+    dropdown_click[index_num] = 1
+    openSettings(ind)
+  }
+  else {
+    dropdown_click[index_num] = 0
+    closeSettings(ind)
+  }
+}
+
+function openSettings(ind) {
+  document.getElementById(ind).style.opacity = 1
+  document.getElementById(ind).style.zIndex = 999
+  document.getElementById(ind).style.backgroundColor = "white"
+  document.getElementById(ind).style.display = "block"
+  document.getElementById(ind).style.maxHeight = "100vh"
+  document.getElementById(ind).style.transition = "transition: opacity 0.2s, z-index 0.2s, max-height 0.2s;"
+  document.getElementById(ind).style.right = "15px";
+  document.getElementById(ind).style.boxShadow = "rgba(0, 0, 0, 0.24) 0px 3px 8px;"
+}
+
+function closeSettings(ind) {
+  document.getElementById(ind).style.opacity = 0
+  document.getElementById(ind).style.zIndex = -1
+  document.getElementById(ind).style.backgroundColor = "white"
+  document.getElementById(ind).style.display = "none"
+  document.getElementById(ind).style.maxHeight = "0"
+  document.getElementById(ind).style.transition = "transition: opacity 0.2s, z-index 0.2s, max-height 0.2s;"
 }
 
 function updateCharts(){
@@ -439,3 +545,7 @@ function updateCharts(){
     }
   });
 }
+
+setLocationBounds()
+console.log(location_bounds)
+create_map(location_bounds)
