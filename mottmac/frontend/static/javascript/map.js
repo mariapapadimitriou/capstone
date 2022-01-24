@@ -18,13 +18,18 @@ var map = null;
 var draw = null;
 var location_bounds = null;
 
-function create_map(location_bounds){
+var location_urls = {
+  1: 'mapbox://styles/mariapapadimitriou/ckxrxguwp2ymn14nm3oyyezl9', //Toronto
+  2: 'mapbox://styles/mariapapadimitriou/ckysc9fi501lg14p875rio47f' //London
+}
+
+function create_map(location_bounds, location_id){
+
   map = new mapboxgl.Map({
     container: 'app', // container ID
-    style: 'mapbox://styles/mariapapadimitriou/ckxrxguwp2ymn14nm3oyyezl9', // style URL
+    style: location_urls[location_id], // style URL
     center: [-79.3923, 43.6643], // starting position [lng, lat]
     zoom: 10, // starting zoom
-    // maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
     maxBounds: location_bounds
   });
   
@@ -120,13 +125,15 @@ function setLocationBounds(){
       
       delete id_colours[id]
       delete id_coords[id]
+      delete id_names[id]
+      
     }
     draw.deleteAll()
     updateLegend()
   }
   
   location_id = document.getElementById("locationpicker").value;
-
+  
   var data = {
       "location_id" : location_id
     }
@@ -138,7 +145,7 @@ function setLocationBounds(){
       success: function(response) {
 
         location_bounds = response.bounds;
-        create_map(location_bounds)
+        create_map(location_bounds, location_id)
 
         select_names = response.names
 
@@ -574,5 +581,4 @@ function updateCharts(){
 }
 
 setLocationBounds()
-console.log(location_bounds)
 create_map(location_bounds)
