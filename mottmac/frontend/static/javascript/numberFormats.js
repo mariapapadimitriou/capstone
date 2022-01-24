@@ -1,10 +1,13 @@
 function numbertoCurrency(x) {
 
+    var location_id = document.getElementById("locationpicker").value;
+    var currency = {1: "$", 2:"£"}
+
     if (x < 0) {
-        return "-$" + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",").replace("-", "");
+        return "-" + currency[location_id] + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",").replace("-", "");
     }
     else {
-        return "$" + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+        return currency[location_id] + x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
   }
   

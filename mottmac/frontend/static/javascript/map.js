@@ -129,7 +129,21 @@ function setLocationBounds(){
       
     }
     draw.deleteAll()
-    updateLegend()
+
+    if (updateLegend) {
+      updateLegend()
+    }
+
+    if (sharrowsCostSlide1) {
+      sharrowsCostSlide1();
+      sharrowsCostSlide2();
+      
+      stripedCostSlide1();
+      stripedCostSlide2();
+      
+      protectedCostSlide1();
+      protectedCostSlide2();
+    } 
   }
   
   location_id = document.getElementById("locationpicker").value;
@@ -158,7 +172,6 @@ function setLocationBounds(){
 
       }
     });
-
 }
 
 function createRoute() {
