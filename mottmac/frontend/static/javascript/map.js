@@ -15,7 +15,7 @@ const map = new mapboxgl.Map({
 container: 'app', // container ID
 style: 'mapbox://styles/mariapapadimitriou/ckxrxguwp2ymn14nm3oyyezl9', // style URL
 center: [-79.3923, 43.6643], // starting position [lng, lat]
-zoom: 12, // starting zoom
+zoom: 15, // starting zoom
 maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
 });
 
@@ -256,7 +256,7 @@ function updateLegend() {
       routes.push("<b>"+ routename)
       routes.push("</b></span><span>&nbsp;&nbsp;&nbsp;" + roundToTwo(turf.length(id_coords[routeid])) + "km</span></span><span>" + dropdown + "</span></div>")
       routes.push("<div style='height: 10px;'></div>")
-      routes.push("<div style='display: flex; justify-content: space-between; margin-right: 1px; margin-left: -5px; margin-right: 5px;'>")
+      routes.push("<div style='display: flex; justify-content: space-between;'>")
       routes.push("<button class='buttonmode' id ='share" + i + "' type='submit' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
       routes.push("<button class='buttonmode' type='submit' id ='strip" + i + "' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Striped &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
       routes.push("<button class='buttonmode' type='submit' id ='protect" + i + "' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Protected &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
