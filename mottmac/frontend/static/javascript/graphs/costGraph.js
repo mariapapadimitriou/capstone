@@ -61,6 +61,9 @@ function getCostPlot(plot_colours, plot_labels, plot_data) {
     }
     
     data.push(thresholdsHover);    
+
+    var location_id = document.getElementById("locationpicker").value;
+    var currency = {1: "$", 2:"£"}
     
     return Plotly.newPlot('cost', data, {
         font: {
@@ -87,7 +90,8 @@ function getCostPlot(plot_colours, plot_labels, plot_data) {
         yaxis : {
             zeroline:false, 
             hoverformat: '.1f' ,// float precision
-            tickformat: "$,~s"
+            tickprefix: currency[location_id],
+            tickformat: ",~s"
         },
         showlegend: false
     },
