@@ -196,10 +196,10 @@
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                               <h6 class="m-0 font-weight-bold text-primary">Map</h6>
                               <span style="display: flex; flex-direction: row; justify-content: flex-end; gap: 10px;">
-                                <select class="selectpicker show-tick" id="locationpicker" data-live-search="true" style="width: 100px;">
-                                  <option selected>Toronto, Canada</option>
-                                  <option>London, United Kingdom</option>
-                                </select>    
+                                <select class="selectpicker show-tick" id="locationpicker" onchange="setLocationBounds()" data-live-search="true" style="width: 100px;">
+                                  <option selected value="1">Toronto, Canada</option>
+                                  <option value="2">London, England</option>
+                                </select> 
                                 <select class="selectpicker show-tick" data-allow-clear="true" id="routepicker" onchange="plotSavedRoute()" data-live-search="true" title="Select Route" data-selected-text-format="count">
                                   {%for r in savedrouteslist %}
                                   <option>{{r}}</option>
