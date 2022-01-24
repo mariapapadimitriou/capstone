@@ -49,7 +49,8 @@ document.getElementById('save-submit').onclick = function(e){
         "route_name" : document.getElementById("save-name").value.trim(),
         "route_id" : save_id[0],
         "start_coordinates" : save_routes[0][0],
-        "end_coordinates" : save_routes[0][1]
+        "end_coordinates" : save_routes[0][1],
+        "location_id": document.getElementById("locationpicker").value
       }
     }
     else {
@@ -73,7 +74,8 @@ document.getElementById('save-submit').onclick = function(e){
         "route_name" : document.getElementById("save-name").value.trim(),
         "route_id" : featureid[0],
         "start_coordinates" : feature.geometry.coordinates[0],
-        "end_coordinates" : feature.geometry.coordinates[feature.geometry.coordinates.length - 1]
+        "end_coordinates" : feature.geometry.coordinates[feature.geometry.coordinates.length - 1],
+        "location_id": document.getElementById("locationpicker").value
       }
 
       id_names[featureid[0]] = data["route_name"]

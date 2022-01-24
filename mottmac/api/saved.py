@@ -6,7 +6,7 @@ import json
 
 OVERRIDE_COLUMNS = ['override_name', 'sharrows_cost_min', 'sharrows_cost_max', 'striped_cost_min', 'striped_cost_max', 'protected_cost_min', 'protected_cost_max', 
                     'bicycle_commuters_min', 'bicycle_commuters_max', 'new_riders_min', 'new_riders_max', 'emissions_per_km_min', 'emissions_per_km_max']
-ROUTE_COLUMNS = ['route_name', 'start_coordinates', "end_coordinates", "route_id"]
+ROUTE_COLUMNS = ['route_name', 'start_coordinates', "end_coordinates", "route_id", "location_id"]
 
 OVERRIDE_PLACEHOLDERS = ("?,"*len(OVERRIDE_COLUMNS))[:-1]
 ROUTE_PLACEHOLDERS = ("?,"*len(ROUTE_COLUMNS))[:-1]
@@ -87,7 +87,7 @@ def getAllNames(saved_type):
     
     names = [x[0] for x in names]
     
-    return names    
+    return names
 
 
 def getOverrides(override_name):
@@ -175,6 +175,7 @@ def saveRoute(route_dict):
     start_coordinates = str(route_dict['start_coordinates[]'])
     end_coordinates = str(route_dict['end_coordinates[]'])
     route_id = str(route_dict["route_id"][0])
+    location_id = str(route_dict["location_id"][0])
         
     if route_name == "":
         status, status_message = 1, "A route name is required. Please enter a route name and try again." 
@@ -184,7 +185,7 @@ def saveRoute(route_dict):
         return status, status_message, route_id
     
     columns = ",".join(ROUTE_COLUMNS)
-    route_vals = tuple([route_name, start_coordinates, end_coordinates, route_id])
+    route_vals = tuple([route_name, start_coordinates, end_coordinates, route_id, location_id])
     sqlQuery = "INSERT INTO saved_routes ({0}) VALUES ({1})".format(columns, ROUTE_PLACEHOLDERS)
 
     conn, curs = getConnCurs()

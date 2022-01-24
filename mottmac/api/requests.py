@@ -3,7 +3,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 
 from api.saved import *
-from api.location import getLocationBounds
+from api.location import getLocationBounds, getAllRoutesbyLocation
 
 @csrf_exempt 
 def saveRouteRequest(request):
@@ -105,5 +105,11 @@ def getLocationBoundsRequest(request):
     request_dic = dict(request.POST)["location_id"]
     
     bounds = getLocationBounds(request_dic[0])
-    
-    return JsonResponse(bounds)
+    names = getAllRoutesbyLocation(request_dic[0])
+
+    context = {
+        "bounds": bounds["bounds"],
+        "names": names
+        }
+
+    return JsonResponse(context)

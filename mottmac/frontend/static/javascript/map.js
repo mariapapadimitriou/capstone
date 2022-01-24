@@ -111,6 +111,20 @@ function create_map(location_bounds){
 
 function setLocationBounds(){
 
+  if (draw) {
+    for (i = 0; i < draw.getAll().features.length; i++) {
+      var id = draw.getAll().features[i].id
+
+      map.removeLayer(id);
+      map.removeSource(id);
+      
+      delete id_colours[id]
+      delete id_coords[id]
+    }
+    draw.deleteAll()
+    updateLegend()
+  }
+  
   location_id = document.getElementById("locationpicker").value;
 
   var data = {
@@ -125,6 +139,16 @@ function setLocationBounds(){
 
         location_bounds = response.bounds;
         create_map(location_bounds)
+
+        select_names = response.names
+
+        $('#routepicker').empty()
+
+        for (n=0; n < select_names.length; n++) {
+          $("#routepicker").append($('<option>'+select_names[n]+'</option>'));
+        }
+        $('#routepicker').selectpicker('refresh');
+
       }
     });
 
