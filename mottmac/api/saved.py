@@ -90,53 +90,12 @@ def getAllNames(saved_type):
     return names    
 
 
-def getOverrides(override_name):
-    
-    sqlQuery = "SELECT * FROM saved_overrides where override_name = \"{}\"".format(override_name)
-    
-    conn, curs = getConnCurs()
-
-    curs.execute(sqlQuery)    
-    override_vals = curs.fetchone()
-    
-    curs.close()
-    conn.close()
-    
-    override = {}
-    
-    for i, col in enumerate(OVERRIDE_COLUMNS):
-        override[col] = override_vals[i]
-    
-    return override
-
-def getRoute(route_name):
-    
-    sqlQuery = "SELECT * FROM saved_routes where route_name = \"{}\"".format(route_name)
-    conn, curs = getConnCurs()
-
-    curs.execute(sqlQuery)    
-    route_vals = list(curs.fetchone())
-    
-    curs.close()
-    conn.close()
-    
-    route = {}
-
-    for i, col in enumerate(ROUTE_COLUMNS):
-        route[col] = route_vals[i]
-
-    route['start_coordinates'] = json.loads(route['start_coordinates'].replace('\'', '"'))
-    route['end_coordinates'] = json.loads(route['end_coordinates'].replace('\'', '"'))
-
-    return route
-
-
 ### SAVE VALUES
 
     # Status = 0 on success
     # Status = 1 on error
 
-def saveOverrides(override_dict):
+def saveOverrideRequest(override_dict):
     
     override_name = override_dict['override_name'][0]
 
@@ -169,7 +128,7 @@ def saveOverrides(override_dict):
 
     return status, status_message
 
-def saveRoute(route_dict):
+def saveRouteRequest(route_dict):
     
     route_name = route_dict['route_name'][0]
     start_coordinates = str(route_dict['start_coordinates[]'])
@@ -202,49 +161,9 @@ def saveRoute(route_dict):
     
     return status, status_message, route_id
 
-def deleteOverrides(override_name):
-    
-    sqlQuery = "DELETE FROM saved_overrides where override_name = \"{}\"".format(override_name)
-    
-    conn, curs = getConnCurs()
-
-    try:
-        curs.execute(sqlQuery) 
-        conn.commit()
-        status, status_message = 0, "'{}' has been successfully deleted.".format(override_name)
-    except:
-        status, status_message = 1, "Error - Please try again."
-        
-    finally:
-        curs.close()
-        conn.close()
-
-    return status, status_message
-
-def deleteRoute(route_dict):
-    
-    route_name = route_dict['route_name'][0]
-
-    sqlQuery = "DELETE FROM saved_routes where route_name = \"{}\"".format(route_name)
-    
-    conn, curs = getConnCurs()
-
-    try:
-        curs.execute(sqlQuery) 
-        conn.commit()
-        status, status_message = 0, "'{}' has been successfully deleted.".format(route_name)
-    except:
-        status, status_message = 1, "Error - Please try again."
-        
-    finally:
-        curs.close()
-        conn.close()
-
-    return status, status_message
-
 # ### EDIT
 
-# def editOverrides(override_dict):
+# def editOverride(override_dict):
     
 #     override_name = override_dict['override_name']
         
@@ -273,71 +192,74 @@ def deleteRoute(route_dict):
         
 #     return status, status_message
 
-def updateRoute(route_dict):
-
-    route_name = route_dict['route_name'][0]
-
-    start_coordinates = str(route_dict['start_coordinates[]']).replace('\'', '"')
-    end_coordinates = str(route_dict['end_coordinates[]']).replace('\'', '"')
-        
-    if route_name not in getAllNames("route"):
-        status, status_message = 1, "Error: This route does not exist."
-        return status, status_message
+# def editRoute(route_dict):
     
-    sqlQuery = """UPDATE saved_routes SET start_coordinates = '{0}', end_coordinates = '{1}',
-                    update_time = CURRENT_TIMESTAMP WHERE route_name = '{2}'""".format(start_coordinates, end_coordinates, route_name)
-
-    conn, curs = getConnCurs()
-
-    try:
-        curs.execute(sqlQuery)
-        conn.commit()
-        status, status_message = 0, "'{}' has been successfully updated.".format(route_name)
-
-    except:
-        status, status_message = 1,  "Error - Please try again."
+#     route_name = route_dict['route_name']
+#     start_coordinates = str(route_dict['start_coordinates']).replace("'", "''")
+#     end_coordinates = str(route_dict['end_coordinates']).replace("'", "''")
         
-    finally:
-        curs.close()
-        conn.close()
-
-    return status, status_message
-
-
-def renameRoute(route_dict):
-
-    old_route_name = route_dict['old_route_name'][0]
-    new_route_name = route_dict['new_route_name'][0]
-
-    route_names = getAllNames("route")
-
-    if old_route_name not in route_names:
-        status, status_message = 1, "Error: Route '{}' does not exist.".format(old_route_name)
+#     if route_name not in getAllNames("route"):
+#         status, status_message = 1, "Error: This route does not exist."
+#         return status, status_message
     
-    elif new_route_name in route_names:
-        status, status_message = 1, "Route name '{}' is already in use. Please choose another name and try again.".format(new_route_name)
+#     sqlQuery = """UPDATE saved_routes SET start_coordinates = '{0}', end_coordinates = '{1}',
+#                     update_time = CURRENT_TIMESTAMP WHERE route_name = '{2}'""".format(start_coordinates, end_coordinates, route_name)
+    
+#     conn, curs = getConnCurs()
+
+#     try:
+#         curs.execute(sqlQuery)
+#         conn.commit()
+#         status, status_message = 0, route_name + " has been successfully updated."
+#     except:
+#         status, status_message = 1,  "Error - Please try again."
         
-    else:
-        sqlQuery = """UPDATE saved_routes SET route_name = '{0}',
-                        update_time = CURRENT_TIMESTAMP WHERE route_name = '{1}'""".format(new_route_name, old_route_name)
-
-        conn, curs = getConnCurs()
-
-        try:
-            curs.execute(sqlQuery)
-            conn.commit()
-            status, status_message = 0, "'{0}' has been successfully renamed to '{1}'.".format(old_route_name, new_route_name)
-
-        except:
-            status, status_message = 1,  "Error - Please try again."
-            
-        finally:
-            curs.close()
-            conn.close()
-
-    return status, status_message
+#     finally:
+#         curs.close()
+#         conn.close()
+        
+#     return status, status_message
 
 
 ### RETRIEVE VALUES
 
+def getSavedOverride(override_name):
+    
+    sqlQuery = "SELECT * FROM saved_overrides where override_name = \"{}\"".format(override_name)
+    
+    conn, curs = getConnCurs()
+
+    curs.execute(sqlQuery)    
+    override_vals = curs.fetchone()
+    
+    curs.close()
+    conn.close()
+    
+    override = {}
+    
+    for i, col in enumerate(OVERRIDE_COLUMNS):
+        override[col] = override_vals[i]
+    
+    return override
+
+def getSavedRoute(route_name):
+    
+    sqlQuery = "SELECT * FROM saved_routes where route_name = \"{}\"".format(route_name)
+    conn, curs = getConnCurs()
+
+    curs.execute(sqlQuery)    
+    route_vals = list(curs.fetchone())
+    
+    curs.close()
+    conn.close()
+    
+    route = {}
+
+    for i, col in enumerate(ROUTE_COLUMNS):
+        route[col] = route_vals[i]
+
+    route['start_coordinates'] = json.loads(route['start_coordinates'].replace('\'', '"'))
+    route['end_coordinates'] = json.loads(route['end_coordinates'].replace('\'', '"'))
+
+    return route
 

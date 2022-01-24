@@ -1,4 +1,4 @@
-function setOverrides() {
+function getOverrides() {
 
     var o_name = document.getElementById("overridepicker").value
 
@@ -9,7 +9,7 @@ function setOverrides() {
         dataType: 'json',
         success: function(data) {
 
-            document.getElementById("save-name").value = data["override_name"]
+            document.getElementById("save_name").value = data["override_name"]
 
             document.getElementById("sharrows_cost_slider_1").value = data["sharrows_cost_min"]
             document.getElementById("sharrows_cost_slider_2").value = data["sharrows_cost_max"]
@@ -52,43 +52,44 @@ function setOverrides() {
     });
 }
 
-function plotSavedRoute() {
-    
-    if (draw.getMode() != "draw_line_string") {
-        var r_name = document.getElementById("routepicker").value
+function getKeyByValue(object, value) {
+    return Object.keys(object).find(key => object[key] === value);
+}
 
-        if (r_name != "") {
-            data = {
-                "name" : r_name
-            }
-        
-            $.ajax({
-                type: "POST",
-                url: "/getroute",
-                data: data,
-                dataType: 'json',
-                success: function(data) {
-                    var r = data["route_name"]
-                    var route_id = data["route_id"]
-                    id_names = data["route_ids"]
-        
-                    if (draw.getAll().features.length <= 2) {
-    
-                        var feature = {
-                            id: route_id,
-                            type: 'Feature',
-                            properties: {},
-                            geometry: {type: 'LineString', coordinates: [data["start_coordinates"],data["end_coordinates"]] }
-                        }
-    
-                        var featureid = draw.add(feature);
-                        
-                        id_names[featureid] = r
-    
-                        createRoute()
-                    }
-                  }
-            });
+function getRoutes() {
+    var r_name = document.getElementById("routepicker").value
+
+    if (r_name != "") {
+        data = {
+            "name" : r_name
         }
+    
+        $.ajax({
+            type: "POST",
+            url: "/getroutes",
+            data: data,
+            dataType: 'json',
+            success: function(data) {
+                var r = data["route_name"]
+                var route_id = data["route_id"]
+                id_names = data["route_ids"]
+    
+                if (draw.getAll().features.length <= 2) {
+
+                    var feature = {
+                        id: route_id,
+                        type: 'Feature',
+                        properties: {},
+                        geometry: { type: 'LineString', coordinates: [data["start_coordinates"],data["end_coordinates"]] }
+                    }
+
+                    var featureid = draw.add(feature);
+                    
+                    id_names[featureid] = r
+
+                    createRoute()
+                }
+              }
+        });
     }
 }

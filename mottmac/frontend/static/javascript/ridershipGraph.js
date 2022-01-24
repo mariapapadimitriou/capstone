@@ -1,4 +1,4 @@
-function getEmissionsPlot(plot_colours, plot_labels, plot_data) {
+function getRidershipPlot(plot_colours, plot_labels, plot_data) {
 
     var data = [];
     let nunSerie = 0;
@@ -16,7 +16,6 @@ function getEmissionsPlot(plot_colours, plot_labels, plot_data) {
         },
         hoverFormat: '.2f',
         hoverinfo: 'text', // show only hovertext in tooltip
-        ticksuffix: ' kg',
         showlegend: false, // hide legend
         opacity: 0, // hide bars
         width: .5, // align tooltips (have same width for boxplot and bars to)
@@ -47,13 +46,13 @@ function getEmissionsPlot(plot_colours, plot_labels, plot_data) {
         if (threshold_max < 0) {
             thresholdsHover.x.push(serie);
             thresholdsHover.y.push(threshold_min);
-            thresholdsHover.text.push('<b>Max: </b>' + numbertoKg(threshold_max) + '<br><b>Min: </b>' + numbertoKg(threshold_min))
+            thresholdsHover.text.push('<b>Max: </b>' + numbertoComma(threshold_max) + '<br><b>Min: </b>' + numbertoComma(threshold_min))
             ++nunSerie;
         }
         else {
             thresholdsHover.x.push(serie);
             thresholdsHover.y.push(threshold_max);
-            thresholdsHover.text.push('<b>Max: </b>' + numbertoKg(threshold_max) + '<br><b>Min: </b>' + numbertoKg(threshold_min))
+            thresholdsHover.text.push('<b>Max: </b>' + numbertoComma(threshold_max) + '<br><b>Min: </b>' + numbertoComma(threshold_min))
             ++nunSerie;
         }
 
@@ -62,7 +61,7 @@ function getEmissionsPlot(plot_colours, plot_labels, plot_data) {
     
     data.push(thresholdsHover);    
     
-    return Plotly.newPlot('emissions', data, {
+    return Plotly.newPlot('ridership', data, {
         font: {
             family: 'Nunito',
             size: 12,
@@ -86,15 +85,13 @@ function getEmissionsPlot(plot_colours, plot_labels, plot_data) {
         yaxis : {
             zeroline:false, 
             hoverformat: '.1f', // float precision
-            ticksuffix: " kg"
         },
         showlegend: false
     },
     {
         scrollZoom: false,
         hoverFormat: '.2f',
-        displayModeBar: false,
-        responsive: true
+        displayModeBar: false
     },
     )                                          
 

@@ -1,6 +1,7 @@
-function getRidershipPlot(plot_colours, plot_labels, plot_data) {
+function getCostPlot(plot_colours, plot_labels, plot_data) {
 
     var data = [];
+
     let nunSerie = 0;
     
     let thresholdsHover = {
@@ -46,13 +47,13 @@ function getRidershipPlot(plot_colours, plot_labels, plot_data) {
         if (threshold_max < 0) {
             thresholdsHover.x.push(serie);
             thresholdsHover.y.push(threshold_min);
-            thresholdsHover.text.push('<b>Max: </b>' + numbertoComma(threshold_max) + '<br><b>Min: </b>' + numbertoComma(threshold_min))
+            thresholdsHover.text.push('<b>Max: </b>' + numbertoCurrency(threshold_max) + '<br><b>Min: </b>' + numbertoCurrency(threshold_min))
             ++nunSerie;
         }
         else {
             thresholdsHover.x.push(serie);
             thresholdsHover.y.push(threshold_max);
-            thresholdsHover.text.push('<b>Max: </b>' + numbertoComma(threshold_max) + '<br><b>Min: </b>' + numbertoComma(threshold_min))
+            thresholdsHover.text.push('<b>Max: </b>' + numbertoCurrency(threshold_max) + '<br><b>Min: </b>' + numbertoCurrency(threshold_min))
             ++nunSerie;
         }
 
@@ -61,7 +62,7 @@ function getRidershipPlot(plot_colours, plot_labels, plot_data) {
     
     data.push(thresholdsHover);    
     
-    return Plotly.newPlot('ridership', data, {
+    return Plotly.newPlot('cost', data, {
         font: {
             family: 'Nunito',
             size: 12,
@@ -81,19 +82,19 @@ function getRidershipPlot(plot_colours, plot_labels, plot_data) {
         },
         xaxis : {
             zeroline:false, 
+            showline: false,
         },
         yaxis : {
             zeroline:false, 
-            hoverformat: '.1f', // float precision
+            hoverformat: '.1f' ,// float precision
+            tickformat: "$,~s"
         },
         showlegend: false
     },
     {
         scrollZoom: false,
         hoverFormat: '.2f',
-        displayModeBar: false,
-        responsive: true
+        displayModeBar: false
     },
-    )                                          
-
+    )
 }

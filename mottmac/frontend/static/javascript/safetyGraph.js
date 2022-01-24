@@ -1,7 +1,6 @@
-function getCostPlot(plot_colours, plot_labels, plot_data) {
+function getSafetyPlot(plot_colours, plot_labels, plot_data) {
 
     var data = [];
-
     let nunSerie = 0;
     
     let thresholdsHover = {
@@ -25,8 +24,10 @@ function getCostPlot(plot_colours, plot_labels, plot_data) {
     for (const serie of plot_labels) {
         
         var index_of = plot_labels.indexOf(serie)
-        const threshold_max = Math.round(plot_data[index_of].max())
-        const threshold_min = Math.round(plot_data[index_of].min())
+        // const threshold_max = Math.round(plot_data[index_of].max())
+        // const threshold_min = Math.round(plot_data[index_of].min())
+        const threshold_max = plot_data[index_of].max() //floats
+        const threshold_min = plot_data[index_of].min()
     
         // boxplot https://plotly.com/javascript/reference/#box-text
         data.push({
@@ -47,13 +48,13 @@ function getCostPlot(plot_colours, plot_labels, plot_data) {
         if (threshold_max < 0) {
             thresholdsHover.x.push(serie);
             thresholdsHover.y.push(threshold_min);
-            thresholdsHover.text.push('<b>Max: </b>' + numbertoCurrency(threshold_max) + '<br><b>Min: </b>' + numbertoCurrency(threshold_min))
+            thresholdsHover.text.push('<b>Max: </b>' + roundToTwo(threshold_max) + '<br><b>Min: </b>' + roundToTwo(threshold_min))
             ++nunSerie;
         }
         else {
             thresholdsHover.x.push(serie);
             thresholdsHover.y.push(threshold_max);
-            thresholdsHover.text.push('<b>Max: </b>' + numbertoCurrency(threshold_max) + '<br><b>Min: </b>' + numbertoCurrency(threshold_min))
+            thresholdsHover.text.push('<b>Max: </b>' + roundToTwo(threshold_max) + '<br><b>Min: </b>' + roundToTwo(threshold_min))
             ++nunSerie;
         }
 
@@ -62,7 +63,7 @@ function getCostPlot(plot_colours, plot_labels, plot_data) {
     
     data.push(thresholdsHover);    
     
-    return Plotly.newPlot('cost', data, {
+    return Plotly.newPlot('safety', data, {
         font: {
             family: 'Nunito',
             size: 12,
@@ -77,25 +78,23 @@ function getCostPlot(plot_colours, plot_labels, plot_data) {
             autoexpand: true,
             b: 0,
             t: 10,
-            l: 35,
+            l: 30,
             r: 0
         },
         xaxis : {
             zeroline:false, 
-            showline: false,
         },
         yaxis : {
             zeroline:false, 
-            hoverformat: '.1f' ,// float precision
-            tickformat: "$,~s"
+            hoverformat: '.2f' // float precision
         },
         showlegend: false
     },
     {
         scrollZoom: false,
         hoverFormat: '.2f',
-        displayModeBar: false,
-        responsive: true
+        displayModeBar: false
     },
-    )
+    )                                          
+
 }

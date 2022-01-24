@@ -64,38 +64,9 @@ Array.prototype.min = function() {
   return Math.min.apply(null, this);
 };
 
-function validate(e, id) {
-  if (!/^[a-zA-Z0-9 ]+$/.test(e.value) & document.getElementById(id).value.length > 0) {
-    document.getElementById(id).value = document.getElementById(id).value.slice(0, document.getElementById(id).value.length-1)
-    document.getElementById(id+"-valid-chars").innerHTML = "Input must contain only letters or numbers."
-  }
-}
-
-function getCoords(i){
-  save_routes = []
-  save_id = []
-  var routeid = draw.getAll().features[i].id
-  var coords = id_coords[routeid].coordinates
-  save_id.push(routeid)
-  save_routes.push([coords[0], coords[coords.length-1]])
-}
-
-window.onclick = function(event) {
-if(event.target.className == "modal") {
-  event.target.style.display = "none";
-}
-}
-
-function getKeyByValue(object, value) {
-  return Object.keys(object).find(key => object[key] === value);
-}
-
-function toggle(id, objarray) {
-
-  if (dropdown_click[id] == 1) {
-    objarray[id] = 0
-  }
-  else {
-    objarray[id] = 1
+function validate(e) {
+  if (!/^[a-zA-Z0-9 ]+$/.test(e.value) & document.getElementById("save_name").value.length > 0) {
+    document.getElementById("save_name").value = document.getElementById("save_name").value.slice(0, document.getElementById("save_name").value.length-1)
+    document.getElementById("validchars").innerHTML = "Input must contain only letters or numbers."
   }
 }

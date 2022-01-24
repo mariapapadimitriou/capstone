@@ -1,4 +1,4 @@
-function getSafetyPlot(plot_colours, plot_labels, plot_data) {
+function getEmissionsPlot(plot_colours, plot_labels, plot_data) {
 
     var data = [];
     let nunSerie = 0;
@@ -16,6 +16,7 @@ function getSafetyPlot(plot_colours, plot_labels, plot_data) {
         },
         hoverFormat: '.2f',
         hoverinfo: 'text', // show only hovertext in tooltip
+        ticksuffix: ' kg',
         showlegend: false, // hide legend
         opacity: 0, // hide bars
         width: .5, // align tooltips (have same width for boxplot and bars to)
@@ -24,10 +25,8 @@ function getSafetyPlot(plot_colours, plot_labels, plot_data) {
     for (const serie of plot_labels) {
         
         var index_of = plot_labels.indexOf(serie)
-        // const threshold_max = Math.round(plot_data[index_of].max())
-        // const threshold_min = Math.round(plot_data[index_of].min())
-        const threshold_max = plot_data[index_of].max() //floats
-        const threshold_min = plot_data[index_of].min()
+        const threshold_max = Math.round(plot_data[index_of].max())
+        const threshold_min = Math.round(plot_data[index_of].min())
     
         // boxplot https://plotly.com/javascript/reference/#box-text
         data.push({
@@ -48,13 +47,13 @@ function getSafetyPlot(plot_colours, plot_labels, plot_data) {
         if (threshold_max < 0) {
             thresholdsHover.x.push(serie);
             thresholdsHover.y.push(threshold_min);
-            thresholdsHover.text.push('<b>Max: </b>' + roundToTwo(threshold_max) + '<br><b>Min: </b>' + roundToTwo(threshold_min))
+            thresholdsHover.text.push('<b>Max: </b>' + numbertoKg(threshold_max) + '<br><b>Min: </b>' + numbertoKg(threshold_min))
             ++nunSerie;
         }
         else {
             thresholdsHover.x.push(serie);
             thresholdsHover.y.push(threshold_max);
-            thresholdsHover.text.push('<b>Max: </b>' + roundToTwo(threshold_max) + '<br><b>Min: </b>' + roundToTwo(threshold_min))
+            thresholdsHover.text.push('<b>Max: </b>' + numbertoKg(threshold_max) + '<br><b>Min: </b>' + numbertoKg(threshold_min))
             ++nunSerie;
         }
 
@@ -63,7 +62,7 @@ function getSafetyPlot(plot_colours, plot_labels, plot_data) {
     
     data.push(thresholdsHover);    
     
-    return Plotly.newPlot('safety', data, {
+    return Plotly.newPlot('emissions', data, {
         font: {
             family: 'Nunito',
             size: 12,
@@ -78,7 +77,7 @@ function getSafetyPlot(plot_colours, plot_labels, plot_data) {
             autoexpand: true,
             b: 0,
             t: 10,
-            l: 30,
+            l: 35,
             r: 0
         },
         xaxis : {
@@ -86,15 +85,15 @@ function getSafetyPlot(plot_colours, plot_labels, plot_data) {
         },
         yaxis : {
             zeroline:false, 
-            hoverformat: '.2f' // float precision
+            hoverformat: '.1f', // float precision
+            ticksuffix: " kg"
         },
         showlegend: false
     },
     {
         scrollZoom: false,
         hoverFormat: '.2f',
-        displayModeBar: false,
-        responsive: true
+        displayModeBar: false
     },
     )                                          
 
