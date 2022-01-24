@@ -12,7 +12,7 @@ urlpatterns = [
     path('updateroute', updateRouteRequest),
     path('deleteroute', deleteRouteRequest),
     path('renameroute', renameRouteRequest),
-    path('getlocationbounds', getLocationBoundsRequest),  
+    path('getlocation', getLocationRequest),  
     path('login.html', login),
     path('register.html', register),
 ]

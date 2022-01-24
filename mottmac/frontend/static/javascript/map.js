@@ -23,13 +23,13 @@ var location_urls = {
   2: 'mapbox://styles/mariapapadimitriou/ckysc9fi501lg14p875rio47f' //London
 }
 
-function create_map(location_bounds, location_id){
+function create_map(location_bounds, location_starting_position, location_id){
 
   map = new mapboxgl.Map({
     container: 'app', // container ID
     style: location_urls[location_id], // style URL
-    center: [-79.3923, 43.6643], // starting position [lng, lat]
-    zoom: 10, // starting zoom
+    center: location_starting_position, // starting position [lng, lat]
+    zoom: 11, // starting zoom
     maxBounds: location_bounds
   });
   
@@ -153,13 +153,14 @@ function setLocationBounds(){
     }
     $.ajax({
       type: "POST",
-      url: "/getlocationbounds",
+      url: "/getlocation",
       data: data,
       dataType: 'json',
       success: function(response) {
 
         location_bounds = response.bounds;
-        create_map(location_bounds, location_id)
+        location_starting_position = response.starting_position
+        create_map(location_bounds, location_starting_position, location_id)
 
         select_names = response.names
 
