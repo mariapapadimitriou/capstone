@@ -139,7 +139,7 @@ def getRidershipEmissions(start_coords, end_coords, length_of_path, riders, new_
     # Modal Shift and Emissions
     new_riders = [x/100 for x in new_riders] # Percentage to decimals
     modal_shift = intervalMultiply(ridership, new_riders)
-    emissions = [x*length_of_path/1000 for x in intervalMultiply(emissions_per_km,modal_shift)]
+    emissions = [x*length_of_path*365/1000000 for x in intervalMultiply(emissions_per_km,modal_shift)] # (emissions(g/km/rider))*(modal shift((riders/day))*(path length((km))*(365days/year)*(1tonne/1000g)
 
     return ridership, emissions
 

@@ -47,13 +47,13 @@ function getEmissionsPlot(plot_colours, plot_labels, plot_data) {
         if (threshold_max < 0) {
             thresholdsHover.x.push(serie);
             thresholdsHover.y.push(threshold_min);
-            thresholdsHover.text.push('<b>Max: </b>' + numbertoKg(threshold_max) + '<br><b>Min: </b>' + numbertoKg(threshold_min))
+            thresholdsHover.text.push('<b>Max: </b>' + numbertoTonnes(threshold_max) + '<br><b>Min: </b>' + numbertoTonnes(threshold_min))
             ++nunSerie;
         }
         else {
             thresholdsHover.x.push(serie);
             thresholdsHover.y.push(threshold_max);
-            thresholdsHover.text.push('<b>Max: </b>' + numbertoKg(threshold_max) + '<br><b>Min: </b>' + numbertoKg(threshold_min))
+            thresholdsHover.text.push('<b>Max: </b>' + numbertoTonnes(threshold_max) + '<br><b>Min: </b>' + numbertoTonnes(threshold_min))
             ++nunSerie;
         }
 
@@ -86,7 +86,7 @@ function getEmissionsPlot(plot_colours, plot_labels, plot_data) {
         yaxis : {
             zeroline:false, 
             hoverformat: '.1f', // float precision
-            ticksuffix: " kg"
+            ticksuffix: " t"
         },
         showlegend: false
     },
