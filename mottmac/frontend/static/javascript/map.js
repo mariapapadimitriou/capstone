@@ -14,72 +14,121 @@ var share = [0,0,0];
 var strip = [0,0,0];
 var protect = [0,0,0];
 
-const map = new mapboxgl.Map({
-container: 'app', // container ID
-style: 'mapbox://styles/mariapapadimitriou/ckxrxguwp2ymn14nm3oyyezl9', // style URL
-center: [-79.3923, 43.6643], // starting position [lng, lat]
-zoom: 12, // starting zoom
-maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
-});
+var map = null;
+var draw = null;
+var location_bounds = null;
 
-const draw = new MapboxDraw({
-  // Instead of showing all the draw tools, show only the line string and delete tools.
-  displayControlsDefault: false,
-  controls: {
-    line_string: true,
-    trash: true,
-  },
-  // Set the draw mode to draw LineStrings by default.
-  defaultMode: 'simple_select',
-  styles: [
-    // Set the line style for the user-input coordinates.
-    {
-      id: 'gl-draw-line',
-      type: 'line',
-      filter: ['all', ['==', '$type', 'LineString'], ['!=', 'mode', 'static']],
-      layout: {
-        'line-cap': 'round',
-        'line-join': 'round'
+function create_map(location_bounds){
+  map = new mapboxgl.Map({
+    container: 'app', // container ID
+    style: 'mapbox://styles/mariapapadimitriou/ckxrxguwp2ymn14nm3oyyezl9', // style URL
+    center: [-79.3923, 43.6643], // starting position [lng, lat]
+    zoom: 10, // starting zoom
+    // maxBounds: [-79.644849,43.553266,-79.068067,43.849127]
+    maxBounds: location_bounds
+  });
+  
+  draw = new MapboxDraw({
+    // Instead of showing all the draw tools, show only the line string and delete tools.
+    displayControlsDefault: false,
+    controls: {
+      line_string: true,
+      trash: true,
+    },
+    // Set the draw mode to draw LineStrings by default.
+    defaultMode: 'simple_select',
+    styles: [
+      // Set the line style for the user-input coordinates.
+      {
+        id: 'gl-draw-line',
+        type: 'line',
+        filter: ['all', ['==', '$type', 'LineString'], ['!=', 'mode', 'static']],
+        layout: {
+          'line-cap': 'round',
+          'line-join': 'round'
+        },
+        paint: {
+          'line-color': 'black',
+          'line-dasharray': [0.2, 2],
+          'line-width': 4,
+          'line-opacity': 0.7
+        }
       },
-      paint: {
-        'line-color': 'black',
-        'line-dasharray': [0.2, 2],
-        'line-width': 4,
-        'line-opacity': 0.7
+      // Style the vertex point halos.
+      {
+        id: 'gl-draw-polygon-and-line-vertex-halo-active',
+        type: 'circle',
+        filter: [
+          'all',
+          ['==', 'meta', 'vertex'],
+          ['==', '$type', 'Point'],
+          ['!=', 'mode', 'static']
+        ],
+        paint: {
+          'circle-radius': 12,
+          'circle-color': '#FFF'
+        }
+      },
+      // Style the vertex points.
+      {
+        id: 'gl-draw-polygon-and-line-vertex-active',
+        type: 'circle',
+        filter: [
+          'all',
+          ['==', 'meta', 'vertex'],
+          ['==', '$type', 'Point'],
+          ['!=', 'mode', 'static']
+        ],
+        paint: {
+          'circle-radius': 8,
+          'circle-color': 'black'
+        }
       }
-    },
-    // Style the vertex point halos.
-    {
-      id: 'gl-draw-polygon-and-line-vertex-halo-active',
-      type: 'circle',
-      filter: [
-        'all',
-        ['==', 'meta', 'vertex'],
-        ['==', '$type', 'Point'],
-        ['!=', 'mode', 'static']
-      ],
-      paint: {
-        'circle-radius': 12,
-        'circle-color': '#FFF'
-      }
-    },
-    // Style the vertex points.
-    {
-      id: 'gl-draw-polygon-and-line-vertex-active',
-      type: 'circle',
-      filter: [
-        'all',
-        ['==', 'meta', 'vertex'],
-        ['==', '$type', 'Point'],
-        ['!=', 'mode', 'static']
-      ],
-      paint: {
-        'circle-radius': 8,
-        'circle-color': 'black'
-      }
+    ]
+  });
+
+  map.addControl(
+    new MapboxGeocoder({
+        accessToken: mapboxgl.accessToken,
+        mapboxgl: mapboxgl,
+        marker: false,
+        // bbox: [-79.644849,43.553266,-79.068067,43.849127], // Boundary for Toronto
+        bbox: location_bounds
+    }),
+    "top-right"
+  );
+  
+  map.addControl(draw);
+  
+  map.on('draw.create', createRoute);
+  map.on('draw.update', updateRoute);
+  map.on('draw.delete', removeRoute);
+  
+  map.addControl(new mapboxgl.FullscreenControl());
+  map.addControl(new mapboxgl.NavigationControl()); 
+
+}
+
+function setLocationBounds(){
+
+  location_id = document.getElementById("locationpicker").value;
+
+  var data = {
+      "location_id" : location_id
     }
-  ]
-});
+    $.ajax({
+      type: "POST",
+      url: "/getlocationbounds",
+      data: data,
+      dataType: 'json',
+      success: function(response) {
+
+        location_bounds = response.bounds;
+        create_map(location_bounds)
+      }
+    });
+
+}
 
 function createRoute() {
   
@@ -215,24 +264,6 @@ function removeRoute(routeid) {
   changeAddRouteButton()
 }
 
-map.addControl(
-  new MapboxGeocoder({
-      accessToken: mapboxgl.accessToken,
-      mapboxgl: mapboxgl,
-      marker: false,
-      bbox: [-79.644849,43.553266,-79.068067,43.849127], // Boundary for Toronto
-  }),
-  "top-right"
-);
-
-map.addControl(draw);
-
-map.on('draw.create', createRoute);
-map.on('draw.update', updateRoute);
-map.on('draw.delete', removeRoute);
-
-map.addControl(new mapboxgl.FullscreenControl());
-map.addControl(new mapboxgl.NavigationControl());
 
 function updateLegend() {
 
@@ -514,3 +545,7 @@ function updateCharts(){
     }
   });
 }
+
+setLocationBounds()
+console.log(location_bounds)
+create_map(location_bounds)
