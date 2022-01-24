@@ -468,8 +468,6 @@ a {
 .dropdown-options button:hover {
   background-color: #EAECF4;
   color: #1B1D24;
-<<<<<<< Updated upstream
-=======
 }
 
 .dropdownbtn {
@@ -641,5 +639,4 @@ a {
 .override-order {
   display: flex;
   flex-direction: row;
->>>>>>> Stashed changes
 }

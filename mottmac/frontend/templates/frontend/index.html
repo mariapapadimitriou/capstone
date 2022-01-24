@@ -112,10 +112,6 @@
                                         </span>
                                       </div>
                                     </div>
-<<<<<<< Updated upstream
-                                    <div id="cost" style="margin: 0px; padding:0px; width: 100%; height: 100%;"></div>
-=======
->>>>>>> Stashed changes
                                   </div>
                                   <div id="cost" style="margin: 0px; padding:0px; width: 100%; height: 100%; overflow: auto;"></div>
                                 </div>
@@ -234,49 +230,6 @@
                             </div>
                           </div>
                         </div>
-<<<<<<< Updated upstream
-                      </div>
-                      <div class="col-9">
-                        <div class="row">
-                          <div class="col mapdiv">
-                            <div class="card shadow mb-4">
-                              <!-- Card Header - Dropdown -->
-                              <div
-                                  class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                  <h6 class="m-0 font-weight-bold text-primary">Map</h6>
-                                  <span style="display: flex; flex-direction: row; justify-content: flex-end; gap: 10px;">
-                                    <select class="selectpicker show-tick" id="locationpicker" data-live-search="true" style="width: 100px;">
-                                      <option selected>Toronto, Canada</option>
-                                      <option>London, United Kingdom</option>
-                                    </select>    
-                                    <select class="selectpicker show-tick" data-allow-clear="true" id="routepicker" onchange="getRoutes()" data-live-search="true" title="Select Route" data-selected-text-format="count">
-                                      {%for r in savedrouteslist %}
-                                      <option>{{r}}</option>
-                                      {% endfor %}
-                                    </select>         
-                                  </span>                         
-                              </div>
-                              <!-- Card Body -->
-                              <div class="row">
-                                <div class="col-9">
-                                  <div id="app"></div>
-                                  <div class="currentroutes-box">
-                                    <p style="float: right;">
-                                      Existing Routes &nbsp;&nbsp;&nbsp;<img src="../../static/data/blackline.png" width="30%" height="100%">
-                                    </p>
-                                  </div>
-                                </div>
-                                <div class="col-3">
-                                  <div style = "height: 20px;"></div>
-                                    <div style = "justify-content: left; margin-left: -10px;">
-                                      <button class="addroutebtn" id="addroutebtn">Add New Route&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>
-                                    </div>
-                                    <div class="legend-box" id="legend-box">
-                                      <p style="font-weight: bold; color: black;">Legend</p>
-                                      <div id="legend">
-                                      </div>
-                                    </div>
-=======
                         <div class="card">
                           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                             <h6 class="m-0 font-weight-bold text-primary">Overrides</h6>  
@@ -319,137 +272,12 @@
                                 <div class="striped_cost_track">
                                   <input type="range" min="0" max="75000" value={{STRIPED_UNIT_COST_MIN}} id="striped_cost_slider_1" oninput="stripedCostSlide1()">
                                   <input type="range" min="0" max="75000" value={{STRIPED_UNIT_COST_MAX}} id="striped_cost_slider_2" oninput="stripedCostSlide2()">
->>>>>>> Stashed changes
                                 </div>
                               </div>
                               <div class="col-2" style="text-align: center">
                                 <span id="striped_cost_range_2">100</span>
                               </div>
                             </div>
-<<<<<<< Updated upstream
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col">
-                            <div class="row">
-                              <div class="col">
-                                <div class="card shadow mb-4">
-                                  <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                                    <h6 class="m-0 font-weight-bold text-primary">Overrides</h6>  
-                                    <div style="display: flex; flex-direction: row; justify-content: flex-end; width: 100%; margin: -10px -10px -10px 10px; gap: 10px;">
-                                      <button class="refresh_button" id="refresh_button">Refresh &nbsp;&nbsp;<i class="fas fa-sync-alt"></i>&nbsp;</button>
-                                      <select class="selectpicker show-tick" data-allow-clear="true" id="overridepicker" onchange="getOverrides()" data-live-search="true" title="Saved Overrides">
-                                        {%for o in savedoverrideslist %}
-                                          {% if o == "Default" %}
-                                            <option select>{{o}}</option>
-                                          {% else %}
-                                            <option>{{o}}</option>
-                                          {% endif %}
-                                        {% endfor%}
-                                      </select>   
-                                      <button class="refresh_button" id="saveoverridebtn" onclick="saveOverrides()">Save &nbsp;&nbsp;<i class='fas fa-save'></i>&nbsp;</button>
-                                    </div>
-                                  </div>
-                                  <div class="card-body" style="font-size: 14px;">
-                                    <div class="row">
-                                      <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Unit Cost (CAD) per km">Cost - Sharrows <i class="fas fa-info-circle"></i></span></div>
-                                      <div class="col-2" style="text-align: center">
-                                        <span id="sharrows_cost_range_1">0</span>
-                                      </div>
-                                      <div class="col-4">
-                                        <div class="sharrows_cost_track" id="sharrows_cost_track"> 
-                                          <input type="range" min="0" max="50000" value={{SHARROWS_UNIT_COST_MIN}} id="sharrows_cost_slider_1" oninput="sharrowsCostSlide1()">
-                                          <input type="range" min="0" max="50000" value={{SHARROWS_UNIT_COST_MAX}} id="sharrows_cost_slider_2" oninput="sharrowsCostSlide2()">
-                                        </div>
-                                      </div>
-                                      <div class="col-2" style="text-align: center">
-                                        <span id="sharrows_cost_range_2">100</span>
-                                      </div>
-                                    </div>
-                                    <div class="row" style="margin-top: 42px; margin-bottom: 10px;"></div>
-                                    <div class="row">
-                                      <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Unit Cost (CAD) per km">Cost - Striped <i class="fas fa-info-circle"></i></span></div>
-                                      <div class="col-2" style="text-align: center">
-                                        <span id="striped_cost_range_1">0</span>
-                                      </div>
-                                      <div class="col-4">
-                                        <div class="striped_cost_track">
-                                          <input type="range" min="0" max="75000" value={{STRIPED_UNIT_COST_MIN}} id="striped_cost_slider_1" oninput="stripedCostSlide1()">
-                                          <input type="range" min="0" max="75000" value={{STRIPED_UNIT_COST_MAX}} id="striped_cost_slider_2" oninput="stripedCostSlide2()">
-                                        </div>
-                                      </div>
-                                      <div class="col-2" style="text-align: center">
-                                        <span id="striped_cost_range_2">100</span>
-                                      </div>
-                                    </div>
-                                    <div class="row" style="margin-top: 42px; margin-bottom: 10px;"></div>
-                                    <div class="row">
-                                      <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Unit Cost (CAD) per km">Cost - Protected <i class="fas fa-info-circle"></i></span></div>
-                                      <div class="col-2" style="text-align: center">
-                                        <span id="protected_cost_range_1">0</span>
-                                      </div>
-                                      <div class="col-4">
-                                        <div class="protected_cost_track">
-                                          <input type="range" min="0" max="500000" value={{PROTECTED_UNIT_COST_MIN}} id="protected_cost_slider_1" oninput="protectedCostSlide1()">
-                                          <input type="range" min="0" max="500000" value={{PROTECTED_UNIT_COST_MAX}} id="protected_cost_slider_2" oninput="protectedCostSlide2()">
-                                        </div>
-                                      </div>
-                                      <div class="col-2" style="text-align: center">
-                                        <span id="protected_cost_range_2">100</span>
-                                      </div>
-                                    </div>
-                                    <div class="row" style="margin-top: 42px; margin-bottom: 10px;"></div>
-                                    <div class="row">
-                                      <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Percentage of 15-55 year olds who are bicycle commuters">% Bike Commuters <i class="fas fa-info-circle"></i></span></div>
-                                      <div class="col-2" style="text-align: center">
-                                        <span id="bike_commuters_range_1">0</span>
-                                      </div>
-                                      <div class="col-4">
-                                        <div class="bike_commuters_track">
-                                          <input type="range" min="0" max="20" value={{BIKE_RIDERS_MIN}} id="bike_commuters_slider_1" oninput="bikeCommutersSlide1()">
-                                          <input type="range" min="0" max="20" value={{BIKE_RIDERS_MAX}} id="bike_commuters_slider_2" oninput="bikeCommutersSlide2()">
-                                        </div>
-                                      </div>
-                                      <div class="col-2" style="text-align: center">
-                                        <span id="bike_commuters_range_2">100</span>
-                                      </div>
-                                    </div>
-
-                                    <div class="row" style="margin-top: 42px; margin-bottom: 10px;"></div>
-                                    <div class="row">
-                                      <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Percentage of riders on path who are new cyclists">% New Riders <i class="fas fa-info-circle"></i></span></div>
-                                      <div class="col-2" style="text-align: center">
-                                        <span id="modal_shift_range_1">0</span>
-                                      </div>
-                                      <div class="col-4">
-                                        <div class="modal_shift_track">
-                                          <input type="range" min="0" max="30" value={{MODAL_MIN}} id="modal_shift_slider_1" oninput="modalShiftSlide1()">
-                                          <input type="range" min="0" max="30" value={{MODAL_MAX}} id="modal_shift_slider_2" oninput="modalShiftSlide2()">
-                                        </div>
-                                      </div>
-                                      <div class="col-2" style="text-align: center">
-                                        <span id="modal_shift_range_2">100</span>
-                                      </div>
-                                    </div>
-
-                                    <div class="row" style="margin-top: 42px; margin-bottom: 10px;"></div>
-                                    <div class="row">
-                                      <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Saved CO2e emissions per km for every 1 car removed">Saved CO2e / km <i class="fas fa-info-circle"></i></span></div>
-                                      <div class="col-2" style="text-align: center">
-                                        <span id="emissions_range_1">0</span>
-                                      </div>
-                                      <div class="col-4">
-                                        <div class="emissions_track">
-                                          <input type="range" min="0" max="300" value={{EMISSIONS_MIN}} id="emissions_slider_1" oninput="emissionsSlide1()">
-                                          <input type="range" min="0" max="300" value={{EMISSIONS_MAX}} id="emissions_slider_2" oninput="emissionsSlide2()">
-                                        </div>
-                                      </div>
-                                      <div class="col-2" style="text-align: center">
-                                        <span id="emissions_range_2">100</span>
-                                      </div>
-                                    </div>
-                                  </div>
-=======
                             <div class="override-order">
                               <div class="col-4" style="color: #5a5c69; font-weight: bold;"><span data-tooltip-text="Unit Cost (CAD) per km">Cost - Protected <i class="fas fa-info-circle"></i></span></div>
                               <div class="col-2" style="text-align: center">
@@ -459,7 +287,6 @@
                                 <div class="protected_cost_track">
                                   <input type="range" min="0" max="500000" value={{PROTECTED_UNIT_COST_MIN}} id="protected_cost_slider_1" oninput="protectedCostSlide1()">
                                   <input type="range" min="0" max="500000" value={{PROTECTED_UNIT_COST_MAX}} id="protected_cost_slider_2" oninput="protectedCostSlide2()">
->>>>>>> Stashed changes
                                 </div>
                               </div>
                               <div class="col-2" style="text-align: center">
@@ -471,33 +298,10 @@
                               <div class="col-2" style="text-align: center">
                                 <span id="bike_commuters_range_1">0</span>
                               </div>
-<<<<<<< Updated upstream
-                              <div class="card-body">
-                                <div class="row">
-                                  <div class="col-1" style="margin-top: -5px;">
-                                    <div class="row" style="color: #858796; font-size: 12px; text-align: center; font-weight: bold; margin-left: -5px;">
-                                      BEST
-                                    </div>
-                                    <div style="height: 6px;"></div>
-                                    <div class="row" style="margin-left: 2px">
-                                      <img src="../../static/data/gradient.png" width="50%" height="350px">
-                                    </div>
-                                    <div style="height: 6px;"></div>
-                                    <div class="row" style="color: #858796; font-size: 12px; font-weight: bold; margin-left: -10px;">
-                                      WORST
-                                    </div>
-                                  </div>
-                                  <div class="col-11">
-                                    <div class="chart-area" style="height: 395px;">
-                                      <div><div id="myChart" style="width:100%; height: 395px;"></div></div>
-                                    </div>
-                                  </div>
-=======
                               <div class="col-4">
                                 <div class="bike_commuters_track">
                                   <input type="range" min="0" max="20" value={{BIKE_RIDERS_MIN}} id="bike_commuters_slider_1" oninput="bikeCommutersSlide1()">
                                   <input type="range" min="0" max="20" value={{BIKE_RIDERS_MAX}} id="bike_commuters_slider_2" oninput="bikeCommutersSlide2()">
->>>>>>> Stashed changes
                                 </div>
                               </div>
                               <div class="col-2" style="text-align: center">
