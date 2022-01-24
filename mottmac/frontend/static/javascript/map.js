@@ -264,6 +264,7 @@ function removeRoute(routeid) {
   }
   addroutebtn_clicked = true
   changeAddRouteButton()
+  $('#routepicker').selectpicker('val', "");
 }
 
 
