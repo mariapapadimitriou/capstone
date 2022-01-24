@@ -60,34 +60,34 @@
 
             <!-- Main Content -->
             <div id="content">
-              <div id="submitPopup" class="modal">
+              <div id="save-popup" class="modal">
                 <div class="modal-content">
                   <div class="contact-form">
                     <form action="/">
                       <div>
-                        <h1 id = "savetype" style="color: black; font-weight: bold;"></h1>
-                        <h2 id="routename"></h2>
-                        <input type="text" name="name" id = "save_name"  onkeypress="validate(this)" onkeyup="validate(this)" required placeholder="Enter here (letters and numbers only, no punctuation or special characters)" title="letters and numbers only, no punctuation or special characters" autocomplete="off" maxlength="10">
+                        <h1 id = "save-header" style="color: black; font-weight: bold;"></h1>
+                        <h2 id="save-route-num"></h2>
+                        <input type="text" name="name" id = "save-name"  onkeypress="validate(this, 'save-name')" onkeyup="validate(this, 'save-name')" required placeholder="Enter here (letters and numbers only, no punctuation or special characters)" title="letters and numbers only, no punctuation or special characters" autocomplete="off" maxlength="10">
                       </div>
-                      <div id="validchars" style="color: red;"></div>
-                      <div id="validname" style="color: red;"></div>
+                      <div id="save-name-valid-chars" style="color: red;"></div>
+                      <div id="valid-name" style="color: red;"></div>
                       <div style="height: 20px;"></div>
                       <div class="formactionbtns">
-                      <input class = "formbtns" type="submit" id="formsubmit"></input>
-                      <button class = "formbtns"  type="cancel" id="formcancel" >Cancel</button>
+                      <input class = "formbtns" type="submit" id="save-submit"></input>
+                      <button class = "formbtns"  type="cancel" id="save-cancel" >Cancel</button>
                       </div>
                     </form>
                   </div>
                 </div>
               </div>
-              <div id="submitStatusPopup" class="modal">
+              <div id="status-popup" class="modal">
                 <div class="modal-dialog modal-md">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h3 id = "statusheader" style="color: green;">Success</h3>
+                      <h3 id = "status-header" style="color: green;">Success</h3>
                     </div>
                     <div class="modal-body">
-                      <p id = "statusmessage" style="color: black; justify-content: center;"></p>
+                      <p id = "status-message" style="color: black; justify-content: center;"></p>
                     </div>
                   </div>
                 </div>
@@ -237,7 +237,7 @@
                               <div
                                   class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                                   <h6 class="m-0 font-weight-bold text-primary">Map</h6>
-                                  <select class="selectpicker" id="routepicker" onchange="getRoutes()" data-live-search="true" title="Saved Routes" data-selected-text-format="count">
+                                  <select class="selectpicker" id="routepicker" onchange="plotSavedRoute()" data-live-search="true" title="Saved Routes" data-selected-text-format="count">
                                     {%for r in savedrouteslist %}
                                     <option>{{r}}</option>
                                     {% endfor %}
@@ -277,7 +277,7 @@
                                     <h6 class="m-0 font-weight-bold text-primary">Overrides</h6>  
                                     <div style="display: flex; flex-direction: row; justify-content: flex-end; width: 100%; margin: -10px -10px -10px 10px; gap: 10px;">
                                       <button class="refresh_button" id="refresh_button">Refresh &nbsp;&nbsp;<i class="fas fa-sync-alt"></i>&nbsp;</button>
-                                      <select class="selectpicker" id="overridepicker" onchange="getOverrides()" data-live-search="true" title="Saved Overrides">
+                                      <select class="selectpicker" id="overridepicker" onchange="setOverrides()" data-live-search="true" title="Saved Overrides">
                                         {%for o in savedoverrideslist %}
                                           {% if o == "Default" %}
                                             <option select>{{o}}</option>
@@ -286,7 +286,7 @@
                                           {% endif %}
                                         {% endfor%}
                                       </select>   
-                                      <button class="refresh_button" id="saveoverridebtn" onclick="saveOverrides()">Save &nbsp;&nbsp;<i class='fas fa-save'></i>&nbsp;</button>
+                                      <button class="refresh_button" id="saveoverridebtn" onclick="getSaveOverridesPopup()">Save &nbsp;&nbsp;<i class='fas fa-save'></i>&nbsp;</button>
                                     </div>
                                   </div>
                                   <div class="card-body" style="font-size: 14px;">

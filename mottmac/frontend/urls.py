@@ -1,13 +1,18 @@
 from django.urls import path
-from .views import index, index2, saveRoute, saveOverrides, getOverrides, getRoutes, login, register
+from .views import *
+from api.requests import *
 
 urlpatterns = [
     path('', index),
     path('plotcharts', index2),
-    path('saveroute', saveRoute),
-    path('saveoverrides', saveOverrides),
-    path('getoverrides', getOverrides),
-    path('getroutes', getRoutes),
+    path('saveroute', saveRouteRequest),
+    path('saveoverrides', saveOverridesRequest),
+    path('getoverrides', getOverridesRequest),
+    path('getroute', getRouteRequest),
+    path('updateroute', updateRouteRequest),
+    path('deleteroute', deleteRouteRequest),
+    path('renameroute', renameRouteRequest),
+    path('getlocationbounds', getLocationBoundsRequest),  
     path('login.html', login),
     path('register.html', register),
 ]
