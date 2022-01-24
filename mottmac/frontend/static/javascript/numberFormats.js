@@ -26,9 +26,9 @@ function numbertoCurrency(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " g/km";
   }
   
-  function numbertoKg(x) {
+  function numbertoTonnes(x) {
   
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " kg";
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + " tonnes";
   }
   
   function roundToTwo(num) {    
