@@ -47,7 +47,7 @@ function getCostPlot(plot_colours, plot_labels, plot_data) {
         if (threshold_max < 0) {
             thresholdsHover.x.push(serie);
             thresholdsHover.y.push(threshold_min);
-            thresholdsHover.text.push('<b>Max: </b>' + numbertoCurrency(threshold_max) + '<br><b>Min: </b>' + numbertoCurrency(threshold_min))
+            thresholdsHover.text.push('<b>Min: </b>' + numbertoCurrency(threshold_max) + '<br><b>Max: </b>' + numbertoCurrency(threshold_min))
             ++nunSerie;
         }
         else {
