@@ -88,7 +88,53 @@ function create_map(location_bounds, location_starting_position, location_id){
           'circle-radius': 8,
           'circle-color': 'black'
         }
-      }
+      },
+      {
+        'id': 'gl-draw-line-inactive',
+        'type': 'line',
+        'filter': ['all', ['==', 'active', 'false'],
+            ['==', '$type', 'LineString'],
+            ['!=', 'mode', 'static']
+        ],
+        'layout': {
+            'line-cap': 'round',
+            'line-join': 'round'
+        },
+        'paint': {
+            'line-color': '#858796',
+            'line-dasharray': [0.2, 2],
+            'line-width': 2,
+            'line-opacity': 0.9
+        }
+      },
+      {
+        'id': 'gl-draw-line-active',
+        'type': 'line',
+        'filter': ['all', ['==', '$type', 'LineString'],
+            ['==', 'active', 'true']
+        ],
+        'layout': {
+            'line-cap': 'round',
+            'line-join': 'round'
+        },
+        'paint': {
+            'line-color': 'black',
+            'line-dasharray': [0.2, 2],
+            'line-width': 4
+        }
+      },
+      {
+        'id': 'gl-draw-point-stroke-active',
+        'type': 'circle',
+        'filter': ['all', ['==', '$type', 'Point'],
+            ['==', 'active', 'true'],
+            ['!=', 'meta', 'midpoint']
+        ],
+        'paint': {
+            'circle-radius': 7,
+            'circle-color': '#fff'
+        }
+     },
     ]
   });
 
