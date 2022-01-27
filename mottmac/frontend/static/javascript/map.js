@@ -358,7 +358,6 @@ function removeRoute(routeid) {
     updateCharts()
   }
   addroutebtn_clicked = true
-  changeAddRouteButton()
 
   dropdown_click = [0,0,0]
   $('#routepicker').selectpicker('val', "");
@@ -510,7 +509,7 @@ function selectOption(btn, clr) {
 
 function changeAddRouteButton() {
 
-  if (draw.getAll().features.length <= 3) {
+  if (draw.getAll().features.length < 3) {
     if (addroutebtn_clicked == false) {
       draw.changeMode('draw_line_string');
       addroutebtn_clicked = true
