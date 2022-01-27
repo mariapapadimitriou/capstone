@@ -1,6 +1,3 @@
-// var save_routes = []
-// var save_id = []
-
 function getSaveRoutePopup(btn, route_name) {
   document.getElementById("save-name").value = ""
   document.getElementById("save-name-valid-chars").innerHTML = "";
@@ -65,7 +62,7 @@ document.getElementById('save-submit').onclick = function(e){
       var feature = {
         type: 'Feature',
         properties: {},
-        geometry: {type: 'LineString', coordinates: [save_routes[0][0], save_routes[0][1]] }
+        geometry: {type: 'LineString', coordinates: [save_routes[0][0], save_routes[0][1]]}
       }
 
       var featureid = draw.add(feature);

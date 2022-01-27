@@ -10,9 +10,11 @@ var addroutebtn_clicked = false
 
 var dropdown_click = [0,0,0]
 
-var share = [0,0,0];
-var strip = [0,0,0];
-var protect = [0,0,0];
+var route_types = {
+  "share": [0,0,0],
+  "strip":[0,0,0],
+  "protect":[0,0,0]
+}
 
 var map = null;
 var draw = null;
@@ -343,14 +345,16 @@ function removeRoute(routeid) {
   if (draw.getAll().features.length == 0) {
     
     document.getElementById('legend').innerHTML = "";
-    
-    var share = [0,0,0];
-    var strip = [0,0,0];
-    var protect = [0,0,0];
     updateCharts()
   }
   else {
-    updateLegend()
+
+    route_types = {
+      "share": [0,0,0],
+      "strip":[0,0,0],
+      "protect":[0,0,0]
+    }
+
     updateCharts()
   }
   addroutebtn_clicked = true
@@ -358,8 +362,8 @@ function removeRoute(routeid) {
 
   dropdown_click = [0,0,0]
   $('#routepicker').selectpicker('val', "");
+  updateLegend()
 }
-
 
 function updateLegend() {
 
@@ -374,6 +378,8 @@ function updateLegend() {
   var routes = []
 
   routes.push("<div class='row'><div class='col'>")
+
+  console.log(draw.getAll())
 
   if (draw.getAll().features.length >= 1) {
     for (let i = 0; i < draw.getAll().features.length; i++) {
@@ -402,9 +408,27 @@ function updateLegend() {
       routes.push("</b></span><span>&nbsp;&nbsp;&nbsp;" + roundToTwo(turf.length(id_coords[routeid])) + "km</span></span><span>" + dropdown.join("") + "</span></div>")
       routes.push("<div style='height: 10px;'></div>")
       routes.push("<div style='display: flex; justify-content: space-between;'>")
-      routes.push("<button class='buttonmode' id ='share" + i + "' type='submit' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Sharrows &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
-      routes.push("<button class='buttonmode' type='submit' id ='strip" + i + "' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Striped &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
-      routes.push("<button class='buttonmode' type='submit' id ='protect" + i + "' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\')\">Protected &nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>")
+
+      if (route_types["share"][i] == 1) {
+        routes.push("<button class='buttonmode' style='background-color:" + getButtonColour(id_colours[routeid], "share") + "; color: white;' id ='share" + i + "' type='submit' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\'," + route_types["share"][i] +")\"><span>Sharrows</span><span><i class='fas fa-check'></i></span></button>")
+      }
+      else {
+        routes.push("<button class='buttonmode' id ='share" + i + "' type='submit' onclick=\"selectOption(this.id,\'" + id_colours[routeid] + "\'," + route_types["share"][i] +")\"><span>Sharrows</span><span><i class='fa fa-plus-circle'></i></span></button>")
+      }
+
+      if (route_types["strip"][i] == 1) {
+        routes.push("<button class='buttonmode' style='background-color:" + getButtonColour(id_colours[routeid], "strip") + "; color: white;' type='submit' id ='strip" + i + "' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\'," + route_types["strip"][i] +")\"><span>Striped</span><span><i class='fas fa-check'></i></span></button>")
+      }
+      else {
+        routes.push("<button class='buttonmode' type='submit' id ='strip" + i + "' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\'," + route_types["strip"][i] +")\"><span>Striped</span><span><i class='fa fa-plus-circle'></i></span></button>")
+      }
+
+      if (route_types["protect"][i] == 1) {
+        routes.push("<button class='buttonmode' style='background-color:" + getButtonColour(id_colours[routeid], "protect") + "; color: white;' type='submit' id ='protect" + i + "' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\'," + route_types["protect"][i] +")\"><span>Protected</span><span><i class='fas fa-check'></i></span></button>")
+      }
+      else {
+        routes.push("<button class='buttonmode' type='submit' id ='protect" + i + "' onclick=\"selectOption(this.id,\'"+ id_colours[routeid] + "\'," + route_types["protect"][i] +")\"><span>Protected</span><span><i class='fa fa-plus-circle'></i></span></button>")
+      }
       routes.push("</div>")
       routes.push("<div style='height:20px'></div>")
     }
@@ -444,71 +468,41 @@ function updateLegend() {
     newdrawline.innerHTML = "Add New Route <i class='fas fa-plus-circle'></i>"
   }
 
-  share = [0,0,0];
-  strip = [0,0,0];
-  protect = [0,0,0];
-
-  updateButtons()
   updateCharts()
+
+  if (arraySum(route_types["share"]) + arraySum(route_types["strip"]) + arraySum(route_types["protect"]) == 0) {
+    document.getElementById("share0").click()
+  }
+
 }
 
-function updateButtons() {
-
-  const share1 = document.getElementById("share0")
-  const share2 = document.getElementById("share1")
-  const share3 = document.getElementById("share2")
-
-  if (share1 != null) {
-    share1.click()
-  }
-  if (share2 != null) {
-    share2.click()
-  }
-  if (share3 != null) {
-    share3.click()
-  }
-}
-
-function selectOption(btn, clr, state) {
-
-  state = parseInt(state)
+function selectOption(btn, clr) {
 
   if (draw.getMode() != "draw_line_string") {
     var property = document.getElementById(btn);
 
-    var type_map = {"share" : share, "strip" : strip, "protect" : protect}
     const type_full = {"share" : "Sharrows", "strip" : "Striped", "protect" : "Protected"}
 
     const type = btn.slice(0, -1)
-    const routeid = btn.charAt(btn.length-1)
+    const routeid = parseInt(btn.charAt(btn.length-1))
 
-    var btn_clr = clr
+    var btn_clr = getButtonColour(clr, type)
 
-    if(type=="share") {
-      btn_clr = clr
-    }
-    else if (type=="strip") {
-      btn_clr = pSBC(-0.5, clr)
-    }
-    else {
-      btn_clr = pSBC(-0.8, clr)
-    }
+    var current_val = route_types[type][routeid]
 
-    var count = type_map[type][routeid]
+    const total_clicked = (arraySum(route_types["share"]) + arraySum(route_types["strip"]) + arraySum(route_types["protect"]))
 
-    const total_clicked = (arraySum(share) + arraySum(strip) + arraySum(protect))
-
-    if ((count == 0) & (total_clicked <= 2)) {
+    if ((current_val == 0) & (total_clicked <= 2)) {
       property.style.backgroundColor = btn_clr
       property.style.color = "white"
-      type_map[type][routeid] = 1;
-      property.innerHTML = type_full[type] + "&nbsp;&nbsp;&nbsp;<i class='fas fa-check'></i>"
+      route_types[type][routeid] = 1;
+      property.innerHTML = type_full[type] + "<i class='fas fa-check'></i>"
     }
     else {
       property.style.backgroundColor = "white"
       property.style.color = "black"
-      type_map[type][routeid] = 0;        
-      property.innerHTML = type_full[type] + "&nbsp;&nbsp;&nbsp;<i class='fa fa-plus-circle'></i>"
+      route_types[type][routeid] = 0;        
+      property.innerHTML = type_full[type] + "<i class='fa fa-plus-circle'></i>"
     }
     updateCharts()
   }
@@ -516,7 +510,7 @@ function selectOption(btn, clr, state) {
 
 function changeAddRouteButton() {
 
-  if ((arraySum(share) + arraySum(strip) + arraySum(protect)) <=2) {
+  if (draw.getAll().features.length <= 3) {
     if (addroutebtn_clicked == false) {
       draw.changeMode('draw_line_string');
       addroutebtn_clicked = true
@@ -589,7 +583,7 @@ function updateCharts(){
   }
 
   data = {
-    "routetypes": {'sharrows': share, "striped": strip, "protected": protect},
+    "routetypes": {'sharrows': route_types["share"], "striped": route_types["strip"], "protected": route_types["protect"]},
     "colours": c,
     "coordinates": coords,
     "length": arr_length,

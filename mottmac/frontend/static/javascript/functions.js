@@ -100,6 +100,18 @@ function toggle(id, objarray) {
   }
 }
 
+function getButtonColour(clr, type) {
+  if(type=="share") {
+    return clr
+  }
+  else if (type=="strip") {
+    return pSBC(-0.5, clr)
+  }
+  else {
+    return pSBC(-0.8, clr)
+  }
+}
+
 document.getElementById("map-instructions-btn").addEventListener("click", function() {
   document.getElementById("map-instructions-text").style.display = "none"
   document.getElementById("map-instructions").style.display = "none"
