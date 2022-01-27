@@ -267,10 +267,22 @@
                           <div class="subcard">
                             <div class="map-wrapper">
                               <div id="app">
-                                <div class="currentroutes-box">
-                                  <p>
-                                    Existing Routes &nbsp;&nbsp;&nbsp;<img src="../../static/data/blackline.png" width="30%" height="100%">
-                                  </p>
+                                <div class="map-instructions" id="map-instructions">
+                                  <span class="map-instructions-text" id="map-instructions-text">
+                                    <br><b>Instructions</b><br>
+                                    <hr>
+                                    <br>1. Click to Start Route <img src= "../../static/data/tap1.svg" class="map-instructions-image"/><br>
+                                    <br>2. Double-Click to End Route  <img src= "../../static/data/tap2.svg" class="map-instructions-image"/><br>
+                                    <br>3. Drag to Edit <img src= "../../static/data/touch.svg" class="map-instructions-image" width="8%" height="8%"/><br>
+                                    <br><button id="map-instructions-btn">OK</button><br>
+                                    <br>
+                                  </span>
+                                </div>
+                                <div class="menu-box" id="menu-box">
+                                  <div><button id="question-btn"><i class="fas fa-question-circle"></i></button></div>
+                                  <div class="currentroutes-box" id="currentroutes-box">
+                                    <p>Existing Routes &nbsp;&nbsp;&nbsp;<img src="../../static/data/blackline.png" width="30%" height="100%"></p>
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -464,7 +476,6 @@
   document.getElementById("refresh_button").addEventListener("click", function() {
     updateCharts()
   });
-
 
 </script>
 
