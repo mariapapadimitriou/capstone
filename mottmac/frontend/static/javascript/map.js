@@ -377,8 +377,6 @@ function updateLegend() {
 
   routes.push("<div class='row'><div class='col'>")
 
-  console.log(draw.getAll())
-
   if (draw.getAll().features.length >= 1) {
     for (let i = 0; i < draw.getAll().features.length; i++) {
       const routeid = draw.getAll().features[i].id
