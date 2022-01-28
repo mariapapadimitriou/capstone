@@ -39,7 +39,6 @@ function create_map(location_bounds, location_starting_position, location_id){
     // Instead of showing all the draw tools, show only the line string and delete tools.
     displayControlsDefault: false,
     controls: {
-      line_string: true,
       trash: true,
     },
     // Set the draw mode to draw LineStrings by default.
@@ -440,30 +439,18 @@ function updateLegend() {
   }
 
   if (draw.getAll().features.length == 3) {
-    var drawLine = document.getElementsByClassName('mapbox-gl-draw_line');
     var newdrawline = document.getElementById('addroutebtn');
-
-    drawLine[0].disabled = true;
     newdrawline.disabled = true;
-    
     newdrawline.innerHTML = "Disabled <i class='fas fa-ban'></i>"
-
     newdrawline.classList.remove("addroutebtn-clicked")
-    drawLine[0].classList.add('disabled-button');
     newdrawline.classList.add('addroutebtn-disabled');
 
   }
   
   else {
-    var drawLine = document.getElementsByClassName('mapbox-gl-draw_line');
     var newdrawline = document.getElementById('addroutebtn');
-
-    drawLine[0].disabled = false;
     newdrawline.disabled = false;
-
-    drawLine[0].classList.remove('disabled-button');
     newdrawline.classList.remove('addroutebtn-disabled');
-
     newdrawline.innerHTML = "Add New Route <i class='fas fa-plus-circle'></i>"
   }
 
