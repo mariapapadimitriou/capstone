@@ -104,7 +104,12 @@ document.getElementById('save-submit').onclick = function(e){
         }
         else {
           document.getElementById("valid-save-name").innerHTML = response.message
-        }            
+        }       
+        route_types = {
+          "share": [0,0,0],
+          "strip":[0,0,0],
+          "protect":[0,0,0]
+        }     
       }
     });
   }

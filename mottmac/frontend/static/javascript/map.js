@@ -163,6 +163,13 @@ function create_map(location_bounds, location_starting_position, location_id){
 
 function setLocationBounds(){
 
+  route_types = {
+    "share": [0,0,0],
+    "strip":[0,0,0],
+    "protect":[0,0,0]
+  }
+  
+
   if (draw) {
     for (i = 0; i < draw.getAll().features.length; i++) {
       var id = draw.getAll().features[i].id
