@@ -453,10 +453,11 @@ function updateLegend() {
 
   updateCharts()
 
-  if (arraySum(route_types["share"]) + arraySum(route_types["strip"]) + arraySum(route_types["protect"]) == 0) {
-    document.getElementById("share0").click()
+  if (document.getElementById("share0")) {
+    if (arraySum(route_types["share"]) + arraySum(route_types["strip"]) + arraySum(route_types["protect"]) == 0) {
+      document.getElementById("share0").click()
+    }
   }
-
 }
 
 function selectOption(btn, clr) {

@@ -68,26 +68,36 @@ function plotSavedRoute() {
                 data: data,
                 dataType: 'json',
                 success: function(data) {
-                    var r = data["route_name"]
-                    var route_id = data["route_id"]
-                    id_names = data["route_ids"]
-        
-                    if (draw.getAll().features.length <= 2) {
-    
-                        var feature = {
-                            id: route_id,
-                            type: 'Feature',
-                            properties: {},
-                            geometry: {type: 'LineString', coordinates: [data["start_coordinates"],data["end_coordinates"]] }
-                        }
-    
-                        var featureid = draw.add(feature);
-                        
-                        id_names[featureid] = r
-    
-                        createRoute()
+
+                    const plotted_features = []
+
+                    for (i=0; i<draw.getAll().features.length; i++) {
+                        plotted_features.push(draw.getAll().features[i].id)
                     }
-                  }
+
+                    if (!plotted_features.includes(data["route_id"])) {
+                        
+                        var r = data["route_name"]
+                        var route_id = data["route_id"]
+                        id_names = data["route_ids"]
+            
+                        if (draw.getAll().features.length <= 2) {
+        
+                            var feature = {
+                                id: route_id,
+                                type: 'Feature',
+                                properties: {},
+                                geometry: {type: 'LineString', coordinates: [data["start_coordinates"],data["end_coordinates"]] }
+                            }
+        
+                            var featureid = draw.add(feature);
+                            
+                            id_names[featureid] = r
+        
+                            createRoute()
+                        }
+                    }
+                }
             });
         }
     }
