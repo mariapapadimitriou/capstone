@@ -444,7 +444,6 @@ function updateLegend() {
     newdrawline.innerHTML = "Disabled <i class='fas fa-ban'></i>"
     newdrawline.classList.remove("addroutebtn-clicked")
     newdrawline.classList.add('addroutebtn-disabled');
-
   }
   
   else {
@@ -511,7 +510,15 @@ function changeAddRouteButton() {
     }
   }
   else {
-    document.getElementById("addroutebtn").innerHTML = "Disabled <i class='fas fa-ban'></i>"
+    if (draw.getMode() == "draw_line_string") {
+      draw.changeMode('simple_select');
+      document.getElementById("addroutebtn").classList.remove('addroutebtn-clicked');
+      document.getElementById("addroutebtn").innerHTML = "Add New Route <i class='fas fa-plus-circle'></i>"
+      addroutebtn_clicked = false
+    }
+    else {
+      document.getElementById("addroutebtn").innerHTML = "Disabled <i class='fas fa-ban'></i>"
+    }
   }
 }
 
