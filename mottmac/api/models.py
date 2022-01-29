@@ -146,8 +146,8 @@ def getRidershipEmissions(start_coords, end_coords, length_of_path, riders, new_
 # Cost
 def getCost(unit_cost, length_of_path):
     
-    min_cost = -unit_cost[0]*length_of_path
-    max_cost = -unit_cost[1]*length_of_path
+    min_cost = unit_cost[0]*length_of_path
+    max_cost = unit_cost[1]*length_of_path
 
     cost = [min_cost, max_cost]
     
