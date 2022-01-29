@@ -392,8 +392,8 @@ function updateLegend() {
 
       if (routeid in id_names) {
         var routename = id_names[routeid]
+        dropdown.push("<a><div><button id='update" + i + "' onclick=\"getUpdateRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Save</span><span><i class='fas fa-pen'></i></span></button></div></a>")
         dropdown.push("<a><div><button id='saveas" + i + "' onclick=\"getSaveAsRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Save As</span><span><i class='fas fa-save'></i></span></button></div></a>")
-        dropdown.push("<a><div><button id='update" + i + "' onclick=\"getUpdateRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Update</span><span><i class='fas fa-pen'></i></span></button></div></a>")
         dropdown.push("<a><div><button id='delete" + i + "' onclick=\"getDeleteRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Delete</span><span><i class='fas fa-trash'></i></span></button></div></a>")
         dropdown.push("<a><div><button id='rename" + i + "' onclick=\"getRenameRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Rename</span><span><i class='fas fa-font'></i></span></button></div></a>")
         dropdown.push("</div></div></div>")

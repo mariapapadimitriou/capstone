@@ -18,7 +18,7 @@ function getSaveAsRoutePopup(btn, route_name) {
   document.getElementById('status-message').innerHTML = "";
   
   document.getElementById('save-header').innerHTML = "Save As New Route"
-  document.getElementById('save-route-num').innerHTML = route_name
+  document.getElementById('save-route-num').innerHTML = ""
 
   document.getElementById('save-popup').style.display = "block";
   

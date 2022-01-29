@@ -72,7 +72,7 @@
                       <div id="valid-save-name" style="color: red;"></div>
                       <div style="height: 20px;"></div>
                       <div class="formactionbtns">
-                      <input class = "formbtns" type="submit" id="save-submit"></input>
+                      <button class = "formbtns" type="submit" id="save-submit">Save</button>
                       <button class = "formbtns"  type="cancel" id="save-cancel" >Cancel</button>
                       </div>
                     </form>
@@ -85,11 +85,11 @@
                     <form action="/">
                       <div>
                         <h1 id = "update-header" style="color: black; font-weight: bold;"></h1>
-                        <h2 id="update-route-name"></h2>
+                        <h3 id="update-route-name"></h3>
                       </div>
                       <div style="height: 20px;"></div>
                       <div class="formactionbtns">
-                      <input class = "formbtns" type="submit" id="update-submit"></input>
+                      <button class = "formbtns" type="submit" id="update-submit">Save</button>
                       <button class = "formbtns"  type="cancel" id="update-cancel" >Cancel</button>
                       </div>
                     </form>
@@ -102,11 +102,11 @@
                     <form action="/">
                       <div>
                         <h1 id = "delete-header" style="color: black; font-weight: bold;"></h1>
-                        <h2 id="delete-route-name"></h2>
+                        <h3 id="delete-route-name"></h3>
                       </div>
                       <div style="height: 20px;"></div>
                       <div class="formactionbtns">
-                      <input class = "formbtns" type="submit" id="delete-submit"></input>
+                      <button class = "formbtns" type="submit" id="delete-submit">Delete</button>
                       <button class = "formbtns"  type="cancel" id="delete-cancel" >Cancel</button>
                       </div>
                     </form>
@@ -119,14 +119,14 @@
                     <form action="/">
                       <div>
                         <h1 id = "rename-header" style="color: black; font-weight: bold;"></h1>
-                        <h2 id="rename-current-name"></h2>
+                        <h3 id="rename-current-name"></h3>
                         <input type="text" name="name" id = "rename-name"  onkeypress="validate(this, 'rename-name')" onkeyup="validate(this, 'rename-name')" required placeholder="Enter here (letters and numbers only, no punctuation or special characters)" title="letters and numbers only, no punctuation or special characters" autocomplete="off" maxlength="15">
                       </div>
                       <div id="rename-name-valid-chars" style="color: red;"></div>
                       <div id="valid-rename-name" style="color: red;"></div>
                       <div style="height: 20px;"></div>
                       <div class="formactionbtns">
-                      <input class = "formbtns" type="submit" id="rename-submit"></input>
+                      <button class = "formbtns" type="submit" id="rename-submit">Rename</button>
                       <button class = "formbtns"  type="cancel" id="rename-cancel" >Cancel</button>
                       </div>
                     </form>
@@ -143,6 +143,9 @@
                     <div class="modal-body">
                       <p id = "status-message" style="color: black; justify-content: center;"></p>
                     </div>
+                    <div class="formactionbtns">
+                      <button class = "formbtns" type="cancel" id="status-cancel">OK</button>
+                      </div>
                   </div>
                 </div>
               </div>

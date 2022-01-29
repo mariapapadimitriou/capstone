@@ -86,6 +86,11 @@ if(event.target.className == "modal") {
 }
 }
 
+document.getElementById('status-cancel').onclick =  function(e){
+  e.preventDefault();
+  document.getElementById('status-popup').style.display = "none";
+}
+
 function getKeyByValue(object, value) {
   return Object.keys(object).find(key => object[key] === value);
 }

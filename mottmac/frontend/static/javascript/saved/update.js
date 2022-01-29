@@ -3,7 +3,7 @@ save_id = []
 
 function getUpdateRoutePopup(btn, route_name) {
   
-  document.getElementById('update-header').innerHTML = "Update Route Coordinates"
+  document.getElementById('update-header').innerHTML = "Save New Route Coordinates"
   document.getElementById('update-route-name').innerHTML = route_name
 
   document.getElementById('update-popup').style.display = "block";
