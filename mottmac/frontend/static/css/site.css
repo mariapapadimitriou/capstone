@@ -644,6 +644,10 @@ form input {
   color: white;
   z-index: 5;
   font-size: 12px;
+  font-family: "Nunito";
+  font-weight: bold;
+  padding: 5px;
+  margin-top:10px;
 }
 
 .how-to-box {
