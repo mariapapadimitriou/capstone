@@ -144,7 +144,6 @@ function create_map(location_bounds, location_starting_position, location_id){
         accessToken: mapboxgl.accessToken,
         mapboxgl: mapboxgl,
         marker: false,
-        // bbox: [-79.644849,43.553266,-79.068067,43.849127], // Boundary for Toronto
         bbox: location_bounds
     }),
     "top-right"

@@ -265,26 +265,26 @@
                                   {% endfor %}
                                 </select>         
                               </span>                         
-                          </div>
+                            </div>
                           </div>
                           <div class="subcard">
                             <div class="map-wrapper">
                               <div id="app">
-                                <div class="map-instructions" id="map-instructions">
-                                  <span class="map-instructions-text" id="map-instructions-text">
-                                    <br><b>Instructions</b><br>
-                                    <hr>
-                                    <br>1. Click to Start Route <img src= "../../static/data/tap1.svg" class="map-instructions-image"/><br>
-                                    <br>2. Double-Click to End Route  <img src= "../../static/data/tap2.svg" class="map-instructions-image"/><br>
-                                    <br>3. Drag to Edit <img src= "../../static/data/touch.svg" class="map-instructions-image" width="8%" height="8%"/><br>
-                                    <br><button id="map-instructions-btn">OK</button><br>
-                                    <br>
-                                  </span>
-                                </div>
                                 <div class="menu-box" id="menu-box">
-                                  <div><button id="question-btn"><i class="fas fa-question-circle"></i></button></div>
+                                  <div><button id="how-to-btn" style="color:black;"><i class="fas fa-question-circle"></i>&nbsp;<b>Map Instructions</b></button>
+                                  </div>
                                   <div class="currentroutes-box" id="currentroutes-box">
                                     <p>Existing Routes &nbsp;&nbsp;&nbsp;<img src="../../static/data/blackline.png" width="30%" height="100%"></p>
+                                  </div>
+                                </div>
+                                <div class="how-to-box" id="how-to-box" style="display:none">
+                                  <div id="how-to-text">
+                                    <p class = "how-to-section-header">Adding a New Route</p>
+                                    <p class = "how-to-bullets">1. Click <em>Add New Route</em><br>2. <em>Click</em> on map to start drawing<br>3. <em>Double-Click</em> on map to finish drawing</p>
+                                    <p class = "how-to-section-header">Editing a Route</p>
+                                    <p class = "how-to-bullets">1. Click on the <em>grey dotted line</em> to activate the route <br>2. Click and drag the <em>end node</em>
+                                    <p class = "how-to-section-header">Removing a Route</p>
+                                    <p class = "how-to-bullets">1. Click on the <em>grey dotted line</em> to activate the route<br>2. Click the <em>garbage icon</em> on the right of the map</p>
                                   </div>
                                 </div>
                               </div>
@@ -300,8 +300,7 @@
                                 <br>
                                 <span style="color: #858796; font-weight: normal; font-size: 13px;"><em>Choose up to 3 combinations of routes/route types</em></span>
                               </p>
-                              <div id="legend">
-                              </div>
+                              <div id="legend"></div>
                             </div>
                           </div>
                         </div>

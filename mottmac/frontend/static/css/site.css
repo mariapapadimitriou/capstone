@@ -27,40 +27,6 @@ body {
   height: 100%;
 }
 
-.map-instructions {
-  display: flex;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-  color: white;
-  font-size: 20px;
-  font-weight: bold;
-  font-family: "Nunito";
-  text-align: center;
-  align-items: center;
-  justify-content: center;
-}
-
-.map-instructions-image {
-  filter: invert(100%) sepia(3%) saturate(0%) hue-rotate(336deg) brightness(105%) contrast(100%);
-}
-
-.map-instructions-text {
-  width: 50%;
-  z-index: 2;
-}
-
-.map-instructions-text button {
-  background-color: rgba(0, 0, 0, 1);
-  color: white;
-  border-radius: 5px;
-  border: none;
-  width: 80px;
-  height: 40px;
-  font-weight: bold;
-}
-
 .chartbox {
     height: 171px;
 }
@@ -314,14 +280,6 @@ code {
   gap: 20px;
   color: white;
   z-index: 3;
-}
-
-#question-btn {
-  background-color: transparent;
-  border: none;
-  color: white;
-  z-index: 5;
-  font-size: 20px;
 }
 
 .currentroutes-box {
@@ -620,6 +578,7 @@ form input {
       'card6 card6'
       'card7 card7';
   }
+  
 }
 
 @media only screen and (max-width: 1000px) {
@@ -676,4 +635,45 @@ form input {
 .override-order {
   display: flex;
   flex-direction: row;
+}
+
+
+#how-to-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  z-index: 5;
+  font-size: 12px;
+}
+
+.how-to-box {
+  position:absolute;
+  height: max-content;
+  width: 250px;
+  background-color:  rgba(255, 255, 255, 1);
+  z-index: 6;
+  font-weight: bold;
+  font-family: "Nunito";
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  border: 3px solid #5a5c69;
+  margin-top: 50px;
+  padding:5px;
+  clear:right;
+}
+
+.how-to-section-header {
+  font-weight: bold; 
+  color: black; 
+  font-size: 13px;
+  margin-bottom:0px;
+}
+
+.how-to-bullets {
+  font-weight: normal; 
+  color: #858796; 
+  font-size: 12px; 
+  margin-left: 5px;
 }

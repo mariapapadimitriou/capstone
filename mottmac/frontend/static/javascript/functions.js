@@ -117,14 +117,28 @@ function getButtonColour(clr, type) {
   }
 }
 
-document.getElementById("map-instructions-btn").addEventListener("click", function() {
-  document.getElementById("map-instructions-text").style.display = "none"
-  document.getElementById("map-instructions").style.display = "none"
-  document.getElementById("question-btn").style.color = "black"
-});
+// document.getElementById("map-instructions-btn").addEventListener("click", function() {
+//   document.getElementById("map-instructions-text").style.display = "none"
+//   document.getElementById("map-instructions").style.display = "none"
+//   document.getElementById("question-btn").style.color = "black"
+// });
 
-document.getElementById("question-btn").addEventListener("click", function() {
-  document.getElementById("map-instructions-text").style.display = "block"
-  document.getElementById("map-instructions").style.display = "flex"
-  document.getElementById("question-btn").style.color = "white"
+// document.getElementById("question-btn").addEventListener("click", function() {
+//   document.getElementById("map-instructions-text").style.display = "block"
+//   document.getElementById("map-instructions").style.display = "flex"
+//   document.getElementById("question-btn").style.color = "white"
+// });
+
+document.getElementById("how-to-btn").addEventListener("click", function() {
+
+  if (document.getElementById("how-to-btn").style.color == "black") {
+    document.getElementById("how-to-text").style.display = "block"
+    document.getElementById("how-to-box").style.display = "block"
+    document.getElementById("how-to-btn").style.color = "#808080"
+  }
+  else {
+    document.getElementById("how-to-text").style.display = "none"
+    document.getElementById("how-to-box").style.display = "none"
+    document.getElementById("how-to-btn").style.color = "black"
+  }
 });
