@@ -459,9 +459,12 @@ function updateLegend() {
 
   updateCharts()
 
-  if (document.getElementById("share0")) {
-    if (arraySum(route_types["share"]) + arraySum(route_types["strip"]) + arraySum(route_types["protect"]) == 0) {
-      document.getElementById("share0").click()
+  for (let i = 0; i < draw.getAll().features.length; i++) {
+    if (document.getElementById("share"+i)) {
+      if (arraySum(route_types["share"]) + arraySum(route_types["strip"]) + arraySum(route_types["protect"])<3) {
+        route_types["share"][i]=0
+        document.getElementById("share"+i).click()
+      }
     }
   }
 }
