@@ -293,7 +293,7 @@ def updateRoute(route_dict):
     try:
         curs.execute(sqlQuery)
         conn.commit()
-        status, status_message = 0, "'{}' has been successfully updated.".format(route_name)
+        status, status_message = 0, "'{}' has been successfully saved.".format(route_name)
 
     except:
         status, status_message = 1,  "Error - Please try again."

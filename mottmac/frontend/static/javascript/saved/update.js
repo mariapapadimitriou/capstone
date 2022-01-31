@@ -15,7 +15,7 @@ document.getElementById('update-submit').onclick = function(e){
 
   e.preventDefault();
 
-  if (document.getElementById('update-header').innerHTML == "Update Route Coordinates") { 
+  if (document.getElementById('update-header').innerHTML == "Save New Route Coordinates") { 
 
     var data = {
       "route_name" : document.getElementById("update-route-name").innerHTML,
