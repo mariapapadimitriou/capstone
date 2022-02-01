@@ -186,9 +186,6 @@ def getScaledMetrics(cost_data, ridership_data, emissions_data, safety_data):
     if len(cost_data) == 0 or len(ridership_data) == 0 or len(safety_data) == 0:
         return [[],[],[]]
 
-    # set cost values to positive
-    cost_data = [[-cost for cost in route] for route in cost_data]
-
     cost = {
         'mean': [mean(route) for route in cost_data],
         'max': [max(route) for route in cost_data],
