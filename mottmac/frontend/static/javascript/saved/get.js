@@ -95,10 +95,14 @@ function plotSavedRoute() {
                             id_names[featureid] = r
         
                             createRoute()
+
                         }
                     }
                 }
             });
         }
     }
+    $('#routepicker').selectpicker('val', "");
+    $('#routepicker').selectpicker('refresh');
+
 }

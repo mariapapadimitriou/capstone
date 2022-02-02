@@ -260,7 +260,7 @@
                                   <option selected value="1">Toronto, Canada</option>
                                   <option value="2">London, England</option>
                                 </select> 
-                                <select class="selectpicker show-tick" data-allow-clear="true" id="routepicker" onchange="plotSavedRoute()" data-live-search="true" title="Select Route" data-selected-text-format="count">
+                                <select class="selectpicker" id="routepicker" onchange="plotSavedRoute()" data-live-search="true" title="Saved Routes" data-selected-text-format="count">
                                   {%for r in savedrouteslist %}
                                   <option>{{r}}</option>
                                   {% endfor %}
