@@ -492,6 +492,12 @@ function selectOption(btn, clr) {
       property.innerHTML = type_full[type] + "<i class='fas fa-check'></i>"
     }
     else {
+      if (total_clicked==3) {
+        document.getElementById("max-combinations-selected").style.display = "block"
+        setTimeout(function() {
+          document.getElementById("max-combinations-selected").style.display = "none"
+        }, 5000);
+      }
       property.style.backgroundColor = "white"
       property.style.color = "black"
       route_types[type][routeid] = 0;        

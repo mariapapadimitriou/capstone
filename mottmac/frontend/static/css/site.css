@@ -650,6 +650,20 @@ form input {
   margin-top:10px;
 }
 
+#close-how-to-btn {
+  background-color: transparent;
+  border: none;
+  color: black;
+  z-index: 5;
+  font-size: 12px;
+  font-family: "Nunito";
+  font-weight: bold;
+  margin-top:0px;
+  margin-bottom:0px;
+  padding-top:0px;
+  padding-bottom:0px;
+}
+
 .how-to-box {
   position:absolute;
   height: max-content;
@@ -668,6 +682,21 @@ form input {
   clear:right;
 }
 
+.how-to-box-header {
+  text-align: right;
+  align-items: right;
+  justify-content: right;
+  margin-top:0px;
+  margin-bottom:0px;
+  padding-top:0px;
+  padding-bottom:0px;
+}
+
+.how-to-text {
+  padding-top:0px;
+  margin-top:0px;
+}
+
 .how-to-section-header {
   font-weight: bold; 
   color: black; 
@@ -680,4 +709,5 @@ form input {
   color: #858796; 
   font-size: 12px; 
   margin-left: 5px;
+  margin-bottom: 5px;
 }

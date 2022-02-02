@@ -272,12 +272,13 @@
                             <div class="map-wrapper">
                               <div id="app">
                                 <div class="menu-box" id="menu-box">
-                                  <button id="how-to-btn" style="color:black;"><p><i class="fas fa-question-circle"></i>&nbsp;Map Instructions</p></button>
+                                  <button id="how-to-btn" style="color:#808080;"><p><i class="fas fa-question-circle"></i>&nbsp;Map Instructions</p></button>
                                   <div class="currentroutes-box" id="currentroutes-box">
                                     <p>Existing Routes &nbsp;&nbsp;&nbsp;<img src="../../static/data/blackline.png" width="30%" height="100%"></p>
                                   </div>
                                 </div>
-                                <div class="how-to-box" id="how-to-box" style="display:none">
+                                <div class="how-to-box" id="how-to-box" style="display:block">
+                                  <div class = "how-to-box-header"><button id="close-how-to-btn"><i class="fas fa-times"></i></button></div>
                                   <div id="how-to-text">
                                     <p class = "how-to-section-header">Adding a New Route</p>
                                     <p class = "how-to-bullets">1. Click <em>Add New Route</em><br>2. <em>Click</em> on map to start drawing<br>3. <em>Double-Click</em> on map to finish drawing</p>
@@ -301,6 +302,7 @@
                                 <span style="color: #858796; font-weight: normal; font-size: 13px;"><em>Choose up to 3 combinations of routes/route types</em></span>
                               </p>
                               <div id="legend"></div>
+                              <div id = "max-combinations-selected" style="color: red; font-weight: normal; font-size: 13px; display:none"><em>3 route/route type combinations already selected. Please deselect one and try again.</em></div>
                             </div>
                           </div>
                         </div>

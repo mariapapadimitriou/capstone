@@ -130,3 +130,11 @@ document.getElementById("how-to-btn").addEventListener("click", function() {
     document.getElementById("how-to-btn").style.color = "black"
   }
 });
+
+document.getElementById("close-how-to-btn").addEventListener("click", function() {
+
+  document.getElementById("how-to-text").style.display = "none"
+  document.getElementById("how-to-box").style.display = "none"
+  document.getElementById("how-to-btn").style.color = "black"
+  
+});
