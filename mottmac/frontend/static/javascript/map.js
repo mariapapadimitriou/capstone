@@ -484,24 +484,28 @@ function selectOption(btn, clr) {
     var current_val = route_types[type][routeid]
 
     const total_clicked = (arraySum(route_types["share"]) + arraySum(route_types["strip"]) + arraySum(route_types["protect"]))
-
-    if ((current_val == 0) & (total_clicked <= 2)) {
-      property.style.backgroundColor = btn_clr
-      property.style.color = "white"
-      route_types[type][routeid] = 1;
-      property.innerHTML = type_full[type] + "<i class='fas fa-check'></i>"
+    // if currently clicked, always deselect
+    if (current_val == 1) {
+      property.style.backgroundColor = "white"
+      property.style.color = "black"
+      route_types[type][routeid] = 0;        
+      property.innerHTML = type_full[type] + "<i class='fa fa-plus-circle'></i>"
     }
+    // if not currently clicked, check if 3 combinations already selected
+    // if <3 selected, select. if 3 selected, display warning
     else {
-      if (total_clicked==3) {
+      if (total_clicked<3) {
+        property.style.backgroundColor = btn_clr
+        property.style.color = "white"
+        route_types[type][routeid] = 1;
+        property.innerHTML = type_full[type] + "<i class='fas fa-check'></i>"
+      }
+      else {
         document.getElementById("max-combinations-selected").style.display = "block"
         setTimeout(function() {
           document.getElementById("max-combinations-selected").style.display = "none"
         }, 5000);
       }
-      property.style.backgroundColor = "white"
-      property.style.color = "black"
-      route_types[type][routeid] = 0;        
-      property.innerHTML = type_full[type] + "<i class='fa fa-plus-circle'></i>"
     }
     updateCharts()
   }
