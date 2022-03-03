@@ -39,7 +39,7 @@ function create_map(location_bounds, location_starting_position, location_id){
     // Instead of showing all the draw tools, show only the line string and delete tools.
     displayControlsDefault: false,
     controls: {
-      trash: true,
+      trash: false,
     },
     // Set the draw mode to draw LineStrings by default.
     defaultMode: 'simple_select',
@@ -153,7 +153,6 @@ function create_map(location_bounds, location_starting_position, location_id){
   
   map.on('draw.create', createRoute);
   map.on('draw.update', updateRoute);
-  map.on('draw.delete', removeRoute);
   
   map.addControl(new mapboxgl.FullscreenControl());
   map.addControl(new mapboxgl.NavigationControl()); 
@@ -295,6 +294,9 @@ async function getMatch(coordinates, radius, profile, routeid) {
     return;
   }
   const coords = response.matchings[0].geometry;
+  // console.log(response.matchings[0].legs[0].steps[0].intersections[0].mapbox_streets_v8.class)
+
+
   addRoute(coords, routeid);
 }
 
@@ -338,8 +340,16 @@ function addRoute(coords, routeid) {
   changeAddRouteButton()
 }
 
-function removeRoute(routeid) {
-  const id = routeid.features[0].id
+
+
+function removeRoute(btn, id) {
+
+  // select route by id
+  draw.changeMode('simple_select', { featureIds: [id] })
+  // remove selected route from map
+  draw.trash()
+
+  // delete map matching, charts and legend
   if (!map.getSource(id)) return;
   map.removeLayer(id);
   map.removeSource(id);
@@ -393,14 +403,17 @@ function updateLegend() {
         var routename = id_names[routeid]
         dropdown.push("<a><div><button id='update" + i + "' onclick=\"getUpdateRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Save</span><span><i class='fas fa-pen'></i></span></button></div></a>")
         dropdown.push("<a><div><button id='saveas" + i + "' onclick=\"getSaveAsRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Save As</span><span><i class='fas fa-save'></i></span></button></div></a>")
-        dropdown.push("<a><div><button id='delete" + i + "' onclick=\"getDeleteRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Delete</span><span><i class='fas fa-trash'></i></span></button></div></a>")
         dropdown.push("<a><div><button id='rename" + i + "' onclick=\"getRenameRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Rename</span><span><i class='fas fa-font'></i></span></button></div></a>")
+        dropdown.push("<a><div><button id='remove" + i + "' onclick=\"removeRoute(this.id, \'" + routeid + "\');\"><span>Remove from Map</span><span><i class='fas fa-times-circle'></i></span></button></div></a>")
+        dropdown.push("<a><div><button id='delete" + i + "' onclick=\"getDeleteRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Delete Saved</span><span><i class='fas fa-trash'></i></span></button></div></a>")
         dropdown.push("</div></div></div>")
 
         }
       else {
         var routename = "Route " + (i + 1)
-        dropdown.push("<a><div><button id='save" + i + "' onclick=\"getSaveRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Save</span><span><i class='fas fa-save'></i></span></button></div></a></div></div></div>")
+        dropdown.push("<a><div><button id='save" + i + "' onclick=\"getSaveRoutePopup(this.id, \'" + routename + "\'); getCoords("+ i +");\"><span>Save</span><span><i class='fas fa-save'></i></span></button></div></a>")
+        dropdown.push("<a><div><button id='remove" + i + "' onclick=\"removeRoute(this.id, \'" + routeid + "\');\"><span>Remove from Map</span><span><i class='fas fa-times-circle'></i></span></button></div></a>")
+        dropdown.push("</div></div></div>")
       }
 
       routes.push("<div style='display: flex; flex-direction: row; justify-content: space-between;'><span style='color:")
