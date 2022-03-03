@@ -467,7 +467,7 @@ function updateLegend() {
     var newdrawline = document.getElementById('addroutebtn');
     newdrawline.disabled = false;
     newdrawline.classList.remove('addroutebtn-disabled');
-    newdrawline.innerHTML = "Add New Route <i class='fas fa-plus-circle'></i>"
+    newdrawline.innerHTML = "Draw New Route <i class='fas fa-plus-circle'></i>"
   }
 
   updateCharts()
@@ -537,14 +537,14 @@ function changeAddRouteButton() {
       draw.changeMode('simple_select');
       addroutebtn_clicked = false
       document.getElementById("addroutebtn").classList.remove('addroutebtn-clicked');
-      document.getElementById("addroutebtn").innerHTML = "Add New Route <i class='fas fa-plus-circle'></i>"
+      document.getElementById("addroutebtn").innerHTML = "Draw New Route <i class='fas fa-plus-circle'></i>"
     }
   }
   else {
     if (draw.getMode() == "draw_line_string") {
       draw.changeMode('simple_select');
       document.getElementById("addroutebtn").classList.remove('addroutebtn-clicked');
-      document.getElementById("addroutebtn").innerHTML = "Add New Route <i class='fas fa-plus-circle'></i>"
+      document.getElementById("addroutebtn").innerHTML = "Draw New Route <i class='fas fa-plus-circle'></i>"
       addroutebtn_clicked = false
     }
     else {
