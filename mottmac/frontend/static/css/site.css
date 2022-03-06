@@ -475,13 +475,13 @@ form input {
 
 .main_cards {
   display: grid;
-  grid-template-columns: 1.5fr 2fr  2fr;
+  grid-template-columns: 2fr  2fr 1.5fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
   grid-template-areas:
-    'card1 card5 card5' 
-    'card2 card5 card5'
-    'card3 card6 card7'
-    'card4 card6 card7';
+    'card5 card5 card1' 
+    'card5 card5 card2'
+    'card6 card7 card3'
+    'card6 card7 card4';
   height: 100%;
   grid-gap: 10px;
 }
@@ -572,9 +572,9 @@ form input {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
+      'card5 card5'
       'card1 card2' 
       'card3 card4'
-      'card5 card5'
       'card6 card6'
       'card7 card7';
   }
@@ -588,11 +588,11 @@ form input {
     grid-template-columns: 1fr;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
     grid-template-areas:
+      'card5'
       'card1' 
       'card2'
       'card3'
       'card4'
-      'card5'
       'card6'
       'card7';
   }
