@@ -251,35 +251,7 @@
                               </div>
                             </div>
                         </div>
-                        <div class="card d-flex flex-row">
-                          
-                          <div class="subcard">
-                            <div class="legend-wrapper">
-                              <!-- <div style="margin-left: 5px;">
-                                <button class="addroutebtn" id="addroutebtn" onclick="addroutebtnclick()">Draw New Route&nbsp;<i class='fa fa-plus-circle'></i></button>
-                              </div> -->
-                              <div class="legend-box" id="legend-box">
-                                <div class="flex-row">
-                                  
-                                  <select class="selectpicker" id="routepicker" onchange="plotSavedRoute()" data-live-search="true" title="Select Saved Route" data-selected-text-format="count">
-                                    {%for r in savedrouteslist %}
-                                    <option>{{r}}</option>
-                                    {% endfor %}
-                                  </select>  
-                                  <button class="addroutebtn" id="addroutebtn" onclick="addroutebtnclick()">Draw New Route&nbsp;<i class='fa fa-plus-circle'></i></button>
-                                </div>
-
-     
-                                <p style="font-weight: bold; color: black;">
-                                  <span>Legend</span>
-                                  <br>
-                                  <span style="color: #858796; font-weight: normal; font-size: 13px;"><em>Choose up to 3 combinations of routes/route types</em></span>
-                                </p>
-                                <div id="legend"></div>
-                                <div id = "max-combinations-selected" style="color: red; font-weight: normal; font-size: 13px; display:none"><em>3 route/route type combinations already selected. Please deselect one and try again.</em></div>
-                              </div>
-                            </div>
-                          </div>
+                        <div class="card">
                           <div class="subcard mapdiv">
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                               <h6 class="m-0 font-weight-bold text-primary">Map</h6>
@@ -288,15 +260,15 @@
                                   <option selected value="1">Toronto, Canada</option>
                                   <option value="2">London, England</option>
                                 </select> 
-                                <!-- <select class="selectpicker" id="routepicker" onchange="plotSavedRoute()" data-live-search="true" title="Select Saved Route" data-selected-text-format="count">
+                                <select class="selectpicker" id="routepicker" onchange="plotSavedRoute()" data-live-search="true" title="Select Saved Route" data-selected-text-format="count">
                                   {%for r in savedrouteslist %}
                                   <option>{{r}}</option>
                                   {% endfor %}
-                                </select>          -->
+                                </select>         
                               </span>                         
                             </div>
-                          <!-- </div> -->
-                          <!-- <div class="subcard"> -->
+                          </div>
+                          <div class="subcard">
                             <div class="map-wrapper">
                               <div id="app">
                                 <div class="menu-box" id="menu-box">
@@ -317,7 +289,7 @@
                               </div>
                             </div>
                           </div>
-                          <!-- <div class="subcard">
+                          <div class="subcard">
                             <div style="margin-left: 5px;">
                               <button class="addroutebtn" id="addroutebtn" onclick="addroutebtnclick()">Draw New Route&nbsp;<i class='fa fa-plus-circle'></i></button>
                             </div>
@@ -330,7 +302,7 @@
                               <div id="legend"></div>
                               <div id = "max-combinations-selected" style="color: red; font-weight: normal; font-size: 13px; display:none"><em>3 route/route type combinations already selected. Please deselect one and try again.</em></div>
                             </div>
-                          </div> -->
+                          </div>
                         </div>
                         <div class="card">
                           <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
