@@ -24,11 +24,36 @@ body {
 .map-wrapper {
   position: relative;
   width: 100%;
-  height: 100%;
+  height: 89%;
 }
 
+.legend-wrapper {
+  display: flex;
+  position: relative;
+
+  width: 350px;
+  height: 400px;
+}
+
+.legend-wrapper button {
+  width: 215px;
+  height: 35px;
+  padding: 5px;
+  margin: 5px;
+  font-size: 13px;
+  /* justify-content: center; */
+}
+
+.dropdown-options-container {
+  width: 200px;
+}
+
+/* select#routepicker {
+  width: 175px !important;
+} */
+
 .chartbox {
-    height: 171px;
+    height: 175px;
 }
 
 .marker {
@@ -379,6 +404,10 @@ form input {
 
 .mapdiv .bootstrap-select .btn {
   margin: -10px 10px -10px 10px;
+}
+
+.mapdiv {
+  width: 100%
 }
 
 .close bs-select-clear-selected span:hover {
