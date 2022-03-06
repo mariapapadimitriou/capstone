@@ -254,18 +254,19 @@
                         <div class="card">
                           <div class="subcard mapdiv">
                             <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                              <h6 class="m-0 font-weight-bold text-primary">Map</h6>
-                              <span style="display: flex; flex-direction: row; justify-content: flex-end; gap: 10px;">
-                                <select class="selectpicker show-tick" id="locationpicker" onchange="setLocationBounds()" data-live-search="true" style="width: 100px;">
-                                  <option selected value="1">Toronto, Canada</option>
-                                  <option value="2">London, England</option>
-                                </select> 
+                              <h6 class="m-0 font-weight-bold text-primary">Map</h6>  
+                              <div style="display: flex; flex-direction: row; justify-content: flex-end; width: 100%; margin: -10px -10px -10px 10px; gap: 10px;">
+                                <button class="addroutebtn" id="addroutebtn" onclick="addroutebtnclick()">Draw New Route&nbsp;&nbsp;<i class='fa fa-plus-circle'></i></button>
                                 <select class="selectpicker" id="routepicker" onchange="plotSavedRoute()" data-live-search="true" title="Select Saved Route" data-selected-text-format="count">
                                   {%for r in savedrouteslist %}
                                   <option>{{r}}</option>
                                   {% endfor %}
-                                </select>         
-                              </span>                         
+                                </select>
+                                <select class="selectpicker show-tick" id="locationpicker" onchange="setLocationBounds()" data-live-search="true" style="width: 100px;">
+                                  <option selected value="1">Toronto, Canada</option>
+                                  <option value="2">London, England</option>
+                                </select>  
+                              </div>
                             </div>
                           </div>
                           <div class="subcard">
@@ -290,9 +291,9 @@
                             </div>
                           </div>
                           <div class="subcard">
-                            <div style="margin-left: 5px;">
-                              <button class="addroutebtn" id="addroutebtn" onclick="addroutebtnclick()">Draw New Route&nbsp;<i class='fa fa-plus-circle'></i></button>
-                            </div>
+                            <!-- <div style="margin-left: 5px;">
+                              
+                            </div> -->
                             <div class="legend-box" id="legend-box">
                               <p style="font-weight: bold; color: black;">
                                 <span>Legend</span>

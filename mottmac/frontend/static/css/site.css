@@ -174,14 +174,16 @@ input[type="range"]:active::-webkit-slider-thumb{
   background-color: #4e73df;
   color: white;
   border-radius: 5px; 
-  height: 35px;
+  height: 36px;
   font-weight: bold;
   border: none;
+  text-align: center;
   /* box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px; */
-  width: 160px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  /* width: 160px; */
+  /* display: flex; */
+  /* justify-content: space-between; */
+  /* align-items: center; */
+  /* margin: 0px; */
 }
 
 .addroutebtn-clicked {
@@ -377,9 +379,9 @@ form input {
   color: white;
 }
 
-.mapdiv .bootstrap-select .btn {
+/* .mapdiv .bootstrap-select .btn {
   margin: -10px 10px -10px 10px;
-}
+} */
 
 .close bs-select-clear-selected span:hover {
   color: white;
