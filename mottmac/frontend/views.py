@@ -19,15 +19,15 @@ BIKE_RIDERS = [3, 5]
 MODAL_SHIFT = [10,15]
 EMISSIONS = [134, 134]
 
-@csrf_exempt 
-def login(request):
+# @csrf_exempt 
+# def login(request):
 
-    return render(request, 'frontend/login.html', {})
+#     return render(request, 'frontend/login.html', {})
 
-@csrf_exempt 
-def register(request):
+# @csrf_exempt 
+# def register(request):
 
-    return render(request, 'frontend/register.html', {})
+#     return render(request, 'frontend/register.html', {})
 
 @csrf_exempt 
 def index(request):

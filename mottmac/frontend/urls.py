@@ -13,6 +13,6 @@ urlpatterns = [
     path('deleteroute', deleteRouteRequest),
     path('renameroute', renameRouteRequest),
     path('getlocation', getLocationRequest),  
-    path('login.html', login),
-    path('register.html', register),
+    # path('login.html', login),
+    # path('register.html', register),
 ]
