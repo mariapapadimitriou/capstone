@@ -397,7 +397,7 @@ function updateLegend() {
     for (let i = 0; i < draw.getAll().features.length; i++) {
       const routeid = draw.getAll().features[i].id
 
-      var dropdown = ["<div class='menu-nav'><div class='menu-item'></div><div class='dropdown-options-container' tabindex='-1'><div class='three-dots'><button class='dropdownbtn' id='dropbtn" +  i + "' onclick='dropdownbtnClick(this.id)'><i class='fas fa-ellipsis-h'></i></div></button><div class='dropdown-options' id='dropdownoptions" + i + "'>"]
+      var dropdown = ["<div class='menu-nav'><div class='menu-item'></div><div class='dropdown-options-container' tabindex='-1'><div class='three-dots'><button class='dropdownbtn' id='dropbtn" +  i + "' onclick='dropdownbtnClick(this.id)'><p style='font-size:10px;padding:0px;'>Actions <i class='fa fa-caret-down' aria-hidden='true'></i></p></div></button><div class='dropdown-options' id='dropdownoptions" + i + "'>"]
 
       if (routeid in id_names) {
         var routename = id_names[routeid]
