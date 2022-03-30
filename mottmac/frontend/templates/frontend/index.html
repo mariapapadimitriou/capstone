@@ -318,8 +318,15 @@
                                     <option>{{o}}</option>
                                   {% endif %}
                                 {% endfor%}
-                              </select>   
-                              <button class="refresh_button" id="saveoverridebtn" onclick="getSaveOverridesPopup()">Save &nbsp;&nbsp;<i class='fas fa-save'></i>&nbsp;</button>
+                              </select>
+                              <div class='menu-nav'>
+                                <div class='menu-item'></div>
+                                <div class='dropdown-options-container' tabindex='-1'>
+                                  <div class='three-dots'>
+                                    <button class='dropdownbtn' id='override-dropdown' onclick='dropdownbtnOverrideClick()'><i class='fas fa-ellipsis-h'></i></div></button>
+                                    <div class='dropdown-options' id='override-dropdown-options'>
+                                    <a><div><button id='saveoverridebtn' onclick="getSaveOverridesPopup(); dropdownbtnOverrideClick()"><span>Save</span><span><i class='fas fa-save'></i></span></button></div></a> </div></div></div>    
+                               <!-- <button class="refresh_button" id="saveoverridebtn" onclick="getSaveOverridesPopup()">Save &nbsp;&nbsp;<i class='fas fa-save'></i>&nbsp;</button> -->
                             </div>
                           </div>
                           <div class="card-body override-container" style="font-size: 14px;">
